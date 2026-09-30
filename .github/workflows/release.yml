@@ -185,8 +185,8 @@ jobs:
         run: |
           git config --global core.longpaths true
           flutter pub get --enforce-lockfile
-          flutter pub run build_runner build --delete-conflicting-outputs
-          flutter pub run intl_utils:generate
+          dart run build_runner build --delete-conflicting-outputs --fail-on-severe
+          dart run intl_utils:generate
 
       - name: Fix system_network_proxy desktop registrants
         if: matrix.target == 'macos' || matrix.target == 'windows'
@@ -234,13 +234,10 @@ jobs:
       - name: Build ios app
         if: matrix.target == 'ios'
         run: |
-          sed -i '' 's/dev2.cn.honjow.fehv/cn.honjow.fehv/g' 'ios/Runner.xcodeproj/project.pbxproj'
+          cp ios/Flutter/Local.xcconfig.example ios/Flutter/Local.xcconfig
+          sed -i '' 's/^IOS_DEVELOPMENT_BUNDLE_IDENTIFIER = .*/IOS_DEVELOPMENT_BUNDLE_IDENTIFIER = cn.honjow.fehv/' ios/Flutter/Local.xcconfig
           cd ios && bundle exec pod install --deployment && cd ..
           bundle exec flutter build ios --release --no-codesign --no-pub
-
-      # - name: upload-symbols
-      #   if: matrix.target == 'ios'
-      #   run: find build/ios/Release-iphoneos -name "*.dSYM" | xargs -I \{\} ios/Pods/FirebaseCrashlytics/upload-symbols -gsp ios/Runner/GoogleService-Info.plist -p ios \{\}
 
       - name: Thin app
         if: matrix.target == 'ios'
