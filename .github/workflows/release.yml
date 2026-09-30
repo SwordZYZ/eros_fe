@@ -26,7 +26,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ["android", "ios", "macos", "windows"]
+        # Re-enable iOS after the device and Simulator development workflows are validated.
+        target: ["android", "macos", "windows"]
 #        flutter_version: ["3.x"]
         flutter_channel: ["stable"]
         include:
@@ -35,11 +36,6 @@ jobs:
             flutter_version: "3.x"
             artifact_name: release-apk
             artifact_path: build/app/outputs/apk/release/Eros-FE*.apk
-          - target: ios
-            os: xcode-27
-            flutter_version: "3.47.3"
-            artifact_name: release-ios
-            artifact_path: build/**/Eros-FE*.ipa
           - target: macos
             os: macos-15
             flutter_version: "3.41.7"
@@ -194,8 +190,8 @@ jobs:
         run: |
           git config --global core.longpaths true
           flutter pub get --enforce-lockfile
-          flutter pub run build_runner build --delete-conflicting-outputs
-          flutter pub run intl_utils:generate
+          dart run build_runner build --delete-conflicting-outputs --fail-on-severe
+          dart run intl_utils:generate
 
       - name: Check iOS toolchain baseline
         if: matrix.target == 'ios'
@@ -247,13 +243,10 @@ jobs:
       - name: Build ios app
         if: matrix.target == 'ios'
         run: |
-          sed -i '' 's/dev2.cn.honjow.fehv/cn.honjow.fehv/g' 'ios/Runner.xcodeproj/project.pbxproj'
+          cp ios/Flutter/Local.xcconfig.example ios/Flutter/Local.xcconfig
+          sed -i '' 's/^IOS_DEVELOPMENT_BUNDLE_IDENTIFIER = .*/IOS_DEVELOPMENT_BUNDLE_IDENTIFIER = cn.honjow.fehv/' ios/Flutter/Local.xcconfig
           cd ios && bundle exec pod install --deployment && cd ..
           bundle exec flutter build ios --release --no-codesign --no-pub
-
-      # - name: upload-symbols
-      #   if: matrix.target == 'ios'
-      #   run: find build/ios/Release-iphoneos -name "*.dSYM" | xargs -I \{\} ios/Pods/FirebaseCrashlytics/upload-symbols -gsp ios/Runner/GoogleService-Info.plist -p ios \{\}
 
       - name: Thin app
         if: matrix.target == 'ios'
