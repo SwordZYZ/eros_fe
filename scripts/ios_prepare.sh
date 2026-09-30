@@ -88,12 +88,15 @@ if [[ "$xcode_version" != "$EXPECTED_XCODE_VERSION" ]]; then
 fi
 
 flutter_command=()
+pub_global_bin="${PUB_CACHE:-$HOME/.pub-cache}/bin"
 if [[ -n "${IOS_FLUTTER_BIN:-}" ]]; then
   flutter_command=("$IOS_FLUTTER_BIN")
 elif [[ -x "$ROOT_DIR/.fvm/flutter_sdk/bin/flutter" ]]; then
   flutter_command=("$ROOT_DIR/.fvm/flutter_sdk/bin/flutter")
 elif command -v fvm >/dev/null 2>&1; then
   flutter_command=(fvm flutter)
+elif [[ -x "$pub_global_bin/fvm" ]]; then
+  flutter_command=("$pub_global_bin/fvm" flutter)
 else
   die "Flutter $EXPECTED_FLUTTER_VERSION is unavailable; run 'fvm install $EXPECTED_FLUTTER_VERSION' or set IOS_FLUTTER_BIN to its flutter executable"
 fi
