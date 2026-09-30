@@ -1,4 +1,4 @@
 source ./para.sh
-cd $scripts_path/../ios && pod update && pod install --repo-update && cd $scripts_path
-fvm flutter pub upgrade
-fvm flutter build ipa --release && sh reid.sh && sh zip.sh $version && sh dsym.sh
+cd $scripts_path/../ios && bundle exec pod install --deployment && cd $scripts_path
+fvm flutter pub get --enforce-lockfile
+bundle exec fvm flutter build ipa --release && sh reid.sh && sh zip.sh $version && sh dsym.sh

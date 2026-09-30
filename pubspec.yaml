@@ -255,6 +255,8 @@ flutter_intl:
   class_name: L10n
 
 flutter:
+  config:
+    enable-swift-package-manager: false
   uses-material-design: true
 
 

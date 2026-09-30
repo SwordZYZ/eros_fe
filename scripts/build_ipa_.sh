@@ -1,3 +1,3 @@
 source ./para.sh
-cd $scripts_path/../ios && pod update && pod install && cd $scripts_path
-flutter build ipa --release && sh zip.sh $version
+cd $scripts_path/../ios && bundle exec pod install --deployment && cd $scripts_path
+bundle exec fvm flutter build ipa --release && sh zip.sh $version

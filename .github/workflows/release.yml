@@ -37,7 +37,7 @@ jobs:
             artifact_path: build/app/outputs/apk/release/Eros-FE*.apk
           - target: ios
             os: macos-15
-            flutter_version: "3.x"
+            flutter_version: "3.47.3"
             artifact_name: release-ios
             artifact_path: build/**/Eros-FE*.ipa
           - target: macos
@@ -151,9 +151,9 @@ jobs:
       - name: Flutter version
         run: flutter --version
 
-      - name: Disable Swift Package Manager
-        if: matrix.target == 'ios' || matrix.target == 'macos'
-        run: flutter config --no-enable-swift-package-manager
+      - name: Install iOS CocoaPods
+        if: matrix.target == 'ios'
+        run: bundle install --jobs 4 --retry 3
 
       - name: Build resolve Swift dependencies
         if: matrix.target == 'macos'
@@ -184,7 +184,7 @@ jobs:
       - name: Flutter pub get
         run: |
           git config --global core.longpaths true
-          flutter pub get
+          flutter pub get --enforce-lockfile
           flutter pub run build_runner build --delete-conflicting-outputs
           flutter pub run intl_utils:generate
 
@@ -235,9 +235,8 @@ jobs:
         if: matrix.target == 'ios'
         run: |
           sed -i '' 's/dev2.cn.honjow.fehv/cn.honjow.fehv/g' 'ios/Runner.xcodeproj/project.pbxproj'
-          rm ios/Podfile.lock
-          cd ios && pod update && pod install --repo-update && cd ..
-          flutter build ios --release --no-codesign --no-pub
+          cd ios && bundle exec pod install --deployment && cd ..
+          bundle exec flutter build ios --release --no-codesign --no-pub
 
       # - name: upload-symbols
       #   if: matrix.target == 'ios'
