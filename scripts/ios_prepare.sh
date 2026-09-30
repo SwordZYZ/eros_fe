@@ -90,14 +90,12 @@ fi
 flutter_command=()
 if [[ -n "${IOS_FLUTTER_BIN:-}" ]]; then
   flutter_command=("$IOS_FLUTTER_BIN")
-elif command -v fvm >/dev/null 2>&1; then
-  flutter_command=(fvm flutter)
 elif [[ -x "$ROOT_DIR/.fvm/flutter_sdk/bin/flutter" ]]; then
   flutter_command=("$ROOT_DIR/.fvm/flutter_sdk/bin/flutter")
-elif command -v flutter >/dev/null 2>&1; then
-  flutter_command=(flutter)
+elif command -v fvm >/dev/null 2>&1; then
+  flutter_command=(fvm flutter)
 else
-  die "Flutter/FVM is unavailable; install the version pinned in .fvmrc"
+  die "Flutter $EXPECTED_FLUTTER_VERSION is unavailable; run 'fvm install $EXPECTED_FLUTTER_VERSION' or set IOS_FLUTTER_BIN to its flutter executable"
 fi
 
 flutter_output="$("${flutter_command[@]}" --version 2>&1)" \
