@@ -3,6 +3,8 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$ROOT_DIR/scripts/ios_common.sh"
+ios_require_project_lock "$ROOT_DIR/scripts/ios_prepare.sh" "$@"
 cd "$ROOT_DIR"
 
 EXPECTED_XCODE_VERSION="27.0"
@@ -87,26 +89,8 @@ if [[ "$xcode_version" != "$EXPECTED_XCODE_VERSION" ]]; then
   die "Expected Xcode $EXPECTED_XCODE_VERSION; found ${xcode_version:-unavailable}"
 fi
 
-flutter_command=()
-pub_global_bin="${PUB_CACHE:-$HOME/.pub-cache}/bin"
-if [[ -n "${IOS_FLUTTER_BIN:-}" ]]; then
-  flutter_command=("$IOS_FLUTTER_BIN")
-elif [[ -x "$ROOT_DIR/.fvm/flutter_sdk/bin/flutter" ]]; then
-  flutter_command=("$ROOT_DIR/.fvm/flutter_sdk/bin/flutter")
-elif command -v fvm >/dev/null 2>&1; then
-  flutter_command=(fvm flutter)
-elif [[ -x "$pub_global_bin/fvm" ]]; then
-  flutter_command=("$pub_global_bin/fvm" flutter)
-else
-  die "Flutter $EXPECTED_FLUTTER_VERSION is unavailable; run 'fvm install $EXPECTED_FLUTTER_VERSION' or set IOS_FLUTTER_BIN to its flutter executable"
-fi
-
-flutter_output="$("${flutter_command[@]}" --version 2>&1)" \
-  || die "Could not run the project Flutter SDK; install the version pinned in .fvmrc"
-flutter_version="$(printf '%s\n' "$flutter_output" | sed -n 's/^Flutter \([^ ]*\).*/\1/p' | head -n 1)"
-if [[ "$flutter_version" != "$EXPECTED_FLUTTER_VERSION" ]]; then
-  die "Expected Flutter $EXPECTED_FLUTTER_VERSION; found ${flutter_version:-unavailable}"
-fi
+ios_select_flutter "$EXPECTED_FLUTTER_VERSION" || die "Could not select the pinned Flutter SDK"
+flutter_version="$EXPECTED_FLUTTER_VERSION"
 flutter_sdk_root="$("${flutter_command[@]}" --version --machine 2>/dev/null \
   | python3 -c 'import json, sys; print(json.load(sys.stdin)["flutterRoot"])')" \
   || die "Could not locate the Dart SDK bundled with Flutter"
@@ -168,6 +152,4 @@ trap - EXIT
 )
 
 printf '\niOS preparation complete. You can now build an unsigned iOS Debug app.\n'
-printf '  bundle exec'
-printf ' %q' "${flutter_command[@]}"
-printf ' build ios --debug --no-codesign --no-pub\n'
+printf '  scripts/ios_dev.sh build ios --debug --no-codesign\n'

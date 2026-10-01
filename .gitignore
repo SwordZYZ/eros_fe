@@ -4,6 +4,7 @@
 *.pyc
 *.swp
 .DS_Store
+/.ios-development.lock
 .atom/
 .buildlog/
 .history
