@@ -1,0 +1,48 @@
+{
+  "state": "simulator-2",
+  "expected_platform": "7",
+  "binaries": [
+    {
+      "binary": "MLKitBarcodeScanning/Frameworks/MLKitBarcodeScanning.framework/MLKitBarcodeScanning",
+      "sha256": "41113ef13ffd408d0d3b543125a1a26f5305209aecbdf4c6c40af06b83d465e4",
+      "platform_counts": {
+        "without_LC_BUILD_VERSION": 1
+      }
+    },
+    {
+      "binary": "MLKitCommon/Frameworks/MLKitCommon.framework/MLKitCommon",
+      "sha256": "39b2597f50f0f5ef8775995c4e73d030599887399ccc450cd3b95768f1a152f1",
+      "platform_counts": {
+        "7": 397
+      }
+    },
+    {
+      "binary": "MLKitLanguageID/Frameworks/MLKitLanguageID.framework/MLKitLanguageID",
+      "sha256": "6de538a282fe4c826ad5c19bee07236249b6d66079d8d8556e3d746a7e88f5f7",
+      "platform_counts": {
+        "7": 1
+      }
+    },
+    {
+      "binary": "MLKitNaturalLanguage/Frameworks/MLKitNaturalLanguage.framework/MLKitNaturalLanguage",
+      "sha256": "daa6fa5d240137fe0e3f5320947accb942d91df6e4e991c477eaa980cb3b2887",
+      "platform_counts": {
+        "7": 58
+      }
+    },
+    {
+      "binary": "MLKitVision/Frameworks/MLKitVision.framework/MLKitVision",
+      "sha256": "562675a1cc798100aff44b1c8017271426553642d7dfabf80e2574c945bc0de9",
+      "platform_counts": {
+        "7": 11
+      }
+    },
+    {
+      "binary": "MLImage/Frameworks/MLImage.framework/MLImage",
+      "sha256": "fbdc7cb2e8e79547324a355736c4eedb3d3a754e074c17856da08f3ac13ba413",
+      "platform_counts": {
+        "7": 1
+      }
+    }
+  ]
+}

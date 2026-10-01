@@ -1,0 +1,48 @@
+{
+  "state": "device-baseline",
+  "expected_platform": "2",
+  "binaries": [
+    {
+      "binary": "MLKitBarcodeScanning/Frameworks/MLKitBarcodeScanning.framework/MLKitBarcodeScanning",
+      "sha256": "41113ef13ffd408d0d3b543125a1a26f5305209aecbdf4c6c40af06b83d465e4",
+      "platform_counts": {
+        "without_LC_BUILD_VERSION": 1
+      }
+    },
+    {
+      "binary": "MLKitCommon/Frameworks/MLKitCommon.framework/MLKitCommon",
+      "sha256": "ee588e0b1bd6ca6f455001d59e769396ab40566acdd5001f85c54df24e487c54",
+      "platform_counts": {
+        "2": 397
+      }
+    },
+    {
+      "binary": "MLKitLanguageID/Frameworks/MLKitLanguageID.framework/MLKitLanguageID",
+      "sha256": "4a05208e7881d3fcf0725ec8a3813b7a1a0afb5343e1089d2a118a343134c372",
+      "platform_counts": {
+        "2": 1
+      }
+    },
+    {
+      "binary": "MLKitNaturalLanguage/Frameworks/MLKitNaturalLanguage.framework/MLKitNaturalLanguage",
+      "sha256": "03677e13dd1071140cd24f1eebabd44df6a7ab2369aca62475780b27ac92e632",
+      "platform_counts": {
+        "2": 58
+      }
+    },
+    {
+      "binary": "MLKitVision/Frameworks/MLKitVision.framework/MLKitVision",
+      "sha256": "8cf95bf1e1eef6572f540cc2f95afde3b2bff216d14ed1541f723ed7988233fd",
+      "platform_counts": {
+        "2": 11
+      }
+    },
+    {
+      "binary": "MLImage/Frameworks/MLImage.framework/MLImage",
+      "sha256": "b68940a1c6baae8cef6eb685722d9f8424b10e3ab47ff1b236b5baf94ee3047e",
+      "platform_counts": {
+        "2": 1
+      }
+    }
+  ]
+}

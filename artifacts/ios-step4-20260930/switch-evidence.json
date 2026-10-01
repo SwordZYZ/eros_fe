@@ -1,0 +1,17 @@
+{
+  "device_frameworks_match_original_cache": true,
+  "simulator_artifacts_unchanged_after_device_build": true,
+  "simulator_artifacts_checked": 46,
+  "device_artifacts_captured": 46,
+  "simulator_frameworks_identical_after_round_trip": true,
+  "device_artifacts_unchanged_after_simulator_build": true,
+  "device_artifacts_checked": 46,
+  "shared_cocoapods_cache_unchanged": true,
+  "cache_and_local_pods_have_distinct_inodes": true,
+  "lockfiles_unchanged_after_builds": true,
+  "final_lockfile_sha256": {
+    "pubspec.lock": "469224571e8aa5a4d5ef1aec5dee6937bac3c912f34300ded6bc957c2c9c553f",
+    "ios/Podfile.lock": "cb60fea528c880398847582cffa2856df8ab5fa7c7cb8da6862299fbb1d5525a",
+    "Gemfile.lock": "b195f5b3d4cfd87603c7f239146b540a6c41c30ab810af1635fd08ca8889e38b"
+  }
+}

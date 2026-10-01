@@ -987,26 +987,26 @@ packages:
     dependency: "direct main"
     description:
       name: google_mlkit_barcode_scanning
-      sha256: b38505df2d3fdf7830979d60fee55039c2f442d189b2e06fcb2fe494ba65d0db
+      sha256: "98800c658f10014ca42b6032b1121881ef1913f546517d2ecfcccb5a80681f70"
       url: "https://pub.dev"
     source: hosted
-    version: "0.14.1"
+    version: "0.15.0"
   google_mlkit_commons:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_mlkit_commons
-      sha256: "8f40fbac10685cad4715d11e6a0d86837d9ad7168684dfcad29610282a88e67a"
+      sha256: c7fc384bdb66c3b83e24e3a41818e61d7a378d900f65f5e775344fbca95a0917
       url: "https://pub.dev"
     source: hosted
-    version: "0.11.0"
+    version: "0.12.0"
   google_mlkit_language_id:
     dependency: "direct main"
     description:
       name: google_mlkit_language_id
-      sha256: fc57bca69cb1dcd8ef67b929f0315e9a8baa80c03c75f7a1226becd7ad2529ff
+      sha256: f733dcd9e0d0b396232c82dbda2dcb968e954df4885f5d5a12f7771657723ed9
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.0"
+    version: "0.14.0"
   google_translator:
     dependency: "direct main"
     description:
@@ -2391,4 +2391,4 @@ packages:
     version: "2.0.1"
 sdks:
   dart: ">=3.11.0-0 <4.0.0"
-  flutter: ">=3.29.0"
+  flutter: ">=3.32.0"

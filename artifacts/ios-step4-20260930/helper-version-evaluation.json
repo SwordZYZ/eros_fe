@@ -1,0 +1,13 @@
+{
+  "helper_contents_identical": true,
+  "sha256_by_version": {
+    "0.12.0": {
+      "apple_silicon_simulator.rb": "8df74880da4e994d7d89e67612ac0455553e364af339aa5ce00b5cbb7d04ecf4",
+      "patch_arm64_simulator.py": "e452730e6612f262fd60d10cb05aa7c5108c347dc46e5fa56d736fb379282502"
+    },
+    "0.13.0": {
+      "apple_silicon_simulator.rb": "8df74880da4e994d7d89e67612ac0455553e364af339aa5ce00b5cbb7d04ecf4",
+      "patch_arm64_simulator.py": "e452730e6612f262fd60d10cb05aa7c5108c347dc46e5fa56d736fb379282502"
+    }
+  }
+}
