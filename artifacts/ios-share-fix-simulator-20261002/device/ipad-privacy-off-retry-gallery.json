@@ -1,0 +1,72 @@
+{
+  "command": "gallery",
+  "route": "/galleryPage",
+  "lifecycle": "resumed",
+  "gallery": true,
+  "torrent": false,
+  "privacy": true,
+  "events": [
+    {
+      "time": "2026-10-02T14:28:29.157299Z",
+      "kind": "error",
+      "channel": "uncaught async",
+      "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+      "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+    },
+    {
+      "time": "2026-10-02T14:28:30.156197Z",
+      "kind": "result",
+      "case": "cold_start",
+      "status": "PASS",
+      "actual": "HomePage"
+    },
+    {
+      "time": "2026-10-02T14:28:30.156589Z",
+      "kind": "result",
+      "case": "startup_no_exception",
+      "status": "FAIL",
+      "actual": [
+        {
+          "time": "2026-10-02T14:28:29.157299Z",
+          "kind": "error",
+          "channel": "uncaught async",
+          "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+          "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+        }
+      ]
+    },
+    {
+      "time": "2026-10-02T14:28:30.156849Z",
+      "kind": "result",
+      "case": "no_online_account",
+      "status": "PASS",
+      "actual": "credential presence checked; values not recorded"
+    },
+    {
+      "time": "2026-10-02T14:28:30.353549Z",
+      "kind": "fixture",
+      "gid": "950000001",
+      "title": "EROS Step 5A — Fixed Local Gallery",
+      "magnet": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+      "torrentCount": 1,
+      "account": "none",
+      "network": "fixed content uses injected data and prefilled image cache",
+      "cover": "Step4 fixed QR PNG"
+    },
+    {
+      "time": "2026-10-02T14:28:30.356562Z",
+      "kind": "environment",
+      "dart": "3.13.3 (stable) (Tue Sep 1 01:07:17 2026 -0700) on \"ios_simarm64\"",
+      "os": "Version 27.0 (Build 24A437)",
+      "mode": "Debug",
+      "autoLockTimeout": -1
+    },
+    {
+      "time": "2026-10-02T14:28:43.457251Z",
+      "kind": "result",
+      "case": "fixed_content",
+      "status": "PASS",
+      "actual": "EROS Step 5A — Fixed Local Gallery"
+    }
+  ]
+}

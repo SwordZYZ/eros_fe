@@ -1,0 +1,112 @@
+Attributes: Application, 0x10924fd40, pid: 7463, label: 'Eros-FE'
+Element subtree:
+ →Application, 0x10924fd40, pid: 7463, label: 'Eros-FE'
+    Window (Main), 0x10924fe80, {{0.0, 0.0}, {834.0, 1210.0}}
+      Other, 0x107c6a080, {{0.0, 0.0}, {834.0, 1210.0}}
+      Other, 0x107c6af80, {{0.0, 0.0}, {834.0, 1210.0}}
+        Other, 0x10925c000, {{0.0, 0.0}, {834.0, 1210.0}}
+          Other, 0x10925c140, {{0.0, 0.0}, {834.0, 1210.0}}
+            Other, 0x10925c280, {{0.0, 0.0}, {834.0, 1210.0}}
+              Other, 0x10925c3c0, {{0.0, 0.0}, {834.0, 1210.0}}
+              Other, 0x10925c500, {{0.0, 0.0}, {834.0, 1210.0}}
+                Other, 0x10925c640, {{0.0, 0.0}, {834.0, 1210.0}}
+                Other, 0x10925c780, {{0.0, 0.0}, {834.0, 1210.0}}
+                  Other, 0x10925c8c0, {{0.0, 0.0}, {834.0, 1210.0}}
+                  Other, 0x10925ca00, {{0.0, 0.0}, {834.0, 1210.0}}
+                    Other, 0x10925cb40, {{0.0, 0.0}, {834.0, 1210.0}}
+                    Other, 0x10925cc80, {{0.0, 0.0}, {834.0, 1210.0}}
+                      Other, 0x10925cdc0, {{282.0, 520.6}, {270.0, 168.8}}, label: '提醒'
+                      Other, 0x10925cf00, {{0.0, 0.0}, {834.0, 1210.0}}
+                        ScrollView, 0x10925d040, {{282.0, 520.6}, {270.0, 123.5}}
+                        StaticText, 0x10925d180, {{302.0, 540.6}, {230.0, 22.0}}, label: '种子'
+                        Other, 0x10925d2c0, {{0.0, 0.0}, {834.0, 1210.0}}
+                          ScrollView, 0x10925d400, {{302.0, 564.6}, {230.0, 59.5}}
+                          StaticText, 0x10925d540, {{321.0, 569.1}, {8.0, 18.0}}, label: '3'
+                          StaticText, 0x10925d680, {{375.2, 569.1}, {8.0, 18.0}}, label: '0'
+                          StaticText, 0x10925d7c0, {{429.3, 569.1}, {5.8, 18.0}}, label: '1'
+                          StaticText, 0x10925d900, {{481.4, 569.1}, {50.6, 18.0}}, label: '1.00 MiB'
+                          StaticText, 0x10925da40, {{302.0, 587.1}, {200.0, 33.0}}, label: 'step5a-fixed-local.torrent'
+                          Button, 0x10925db80, {{502.0, 588.6}, {30.0, 30.0}}
+                      Other, 0x10925dcc0, {{0.0, 0.0}, {834.0, 1210.0}}
+                        ScrollView, 0x10925de00, {{282.0, 644.4}, {270.0, 45.0}}
+                        Button, 0x10925df40, {{282.0, 644.4}, {270.0, 45.0}}, label: '取消'
+                StaticText, 0x10925e080, {{0.0, 0.0}, {834.0, 1210.0}}, label: '关闭'
+      Other, 0x10925e1c0, {{0.0, 0.0}, {834.0, 1210.0}}
+        Other, 0x10925e300, {{0.0, 0.0}, {834.0, 1210.0}}, identifier: 'PopoverDismissRegion', label: '关闭弹出式窗口'
+        Popover, 0x10925e440, {{114.0, 424.5}, {388.0, 359.0}}
+          Other, 0x10925e580, {{114.0, 424.5}, {388.0, 359.0}}
+            Other, 0x10925e6c0, {{114.0, 424.5}, {388.0, 359.0}}
+              Other, 0x10925e800, {{114.0, 424.5}, {388.0, 359.0}}
+                Other, 0x10925e940, {{114.0, 424.5}, {375.0, 359.0}}
+                  Other, 0x10925ea80, {{114.0, 424.5}, {375.0, 359.0}}
+                    Other, 0x10925ebc0, {{114.0, 424.5}, {0.0, 0.0}}
+                      Other, 0x10925ed00, {{114.0, 424.5}, {375.0, 359.0}}
+                        Other, 0x10925ee40, {{114.0, 424.5}, {375.0, 359.0}}
+                          Other, 0x10925ef80, {{114.0, 424.5}, {375.0, 359.0}}
+                            Other, 0x10925f0c0, {{114.0, 424.5}, {375.0, 359.0}}
+                              Other, 0x10925f200, {{114.0, 424.5}, {375.0, 359.0}}
+                                Other, 0x10925f340, {{114.0, 424.5}, {375.0, 359.0}}, identifier: 'ShareSheet.RemoteContainerView'
+                                  Other, 0x10925f480, {{114.0, 424.5}, {375.0, 359.0}}
+                                    Other, 0x10925f5c0, {{114.0, 424.5}, {375.0, 359.0}}
+                                      Other, 0x10925f700, {{114.0, 424.5}, {375.0, 359.0}}
+                                        Other, 0x10925f840, {{114.0, 424.5}, {375.0, 359.0}}
+                                          Other, 0x10925f980, {{114.0, 424.5}, {375.0, 359.0}}
+                                            Other, 0x10925fac0, {{114.0, 424.5}, {375.0, 359.0}}
+                                              Other, 0x10925fc00, {{114.0, 424.5}, {375.0, 359.0}}
+                                                NavigationBar, 0x10925fd40, {{114.0, 434.5}, {375.0, 96.5}}, identifier: 'magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567'
+                                                  Image, 0x10925fe80, {{140.5, 451.0}, {64.0, 64.0}}
+                                                  Other, 0x10926c000, {{219.5, 474.0}, {243.0, 18.0}}, identifier: 'LP.CaptionBar.TopCaption', label: 'magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567'
+                                                Other, 0x10926c140, {{114.0, 424.5}, {375.0, 359.0}}
+                                                  Other, 0x10926c280, {{114.0, 424.5}, {375.0, 359.0}}
+                                                    Other, 0x10926c3c0, {{114.0, 424.5}, {375.0, 359.0}}, identifier: 'shareSheet.activity.contentView'
+                                                      CollectionView, 0x10926c500, {{114.0, 424.5}, {375.0, 359.0}}, identifier: 'activityCollectionView'
+                                                        Other, 0x10926c640, {{114.0, 424.5}, {375.0, 359.0}}
+                                                          Other, 0x10926c780, {{114.0, 424.5}, {375.0, 146.5}}
+                                                        Other, 0x10926c8c0, {{114.0, 424.5}, {375.0, 359.0}}
+                                                        ScrollView, 0x10926ca00, {{132.0, 531.0}, {339.0, 118.0}}
+                                                          Cell, 0x10926cb40, {{132.0, 531.0}, {82.0, 117.5}}, identifier: 'shareCell', label: '提醒事项'
+                                                            Other, 0x10926cc80, {{132.0, 531.0}, {82.0, 117.5}}
+                                                              Other, 0x10926cdc0, {{132.0, 618.0}, {82.0, 14.5}}
+                                                                StaticText, 0x10926cf00, {{132.0, 618.0}, {82.0, 14.5}}, identifier: 'cellTitleLabel', label: '提醒事项'
+                                                                StaticText, 0x10926d040, {{132.0, 618.0}, {33.0, 30.5}}, identifier: 'cellTitleLabel', label: 'Apple Inc'
+                                                                Other, 0x10926d180, {{132.0, 618.0}, {82.0, 14.5}}
+                                                              Image, 0x10926d2c0, {{141.5, 547.0}, {63.0, 63.0}}, identifier: 'activityImageView'
+                                                          Cell, 0x10926d400, {{217.5, 531.0}, {82.0, 117.5}}, identifier: 'shareCell', label: '更多'
+                                                            Other, 0x10926d540, {{217.5, 531.0}, {82.0, 117.5}}
+                                                              Other, 0x10926d680, {{217.5, 618.0}, {82.0, 14.5}}
+                                                                StaticText, 0x10926d7c0, {{217.5, 618.0}, {82.0, 14.5}}, identifier: 'cellTitleLabel', label: '更多'
+                                                                StaticText, 0x10926d900, {{217.5, 618.0}, {33.0, 30.5}}, identifier: 'cellTitleLabel', label: 'Apple Inc'
+                                                                Other, 0x10926da40, {{217.5, 618.0}, {82.0, 14.5}}
+                                                              Image, 0x10926db80, {{227.0, 547.0}, {63.0, 63.0}}, identifier: 'activityImageView'
+                                                        ScrollView, 0x10926dcc0, {{132.0, 650.0}, {339.0, 133.5}}
+                                                          Cell, 0x10926de00, {{132.0, 650.0}, {82.0, 133.5}}, identifier: 'actionGroupCell', label: '拷贝'
+                                                            Other, 0x10926df40, {{132.0, 650.0}, {82.0, 133.5}}
+                                                              Other, 0x10926e080, {{132.0, 737.0}, {82.0, 14.5}}
+                                                                StaticText, 0x10926e1c0, {{132.0, 737.0}, {82.0, 14.5}}, identifier: 'cellTitleLabel', label: '拷贝'
+                                                                StaticText, 0x10926e300, {{132.0, 737.0}, {33.0, 30.5}}, identifier: 'cellTitleLabel', label: 'Apple Inc'
+                                                                Other, 0x10926e440, {{132.0, 737.0}, {82.0, 14.5}}
+                                                              Other, 0x10926e580, {{140.5, 666.0}, {65.0, 65.0}}
+                                                              Image, 0x10926e6c0, {{157.0, 680.0}, {32.0, 37.0}}, identifier: 'activityImageView', label: '拷贝'
+                                                          Cell, 0x10926e800, {{217.5, 650.0}, {82.0, 133.5}}, identifier: 'actionGroupCell', label: '保存到“文件”'
+                                                            Other, 0x10926e940, {{217.5, 650.0}, {82.0, 133.5}}
+                                                              Other, 0x10926ea80, {{217.5, 737.0}, {82.0, 14.5}}
+                                                                StaticText, 0x10926ebc0, {{217.5, 737.0}, {82.0, 14.5}}, identifier: 'cellTitleLabel', label: '保存到“文件”'
+                                                                StaticText, 0x10926ed00, {{217.5, 737.0}, {33.0, 30.5}}, identifier: 'cellTitleLabel', label: 'Apple Inc'
+                                                                Other, 0x10926ee40, {{217.5, 737.0}, {82.0, 14.5}}
+                                                              Other, 0x10926ef80, {{226.0, 666.0}, {65.0, 65.0}}
+                                                              Image, 0x10926f0c0, {{237.0, 677.0}, {43.0, 43.0}}, identifier: 'activityImageView'
+                                                        Other, 0x10926f200, {{140.5, 649.0}, {322.0, 1.0}}, identifier: 'collectionView.footerView'
+                                                      Other, 0x10926f340, {{140.5, 531.0}, {322.0, 1.0}}
+                                                Toolbar, 0x10926f480, {{114.0, 424.5}, {375.0, 359.0}}, identifier: 'Toolbar', label: '工具栏'
+                                                  Other, 0x10926f5c0, {{114.0, 424.5}, {375.0, 359.0}}
+                                      Other, 0x10926f700, {{0.0, 0.0}, {0.0, 0.0}}
+    Window, 0x10926f840, {{0.0, 0.0}, {834.0, 1210.0}}
+      Other, 0x10926f980, {{0.0, 0.0}, {834.0, 1210.0}}
+        Other, 0x10926fac0, {{0.0, 0.0}, {834.0, 1210.0}}
+Path to element:
+ →Application, 0x10924fd40, pid: 7463, label: 'Eros-FE'
+Query chain:
+ →Find: Application 'com.fuhua.erosfe.step5a'
+  Output: {
+    Application, 0x10926fc00, pid: 7463, label: 'Eros-FE'
+  }

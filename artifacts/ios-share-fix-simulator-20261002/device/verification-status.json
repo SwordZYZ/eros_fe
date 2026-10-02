@@ -1,0 +1,28 @@
+{
+  "completedAt": "2026-10-02T14:34:03.090473+00:00",
+  "status": "VALIDATION_COMPLETED_WITH_FAILURES",
+  "targetStatus": "PASS",
+  "targetRoundsPassed": 3,
+  "targetRoundsTotal": 3,
+  "overallRegressionStatus": "FAIL",
+  "baseCommit": "82251e55fd93168cec373f4c80550afa85d3e79f",
+  "device": "iPad16,3",
+  "systemVersion": "27.0",
+  "systemBuild": "24A437",
+  "mode": "Debug",
+  "operatorSplit": {
+    "host": "CLI build, install/start, frozen Debug driver, actual OS background/foreground, screenshots, events/crash export",
+    "user": "native menu observation and actual Copy; multitask card, physical lock/unlock and post-lock button interaction"
+  },
+  "activeFlutterSession": null,
+  "finalCheckoutLockProbeExitCode": 0,
+  "failures": [
+    "preexisting startup PathAccessException / errno 1",
+    "preexisting disposed ScrollController",
+    "privacy enabled card still clear",
+    "post-lock torrent entry native crash with privacy both enabled and disabled",
+    "Flutter debug transport lost during lock; one inherited-lock orphan console required cleanup"
+  ],
+  "productionScope": "Original simulator-verified share anchor patch only; no new production edits during device validation",
+  "committed": false
+}

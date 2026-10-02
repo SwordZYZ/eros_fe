@@ -1,0 +1,5 @@
+Query chain:
+ →Find: Application 'com.fuhua.erosfe.step5a'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate 'label IN {"Copy", "复制", "拷贝", "Copy Link", "复制链接"}'
+      ↪︎Find: First Match

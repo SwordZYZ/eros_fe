@@ -158,18 +158,25 @@ class TorrentItem extends StatelessWidget {
               CupertinoTheme(
                 data: const CupertinoThemeData(
                     primaryColor: CupertinoColors.systemRed),
-                child: CupertinoButton(
-                  padding: const EdgeInsets.only(left: 0),
-                  minSize: 30,
-                  child: const FaIcon(FontAwesomeIcons.magnet,
-                    size: 16,
+                child: Builder(
+                  builder: (shareContext) => CupertinoButton(
+                    padding: const EdgeInsets.only(left: 0),
+                    minSize: 30,
+                    child: const FaIcon(FontAwesomeIcons.magnet,
+                      size: 16,
+                    ),
+                    onPressed: () async {
+                      final String _magnet =
+                          'magnet:?xt=urn:btih:${torrent.hash}';
+                      logger.t(_magnet);
+                      final box = shareContext.findRenderObject() as RenderBox;
+                      await Share.share(
+                        _magnet,
+                        sharePositionOrigin:
+                            box.localToGlobal(Offset.zero) & box.size,
+                      );
+                    },
                   ),
-                  onPressed: () {
-                    final String _magnet =
-                        'magnet:?xt=urn:btih:${torrent.hash}';
-                    logger.t(_magnet);
-                    Share.share(_magnet);
-                  },
                 ),
               )
             ],

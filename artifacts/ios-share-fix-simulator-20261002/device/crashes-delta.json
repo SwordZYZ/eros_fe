@@ -1,0 +1,59 @@
+{
+  "newOrChangedAppReports": [
+    {
+      "metadata": {
+        "extendedAttributes": {
+          "DoNotSubmit": "1",
+          "LogType": "309_fehviewer",
+          "Signature": "03112fc36b9773241e3e5e3cbf8c7f31567c3125",
+          "bug_type": "309",
+          "com.apple.dataprotection.policy.exception-applied-by": "com.apple.osanalyticshelper"
+        },
+        "lastModDate": "2026-10-02T14:24:40.000Z",
+        "ownerGid": 250,
+        "ownerUid": 501,
+        "permissions": 432,
+        "size": 79727
+      },
+      "name": "fehviewer-2026-10-02-222440.ips",
+      "relativePath": "fehviewer-2026-10-02-222440.ips",
+      "resources": {
+        "isDirectory": false,
+        "isHidden": false,
+        "isReadable": true,
+        "isSymbolicLink": false,
+        "isWritable": true
+      }
+    },
+    {
+      "metadata": {
+        "extendedAttributes": {
+          "DoNotSubmit": "1",
+          "LogType": "309_fehviewer",
+          "Signature": "354d408be27194d05511e37f69f05c3bcc5da255",
+          "bug_type": "309",
+          "com.apple.dataprotection.policy.exception-applied-by": "com.apple.osanalyticshelper"
+        },
+        "lastModDate": "2026-10-02T14:29:35.000Z",
+        "ownerGid": 250,
+        "ownerUid": 501,
+        "permissions": 432,
+        "size": 85950
+      },
+      "name": "fehviewer-2026-10-02-222935.ips",
+      "relativePath": "fehviewer-2026-10-02-222935.ips",
+      "resources": {
+        "isDirectory": false,
+        "isHidden": false,
+        "isReadable": true,
+        "isSymbolicLink": false,
+        "isWritable": true
+      }
+    }
+  ],
+  "count": 2,
+  "exports": [
+    "fehviewer-2026-10-02-222440.ips",
+    "fehviewer-2026-10-02-222935.ips"
+  ]
+}

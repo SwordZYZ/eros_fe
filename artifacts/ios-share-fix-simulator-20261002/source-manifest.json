@@ -1,0 +1,32 @@
+{
+  "frozenAt": "2026-10-02T13:19:12.963929+00:00",
+  "baseCommit": "82251e55fd93168cec373f4c80550afa85d3e79f",
+  "productionFiles": {
+    "lib/pages/gallery/view/torrent_dialog.dart": "a6ad2dfad3443c0809eb1872ca0c57952bd01a2683e56a7e80aa275716b08137"
+  },
+  "patchSha256": "91b692bfe7f67526e31e133e72dc7a5971648cb3666cea5f2a31c1c395ea1c1c",
+  "unchanged5aProbeAndDriver": {
+    "tool/ios_baseline_probe.dart": "f073b6d2a52086de64828313a5259f42f2bc6948e9a779f5b1a1fa99a11ed4f5",
+    "tool/ios_baseline_driver.dart": "db0b66da8571617a4585eb1c4220151d753579d8d3a00fbf0a317deafd9907dd",
+    "tool/fixtures/ios_step5a_data.dart": "c3d76742290a8fe036fe059ab85f999a08d77797c2fbab0895dad29d54edb2c1"
+  },
+  "unchangedFixtureManifestSha256": "fdbeb24d99173d3fe3e734a62f9ef7e7d6bf8a4be3a5f8f3c0d7cf3b064e8464",
+  "unchangedCoverSha256": "ec2f3dd2beaccb70bcfab22f0539b028e5020b390cf00d3e5cf3d2619a2ce606",
+  "dependencyLocks": {
+    "pubspec.lock": "469224571e8aa5a4d5ef1aec5dee6937bac3c912f34300ded6bc957c2c9c553f",
+    "ios/Podfile.lock": "cb60fea528c880398847582cffa2856df8ab5fa7c7cb8da6862299fbb1d5525a",
+    "Gemfile.lock": "b195f5b3d4cfd87603c7f239146b540a6c41c30ab810af1635fd08ca8889e38b"
+  },
+  "unchanged5aEvidenceFiles": 149,
+  "testScope": "Simulator and physical iPad; same frozen fixture, real share Copy, navigation/background smoke and manual physical lock/privacy comparisons",
+  "validationTools": {
+    "ShareMenuChecks.swift": "a56eba5ace3f9700a6bc7f44fdf8e29dc4287bafb148a236582df37758974ceb",
+    "generate-ui-check.rb": "6d780a3f623eb9eff8ec4cd0bfc56de03cddc1509214a1e423fc8d9367c214e3",
+    "run-simulator-check.py": "ae33bc97765c4ecbfb81b68240023fba5c8b9792d2cdd476b1a2271d67729d19",
+    "run-smoke-cli.py": "0c126e6f2c33273bfc1e9caa2807c2d4563510016acaf6122adbc43adc5be05f",
+    "device/drive.py": "07000e7fc59d8992596994f6608b9e0b557f1d0ababe120d1a2f22d4f5f2f1b2"
+  },
+  "verifiedAt": "2026-10-02T13:33:20.307129+00:00",
+  "deviceVerifiedAt": "2026-10-02T14:34:03.090473+00:00",
+  "deviceVerificationStatus": "target PASS 3/3; overall regression FAIL"
+}

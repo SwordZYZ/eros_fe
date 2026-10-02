@@ -1,0 +1,14 @@
+{
+  "privacyEnabled": true,
+  "replyVerbatim": "卡片清晰没有模糊，回到 App 正常，种子及分享菜单不可用，点击灰色磁铁闪退",
+  "operator": "user",
+  "recordedAt": "2026-10-02T14:26:05.391815+00:00",
+  "cardVisualStatus": "FAIL",
+  "cardObserved": "clear",
+  "lockUnlockAppInitiallyNormal": true,
+  "postUnlockTorrentInteraction": "FAIL",
+  "postUnlockShareInteraction": "BLOCKED_BY_TORRENT_CRASH",
+  "requestedLockDurationSeconds": 5,
+  "crashTrigger": "after multitask inspection and physical lock/unlock, tap gray gallery torrent button",
+  "cause": "pending native report analysis"
+}

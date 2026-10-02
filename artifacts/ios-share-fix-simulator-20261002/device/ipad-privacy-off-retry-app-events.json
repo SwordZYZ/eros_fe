@@ -1,0 +1,141 @@
+[
+  {
+    "time": "2026-10-02T14:28:29.157299Z",
+    "kind": "error",
+    "channel": "uncaught async",
+    "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+    "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+  },
+  {
+    "time": "2026-10-02T14:28:30.156197Z",
+    "kind": "result",
+    "case": "cold_start",
+    "status": "PASS",
+    "actual": "HomePage"
+  },
+  {
+    "time": "2026-10-02T14:28:30.156589Z",
+    "kind": "result",
+    "case": "startup_no_exception",
+    "status": "FAIL",
+    "actual": [
+      {
+        "time": "2026-10-02T14:28:29.157299Z",
+        "kind": "error",
+        "channel": "uncaught async",
+        "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+        "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+      }
+    ]
+  },
+  {
+    "time": "2026-10-02T14:28:30.156849Z",
+    "kind": "result",
+    "case": "no_online_account",
+    "status": "PASS",
+    "actual": "credential presence checked; values not recorded"
+  },
+  {
+    "time": "2026-10-02T14:28:30.353549Z",
+    "kind": "fixture",
+    "gid": "950000001",
+    "title": "EROS Step 5A — Fixed Local Gallery",
+    "magnet": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+    "torrentCount": 1,
+    "account": "none",
+    "network": "fixed content uses injected data and prefilled image cache",
+    "cover": "Step4 fixed QR PNG"
+  },
+  {
+    "time": "2026-10-02T14:28:30.356562Z",
+    "kind": "environment",
+    "dart": "3.13.3 (stable) (Tue Sep 1 01:07:17 2026 -0700) on \"ios_simarm64\"",
+    "os": "Version 27.0 (Build 24A437)",
+    "mode": "Debug",
+    "autoLockTimeout": -1
+  },
+  {
+    "time": "2026-10-02T14:28:43.457251Z",
+    "kind": "result",
+    "case": "fixed_content",
+    "status": "PASS",
+    "actual": "EROS Step 5A — Fixed Local Gallery"
+  },
+  {
+    "time": "2026-10-02T14:28:45.357851Z",
+    "kind": "tap",
+    "widget": "CupertinoSwitch",
+    "x": 1146.5,
+    "y": 118.0
+  },
+  {
+    "time": "2026-10-02T14:28:47.350419Z",
+    "kind": "result",
+    "case": "privacy_setting_off",
+    "status": "PASS",
+    "actual": false
+  },
+  {
+    "time": "2026-10-02T14:28:47.762250Z",
+    "kind": "tap",
+    "widget": "CupertinoNavigationBarBackButton",
+    "x": 25.0,
+    "y": 54.0
+  },
+  {
+    "time": "2026-10-02T14:28:50.025077Z",
+    "kind": "lifecycle_begin",
+    "label": "lock_screen_privacy_off_retry",
+    "privacy": false
+  },
+  {
+    "time": "2026-10-02T14:29:19.669263Z",
+    "kind": "lifecycle",
+    "state": "inactive"
+  },
+  {
+    "time": "2026-10-02T14:29:22.990376Z",
+    "kind": "lifecycle",
+    "state": "resumed"
+  },
+  {
+    "time": "2026-10-02T14:29:24.726922Z",
+    "kind": "lifecycle",
+    "state": "inactive"
+  },
+  {
+    "time": "2026-10-02T14:29:24.767235Z",
+    "kind": "lifecycle",
+    "state": "resumed"
+  },
+  {
+    "time": "2026-10-02T14:29:24.884630Z",
+    "kind": "lifecycle",
+    "state": "inactive"
+  },
+  {
+    "time": "2026-10-02T14:29:24.905464Z",
+    "kind": "lifecycle",
+    "state": "hidden"
+  },
+  {
+    "time": "2026-10-02T14:29:24.908489Z",
+    "kind": "lifecycle",
+    "state": "paused"
+  },
+  {
+    "time": "2026-10-02T14:29:33.134019Z",
+    "kind": "lifecycle",
+    "state": "hidden"
+  },
+  {
+    "time": "2026-10-02T14:29:33.136324Z",
+    "kind": "lifecycle",
+    "state": "inactive"
+  },
+  {
+    "time": "2026-10-02T14:29:33.995540Z",
+    "kind": "lifecycle",
+    "state": "resumed"
+  }
+]

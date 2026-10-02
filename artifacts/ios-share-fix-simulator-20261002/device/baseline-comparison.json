@@ -1,0 +1,263 @@
+{
+  "scope": "iPadOS 27.0 Debug; comparison against frozen 5A device evidence",
+  "targetStatus": "PASS",
+  "overallRegressionStatus": "FAIL",
+  "beforeReport": "../../ios-step5a-20261001/REPORT.md",
+  "cases": [
+    {
+      "case": "system_share_visible_and_usable",
+      "before": "FAIL",
+      "after": "PASS, 3/3; user actual Copy and exact pasted magnet",
+      "evidence": "share-results.json"
+    },
+    {
+      "case": "cold_start",
+      "before": "PASS",
+      "after": "PASS, six Debug launches",
+      "evidence": "ipad-1-share.json"
+    },
+    {
+      "case": "no_online_account",
+      "before": "PASS",
+      "after": "PASS",
+      "evidence": "ipad-1-share.json"
+    },
+    {
+      "case": "fixed_content",
+      "before": "PASS",
+      "after": "PASS",
+      "evidence": "ipad-smoke-smoke.json"
+    },
+    {
+      "case": "torrent_submenu_before_lock",
+      "before": "PASS",
+      "after": "PASS",
+      "evidence": "ipad-smoke-torrent.json"
+    },
+    {
+      "case": "back_navigation",
+      "before": "PASS, functional only",
+      "after": "PASS, functional only",
+      "evidence": "ipad-smoke-smoke.json"
+    },
+    {
+      "case": "settings",
+      "before": "PASS",
+      "after": "PASS",
+      "evidence": "ipad-smoke-smoke.json"
+    },
+    {
+      "case": "settings_back",
+      "before": "PASS, functional only",
+      "after": "PASS, functional only",
+      "evidence": "ipad-smoke-smoke.json"
+    },
+    {
+      "case": "background_foreground_restore",
+      "before": "PASS",
+      "after": "PASS",
+      "evidence": "ipad-smoke-lifecycle_end-label-background_foreground.json"
+    },
+    {
+      "case": "background_foreground_no_exception",
+      "before": "PASS",
+      "after": "PASS, within this transition",
+      "evidence": "ipad-smoke-lifecycle_end-label-background_foreground.json"
+    },
+    {
+      "case": "background_foreground_interaction",
+      "before": "PASS",
+      "after": "PASS, real torrent menu reopen/close",
+      "evidence": "ipad-smoke-lifecycle_end-label-background_foreground.json"
+    },
+    {
+      "case": "privacy_setting_off",
+      "before": "PASS",
+      "after": "PASS",
+      "evidence": "ipad-privacy-off-retry-privacy-enabled-false.json"
+    },
+    {
+      "case": "privacy_setting_on",
+      "before": "PASS",
+      "after": "PASS",
+      "evidence": "ipad-privacy-on-privacy-enabled-true.json"
+    },
+    {
+      "case": "privacy_off_multitask_card",
+      "before": "PASS, clear",
+      "after": "PASS, clear",
+      "evidence": "privacy-off-retry-manual.json"
+    },
+    {
+      "case": "privacy_on_multitask_card",
+      "before": "FAIL, still clear",
+      "after": "FAIL, still clear",
+      "evidence": "privacy-on-manual.json"
+    },
+    {
+      "case": "lock_screen_privacy_off_initial_restore",
+      "before": "PASS",
+      "after": "PASS, resumed and user saw normal app",
+      "evidence": "ipad-privacy-off-retry-app-events.json"
+    },
+    {
+      "case": "lock_screen_privacy_on_initial_restore",
+      "before": "PASS",
+      "after": "PASS, resumed and user saw normal app",
+      "evidence": "ipad-privacy-on-app-events.json"
+    },
+    {
+      "case": "lock_screen_privacy_off_interaction",
+      "before": "PASS, automated real menu reopen/close",
+      "after": "FAIL, user gray torrent button tap followed by native crash",
+      "evidence": "privacy-off-retry-manual.json"
+    },
+    {
+      "case": "lock_screen_privacy_on_interaction",
+      "before": "PASS, automated real menu reopen/close",
+      "after": "FAIL, user gray torrent button tap followed by native crash",
+      "evidence": "privacy-on-manual.json"
+    },
+    {
+      "case": "lock_screen_privacy_off_no_exception",
+      "before": "PASS",
+      "after": "FAIL, EXC_BAD_ACCESS / SIGBUS",
+      "evidence": "fehviewer-2026-10-02-222935.ips"
+    },
+    {
+      "case": "lock_screen_privacy_on_no_exception",
+      "before": "PASS",
+      "after": "FAIL, EXC_BAD_ACCESS / SIGBUS",
+      "evidence": "fehviewer-2026-10-02-222440.ips"
+    },
+    {
+      "case": "startup_no_exception",
+      "before": "FAIL, PathAccessException / errno 1",
+      "after": "FAIL, same error in six launches",
+      "evidence": "ipad-smoke-app-events.json"
+    },
+    {
+      "case": "navigation_no_exception",
+      "before": "FAIL, disposed ScrollController",
+      "after": "FAIL, same error",
+      "evidence": "ipad-smoke-smoke.json"
+    },
+    {
+      "case": "layout_RenderFlex_4px_overflow",
+      "before": "FAIL, observed in 5A third device round",
+      "after": "NOT_REPRODUCED; no repair or general PASS claim",
+      "evidence": "ipad-smoke-app-events.json"
+    }
+  ],
+  "nonTargetErrorsByRun": {
+    "ipad-1-app-events.json": [
+      {
+        "time": "2026-10-02T14:08:03.014177Z",
+        "kind": "error",
+        "channel": "uncaught async",
+        "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+        "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+      }
+    ],
+    "ipad-2-app-events.json": [
+      {
+        "time": "2026-10-02T14:10:57.412906Z",
+        "kind": "error",
+        "channel": "uncaught async",
+        "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+        "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+      }
+    ],
+    "ipad-3-app-events.json": [
+      {
+        "time": "2026-10-02T14:13:25.880600Z",
+        "kind": "error",
+        "channel": "uncaught async",
+        "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+        "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+      }
+    ],
+    "ipad-privacy-off-retry-app-events.json": [
+      {
+        "time": "2026-10-02T14:28:29.157299Z",
+        "kind": "error",
+        "channel": "uncaught async",
+        "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+        "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+      }
+    ],
+    "ipad-privacy-on-app-events.json": [
+      {
+        "time": "2026-10-02T14:23:24.380199Z",
+        "kind": "error",
+        "channel": "uncaught async",
+        "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+        "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+      }
+    ],
+    "ipad-smoke-app-events.json": [
+      {
+        "time": "2026-10-02T14:15:33.795001Z",
+        "kind": "error",
+        "channel": "uncaught async",
+        "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+        "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+      },
+      {
+        "time": "2026-10-02T14:16:06.166857Z",
+        "kind": "error",
+        "channel": "FlutterError",
+        "error": "A ScrollController was used after being disposed.\nOnce you have called dispose() on a ScrollController, it can no longer be used.",
+        "stack": "#0      ChangeNotifier.debugAssertNotDisposed.<anonymous closure> (package:flutter/src/foundation/change_notifier.dart:184:9)\n#1      ChangeNotifier.debugAssertNotDisposed (package:flutter/src/foundation/change_notifier.dart:191:6)\n#2      ChangeNotifier.dispose (package:flutter/src/foundation/change_notifier.dart:377:27)\n#3      ScrollController.dispose (package:flutter/src/widgets/scroll_controller.dart:273:11)\n#4      _ModalScopeState.dispose (package:flutter/src/widgets/routes.dart:1150:29)\n#5      StatefulElement.unmount (package:flutter/src/widgets/framework.dart:6043:11)\n#6      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2119:13)\n#7      _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#8      SingleChildRenderObjectElement.visitChildren (package:flutter/src/widgets/framework.dart:7114:14)\n#9      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#10     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#11     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#12     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#13     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#14     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#15     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#16     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#17     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#18     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#19     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#20     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#21     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#22     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#23     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#24     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#25     ListIterable.forEach (dart:_internal/iterable.dart:49:13)\n#26     _InactiveElements._unmountAll (package:flutter/src/widgets/framework.dart:2128:25)\n#27     BuildOwner.lockState (package:flutter/src/widgets/framework.dart:3033:15)\n#28     BuildOwner.finalizeTree (package:flutter/src/widgets/framework.dart:3357:7)\n#29     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1578:19)\n#30     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:558:5)\n#31     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)\n#32     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)\n#33     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198:5)\n#34     _rootRun (dart:async/zone_root.dart:35:13)\n#35     _CustomZone.run (dart:async/zone.dart:810:35)\n#36     _CustomZone.runGuarded (dart:async/zone.dart:702:7)\n#37     _invoke (dart:ui/hooks.dart:443:10)\n#38     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:450:5)\n#39     _drawFrame (dart:ui/hooks.dart:413:31)\n"
+      }
+    ]
+  },
+  "lockLifecycle": [
+    {
+      "label": "lock_screen_privacy_on",
+      "states": [
+        "inactive",
+        "resumed",
+        "inactive",
+        "resumed",
+        "inactive",
+        "hidden",
+        "paused",
+        "hidden",
+        "inactive",
+        "resumed"
+      ],
+      "dartErrorsInExport": [],
+      "initialRestore": "PASS",
+      "interaction": "FAIL",
+      "nativeCrash": "FAIL",
+      "note": "No Dart error in export is insufficient for no-exception PASS; native .ips and user interaction failure are authoritative."
+    },
+    {
+      "label": "lock_screen_privacy_off_retry",
+      "states": [
+        "inactive",
+        "resumed",
+        "inactive",
+        "resumed",
+        "inactive",
+        "hidden",
+        "paused",
+        "hidden",
+        "inactive",
+        "resumed"
+      ],
+      "dartErrorsInExport": [],
+      "initialRestore": "PASS",
+      "interaction": "FAIL",
+      "nativeCrash": "FAIL",
+      "note": "No Dart error in export is insufficient for no-exception PASS; native .ips and user interaction failure are authoritative."
+    }
+  ],
+  "newNativeCrashFiles": [
+    "fehviewer-2026-10-02-222440.ips",
+    "fehviewer-2026-10-02-222935.ips"
+  ],
+  "operatorDifference": "5A and simulator use Debug driver/native XCTest for menu interaction; 5B device after-lock button taps performed by user.",
+  "causeAttribution": "Not established. This run does not prove whether the native crash is caused by the share patch or by another lifecycle/debug condition."
+}

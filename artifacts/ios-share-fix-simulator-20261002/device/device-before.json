@@ -1,0 +1,209 @@
+{
+  "_deprecationNotice": {
+    "deprecatedFields": [
+      "hardwareProperties",
+      "deviceProperties",
+      "connectionProperties"
+    ],
+    "message": "The 'hardwareProperties', 'deviceProperties', 'connectionProperties' fields are deprecated and will be removed in a future release. Use the 'properties' dictionary instead.",
+    "replacement": "properties"
+  },
+  "capabilities": [
+    {
+      "featureIdentifier": "com.apple.coredevice.feature.acquireusageassertion",
+      "name": "Acquire Usage Assertion"
+    },
+    {
+      "featureIdentifier": "com.apple.coredevice.feature.connectdevice",
+      "name": "Connect to Device"
+    },
+    {
+      "featureIdentifier": "com.apple.coredevice.feature.default.user.credentials",
+      "name": "Modify Credentials for Default Users for a Device"
+    },
+    {
+      "featureIdentifier": "com.apple.coredevice.feature.tags",
+      "name": "Modify Tags"
+    },
+    {
+      "featureIdentifier": "com.apple.coredevice.feature.unpairdevice",
+      "name": "Unpair Device"
+    }
+  ],
+  "connectionProperties": {
+    "authenticationType": "manualPairing",
+    "isMobileDeviceOnly": false,
+    "lastConnectionDate": "2026-10-02T00:54:00.000Z",
+    "pairingState": "paired",
+    "potentialHostnames": [
+      "ZYZs-iPad-Pro.coredevice.local",
+      "A8511718-99C6-58D3-8BF2-CCC11F34252B.coredevice.local",
+      "00008132-000278923E99001C.coredevice.local"
+    ],
+    "transportType": "wired",
+    "tunnelState": "disconnected",
+    "tunnelTransportProtocol": "tcp"
+  },
+  "deviceProperties": {
+    "bootState": "booted",
+    "bootedFromSnapshot": true,
+    "bootedSnapshotName": "com.apple.os.update-137016A81AE46A3441251472B1FA73E7CC1503E3AD95A6FA3883FF7D275775E3",
+    "ddiServicesAvailable": false,
+    "developerModeStatus": "enabled",
+    "hasInternalOSBuild": false,
+    "name": "ZYZ\u2019s iPad Pro",
+    "osBuildUpdate": "24A437",
+    "osVersionNumber": "27.0",
+    "rootFileSystemIsWritable": false,
+    "supportsCheckedAllocations": false
+  },
+  "hardwareProperties": {
+    "cpuType": {
+      "name": "arm64e",
+      "subType": -2147483646,
+      "type": 16777228
+    },
+    "deviceType": "iPad",
+    "ecid": 695519464194076,
+    "hardwareModel": "J717AP",
+    "internalStorageCapacity": 256000000000,
+    "isProductionFused": true,
+    "marketingName": "iPad Pro 11-inch (M4)",
+    "platform": "iOS",
+    "productType": "iPad16,3",
+    "reality": "physical",
+    "serialNumber": "PM7G9KD7C6",
+    "supportedCPUTypes": [
+      {
+        "name": "arm64e",
+        "subType": -2147483646,
+        "type": 16777228
+      },
+      {
+        "name": "arm64",
+        "subType": 0,
+        "type": 16777228
+      }
+    ],
+    "supportedDeviceFamilies": [
+      1,
+      2
+    ],
+    "thinningProductType": "iPad16,3-A",
+    "udid": "00008132-000278923E99001C"
+  },
+  "identifier": "A8511718-99C6-58D3-8BF2-CCC11F34252B",
+  "properties": {
+    "connection": {
+      "authenticationType": "manualPairing",
+      "lastConnectionDate": 812595240,
+      "pairingState": "paired",
+      "state": "disconnected",
+      "transportType": "wired",
+      "tunnelTransportProtocol": "tcp"
+    },
+    "hardware": {
+      "cpuCount": {
+        "logicalCores": 9,
+        "packages": 1,
+        "physicalCores": 9
+      },
+      "cpuType": {
+        "subtype": 18446744071562067970,
+        "type": 16777228
+      },
+      "deviceType": "iPad",
+      "ecid": 695519464194076,
+      "hasActionButton": false,
+      "internalStorageCapacity": 256000000000,
+      "marketingName": "iPad Pro 11-inch (M4)",
+      "platform": "iOS",
+      "productType": "iPad16,3",
+      "reality": "physical",
+      "serialNumber": "PM7G9KD7C6",
+      "supportedBiometrics": [
+        "faceID"
+      ],
+      "supportedCPUTypes": [
+        {
+          "subtype": 18446744071562067970,
+          "type": 16777228
+        },
+        {
+          "subtype": 0,
+          "type": 16777228
+        }
+      ],
+      "supportedDeviceFamilies": [
+        1,
+        2
+      ],
+      "supportsSiri": true,
+      "thinningProductType": "iPad16,3-A",
+      "udid": "00008132-000278923E99001C"
+    },
+    "software": {
+      "osBuildVersions": {
+        "buildVersion": {
+          "majorLetterComponent": "A",
+          "majorNumberComponent": 24,
+          "name": "24A437",
+          "revisionVersion": {
+            "components": [
+              24,
+              1,
+              437,
+              0,
+              0
+            ],
+            "originalComponentsCount": 5,
+            "stringValue": "24.1.437.0.0"
+          },
+          "trainProgram": "iOS",
+          "updateNumberComponent": 437
+        },
+        "supplementalBuildVersion": {
+          "majorLetterComponent": "A",
+          "majorNumberComponent": 24,
+          "name": "24A437",
+          "revisionVersion": {
+            "components": [
+              24,
+              1,
+              437,
+              0,
+              0
+            ],
+            "originalComponentsCount": 5,
+            "stringValue": "24.1.437.0.0"
+          },
+          "trainProgram": "iOS",
+          "updateNumberComponent": 437
+        }
+      },
+      "osVersionNumber": {
+        "components": [
+          27,
+          0,
+          0,
+          0,
+          0
+        ],
+        "originalComponentsCount": 2,
+        "stringValue": "27.0"
+      },
+      "supportsCheckedAllocations": false
+    },
+    "state": {
+      "bootState": "booted",
+      "developerModeStatus": {
+        "enabled": {
+          "mode": 1
+        }
+      },
+      "name": "ZYZ\u2019s iPad Pro"
+    }
+  },
+  "propertyDisplayNames": null,
+  "visibilityClass": "default"
+}

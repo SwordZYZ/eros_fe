@@ -1,0 +1,14 @@
+{
+  "round": 2,
+  "status": "PASS",
+  "nativeExitCode": 0,
+  "clipboardBefore": "EROS_SHARE_CHECK_SENTINEL_2",
+  "clipboardAfter": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+  "expectedMagnet": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+  "systemMenuVisible": true,
+  "copyHittableAndTapped": true,
+  "menuDismissed": true,
+  "copiedMagnetMatches": true,
+  "xcresultPath": "/private/tmp/eros-share-cli-cdngptd3/simulator-2.xcresult",
+  "flutterExitCode": 0
+}

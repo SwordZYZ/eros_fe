@@ -1,0 +1,7 @@
+{
+  "status": "CANCELLED",
+  "toolReportedExitCode": 1,
+  "termination": "Ctrl-C while waiting for VM service",
+  "log": "ipad-smoke-reattach.log",
+  "appRestartedForRemainingPrivacyTests": true
+}

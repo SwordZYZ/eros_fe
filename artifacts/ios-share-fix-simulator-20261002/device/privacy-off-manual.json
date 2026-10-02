@@ -1,0 +1,11 @@
+{
+  "privacyEnabled": false,
+  "replyVerbatim": "卡片清晰，锁屏解锁后 App 正常",
+  "cardVisualStatus": "PASS",
+  "cardObserved": "clear",
+  "lockUnlockAppNormal": true,
+  "operator": "user",
+  "recordedAt": "2026-10-02T14:17:47.696884+00:00",
+  "requestedLockDurationSeconds": 5,
+  "manualSteps": "multitask card inspection; app return; short press power lock >=5 seconds; normal unlock; app return"
+}

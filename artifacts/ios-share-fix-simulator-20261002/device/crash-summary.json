@@ -1,0 +1,732 @@
+{
+  "captureTime": "2026-10-02 22:24:39.2738 +0800",
+  "procName": "fehviewer",
+  "procPath": "/private/var/containers/Bundle/Application/2D69DEEF-D651-4E28-A755-9A73EA7DD150/fehviewer.app/fehviewer",
+  "pid": 80278,
+  "bundleInfo": {
+    "CFBundleShortVersionString": "1.9.2",
+    "CFBundleVersion": "566",
+    "CFBundleIdentifier": "com.fuhua.erosfe.step5a"
+  },
+  "exception": {
+    "codes": "0x0000000000000032, 0x0000000159400090",
+    "rawCodes": [
+      50,
+      5792333968
+    ],
+    "type": "EXC_BAD_ACCESS",
+    "signal": "SIGBUS",
+    "subtype": "UNKNOWN_0x32 at 0x0000000159400090"
+  },
+  "termination": {
+    "flags": 0,
+    "code": 10,
+    "namespace": "SIGNAL",
+    "indicator": "Bus error: 10",
+    "byProc": "exc handler",
+    "byPid": 80278
+  },
+  "faultingThread": 0,
+  "asi": null,
+  "header": {
+    "app_name": "fehviewer",
+    "timestamp": "2026-10-02 22:24:40.00 +0800",
+    "app_version": "1.9.2",
+    "slice_uuid": "784c2b55-2bc5-3dcc-b98c-675604ccb4e7",
+    "build_version": "566",
+    "platform": 2,
+    "bundleID": "com.fuhua.erosfe.step5a",
+    "share_with_app_devs": 1,
+    "is_first_party": 0,
+    "bug_type": "309",
+    "os_version": "iPhone OS 27.0 (24A437)",
+    "roots_installed": 0,
+    "name": "fehviewer",
+    "incident_id": "2B71AD8F-A9B3-46A5-8991-E964C02A5B07"
+  },
+  "faultingThreadDetails": {
+    "triggered": true,
+    "id": 12831029,
+    "threadState": {
+      "x": [
+        {
+          "value": 5683506449
+        },
+        {
+          "value": 5791733825
+        },
+        {
+          "value": 5792333968
+        },
+        {
+          "value": 4417856512
+        },
+        {
+          "value": 5277066817
+        },
+        {
+          "value": 16
+        },
+        {
+          "value": 4441131748,
+          "symbolLocation": 220,
+          "symbol": "dart::Zone::~Zone()"
+        },
+        {
+          "value": 18446744072367376383
+        },
+        {
+          "value": 2338354399199952922
+        },
+        {
+          "value": 2338354399199952922
+        },
+        {
+          "value": 6136015928
+        },
+        {
+          "value": 0
+        },
+        {
+          "value": 0
+        },
+        {
+          "value": 1495054338802858368
+        },
+        {
+          "value": 16384
+        },
+        {
+          "value": 6136018464
+        },
+        {
+          "value": 43481
+        },
+        {
+          "value": 17592186044416
+        },
+        {
+          "value": 0
+        },
+        {
+          "value": 6135132160
+        },
+        {
+          "value": 0
+        },
+        {
+          "value": 6057365688
+        },
+        {
+          "value": 5042110593
+        },
+        {
+          "value": 0
+        },
+        {
+          "value": 5791733825
+        },
+        {
+          "value": 6135132160
+        },
+        {
+          "value": 4419772416
+        },
+        {
+          "value": 5791720992
+        },
+        {
+          "value": 34359738368
+        }
+      ],
+      "flavor": "ARM_THREAD_STATE64",
+      "lr": {
+        "value": 5935460308
+      },
+      "cpsr": {
+        "value": 1610613760
+      },
+      "fp": {
+        "value": 6136018552
+      },
+      "sp": {
+        "value": 6135132160
+      },
+      "esr": {
+        "value": 2181038087,
+        "description": "(Instruction Abort) Translation fault"
+      },
+      "pc": {
+        "value": 5792333968,
+        "matchesCrashFrame": 1
+      },
+      "far": {
+        "value": 5792333968
+      }
+    },
+    "queue": "com.apple.main-thread",
+    "frames": [
+      {
+        "imageOffset": 5792333968,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5688724064,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5688671836,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5935401648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5688654184,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5688641252,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5688621532,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5962179736,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5688621532,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5229394536,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5229379756,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5688621532,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5935070480,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5833230136,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5688590836,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698482248,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698481248,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698480936,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698480484,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698131960,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698129528,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698127796,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698479996,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698478836,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720183388,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720251864,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720276284,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720283372,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720276284,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5698479040,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720276284,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720267076,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720248788,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720236184,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720165044,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720157828,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720158776,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720154068,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720102996,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720101176,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720100896,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720099448,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5720093220,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5824436448,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5824435736,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5703238236,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5830078444,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5962193004,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5050612728,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5277821480,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5277821112,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5277820872,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 5042616964,
+        "imageIndex": 45,
+        "imageName": null
+      },
+      {
+        "imageOffset": 6054692,
+        "symbol": "dart::DartEntry::InvokeFunction(dart::Function const&, dart::Array const&, dart::Array const&)",
+        "symbolLocation": 612,
+        "imageIndex": 42,
+        "imageName": "Flutter"
+      },
+      {
+        "imageOffset": 10483772,
+        "symbol": "Dart_InvokeClosure",
+        "symbolLocation": 1336,
+        "imageIndex": 42,
+        "imageName": "Flutter"
+      },
+      {
+        "imageOffset": 1260992,
+        "symbol": "flutter::Shell::OnAnimatorBeginFrame(fml::TimePoint, unsigned long long)",
+        "symbolLocation": 768,
+        "imageIndex": 42,
+        "imageName": "Flutter"
+      },
+      {
+        "imageOffset": 1124728,
+        "symbol": "std::__fl::__function::__func<flutter::Animator::AwaitVSync()::$_0, std::__fl::allocator<flutter::Animator::AwaitVSync()::$_0>, void (std::__fl::unique_ptr<flutter::FrameTimingsRecorder, std::__fl::default_delete<flutter::FrameTimingsRecorder>>)>::operator()(std::__fl::unique_ptr<flutter::FrameTimingsRecorder, std::__fl::default_delete<flutter::FrameTimingsRecorder>>&&)",
+        "symbolLocation": 1248,
+        "imageIndex": 42,
+        "imageName": "Flutter"
+      },
+      {
+        "imageOffset": 1340788,
+        "symbol": "std::__fl::__function::__func<flutter::VsyncWaiter::FireCallback(fml::TimePoint, fml::TimePoint, bool)::$_0, std::__fl::allocator<flutter::VsyncWaiter::FireCallback(fml::TimePoint, fml::TimePoint, bool)::$_0>, void ()>::operator()()",
+        "symbolLocation": 856,
+        "imageIndex": 42,
+        "imageName": "Flutter"
+      },
+      {
+        "imageOffset": 728352,
+        "symbol": "fml::MessageLoopImpl::FlushTasks(fml::FlushType)",
+        "symbolLocation": 336,
+        "imageIndex": 42,
+        "imageName": "Flutter"
+      },
+      {
+        "imageOffset": 747612,
+        "symbol": "fml::MessageLoopDarwin::OnTimerFire(__CFRunLoopTimer*, fml::MessageLoopDarwin*)",
+        "symbolLocation": 32,
+        "imageIndex": 42,
+        "imageName": "Flutter"
+      },
+      {
+        "imageOffset": 526992,
+        "symbol": "__CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__",
+        "symbolLocation": 32,
+        "imageIndex": 46,
+        "imageName": "CoreFoundation"
+      },
+      {
+        "imageOffset": 525120,
+        "symbol": "__CFRunLoopDoTimer",
+        "symbolLocation": 624,
+        "imageIndex": 46,
+        "imageName": "CoreFoundation"
+      },
+      {
+        "imageOffset": 524316,
+        "symbol": "__CFRunLoopDoTimers",
+        "symbolLocation": 284,
+        "imageIndex": 46,
+        "imageName": "CoreFoundation"
+      },
+      {
+        "imageOffset": 239976,
+        "symbol": "__CFRunLoopRun",
+        "symbolLocation": 1924,
+        "imageIndex": 46,
+        "imageName": "CoreFoundation"
+      },
+      {
+        "imageOffset": 243700,
+        "symbol": "_CFRunLoopRunSpecificWithOptions",
+        "symbolLocation": 344,
+        "imageIndex": 46,
+        "imageName": "CoreFoundation"
+      },
+      {
+        "imageOffset": 3876,
+        "symbol": "GSEventRunModal",
+        "symbolLocation": 120,
+        "imageIndex": 47,
+        "imageName": "GraphicsServices"
+      },
+      {
+        "imageOffset": 762316,
+        "symbol": "UIApplicationMain",
+        "symbolLocation": 336,
+        "imageIndex": 48,
+        "imageName": "UIKitCore"
+      },
+      {
+        "imageOffset": 3495492,
+        "imageIndex": 48,
+        "imageName": "UIKitCore"
+      },
+      {
+        "imageOffset": 20856,
+        "symbol": "static UIApplicationDelegate.main()",
+        "symbolLocation": 128,
+        "imageIndex": 1,
+        "imageName": "fehviewer.debug.dylib"
+      },
+      {
+        "imageOffset": 20712,
+        "symbol": "static AppDelegate.$main()",
+        "symbolLocation": 44,
+        "imageIndex": 1,
+        "imageName": "fehviewer.debug.dylib"
+      },
+      {
+        "imageOffset": 20980,
+        "symbol": "__debug_main_executable_dylib_entry_point",
+        "symbolLocation": 28,
+        "imageIndex": 1,
+        "imageName": "fehviewer.debug.dylib"
+      },
+      {
+        "imageOffset": 21944,
+        "symbol": "start",
+        "symbolLocation": 6616,
+        "imageIndex": 49,
+        "imageName": "dyld"
+      }
+    ]
+  }
+}

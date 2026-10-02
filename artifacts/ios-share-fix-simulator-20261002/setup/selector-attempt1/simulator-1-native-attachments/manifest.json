@@ -1,0 +1,178 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "32B72726-47A4-482E-B279-8A4CAA224030.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "App UI hierarchy for com.fuhua.erosfe_0_8CB2D6E6-3AEE-4098-8DE6-8E06180E567A.step5a",
+        "timestamp" : 1790947520.391
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "E80A64D9-5BE7-47E4-B1BC-C1E07740A8B0",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-10-02 at 09.25.20 下午",
+        "timestamp" : 1790947520.391
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "1723D321-9ED3-419E-99CC-56EA4C76E03E.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_7ADE44B1-B062-4494-BADF-2184FB85C39F.txt",
+        "timestamp" : 1790947520.307
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "7000D4A1-EEB5-4F66-827D-5BD2386FBECE.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_6ED5B72C-CDEE-47A0-9723-6F29937D45A1.txt",
+        "timestamp" : 1790947519.345
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "4ECEBB1B-D8E9-4AA6-A994-0F3857298CB1.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_DAEFC1BF-44CC-4B2D-8273-76A35353B810.txt",
+        "timestamp" : 1790947518.389
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "B6F23368-4DDF-4EF9-BF52-F08B73C52FF8.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_04D9A7DE-03ED-42ED-8352-50386DD0E9E3.txt",
+        "timestamp" : 1790947517.328
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "66BD35A3-BD8B-4576-8180-674BC46F9FD2.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_80B6A0EA-BD04-4206-B92D-5716BFF10127.txt",
+        "timestamp" : 1790947516.359
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "6BB48FD7-AE90-4E4A-8FEC-CB2367793104.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_ED9063E2-7DA4-43D1-87CA-121096A3EC31.txt",
+        "timestamp" : 1790947515.403
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "7C68C537-8872-491A-9C40-6AED85756BFA.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_9BB6F807-AC7D-4074-8E7E-2493D57BBC40.txt",
+        "timestamp" : 1790947514.342
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "7DEDD9D9-9277-4CE8-8654-473FB0DA9F28.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_2A5448E3-F28C-4F60-A081-C16CA0DFD31C.txt",
+        "timestamp" : 1790947513.391
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "8F614E28-A85C-48A3-A5D6-FEB6AA2A31B7.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_EFE73A93-B19D-494B-9A6C-C258522B65C2.txt",
+        "timestamp" : 1790947512.331
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "2A257651-5D3F-48CD-8C30-08F831D3B850.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_3A719612-FB7C-4634-8F4B-740E99BB1DB9.txt",
+        "timestamp" : 1790947511.376
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "6A363676-9F7E-45E9-8984-2FB9EF504D28.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_DF1F09E5-FB6B-4A78-8822-727A13969BFE.txt",
+        "timestamp" : 1790947510.316
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "30CA951C-00CE-40E7-B974-5E07E6E84D9F.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_E0701EE3-21B9-4556-846F-67F95FB56B5C.txt",
+        "timestamp" : 1790947509.342
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "8A6628D7-A689-4C81-99E5-8D5715CC13BC.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_F37A2EEC-2634-4D44-A119-D25E6453798E.txt",
+        "timestamp" : 1790947508.374
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "D72058A5-D7A2-4E73-9868-E1A5BF379EB3.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_1B531EEA-88B1-41A9-91DB-69CA8588FCC0.txt",
+        "timestamp" : 1790947507.313
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "874F007F-1ADF-4B09-AEFE-1343B72CD40E.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `Button (First Match)`_0_636853E8-8895-4264-829B-54AB9B691E4B.txt",
+        "timestamp" : 1790947506.441
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "AE8079B4-BF09-4ACF-B3E4-A9DE41DB3237.mp4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Screen Recording 2026-10-02 at 09.25.05 下午.mp4",
+        "timestamp" : 1790947505.05
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "DF61C973-61C6-4D3B-AE06-F9CD0272EA89.txt",
+        "isAssociatedWithFailure" : true,
+        "suggestedHumanReadableName" : "Complete Issue Description.txt"
+      }
+    ],
+    "testIdentifier" : "ShareMenuChecks/testNativeShareCopy()",
+    "testIdentifierURL" : "test://com.apple.xcode/ShareMenuChecks/ShareMenuChecks/ShareMenuChecks/testNativeShareCopy"
+  }
+]

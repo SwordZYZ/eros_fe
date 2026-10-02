@@ -1,0 +1,21 @@
+{
+  "label": "lock_screen_privacy_off",
+  "source": "App container event export collected before console cleanup",
+  "states": [
+    "inactive",
+    "resumed",
+    "inactive",
+    "resumed",
+    "inactive",
+    "hidden",
+    "paused",
+    "hidden",
+    "inactive",
+    "resumed"
+  ],
+  "restore": "PASS",
+  "noException": "PASS",
+  "errors": [],
+  "interaction": "NOT_VERIFIED: CLI VM service disconnected; repeat with manual menu interaction planned",
+  "manualObservation": "privacy-off-manual.json"
+}

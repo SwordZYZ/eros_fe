@@ -1,0 +1,14 @@
+{
+  "round": 1,
+  "status": "PASS",
+  "observationSource": "user manual native action and pasted clipboard value",
+  "recordedAt": "2026-10-02T14:09:59.201290+00:00",
+  "replyVerbatim": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567 菜单已关闭、App 正常",
+  "copiedValue": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+  "expectedMagnet": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+  "copiedMagnetMatches": true,
+  "nativeCopyPerformed": true,
+  "menuDismissed": true,
+  "appNormal": true,
+  "screenshotCaveat": "devicectl screenshot does not show the native share menu; capture alone cannot establish whether it was open or dismissed. Visibility and actual Copy are supported by user feedback."
+}

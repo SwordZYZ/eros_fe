@@ -1,0 +1,30 @@
+{
+  "event": "debug_transport_lost_during_physical_lock",
+  "status": "RECORDED_TOOLING_FAILURE",
+  "originalFlutterExitCode": 0,
+  "log": "ipad-smoke.log",
+  "failedHostCommands": [
+    "lifecycle_end label=lock_screen_privacy_off",
+    "privacy enabled=true",
+    "lifecycle_begin label=lock_screen_privacy_on"
+  ],
+  "hostFailure": "SocketException: Connection refused / errno 61",
+  "hostFailureEvidence": "driver.log",
+  "appProcessStillRunning": 80125,
+  "appProcessEvidence": "processes-after-lock-off.json",
+  "appLifecycleExport": "ipad-smoke-app-events.json",
+  "userAppRestoration": "normal",
+  "resumeObservedAt": "2026-10-02T14:17:20.015496Z",
+  "nextAction": "CLI attach to the still-running app; do not rebuild or restart",
+  "orphanConsole": {
+    "pid": 21200,
+    "ppid": 1,
+    "pgid": 21200,
+    "inheritedLock": true,
+    "evidence": "lock-after-disconnect.log",
+    "action": "SIGTERM only to the identified orphan console; no lock file deletion"
+  },
+  "reattachResult": "Target debug process no longer listed after console cleanup; attach waiting; cancelled. Resume events exported before cleanup remain intact.",
+  "targetProcessBeforeCleanup": 80125,
+  "processEvidenceAfterCleanup": "processes-after-console-cleanup.json"
+}

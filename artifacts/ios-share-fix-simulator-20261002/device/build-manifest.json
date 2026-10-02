@@ -1,0 +1,9 @@
+{
+  "bundleIdentifier": "com.fuhua.erosfe.step5a",
+  "executable": "fehviewer",
+  "executableSha256": "a4545c930560865db7294b4c8bb170368bb5ce011f57911d9f135b9f0ad4ec3d",
+  "deviceBuildExit": 0,
+  "entrypoint": "tool/ios_baseline_probe.dart",
+  "command": "scripts/ios_dev.sh build ios --debug -t tool/ios_baseline_probe.dart",
+  "sourceManifest": "../source-manifest.json"
+}

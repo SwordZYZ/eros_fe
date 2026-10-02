@@ -1,0 +1,7 @@
+{
+  "round": 1,
+  "status": "FAIL",
+  "nativeExitCode": 65,
+  "error": "AssertionError('Native UI check failed; see simulator-1-native.log')",
+  "flutterExitCode": 0
+}

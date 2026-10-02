@@ -1,0 +1,1166 @@
+[
+  {
+    "captureTime": "2026-10-02 22:24:39.2738 +0800",
+    "procName": "fehviewer",
+    "procPath": "/private/var/containers/Bundle/Application/2D69DEEF-D651-4E28-A755-9A73EA7DD150/fehviewer.app/fehviewer",
+    "pid": 80278,
+    "bundleInfo": {
+      "CFBundleShortVersionString": "1.9.2",
+      "CFBundleVersion": "566",
+      "CFBundleIdentifier": "com.fuhua.erosfe.step5a"
+    },
+    "exception": {
+      "codes": "0x0000000000000032, 0x0000000159400090",
+      "rawCodes": [
+        50,
+        5792333968
+      ],
+      "type": "EXC_BAD_ACCESS",
+      "signal": "SIGBUS",
+      "subtype": "UNKNOWN_0x32 at 0x0000000159400090"
+    },
+    "termination": {
+      "flags": 0,
+      "code": 10,
+      "namespace": "SIGNAL",
+      "indicator": "Bus error: 10",
+      "byProc": "exc handler",
+      "byPid": 80278
+    },
+    "faultingThread": 0,
+    "vmRegionInfo": "0x159400090 is in 0x159400000-0x159480000;  bytes after start: 144  bytes before end: 524143\n      REGION TYPE                   START - END        [ VSIZE] PRT/MAX SHRMOD  REGION DETAIL\n      Untagged                   159380000-159400000   [  512K] rw-/rwx SM=PRV  \n--->  shared memory              159400000-159480000   [  512K] r-x/rwx SM=SHM  \n      shared memory              159480000-159484000   [   16K] r--/rwx SM=SHM  ",
+    "file": "fehviewer-2026-10-02-222440.ips",
+    "header": {
+      "app_name": "fehviewer",
+      "timestamp": "2026-10-02 22:24:40.00 +0800",
+      "app_version": "1.9.2",
+      "slice_uuid": "784c2b55-2bc5-3dcc-b98c-675604ccb4e7",
+      "build_version": "566",
+      "platform": 2,
+      "bundleID": "com.fuhua.erosfe.step5a",
+      "share_with_app_devs": 1,
+      "is_first_party": 0,
+      "bug_type": "309",
+      "os_version": "iPhone OS 27.0 (24A437)",
+      "roots_installed": 0,
+      "name": "fehviewer",
+      "incident_id": "2B71AD8F-A9B3-46A5-8991-E964C02A5B07"
+    },
+    "triggeredThreadFrames": [
+      {
+        "imageOffset": 5792333968,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5688724064,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5688671836,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5935401648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5688654184,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5688641252,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5688621532,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5962179736,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5688621532,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5229394536,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5229379756,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5688621532,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5935070480,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5833230136,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5688590836,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698482248,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698481248,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698480936,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698480484,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698131960,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698129528,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698127796,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698479996,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698478836,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720183388,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720251864,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720276284,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720283372,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720276284,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5698479040,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720276284,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720267076,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720184648,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720177764,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720248788,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720236184,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720165044,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720157828,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720158776,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720154068,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720102996,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720101176,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720100896,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720099448,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5720093220,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5824436448,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5824435736,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5703238236,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5830078444,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5962193004,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5050612728,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5277821480,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5277821112,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5277820872,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5042616964,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 6054692,
+        "symbol": "dart::DartEntry::InvokeFunction(dart::Function const&, dart::Array const&, dart::Array const&)",
+        "symbolLocation": 612,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 10483772,
+        "symbol": "Dart_InvokeClosure",
+        "symbolLocation": 1336,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 1260992,
+        "symbol": "flutter::Shell::OnAnimatorBeginFrame(fml::TimePoint, unsigned long long)",
+        "symbolLocation": 768,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 1124728,
+        "symbol": "std::__fl::__function::__func<flutter::Animator::AwaitVSync()::$_0, std::__fl::allocator<flutter::Animator::AwaitVSync()::$_0>, void (std::__fl::unique_ptr<flutter::FrameTimingsRecorder, std::__fl::default_delete<flutter::FrameTimingsRecorder>>)>::operator()(std::__fl::unique_ptr<flutter::FrameTimingsRecorder, std::__fl::default_delete<flutter::FrameTimingsRecorder>>&&)",
+        "symbolLocation": 1248,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 1340788,
+        "symbol": "std::__fl::__function::__func<flutter::VsyncWaiter::FireCallback(fml::TimePoint, fml::TimePoint, bool)::$_0, std::__fl::allocator<flutter::VsyncWaiter::FireCallback(fml::TimePoint, fml::TimePoint, bool)::$_0>, void ()>::operator()()",
+        "symbolLocation": 856,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 728352,
+        "symbol": "fml::MessageLoopImpl::FlushTasks(fml::FlushType)",
+        "symbolLocation": 336,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 747612,
+        "symbol": "fml::MessageLoopDarwin::OnTimerFire(__CFRunLoopTimer*, fml::MessageLoopDarwin*)",
+        "symbolLocation": 32,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 526992,
+        "symbol": "__CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__",
+        "symbolLocation": 32,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 525120,
+        "symbol": "__CFRunLoopDoTimer",
+        "symbolLocation": 624,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 524316,
+        "symbol": "__CFRunLoopDoTimers",
+        "symbolLocation": 284,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 239976,
+        "symbol": "__CFRunLoopRun",
+        "symbolLocation": 1924,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 243700,
+        "symbol": "_CFRunLoopRunSpecificWithOptions",
+        "symbolLocation": 344,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 3876,
+        "symbol": "GSEventRunModal",
+        "symbolLocation": 120,
+        "imageIndex": 47
+      },
+      {
+        "imageOffset": 762316,
+        "symbol": "UIApplicationMain",
+        "symbolLocation": 336,
+        "imageIndex": 48
+      },
+      {
+        "imageOffset": 3495492,
+        "imageIndex": 48
+      },
+      {
+        "imageOffset": 20856,
+        "symbol": "static UIApplicationDelegate.main()",
+        "symbolLocation": 128,
+        "imageIndex": 1
+      },
+      {
+        "imageOffset": 20712,
+        "symbol": "static AppDelegate.$main()",
+        "symbolLocation": 44,
+        "imageIndex": 1
+      },
+      {
+        "imageOffset": 20980,
+        "symbol": "__debug_main_executable_dylib_entry_point",
+        "symbolLocation": 28,
+        "imageIndex": 1
+      },
+      {
+        "imageOffset": 21944,
+        "symbol": "start",
+        "symbolLocation": 6616,
+        "imageIndex": 49
+      }
+    ],
+    "triggeredImages": [
+      {
+        "index": 1,
+        "source": "P",
+        "arch": "arm64",
+        "base": 4362829824,
+        "size": 20234240,
+        "uuid": "c21fc4f5-51b0-3e23-a5de-3e5eb661b413",
+        "path": "/private/var/containers/Bundle/Application/2D69DEEF-D651-4E28-A755-9A73EA7DD150/fehviewer.app/fehviewer.debug.dylib",
+        "name": "fehviewer.debug.dylib"
+      },
+      {
+        "index": 42,
+        "source": "P",
+        "arch": "arm64",
+        "base": 4433510400,
+        "size": 34455552,
+        "uuid": "4c4c44c8-5555-3144-a1bd-6b4938630e5e",
+        "path": "/private/var/containers/Bundle/Application/2D69DEEF-D651-4E28-A755-9A73EA7DD150/fehviewer.app/Frameworks/Flutter.framework/Flutter",
+        "name": "Flutter"
+      },
+      {
+        "index": 45,
+        "size": 0,
+        "source": "A",
+        "base": 0,
+        "uuid": "00000000-0000-0000-0000-000000000000"
+      },
+      {
+        "index": 46,
+        "source": "P",
+        "arch": "arm64e",
+        "base": 6898577408,
+        "size": 5121912,
+        "uuid": "9426fc9a-b36c-3096-b836-d17d6744a75b",
+        "path": "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation",
+        "name": "CoreFoundation"
+      },
+      {
+        "index": 47,
+        "source": "P",
+        "arch": "arm64e",
+        "base": 9755226112,
+        "size": 32420,
+        "uuid": "d0170165-a973-3dbb-86ea-8eb7d0ea9acb",
+        "path": "/System/Library/PrivateFrameworks/GraphicsServices.framework/GraphicsServices",
+        "name": "GraphicsServices"
+      },
+      {
+        "index": 48,
+        "source": "P",
+        "arch": "arm64e",
+        "base": 6968172544,
+        "size": 33777976,
+        "uuid": "aac84a00-13ab-3b06-b622-a4e676971eb8",
+        "path": "/System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore",
+        "name": "UIKitCore"
+      },
+      {
+        "index": 49,
+        "source": "P",
+        "arch": "arm64e",
+        "base": 6897033216,
+        "size": 751416,
+        "uuid": "d3f59b02-ee07-371b-b091-3f150a078ed8",
+        "path": "/usr/lib/dyld",
+        "name": "dyld"
+      }
+    ],
+    "buildBinaryUuidEvidence": "binary-uuid.txt"
+  },
+  {
+    "captureTime": "2026-10-02 22:29:34.8438 +0800",
+    "procName": "fehviewer",
+    "procPath": "/private/var/containers/Bundle/Application/65A0BA30-D522-4EFC-8EA4-669A677CEE78/fehviewer.app/fehviewer",
+    "pid": 80332,
+    "bundleInfo": {
+      "CFBundleShortVersionString": "1.9.2",
+      "CFBundleVersion": "566",
+      "CFBundleIdentifier": "com.fuhua.erosfe.step5a"
+    },
+    "exception": {
+      "codes": "0x0000000000000032, 0x0000000157a800c4",
+      "rawCodes": [
+        50,
+        5765595332
+      ],
+      "type": "EXC_BAD_ACCESS",
+      "signal": "SIGBUS",
+      "subtype": "UNKNOWN_0x32 at 0x0000000157a800c4"
+    },
+    "termination": {
+      "flags": 0,
+      "code": 10,
+      "namespace": "SIGNAL",
+      "indicator": "Bus error: 10",
+      "byProc": "exc handler",
+      "byPid": 80332
+    },
+    "faultingThread": 0,
+    "vmRegionInfo": "0x157a800c4 is in 0x157a80000-0x157b00000;  bytes after start: 196  bytes before end: 524091\n      REGION TYPE                   START - END        [ VSIZE] PRT/MAX SHRMOD  REGION DETAIL\n      Untagged                   157a00000-157a80000   [  512K] rw-/rwx SM=PRV  \n--->  shared memory              157a80000-157b00000   [  512K] r-x/rwx SM=SHM  \n      shared memory              157b00000-157b04000   [   16K] r--/rwx SM=SHM  ",
+    "file": "fehviewer-2026-10-02-222935.ips",
+    "header": {
+      "app_name": "fehviewer",
+      "timestamp": "2026-10-02 22:29:35.00 +0800",
+      "app_version": "1.9.2",
+      "slice_uuid": "784c2b55-2bc5-3dcc-b98c-675604ccb4e7",
+      "build_version": "566",
+      "platform": 2,
+      "bundleID": "com.fuhua.erosfe.step5a",
+      "share_with_app_devs": 1,
+      "is_first_party": 0,
+      "bug_type": "309",
+      "os_version": "iPhone OS 27.0 (24A437)",
+      "roots_installed": 0,
+      "name": "fehviewer",
+      "incident_id": "D4B55854-B8E9-485D-91E8-88F3DF7C42E7"
+    },
+    "triggeredThreadFrames": [
+      {
+        "imageOffset": 5765595332,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661941408,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661937620,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661914876,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5923501548,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661959632,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661953204,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661951144,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661937620,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661914876,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5640719784,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661914876,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5200009752,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5199994972,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661914876,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5923501600,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671727704,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5661876292,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671724312,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671723312,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671723000,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671722548,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671373896,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671371464,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671369732,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671722060,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671720900,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693943836,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5694012312,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5694036732,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5694043820,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5694036732,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5671721104,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5694036732,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5694027524,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693945096,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693938212,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5694009236,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693996632,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693925492,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693918276,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693919224,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693914516,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693863476,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693861656,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693861376,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693859928,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5693853700,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5798722944,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5798722232,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5934112492,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5683229740,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5640715932,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5024398328,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5251607080,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5251606712,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5251606472,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 5016402564,
+        "imageIndex": 45
+      },
+      {
+        "imageOffset": 6054692,
+        "symbol": "dart::DartEntry::InvokeFunction(dart::Function const&, dart::Array const&, dart::Array const&)",
+        "symbolLocation": 612,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 10483772,
+        "symbol": "Dart_InvokeClosure",
+        "symbolLocation": 1336,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 1260992,
+        "symbol": "flutter::Shell::OnAnimatorBeginFrame(fml::TimePoint, unsigned long long)",
+        "symbolLocation": 768,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 1124728,
+        "symbol": "std::__fl::__function::__func<flutter::Animator::AwaitVSync()::$_0, std::__fl::allocator<flutter::Animator::AwaitVSync()::$_0>, void (std::__fl::unique_ptr<flutter::FrameTimingsRecorder, std::__fl::default_delete<flutter::FrameTimingsRecorder>>)>::operator()(std::__fl::unique_ptr<flutter::FrameTimingsRecorder, std::__fl::default_delete<flutter::FrameTimingsRecorder>>&&)",
+        "symbolLocation": 1248,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 1340788,
+        "symbol": "std::__fl::__function::__func<flutter::VsyncWaiter::FireCallback(fml::TimePoint, fml::TimePoint, bool)::$_0, std::__fl::allocator<flutter::VsyncWaiter::FireCallback(fml::TimePoint, fml::TimePoint, bool)::$_0>, void ()>::operator()()",
+        "symbolLocation": 856,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 728352,
+        "symbol": "fml::MessageLoopImpl::FlushTasks(fml::FlushType)",
+        "symbolLocation": 336,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 747612,
+        "symbol": "fml::MessageLoopDarwin::OnTimerFire(__CFRunLoopTimer*, fml::MessageLoopDarwin*)",
+        "symbolLocation": 32,
+        "imageIndex": 42
+      },
+      {
+        "imageOffset": 526992,
+        "symbol": "__CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__",
+        "symbolLocation": 32,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 525120,
+        "symbol": "__CFRunLoopDoTimer",
+        "symbolLocation": 624,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 524316,
+        "symbol": "__CFRunLoopDoTimers",
+        "symbolLocation": 284,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 239976,
+        "symbol": "__CFRunLoopRun",
+        "symbolLocation": 1924,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 243700,
+        "symbol": "_CFRunLoopRunSpecificWithOptions",
+        "symbolLocation": 344,
+        "imageIndex": 46
+      },
+      {
+        "imageOffset": 3876,
+        "symbol": "GSEventRunModal",
+        "symbolLocation": 120,
+        "imageIndex": 47
+      },
+      {
+        "imageOffset": 762316,
+        "symbol": "UIApplicationMain",
+        "symbolLocation": 336,
+        "imageIndex": 48
+      },
+      {
+        "imageOffset": 3495492,
+        "imageIndex": 48
+      },
+      {
+        "imageOffset": 20856,
+        "symbol": "static UIApplicationDelegate.main()",
+        "symbolLocation": 128,
+        "imageIndex": 1
+      },
+      {
+        "imageOffset": 20712,
+        "symbol": "static AppDelegate.$main()",
+        "symbolLocation": 44,
+        "imageIndex": 1
+      },
+      {
+        "imageOffset": 20980,
+        "symbol": "__debug_main_executable_dylib_entry_point",
+        "symbolLocation": 28,
+        "imageIndex": 1
+      },
+      {
+        "imageOffset": 21944,
+        "symbol": "start",
+        "symbolLocation": 6616,
+        "imageIndex": 49
+      }
+    ],
+    "triggeredImages": [
+      {
+        "index": 1,
+        "source": "P",
+        "arch": "arm64",
+        "base": 4337287168,
+        "size": 20234240,
+        "uuid": "c21fc4f5-51b0-3e23-a5de-3e5eb661b413",
+        "path": "/private/var/containers/Bundle/Application/65A0BA30-D522-4EFC-8EA4-669A677CEE78/fehviewer.app/fehviewer.debug.dylib",
+        "name": "fehviewer.debug.dylib"
+      },
+      {
+        "index": 42,
+        "source": "P",
+        "arch": "arm64",
+        "base": 4407967744,
+        "size": 34455552,
+        "uuid": "4c4c44c8-5555-3144-a1bd-6b4938630e5e",
+        "path": "/private/var/containers/Bundle/Application/65A0BA30-D522-4EFC-8EA4-669A677CEE78/fehviewer.app/Frameworks/Flutter.framework/Flutter",
+        "name": "Flutter"
+      },
+      {
+        "index": 45,
+        "size": 0,
+        "source": "A",
+        "base": 0,
+        "uuid": "00000000-0000-0000-0000-000000000000"
+      },
+      {
+        "index": 46,
+        "source": "P",
+        "arch": "arm64e",
+        "base": 6898577408,
+        "size": 5121912,
+        "uuid": "9426fc9a-b36c-3096-b836-d17d6744a75b",
+        "path": "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation",
+        "name": "CoreFoundation"
+      },
+      {
+        "index": 47,
+        "source": "P",
+        "arch": "arm64e",
+        "base": 9755226112,
+        "size": 32420,
+        "uuid": "d0170165-a973-3dbb-86ea-8eb7d0ea9acb",
+        "path": "/System/Library/PrivateFrameworks/GraphicsServices.framework/GraphicsServices",
+        "name": "GraphicsServices"
+      },
+      {
+        "index": 48,
+        "source": "P",
+        "arch": "arm64e",
+        "base": 6968172544,
+        "size": 33777976,
+        "uuid": "aac84a00-13ab-3b06-b622-a4e676971eb8",
+        "path": "/System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore",
+        "name": "UIKitCore"
+      },
+      {
+        "index": 49,
+        "source": "P",
+        "arch": "arm64e",
+        "base": 6897033216,
+        "size": 751416,
+        "uuid": "d3f59b02-ee07-371b-b091-3f150a078ed8",
+        "path": "/usr/lib/dyld",
+        "name": "dyld"
+      }
+    ],
+    "buildBinaryUuidEvidence": "binary-uuid.txt"
+  }
+]

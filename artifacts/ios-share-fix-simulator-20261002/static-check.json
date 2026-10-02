@@ -1,0 +1,15 @@
+{
+  "targetFile": "lib/pages/gallery/view/torrent_dialog.dart",
+  "defaultAnalyzeExitCode": 1,
+  "noFatalInfosAnalyzeExitCode": 0,
+  "diagnostics": [
+    "info • Parameter 'key' could be a super parameter. Trying converting 'key' to a super parameter • lib/pages/gallery/view/torrent_dialog.dart:17:9 • use_super_parameters",
+    "info • Unnecessary instance of 'Container'. Try removing the 'Container' (but not its children) from the widget tree • lib/pages/gallery/view/torrent_dialog.dart:50:18 • avoid_unnecessary_containers",
+    "info • Parameter 'key' could be a super parameter. Trying converting 'key' to a super parameter • lib/pages/gallery/view/torrent_dialog.dart:84:9 • use_super_parameters",
+    "info • 'minSize' is deprecated and shouldn't be used. Use minimumSize instead. This feature was deprecated after v3.28.0-3.0.pre. Try replacing the use of the deprecated member with the replacement • lib/pages/gallery/view/torrent_dialog.dart:164:21 • deprecated_member_use",
+    "info • The local variable '_magnet' starts with an underscore. Try renaming the variable to not start with an underscore • lib/pages/gallery/view/torrent_dialog.dart:169:36 • no_leading_underscores_for_local_identifiers",
+    "info • 'Share' is deprecated and shouldn't be used. Use SharePlus instead. Try replacing the use of the deprecated member with the replacement • lib/pages/gallery/view/torrent_dialog.dart:173:29 • deprecated_member_use",
+    "info • 'share' is deprecated and shouldn't be used. Use SharePlus.instance.share() instead. Try replacing the use of the deprecated member with the replacement • lib/pages/gallery/view/torrent_dialog.dart:173:35 • deprecated_member_use"
+  ],
+  "note": "Seven pre-existing info-level style/deprecation diagnostics; no error or warning reported. No dependency or API migration."
+}

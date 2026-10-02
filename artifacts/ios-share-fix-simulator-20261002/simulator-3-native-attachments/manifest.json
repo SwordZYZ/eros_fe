@@ -1,0 +1,35 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "44AB440F-5210-49C3-985D-4C5511369685.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "after-copy_0_69DEB215-7775-4551-89E9-AAF0C3492D94.png",
+        "timestamp" : 1790947760.772
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "30E8C5ED-F43C-40B0-A516-EAEA967E8042.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "native-share-accessibility_0_D8A5B4DF-96FB-4AF0-A308-1C0DC75AFF32.txt",
+        "timestamp" : 1790947758.705
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+        "deviceName" : "iPad Pro 11-inch (M5)",
+        "exportedFileName" : "79D7BBE5-55AA-4B24-B297-9B52E5F061D8.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "native-share-menu_0_5C188D17-A718-4FFE-8EEA-6D27B8255AF0.png",
+        "timestamp" : 1790947758.417
+      }
+    ],
+    "testIdentifier" : "ShareMenuChecks/testNativeShareCopy()",
+    "testIdentifierURL" : "test://com.apple.xcode/ShareMenuChecks/ShareMenuChecks/ShareMenuChecks/testNativeShareCopy"
+  }
+]

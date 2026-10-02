@@ -1,0 +1,37 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "device",
+      "info",
+      "files",
+      "--device",
+      "00008132-000278923E99001C",
+      "--domain-type",
+      "appDataContainer",
+      "--domain-identifier",
+      "com.fuhua.erosfe.step5a",
+      "--subdirectory",
+      "Documents/log",
+      "--timeout",
+      "20",
+      "--json-output",
+      "artifacts/ios-share-fix-simulator-20261002/device/native-app-log-files.json"
+    ],
+    "commandType" : "devicectl.device.info.files",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 5,
+    "outcome" : "success",
+    "version" : "642.16"
+  },
+  "result" : {
+    "deviceIdentifier" : "A8511718-99C6-58D3-8BF2-CCC11F34252B",
+    "domain" : "appDataContainer",
+    "domainIdentifier" : "com.fuhua.erosfe.step5a",
+    "files" : [
+
+    ]
+  }
+}

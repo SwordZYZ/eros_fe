@@ -1,0 +1,49 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "device",
+      "info",
+      "apps",
+      "--device",
+      "00008132-000278923E99001C",
+      "--bundle-id",
+      "com.fuhua.erosfe.step5a",
+      "--timeout",
+      "20",
+      "--json-output",
+      "artifacts/ios-share-fix-simulator-20261002/device/installed-app.json"
+    ],
+    "commandType" : "devicectl.device.info.apps",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 5,
+    "outcome" : "success",
+    "version" : "642.16"
+  },
+  "result" : {
+    "apps" : [
+      {
+        "appClip" : false,
+        "builtByDeveloper" : true,
+        "bundleIdentifier" : "com.fuhua.erosfe.step5a",
+        "bundleVersion" : "566",
+        "containerAccessible" : true,
+        "defaultApp" : false,
+        "hidden" : false,
+        "internalApp" : false,
+        "name" : "Eros-FE",
+        "removable" : true,
+        "url" : "file:///private/var/containers/Bundle/Application/B4E65F14-FAA0-4217-9760-1BE431BD63AD/fehviewer.app/",
+        "version" : "1.9.2"
+      }
+    ],
+    "defaultAppsIncluded" : false,
+    "deviceIdentifier" : "A8511718-99C6-58D3-8BF2-CCC11F34252B",
+    "hiddenAppsIncluded" : false,
+    "internalAppsIncluded" : false,
+    "matchingBundleIdentifier" : "com.fuhua.erosfe.step5a",
+    "removableAppsIncluded" : true
+  }
+}
