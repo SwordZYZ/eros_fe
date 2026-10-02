@@ -1,0 +1,11 @@
+{
+  "frozenAt": "2026-10-02T13:00:06.310770+00:00",
+  "baseCommit": "641a34d719b2c7230c19ef5a02fe4b72fdbceeea",
+  "sourceFiles": {
+    "scripts/ios_lock.py": "4f1cf1ff1a113a2ebc5ebb5d5fdaaa1fafc202cbc3451bdc7b7fd04cec772a78",
+    "docs/ios-build-lock.md": "98db1816db256b2549add69234d249c59946d05e13c3e6519f04595b0d90d5d6",
+    "tool/ios_lock_exit_check.py": "411a48eb428d738968f1e80568c15aafd834383c72663b1677cfd9dd1eca62a3"
+  },
+  "patchSha256": "c90f07bda068d3129776bbb97492093cc0e162df87c5ad98815070814c169de5",
+  "scope": "process-group exit cleanup fix and targeted regression check; no application source changes"
+}

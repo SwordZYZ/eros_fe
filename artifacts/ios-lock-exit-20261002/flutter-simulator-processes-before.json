@@ -1,0 +1,39 @@
+{
+  "holder": {
+    "pid": 94643,
+    "command": "bash"
+  },
+  "supervisedGroups": [
+    94653
+  ],
+  "members": [
+    {
+      "pid": 94653,
+      "ppid": 94643,
+      "pgid": 94653,
+      "state": "Ss",
+      "command": "bash"
+    },
+    {
+      "pid": 94704,
+      "ppid": 94653,
+      "pgid": 94653,
+      "state": "S",
+      "command": "/Users/fuhua/fvm/versions/3.47.3/bin/cache/dart-sdk/bin/dartvm"
+    },
+    {
+      "pid": 94807,
+      "ppid": 94704,
+      "pgid": 94653,
+      "state": "S",
+      "command": "/Users/fuhua/fvm/versions/3.47.3/bin/cache/dart-sdk/bin/dartaotruntime"
+    },
+    {
+      "pid": 94809,
+      "ppid": 94704,
+      "pgid": 94653,
+      "state": "S",
+      "command": "/Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/Resources/bin/simctl"
+    }
+  ]
+}

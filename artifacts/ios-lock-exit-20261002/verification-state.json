@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-02T12:57:13.933876+00:00",
+  "baseCommit": "641a34d719b2c7230c19ef5a02fe4b72fdbceeea",
+  "host": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "python": "3.14.7",
+  "xcode": "Xcode 27.0\nBuild version 27A266a",
+  "beforeScriptSha256": "b576b81e4c323b166c170695786215bf9037dadb6041d983b704d719c3570e97",
+  "afterScriptSha256": "4f1cf1ff1a113a2ebc5ebb5d5fdaaa1fafc202cbc3451bdc7b7fd04cec772a78",
+  "checkScriptSha256": "411a48eb428d738968f1e80568c15aafd834383c72663b1677cfd9dd1eca62a3",
+  "dependencyLocks": {
+    "pubspec.lock": {
+      "sha256": "469224571e8aa5a4d5ef1aec5dee6937bac3c912f34300ded6bc957c2c9c553f",
+      "matchesBaseCommit": true
+    },
+    "ios/Podfile.lock": {
+      "sha256": "cb60fea528c880398847582cffa2856df8ab5fa7c7cb8da6862299fbb1d5525a",
+      "matchesBaseCommit": true
+    },
+    "Gemfile.lock": {
+      "sha256": "b195f5b3d4cfd87603c7f239146b540a6c41c30ab810af1635fd08ca8889e38b",
+      "matchesBaseCommit": true
+    }
+  },
+  "original5aEvidenceUnchanged": true,
+  "original5aEvidenceFilesChecked": 149
+}

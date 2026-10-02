@@ -1,0 +1,307 @@
+diff --git a/docs/ios-build-lock.md b/docs/ios-build-lock.md
+index 870af1c1..847617a6 100644
+--- a/docs/ios-build-lock.md
++++ b/docs/ios-build-lock.md
+@@ -10,8 +10,8 @@ ML Kit 0.12.0 的 helper 会在每次构建时根据目标 SDK 修改 Pods 二
+ | --- | --- |
+ | [scripts/ios_lock.py:16](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_lock.py:16) | checkout 级锁路径；使用 Python 标准库 `fcntl.flock`，无需新增包。 |
+ | [scripts/ios_lock.py:24](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_lock.py:24) | 嵌套调用校验继承的文件描述符、checkout 路径和文件 inode，复用同一把锁。 |
+-| [scripts/ios_lock.py:60](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_lock.py:60) | 外层命令结束后先清理同一进程组的残留子进程，再释放锁，避免链接进程仍在读取 Pods。 |
+-| [scripts/ios_lock.py:88](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_lock.py:88) | 获取锁、等待／拒绝、转发中断信号、监督命令生命周期、关闭锁描述符。 |
++| [scripts/ios_lock.py:91](../scripts/ios_lock.py#L91) | 外层命令结束后先清理同一进程组的残留子进程，再释放锁，避免链接进程仍在读取 Pods。 |
++| [scripts/ios_lock.py:119](../scripts/ios_lock.py#L119) | 获取锁、等待／拒绝、转发中断信号、监督命令生命周期、关闭锁描述符。 |
+ | [scripts/ios_common.sh:6](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_common.sh:6) | 共用入口保护，在配置／依赖／构建修改前重新执行受锁保护的脚本。 |
+ | [scripts/ios_common.sh:24](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_common.sh:24) | 抽取原准备脚本的 Flutter 查找逻辑，继续要求 3.47.3。 |
+ | [scripts/ios_dev.sh:23](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_dev.sh:23) | 新的 prepare／pods／build／run 入口；build 与 run 使用 `bundle exec`，整个 run 会话持锁。 |
+@@ -64,6 +64,10 @@ python3 scripts/ios_lock.py -- xcodebuild \
+ 
+ 通用包装器使用 `--no-wait` 选择忙时退出。普通命令退出码会传回调用方；无法启动命令时返回 `127`；收到 INT／TERM／HUP 后转发到子进程组，必要时在两秒后强制结束，最终返回 `128 + 信号编号`。
+ 
++macOS 的 `killpg(pgid, 0)` 在进程组只剩僵尸进程时也可能返回 `EPERM`。锁脚本此时读取 `/bin/ps` 的进程组和状态：确认无活动成员后结束清理；仍有活动成员、检查失败或超时时继续持锁。发送 TERM／KILL 时也处理同一退出竞争，避免未捕获的 `PermissionError` 让监督进程提前结束。僵尸进程已退出，不能继续读取或修改 Pods，其回收仍由父进程或系统负责。
++
++若看到 `Cannot verify process group` 或 `Cannot send signal`，应检查消息中的进程组和本机权限；脚本会等待确认活动成员结束后才释放锁。不要删除锁文件或直接启动另一轮构建来绕过等待。
++
+ ## 锁的实现与保护边界
+ 
+ - 外层 Python 进程持有内核文件锁直到命令及其受监督的子进程组结束。锁描述符传给子进程，嵌套脚本校验后复用，避免准备入口再次获取锁造成死锁。
+@@ -90,3 +94,15 @@ python3 scripts/ios_lock.py -- xcodebuild \
+ - `git diff --check` 通过。
+ - 已静态核对获取锁在修改前发生、嵌套复用路径、退出码和信号清理顺序；本次未运行并发运行时测试、真机／模拟器构建或 CI，不将这些结果记为通过。
+ - 以上为实现阶段的检查记录；用户随后确认验证通过并授权提交。既有两份合并评审报告保留为本地文件。
++
++## Step 5A 后的退出路径修复
++
++Step 5A 实跑发现的异常、修复前同栈复现和修复后的针对性验证见 [退出路径报告](../artifacts/ios-lock-exit-20261002/REPORT.md)。可独立复跑受控进程检查，无需构建 App 或重新执行 5A：
++
++```bash
++python3 tool/ios_lock_exit_check.py \
++  --lock-script scripts/ios_lock.py \
++  --output /private/tmp/ios-lock-exit-results.json
++```
++
++检查使用临时 checkout 和自行创建的进程组，覆盖 TERM、KILL、中断后的僵尸进程退出、清理期间拒绝下一任务，以及权限不足／进程状态未知时继续等待。它不会获取当前 checkout 的锁或操作 Pods。
+diff --git a/scripts/ios_lock.py b/scripts/ios_lock.py
+index e0a9f8ee..d26e3b96 100755
+--- a/scripts/ios_lock.py
++++ b/scripts/ios_lock.py
+@@ -43,11 +43,35 @@ def inherited_lock_fd():
+ 
+ 
+ def group_exists(pgid):
++    """Return whether cleanup must keep waiting for this process group."""
+     try:
+         os.killpg(pgid, 0)
+         return True
+     except ProcessLookupError:
+         return False
++    except PermissionError:
++        # Darwin can return EPERM for a group containing only zombies. Those
++        # processes have exited and cannot access Pods, but EPERM alone cannot
++        # distinguish them from live processes we are not allowed to signal.
++        try:
++            snapshot = subprocess.run(
++                ['/bin/ps', '-axo', 'pgid=,stat='],
++                capture_output=True, text=True, check=True, timeout=2,
++            )
++            rows = snapshot.stdout.splitlines()
++            if not rows:
++                raise ValueError('empty process snapshot')
++            for row in rows:
++                group, state = row.split()
++                if int(group) == pgid and not state.startswith('Z'):
++                    return True
++        except (OSError, subprocess.SubprocessError, ValueError) as error:
++            print(f'[iOS lock] Cannot verify process group {pgid}: {error}; '
++                  'keeping the lock until cleanup can be confirmed.', file=sys.stderr)
++            return True
++        print(f'[iOS lock] Process group {pgid} has no live members after EPERM.',
++              file=sys.stderr)
++        return False
+ 
+ 
+ def signal_group(pgid, signum):
+@@ -55,6 +79,13 @@ def signal_group(pgid, signum):
+         os.killpg(pgid, signum)
+     except ProcessLookupError:
+         pass
++    except PermissionError:
++        # The group may have become zombie-only between checking and signalling.
++        # If any live member remains (or inspection fails), finish_group keeps
++        # waiting with the lock held rather than crashing and releasing it.
++        if group_exists(pgid):
++            print(f'[iOS lock] Cannot send signal {signum} to process group {pgid}; '
++                  'keeping the lock while its live members remain.', file=sys.stderr)
+ 
+ 
+ def finish_group(child):
+@@ -71,7 +102,7 @@ def finish_group(child):
+         time.sleep(0.05)
+     if group_exists(pgid):
+         signal_group(pgid, signal.SIGKILL)
+-        # Keep the lock until the group is gone, including delayed termination.
++        # Keep the lock until no live member remains, including delayed termination.
+         while group_exists(pgid):
+             child.poll()
+             time.sleep(0.05)
+diff --git a/tool/ios_lock_exit_check.py b/tool/ios_lock_exit_check.py
+new file mode 100644
+index 00000000..ed623032
+--- /dev/null
++++ b/tool/ios_lock_exit_check.py
+@@ -0,0 +1,196 @@
++#!/usr/bin/env python3
++"""Check the macOS lock cleanup path using disposable processes, without Pods."""
++
++import argparse
++import errno
++import importlib.util
++import json
++import os
++from pathlib import Path
++import shutil
++import signal
++import subprocess
++import sys
++import tempfile
++import time
++from unittest import mock
++
++
++def wait_for(predicate, timeout=10):
++    deadline = time.monotonic() + timeout
++    while time.monotonic() < deadline:
++        if predicate():
++            return
++        time.sleep(0.05)
++    raise TimeoutError('Timed out waiting for fixture state')
++
++
++def fixture(directory, mode):
++    """Retain a zombie outside the supervised group until the check releases it."""
++    directory = Path(directory)
++    group = os.getpgrp()
++    reaper = os.fork()
++    if reaper == 0:
++        os.setpgid(0, 0)
++        # Only the supervisor should keep the lock during cleanup in this check.
++        os.close(int(os.environ['EROS_IOS_LOCK_FD']))
++        worker = os.fork()
++        if worker == 0:
++            os.setpgid(0, group)
++            if mode != 'term':
++                signal.signal(signal.SIGTERM, signal.SIG_IGN)
++            (directory / 'worker.json').write_text(json.dumps({
++                'pid': os.getpid(), 'pgid': group, 'reaper': os.getppid(),
++            }))
++            while True:
++                signal.pause()
++        try:
++            wait_for(lambda: (directory / 'reap').exists(), timeout=20)
++        finally:
++            try:
++                os.kill(worker, signal.SIGKILL)
++            except ProcessLookupError:
++                pass
++            os.waitpid(worker, 0)
++        os._exit(0)
++    wait_for(lambda: (directory / 'worker.json').exists())
++    if mode == 'interrupt':
++        while True:
++            signal.pause()
++    os._exit(23)
++
++
++def process_state(pid):
++    result = subprocess.run(
++        ['/bin/ps', '-p', str(pid), '-o', 'stat='],
++        capture_output=True, text=True, check=False, timeout=2,
++    )
++    if result.returncode not in (0, 1):
++        raise RuntimeError(result.stderr)
++    return result.stdout.strip()
++
++
++def runtime_case(lock_script, mode, expect_regression):
++    with tempfile.TemporaryDirectory(prefix='eros-lock-exit-') as temporary:
++        directory = Path(temporary)
++        scripts = directory / 'scripts'
++        scripts.mkdir()
++        copied = scripts / 'ios_lock.py'
++        shutil.copyfile(lock_script, copied)
++        stderr_path = directory / 'supervisor.stderr'
++        child = None
++        worker = None
++        observation = {'case': mode}
++        with stderr_path.open('w') as stderr:
++            child = subprocess.Popen([
++                sys.executable, str(copied), '--', sys.executable,
++                str(Path(__file__).resolve()), '--fixture', str(directory), mode,
++            ], stdout=subprocess.DEVNULL, stderr=stderr)
++            try:
++                wait_for(lambda: (directory / 'worker.json').exists())
++                worker = json.loads((directory / 'worker.json').read_text())
++                observation['fixture'] = worker
++                if mode != 'term':
++                    if mode == 'interrupt':
++                        child.send_signal(signal.SIGTERM)
++                    wait_for(lambda: 'Stopping remaining child' in stderr_path.read_text())
++                    competing = subprocess.run([
++                        sys.executable, str(copied), '--no-wait', '--',
++                        sys.executable, '-c', 'raise SystemExit(0)',
++                    ], capture_output=True, text=True, timeout=5)
++                    observation['during_cleanup_exit'] = competing.returncode
++                    assert competing.returncode == 75, competing.stderr
++                    assert not process_state(worker['pid']).startswith('Z')
++                child.wait(timeout=10)
++                observation['exit_code'] = child.returncode
++                observation['stderr'] = stderr_path.read_text()
++                observation['worker_state_after_exit'] = process_state(worker['pid'])
++                assert observation['worker_state_after_exit'].startswith('Z'), observation
++                try:
++                    os.killpg(worker['pgid'], 0)
++                except PermissionError as error:
++                    observation['zombie_group_probe_errno'] = error.errno
++                else:
++                    raise AssertionError('Fixture did not produce macOS EPERM')
++                assert observation['zombie_group_probe_errno'] == errno.EPERM
++                if expect_regression:
++                    assert child.returncode != 23 and 'PermissionError' in observation['stderr']
++                    observation['status'] = 'REPRODUCED'
++                else:
++                    expected = 143 if mode == 'interrupt' else 23
++                    assert child.returncode == expected, observation
++                    assert 'Traceback' not in observation['stderr'], observation
++                    competing = subprocess.run([
++                        sys.executable, str(copied), '--no-wait', '--',
++                        sys.executable, '-c', 'raise SystemExit(0)',
++                    ], capture_output=True, text=True, timeout=5)
++                    observation['after_cleanup_exit'] = competing.returncode
++                    assert competing.returncode == 0, competing.stderr
++                    observation['status'] = 'PASS'
++            finally:
++                # Release only this fixture's reaper; never target existing groups.
++                (directory / 'reap').touch()
++                if child.poll() is None:
++                    child.send_signal(signal.SIGTERM)
++                    child.wait(timeout=10)
++                if worker is not None:
++                    wait_for(lambda: not process_state(worker['reaper']) or
++                             process_state(worker['reaper']).startswith('Z'))
++        return observation
++
++
++def boundary_cases(lock_script):
++    spec = importlib.util.spec_from_file_location('ios_lock_under_check', lock_script)
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    results = []
++    denied = PermissionError(errno.EPERM, 'controlled permission denial')
++    for label, snapshot, expected in (
++        ('zombie_only', '123 Z\n123 Z+\n', False),
++        ('live_and_zombie', '123 Z\n123 S\n', True),
++        ('group_disappeared', '999 S\n', False),
++        ('snapshot_empty', '', True),
++        ('snapshot_malformed', 'not-a-group Z\n', True),
++    ):
++        with mock.patch.object(module.os, 'killpg', side_effect=denied), \
++                mock.patch.object(module.subprocess, 'run', return_value=
++                                  subprocess.CompletedProcess([], 0, snapshot, '')):
++            assert module.group_exists(123) is expected, label
++            module.signal_group(123, signal.SIGTERM)
++        results.append({'case': label, 'status': 'PASS', 'group_exists': expected})
++    for label, failure in (
++        ('snapshot_denied', PermissionError(errno.EPERM, 'ps denied')),
++        ('snapshot_timeout', subprocess.TimeoutExpired('ps', 2)),
++        ('snapshot_failed', subprocess.CalledProcessError(1, 'ps')),
++    ):
++        with mock.patch.object(module.os, 'killpg', side_effect=denied), \
++                mock.patch.object(module.subprocess, 'run', side_effect=failure):
++            assert module.group_exists(123) is True, label
++            module.signal_group(123, signal.SIGTERM)
++        results.append({'case': label, 'status': 'PASS', 'group_exists': True})
++    return results
++
++
++def main():
++    if len(sys.argv) > 1 and sys.argv[1] == '--fixture':
++        fixture(sys.argv[2], sys.argv[3])
++        return
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--lock-script', type=Path, required=True)
++    parser.add_argument('--output', type=Path, required=True)
++    parser.add_argument('--expect-regression', action='store_true')
++    args = parser.parse_args()
++    if sys.platform != 'darwin':
++        parser.error('This check exercises the macOS zombie/EPERM path')
++    modes = ['term'] if args.expect_regression else ['term', 'kill', 'interrupt']
++    results = [runtime_case(args.lock_script, mode, args.expect_regression) for mode in modes]
++    if not args.expect_regression:
++        results.extend(boundary_cases(args.lock_script))
++    args.output.parent.mkdir(parents=True, exist_ok=True)
++    args.output.write_text(json.dumps(results, indent=2) + '\n')
++    for result in results:
++        print(result['case'], result['status'])
++
++
++if __name__ == '__main__':
++    main()

@@ -1,0 +1,15 @@
+[
+  {
+    "case": "term",
+    "fixture": {
+      "pid": 93882,
+      "pgid": 93880,
+      "reaper": 93881
+    },
+    "exit_code": 1,
+    "stderr": "[iOS lock] Acquired /private/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-0s3p_lfq/.ios-development.lock; held until this command/session ends.\n[iOS lock] Stopping remaining child processes before unlocking.\nTraceback (most recent call last):\n  File \"/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-0s3p_lfq/scripts/ios_lock.py\", line 192, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-0s3p_lfq/scripts/ios_lock.py\", line 188, in main\n    return run_locked(command, args.no_wait)\n  File \"/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-0s3p_lfq/scripts/ios_lock.py\", line 168, in run_locked\n    finish_group(child)\n    ~~~~~~~~~~~~^^^^^^^\n  File \"/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-0s3p_lfq/scripts/ios_lock.py\", line 69, in finish_group\n    while group_exists(pgid) and time.monotonic() < deadline:\n          ~~~~~~~~~~~~^^^^^^\n  File \"/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-0s3p_lfq/scripts/ios_lock.py\", line 47, in group_exists\n    os.killpg(pgid, 0)\n    ~~~~~~~~~^^^^^^^^^\nPermissionError: [Errno 1] Operation not permitted\n",
+    "worker_state_after_exit": "Z",
+    "zombie_group_probe_errno": 1,
+    "status": "REPRODUCED"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-02T12:58:01.007648+00:00",
+  "status": "PASS",
+  "command": [
+    "scripts/ios_dev.sh",
+    "run",
+    "--debug",
+    "-d",
+    "E3B49F40-CB5C-4CDC-A04D-35E0284103A8",
+    "-t",
+    "tool/ios_baseline_probe.dart",
+    "--use-application-binary=build/ios/iphonesimulator/fehviewer.app"
+  ],
+  "exitInput": "q",
+  "exitCode": 0,
+  "supervisorExited": true,
+  "remainingGroupMembers": [],
+  "activeGroupMembers": 0,
+  "lockReacquireExitCode": 0,
+  "lockReacquireStdout": "EXIT_LOCK_REACQUIRED\n",
+  "lockReacquireStderr": "[iOS lock] Acquired /Users/fuhua/.codex/worktrees/da3d/eros_fe/.ios-development.lock; held until this command/session ends.\n",
+  "exitLogExcerpt": [
+    "[iOS lock] Acquired /Users/fuhua/.codex/worktrees/da3d/eros_fe/.ios-development.lock; held until this command/session ends.",
+    "Application finished.",
+    "[iOS lock] Stopping remaining child processes before unlocking."
+  ],
+  "note": "Actual prebuilt Flutter quit/cleanup passed. This run did not observe EPERM; controlled before/after checks exercise that branch directly. No 5A business commands sent."
+}

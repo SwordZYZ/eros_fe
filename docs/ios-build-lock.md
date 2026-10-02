@@ -10,8 +10,8 @@ ML Kit 0.12.0 的 helper 会在每次构建时根据目标 SDK 修改 Pods 二�
 | --- | --- |
 | [scripts/ios_lock.py:16](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_lock.py:16) | checkout 级锁路径；使用 Python 标准库 `fcntl.flock`，无需新增包。 |
 | [scripts/ios_lock.py:24](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_lock.py:24) | 嵌套调用校验继承的文件描述符、checkout 路径和文件 inode，复用同一把锁。 |
-| [scripts/ios_lock.py:60](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_lock.py:60) | 外层命令结束后先清理同一进程组的残留子进程，再释放锁，避免链接进程仍在读取 Pods。 |
-| [scripts/ios_lock.py:88](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_lock.py:88) | 获取锁、等待／拒绝、转发中断信号、监督命令生命周期、关闭锁描述符。 |
+| [scripts/ios_lock.py:91](../scripts/ios_lock.py#L91) | 外层命令结束后先清理同一进程组的残留子进程，再释放锁，避免链接进程仍在读取 Pods。 |
+| [scripts/ios_lock.py:119](../scripts/ios_lock.py#L119) | 获取锁、等待／拒绝、转发中断信号、监督命令生命周期、关闭锁描述符。 |
 | [scripts/ios_common.sh:6](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_common.sh:6) | 共用入口保护，在配置／依赖／构建修改前重新执行受锁保护的脚本。 |
 | [scripts/ios_common.sh:24](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_common.sh:24) | 抽取原准备脚本的 Flutter 查找逻辑，继续要求 3.47.3。 |
 | [scripts/ios_dev.sh:23](/Users/fuhua/Development/Repositories/eros_fe/scripts/ios_dev.sh:23) | 新的 prepare／pods／build／run 入口；build 与 run 使用 `bundle exec`，整个 run 会话持锁。 |
@@ -64,6 +64,10 @@ python3 scripts/ios_lock.py -- xcodebuild \
 
 通用包装器使用 `--no-wait` 选择忙时退出。普通命令退出码会传回调用方；无法启动命令时返回 `127`；收到 INT／TERM／HUP 后转发到子进程组，必要时在两秒后强制结束，最终返回 `128 + 信号编号`。
 
+macOS 的 `killpg(pgid, 0)` 在进程组只剩僵尸进程时也可能返回 `EPERM`。锁脚本此时读取 `/bin/ps` 的进程组和状态：确认无活动成员后结束清理；仍有活动成员、检查失败或超时时继续持锁。发送 TERM／KILL 时也处理同一退出竞争，避免未捕获的 `PermissionError` 让监督进程提前结束。僵尸进程已退出，不能继续读取或修改 Pods，其回收仍由父进程或系统负责。
+
+若看到 `Cannot verify process group` 或 `Cannot send signal`，应检查消息中的进程组和本机权限；脚本会等待确认活动成员结束后才释放锁。不要删除锁文件或直接启动另一轮构建来绕过等待。
+
 ## 锁的实现与保护边界
 
 - 外层 Python 进程持有内核文件锁直到命令及其受监督的子进程组结束。锁描述符传给子进程，嵌套脚本校验后复用，避免准备入口再次获取锁造成死锁。
@@ -90,3 +94,15 @@ python3 scripts/ios_lock.py -- xcodebuild \
 - `git diff --check` 通过。
 - 已静态核对获取锁在修改前发生、嵌套复用路径、退出码和信号清理顺序；本次未运行并发运行时测试、真机／模拟器构建或 CI，不将这些结果记为通过。
 - 以上为实现阶段的检查记录；用户随后确认验证通过并授权提交。既有两份合并评审报告保留为本地文件。
+
+## Step 5A 后的退出路径修复
+
+Step 5A 实跑发现的异常、修复前同栈复现和修复后的针对性验证见 [退出路径报告](../artifacts/ios-lock-exit-20261002/REPORT.md)。可独立复跑受控进程检查，无需构建 App 或重新执行 5A：
+
+```bash
+python3 tool/ios_lock_exit_check.py \
+  --lock-script scripts/ios_lock.py \
+  --output /private/tmp/ios-lock-exit-results.json
+```
+
+检查使用临时 checkout 和自行创建的进程组，覆盖 TERM、KILL、中断后的僵尸进程退出、清理期间拒绝下一任务，以及权限不足／进程状态未知时继续等待。它不会获取当前 checkout 的锁或操作 Pods。

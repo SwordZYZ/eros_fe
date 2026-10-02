@@ -43,10 +43,34 @@ def inherited_lock_fd():
 
 
 def group_exists(pgid):
+    """Return whether cleanup must keep waiting for this process group."""
     try:
         os.killpg(pgid, 0)
         return True
     except ProcessLookupError:
+        return False
+    except PermissionError:
+        # Darwin can return EPERM for a group containing only zombies. Those
+        # processes have exited and cannot access Pods, but EPERM alone cannot
+        # distinguish them from live processes we are not allowed to signal.
+        try:
+            snapshot = subprocess.run(
+                ['/bin/ps', '-axo', 'pgid=,stat='],
+                capture_output=True, text=True, check=True, timeout=2,
+            )
+            rows = snapshot.stdout.splitlines()
+            if not rows:
+                raise ValueError('empty process snapshot')
+            for row in rows:
+                group, state = row.split()
+                if int(group) == pgid and not state.startswith('Z'):
+                    return True
+        except (OSError, subprocess.SubprocessError, ValueError) as error:
+            print(f'[iOS lock] Cannot verify process group {pgid}: {error}; '
+                  'keeping the lock until cleanup can be confirmed.', file=sys.stderr)
+            return True
+        print(f'[iOS lock] Process group {pgid} has no live members after EPERM.',
+              file=sys.stderr)
         return False
 
 
@@ -55,6 +79,13 @@ def signal_group(pgid, signum):
         os.killpg(pgid, signum)
     except ProcessLookupError:
         pass
+    except PermissionError:
+        # The group may have become zombie-only between checking and signalling.
+        # If any live member remains (or inspection fails), finish_group keeps
+        # waiting with the lock held rather than crashing and releasing it.
+        if group_exists(pgid):
+            print(f'[iOS lock] Cannot send signal {signum} to process group {pgid}; '
+                  'keeping the lock while its live members remain.', file=sys.stderr)
 
 
 def finish_group(child):
@@ -71,7 +102,7 @@ def finish_group(child):
         time.sleep(0.05)
     if group_exists(pgid):
         signal_group(pgid, signal.SIGKILL)
-        # Keep the lock until the group is gone, including delayed termination.
+        # Keep the lock until no live member remains, including delayed termination.
         while group_exists(pgid):
             child.poll()
             time.sleep(0.05)
