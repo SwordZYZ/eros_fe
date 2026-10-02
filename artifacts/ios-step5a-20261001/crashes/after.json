@@ -1,0 +1,213 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "device",
+      "info",
+      "files",
+      "--device",
+      "00008132-000278923E99001C",
+      "--domain-type",
+      "systemCrashLogs",
+      "--search",
+      "fehviewer",
+      "--json-output",
+      "artifacts/ios-step5a-20261001/crashes/after.json"
+    ],
+    "commandType" : "devicectl.device.info.files",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 5,
+    "outcome" : "success",
+    "version" : "642.16"
+  },
+  "result" : {
+    "deviceIdentifier" : "A8511718-99C6-58D3-8BF2-CCC11F34252B",
+    "domain" : "systemCrashLogs",
+    "files" : [
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "1cfeca70d93f5e83d8bab4932849fda8876d205d",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:30:35.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 33493
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213035.000.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213035.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "67709bded992415565de21be6e61221a0100861c",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:30:35.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 33525
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213035.0002.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213035.0002.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "67709bded992415565de21be6e61221a0100861c",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:30:35.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 34975
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213035.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213035.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "67709bded992415565de21be6e61221a0100861c",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:30:52.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 32194
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213052.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213052.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "1cfeca70d93f5e83d8bab4932849fda8876d205d",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:31:43.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 32872
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213143.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213143.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "43abd739e059beb70270098b749dd6299bc45916",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:50:05.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 99359
+        },
+        "name" : "Retired/fehviewer-2026-09-30-215005.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-215005.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "63b95093d0c6f856460ee0e700cee5939c2a1467",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T14:42:53.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 95519
+        },
+        "name" : "Retired/fehviewer-2026-09-30-224253.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-224253.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      }
+    ]
+  }
+}

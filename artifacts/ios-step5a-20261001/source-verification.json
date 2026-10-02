@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-01T16:44:53.397433+00:00",
+  "HEAD": "d31e3561713c3d42fbdd7eb82b5dd53b96a972ad",
+  "master": "d31e3561713c3d42fbdd7eb82b5dd53b96a972ad",
+  "frozenFilesUnchanged": {
+    "tool/ios_baseline_probe.dart": true,
+    "tool/ios_baseline_driver.dart": true,
+    "tool/fixtures/ios_step5a_data.dart": true
+  },
+  "trackedDiff": "",
+  "patchMatchesManifest": true
+}

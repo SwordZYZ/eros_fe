@@ -1,0 +1,376 @@
+{
+  "command": "privacy",
+  "route": "/galleryPage",
+  "lifecycle": "resumed",
+  "gallery": true,
+  "torrent": false,
+  "privacy": true,
+  "events": [
+    {
+      "time": "2026-10-01T16:29:58.360144Z",
+      "kind": "error",
+      "channel": "uncaught async",
+      "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+      "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+    },
+    {
+      "time": "2026-10-01T16:29:59.317256Z",
+      "kind": "result",
+      "case": "cold_start",
+      "status": "PASS",
+      "actual": "HomePage"
+    },
+    {
+      "time": "2026-10-01T16:29:59.317860Z",
+      "kind": "result",
+      "case": "startup_no_exception",
+      "status": "FAIL",
+      "actual": [
+        {
+          "time": "2026-10-01T16:29:58.360144Z",
+          "kind": "error",
+          "channel": "uncaught async",
+          "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+          "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+        }
+      ]
+    },
+    {
+      "time": "2026-10-01T16:29:59.318143Z",
+      "kind": "result",
+      "case": "no_online_account",
+      "status": "PASS",
+      "actual": "credential presence checked; values not recorded"
+    },
+    {
+      "time": "2026-10-01T16:29:59.520296Z",
+      "kind": "fixture",
+      "gid": "950000001",
+      "title": "EROS Step 5A — Fixed Local Gallery",
+      "magnet": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+      "torrentCount": 1,
+      "account": "none",
+      "network": "fixed content uses injected data and prefilled image cache",
+      "cover": "Step4 fixed QR PNG"
+    },
+    {
+      "time": "2026-10-01T16:29:59.521633Z",
+      "kind": "environment",
+      "dart": "3.13.3 (stable) (Tue Sep 1 01:07:17 2026 -0700) on \"ios_simarm64\"",
+      "os": "Version 27.0 (Build 24A437)",
+      "mode": "Debug",
+      "autoLockTimeout": -1
+    },
+    {
+      "time": "2026-10-01T16:30:01.431574Z",
+      "kind": "error",
+      "channel": "FlutterError",
+      "error": "A RenderFlex overflowed by 4.0 pixels on the bottom.",
+      "stack": "null"
+    },
+    {
+      "time": "2026-10-01T16:30:03.543097Z",
+      "kind": "result",
+      "case": "fixed_content",
+      "status": "PASS",
+      "actual": "EROS Step 5A — Fixed Local Gallery"
+    },
+    {
+      "time": "2026-10-01T16:30:05.093942Z",
+      "kind": "tap",
+      "widget": "CupertinoButton",
+      "x": 605.0,
+      "y": 314.86868686868684
+    },
+    {
+      "time": "2026-10-01T16:30:06.651341Z",
+      "kind": "result",
+      "case": "torrent_submenu",
+      "status": "PASS",
+      "actual": "step5a-fixed-local.torrent"
+    },
+    {
+      "time": "2026-10-01T16:30:07.803710Z",
+      "kind": "tap",
+      "widget": "CupertinoButton",
+      "x": 705.0,
+      "y": 415.6
+    },
+    {
+      "time": "2026-10-01T16:30:07.997255Z",
+      "kind": "error",
+      "channel": "uncaught async",
+      "error": "PlatformException(error, sharePositionOrigin: argument must be set, {{0, 0}, {0, 0}} must be non-zero and within coordinate space of source view: {{0, 0}, {1210, 834}}, null, null)",
+      "stack": "#0      StandardMethodCodec.decodeEnvelope (package:flutter/src/services/message_codecs.dart:653:7)\n#1      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:366:18)\n<asynchronous suspension>\n#2      MethodChannelShare.share (package:share_plus_platform_interface/method_channel/method_channel_share.dart:25:20)\n<asynchronous suspension>\n"
+    },
+    {
+      "time": "2026-10-01T16:30:11.603511Z",
+      "kind": "result",
+      "case": "system_share_visible_and_usable",
+      "status": "FAIL",
+      "expected": "system share menu appears and is usable",
+      "magnet": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+      "errors": [
+        {
+          "time": "2026-10-01T16:30:07.997255Z",
+          "kind": "error",
+          "channel": "uncaught async",
+          "error": "PlatformException(error, sharePositionOrigin: argument must be set, {{0, 0}, {0, 0}} must be non-zero and within coordinate space of source view: {{0, 0}, {1210, 834}}, null, null)",
+          "stack": "#0      StandardMethodCodec.decodeEnvelope (package:flutter/src/services/message_codecs.dart:653:7)\n#1      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:366:18)\n<asynchronous suspension>\n#2      MethodChannelShare.share (package:share_plus_platform_interface/method_channel/method_channel_share.dart:25:20)\n<asynchronous suspension>\n"
+        }
+      ],
+      "source": "lib/pages/gallery/view/torrent_dialog.dart:171"
+    },
+    {
+      "time": "2026-10-01T16:30:12.893447Z",
+      "kind": "tap",
+      "widget": "CupertinoDialogAction",
+      "x": 605.0,
+      "y": 478.90000000000003
+    },
+    {
+      "time": "2026-10-01T16:30:14.814834Z",
+      "kind": "tap",
+      "widget": "CupertinoNavigationBarBackButton",
+      "x": 25.0,
+      "y": 54.0
+    },
+    {
+      "time": "2026-10-01T16:30:15.239883Z",
+      "kind": "error",
+      "channel": "FlutterError",
+      "error": "A ScrollController was used after being disposed.\nOnce you have called dispose() on a ScrollController, it can no longer be used.",
+      "stack": "#0      ChangeNotifier.debugAssertNotDisposed.<anonymous closure> (package:flutter/src/foundation/change_notifier.dart:184:9)\n#1      ChangeNotifier.debugAssertNotDisposed (package:flutter/src/foundation/change_notifier.dart:191:6)\n#2      ChangeNotifier.dispose (package:flutter/src/foundation/change_notifier.dart:377:27)\n#3      ScrollController.dispose (package:flutter/src/widgets/scroll_controller.dart:273:11)\n#4      _ModalScopeState.dispose (package:flutter/src/widgets/routes.dart:1150:29)\n#5      StatefulElement.unmount (package:flutter/src/widgets/framework.dart:6043:11)\n#6      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2119:13)\n#7      _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#8      SingleChildRenderObjectElement.visitChildren (package:flutter/src/widgets/framework.dart:7114:14)\n#9      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#10     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#11     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#12     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#13     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#14     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#15     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#16     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#17     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#18     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#19     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#20     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#21     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#22     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#23     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#24     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#25     ListIterable.forEach (dart:_internal/iterable.dart:49:13)\n#26     _InactiveElements._unmountAll (package:flutter/src/widgets/framework.dart:2128:25)\n#27     BuildOwner.lockState (package:flutter/src/widgets/framework.dart:3033:15)\n#28     BuildOwner.finalizeTree (package:flutter/src/widgets/framework.dart:3357:7)\n#29     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1578:19)\n#30     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:558:5)\n#31     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)\n#32     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)\n#33     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198:5)\n#34     _rootRun (dart:async/zone_root.dart:35:13)\n#35     _CustomZone.run (dart:async/zone.dart:810:35)\n#36     _CustomZone.runGuarded (dart:async/zone.dart:702:7)\n#37     _invoke (dart:ui/hooks.dart:443:10)\n#38     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:450:5)\n#39     _drawFrame (dart:ui/hooks.dart:413:31)\n"
+    },
+    {
+      "time": "2026-10-01T16:30:16.330109Z",
+      "kind": "result",
+      "case": "back_navigation",
+      "status": "PASS",
+      "actual": "/home"
+    },
+    {
+      "time": "2026-10-01T16:30:17.275377Z",
+      "kind": "result",
+      "case": "settings",
+      "status": "PASS",
+      "actual": "LayoutSettingPage"
+    },
+    {
+      "time": "2026-10-01T16:30:17.688200Z",
+      "kind": "tap",
+      "widget": "CupertinoNavigationBarBackButton",
+      "x": 25.0,
+      "y": 54.0
+    },
+    {
+      "time": "2026-10-01T16:30:19.196703Z",
+      "kind": "result",
+      "case": "settings_back",
+      "status": "PASS",
+      "actual": "/home"
+    },
+    {
+      "time": "2026-10-01T16:30:20.017168Z",
+      "kind": "result",
+      "case": "fixed_content",
+      "status": "PASS",
+      "actual": "EROS Step 5A — Fixed Local Gallery"
+    },
+    {
+      "time": "2026-10-01T16:31:33.094015Z",
+      "kind": "result",
+      "case": "privacy_setting_off",
+      "status": "PASS",
+      "actual": false
+    },
+    {
+      "time": "2026-10-01T16:31:33.508479Z",
+      "kind": "tap",
+      "widget": "CupertinoNavigationBarBackButton",
+      "x": 25.0,
+      "y": 54.0
+    },
+    {
+      "time": "2026-10-01T16:31:35.385256Z",
+      "kind": "lifecycle_begin",
+      "label": "lock_unlock_privacy_off",
+      "privacy": false
+    },
+    {
+      "time": "2026-10-01T16:33:37.962561Z",
+      "kind": "lifecycle",
+      "state": "inactive"
+    },
+    {
+      "time": "2026-10-01T16:33:38.348965Z",
+      "kind": "lifecycle",
+      "state": "resumed"
+    },
+    {
+      "time": "2026-10-01T16:33:38.980639Z",
+      "kind": "lifecycle",
+      "state": "inactive"
+    },
+    {
+      "time": "2026-10-01T16:33:52.417738Z",
+      "kind": "lifecycle",
+      "state": "resumed"
+    },
+    {
+      "time": "2026-10-01T16:33:54.443283Z",
+      "kind": "lifecycle",
+      "state": "inactive"
+    },
+    {
+      "time": "2026-10-01T16:33:58.948417Z",
+      "kind": "lifecycle",
+      "state": "resumed"
+    },
+    {
+      "time": "2026-10-01T16:34:01.182278Z",
+      "kind": "lifecycle",
+      "state": "inactive"
+    },
+    {
+      "time": "2026-10-01T16:34:01.510967Z",
+      "kind": "lifecycle",
+      "state": "hidden"
+    },
+    {
+      "time": "2026-10-01T16:34:01.517458Z",
+      "kind": "lifecycle",
+      "state": "paused"
+    },
+    {
+      "time": "2026-10-01T16:34:04.945412Z",
+      "kind": "lifecycle",
+      "state": "hidden"
+    },
+    {
+      "time": "2026-10-01T16:34:04.948188Z",
+      "kind": "lifecycle",
+      "state": "inactive"
+    },
+    {
+      "time": "2026-10-01T16:34:05.819144Z",
+      "kind": "lifecycle",
+      "state": "resumed"
+    },
+    {
+      "time": "2026-10-01T16:35:04.341739Z",
+      "kind": "lifecycle",
+      "state": "inactive"
+    },
+    {
+      "time": "2026-10-01T16:35:05.343398Z",
+      "kind": "lifecycle",
+      "state": "hidden"
+    },
+    {
+      "time": "2026-10-01T16:35:05.346678Z",
+      "kind": "lifecycle",
+      "state": "paused"
+    },
+    {
+      "time": "2026-10-01T16:36:13.304850Z",
+      "kind": "lifecycle",
+      "state": "hidden"
+    },
+    {
+      "time": "2026-10-01T16:36:13.306836Z",
+      "kind": "lifecycle",
+      "state": "inactive"
+    },
+    {
+      "time": "2026-10-01T16:36:13.662218Z",
+      "kind": "lifecycle",
+      "state": "resumed"
+    },
+    {
+      "time": "2026-10-01T16:37:02.141613Z",
+      "kind": "result",
+      "case": "lock_unlock_privacy_off_restore",
+      "status": "PASS",
+      "actual": {
+        "states": [
+          "inactive",
+          "resumed",
+          "inactive",
+          "resumed",
+          "inactive",
+          "resumed",
+          "inactive",
+          "hidden",
+          "paused",
+          "hidden",
+          "inactive",
+          "resumed",
+          "inactive",
+          "hidden",
+          "paused",
+          "hidden",
+          "inactive",
+          "resumed"
+        ],
+        "route": "/galleryPage"
+      }
+    },
+    {
+      "time": "2026-10-01T16:37:02.143517Z",
+      "kind": "result",
+      "case": "lock_unlock_privacy_off_no_exception",
+      "status": "PASS",
+      "actual": []
+    },
+    {
+      "time": "2026-10-01T16:37:02.852975Z",
+      "kind": "tap",
+      "widget": "CupertinoButton",
+      "x": 605.0,
+      "y": 314.86868686868684
+    },
+    {
+      "time": "2026-10-01T16:37:04.359646Z",
+      "kind": "result",
+      "case": "torrent_submenu",
+      "status": "PASS",
+      "actual": "step5a-fixed-local.torrent"
+    },
+    {
+      "time": "2026-10-01T16:37:04.764560Z",
+      "kind": "tap",
+      "widget": "CupertinoDialogAction",
+      "x": 605.0,
+      "y": 478.90000000000003
+    },
+    {
+      "time": "2026-10-01T16:37:06.267487Z",
+      "kind": "result",
+      "case": "lock_unlock_privacy_off_interaction",
+      "status": "PASS",
+      "actual": "real torrent menu reopened and closed"
+    },
+    {
+      "time": "2026-10-01T16:37:08.262899Z",
+      "kind": "tap",
+      "widget": "CupertinoSwitch",
+      "x": 1146.5,
+      "y": 118.0
+    },
+    {
+      "time": "2026-10-01T16:37:10.064840Z",
+      "kind": "result",
+      "case": "privacy_setting_on",
+      "status": "PASS",
+      "actual": true
+    },
+    {
+      "time": "2026-10-01T16:37:10.472705Z",
+      "kind": "tap",
+      "widget": "CupertinoNavigationBarBackButton",
+      "x": 25.0,
+      "y": 54.0
+    }
+  ]
+}

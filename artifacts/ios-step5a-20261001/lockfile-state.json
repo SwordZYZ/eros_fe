@@ -1,0 +1,14 @@
+{
+  "pubspec.lock": {
+    "sha256": "469224571e8aa5a4d5ef1aec5dee6937bac3c912f34300ded6bc957c2c9c553f",
+    "matchesBaseline": true
+  },
+  "ios/Podfile.lock": {
+    "sha256": "cb60fea528c880398847582cffa2856df8ab5fa7c7cb8da6862299fbb1d5525a",
+    "matchesBaseline": true
+  },
+  "Gemfile.lock": {
+    "sha256": "b195f5b3d4cfd87603c7f239146b540a6c41c30ab810af1635fd08ca8889e38b",
+    "matchesBaseline": true
+  }
+}

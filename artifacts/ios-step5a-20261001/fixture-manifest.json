@@ -1,0 +1,17 @@
+{
+  "galleryId": "950000001",
+  "title": "EROS Step 5A — Fixed Local Gallery",
+  "torrentName": "step5a-fixed-local.torrent",
+  "seeds": "3",
+  "peers": "0",
+  "downloads": "1",
+  "size": "1.00 MiB",
+  "hash": "0123456789abcdef0123456789abcdef01234567",
+  "magnet": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+  "coverFile": "tool/fixtures/ios_mlkit_qr.png",
+  "coverSha256": "ec2f3dd2beaccb70bcfab22f0539b028e5020b390cf00d3e5cf3d2619a2ce606",
+  "injection": "GalleryCacheController + local TorrentController + prefilled actual image cache",
+  "nativeShare": "production Share.share, no fake platform implementation",
+  "accountCheck": "memberId and passHash absent; credential values omitted",
+  "networkLimit": "fixed content and torrent data do not fetch remote data; production startup may still attempt unrelated network requests"
+}

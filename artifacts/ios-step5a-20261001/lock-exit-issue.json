@@ -1,0 +1,26 @@
+[
+  {
+    "run": "simulator-setup",
+    "log": "simulator-setup.log",
+    "line": 465,
+    "context": "Application finished.\n[iOS lock] Stopping remaining child processes before unlocking.\nTraceback (most recent call last):\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 192, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 188, in main\n    return run_locked(command, args.no_wait)\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 168, in run_locked\n    finish_group(child)\n    ~~~~~~~~~~~~^^^^^^^\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 69, in finish_group\n    while group_exists(pgid) and time.monotonic() < deadline:\n          ~~~~~~~~~~~~^^^^^^\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 47, in group_exists\n    os.killpg(pgid, 0)\n    ~~~~~~~~~^^^^^^^^^\nPermissionError: [Errno 1] Operation not permitted",
+    "source": "scripts/ios_lock.py:47",
+    "scope": "session exit; no fix applied"
+  },
+  {
+    "run": "ipad-2",
+    "log": "ipad-2.log",
+    "line": 287,
+    "context": "Application finished.\n[iOS lock] Stopping remaining child processes before unlocking.\nTraceback (most recent call last):\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 192, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 188, in main\n    return run_locked(command, args.no_wait)\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 168, in run_locked\n    finish_group(child)\n    ~~~~~~~~~~~~^^^^^^^\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 69, in finish_group\n    while group_exists(pgid) and time.monotonic() < deadline:\n          ~~~~~~~~~~~~^^^^^^\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 47, in group_exists\n    os.killpg(pgid, 0)\n    ~~~~~~~~~^^^^^^^^^\nPermissionError: [Errno 1] Operation not permitted",
+    "source": "scripts/ios_lock.py:47",
+    "scope": "session exit; no fix applied"
+  },
+  {
+    "run": "ipad-3",
+    "log": "ipad-3.log",
+    "line": 4724,
+    "context": "Application finished.\n[iOS lock] Stopping remaining child processes before unlocking.\nTraceback (most recent call last):\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 192, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 188, in main\n    return run_locked(command, args.no_wait)\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 168, in run_locked\n    finish_group(child)\n    ~~~~~~~~~~~~^^^^^^^\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 69, in finish_group\n    while group_exists(pgid) and time.monotonic() < deadline:\n          ~~~~~~~~~~~~^^^^^^\n  File \"/Users/fuhua/.codex/worktrees/da3d/eros_fe/scripts/ios_lock.py\", line 47, in group_exists\n    os.killpg(pgid, 0)\n    ~~~~~~~~~^^^^^^^^^\nPermissionError: [Errno 1] Operation not permitted",
+    "source": "scripts/ios_lock.py:47",
+    "scope": "session exit; no fix applied"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "time": "2026-10-01T16:36:13.105923+00:00",
+    "case": "lock_unlock_privacy_off",
+    "userReply": "关闭状态完成，卡片清晰",
+    "requestedSteps": "App switcher card clarity, return to App, lock >=5s, unlock and return"
+  },
+  {
+    "time": "2026-10-01T16:41:23.522778+00:00",
+    "case": "lock_unlock_privacy_on",
+    "userReply": "开启状态完成，卡片异常，回到 App 正常",
+    "privacyCard": "FAIL: still clear, no blur",
+    "requestedSteps": "App switcher card blur, return to App, lock >=5s, unlock and return",
+    "clarification": "仍清晰显示内容，没有模糊",
+    "clarifiedAt": "2026-10-01T16:41:51.291510+00:00"
+  }
+]

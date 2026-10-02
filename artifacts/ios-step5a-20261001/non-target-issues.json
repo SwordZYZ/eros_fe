@@ -1,0 +1,191 @@
+[
+  {
+    "run": "simulator-1",
+    "startup": {
+      "time": "2026-10-01T16:17:39.964191Z",
+      "kind": "result",
+      "case": "startup_no_exception",
+      "status": "FAIL",
+      "actual": [
+        {
+          "time": "2026-10-01T16:17:39.234459Z",
+          "kind": "error",
+          "channel": "uncaught async",
+          "error": "FileSystemException: Creation failed, path = 'Download' (OS Error: Read-only file system, errno = 30)",
+          "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+        }
+      ]
+    },
+    "lifecycleTest": "simulator-1-lifecycle_end.json",
+    "nativeCrashCheck": "crashes/delta.json",
+    "navigation": {
+      "status": "FAIL",
+      "assessment": "Derived from saved errors; navigation PASS only records successful return, not absence of exceptions. Original probe assertions are unchanged.",
+      "evidence": "simulator-1-smoke.json",
+      "stdout": {
+        "file": "simulator-1.log",
+        "line": 187
+      },
+      "actual": [
+        {
+          "time": "2026-10-01T16:18:24.365070Z",
+          "kind": "error",
+          "channel": "FlutterError",
+          "error": "A ScrollController was used after being disposed.\nOnce you have called dispose() on a ScrollController, it can no longer be used.",
+          "stack": "#0      ChangeNotifier.debugAssertNotDisposed.<anonymous closure> (package:flutter/src/foundation/change_notifier.dart:184:9)\n#1      ChangeNotifier.debugAssertNotDisposed (package:flutter/src/foundation/change_notifier.dart:191:6)\n#2      ChangeNotifier.dispose (package:flutter/src/foundation/change_notifier.dart:377:27)\n#3      ScrollController.dispose (package:flutter/src/widgets/scroll_controller.dart:273:11)\n#4      _ModalScopeState.dispose (package:flutter/src/widgets/routes.dart:1150:29)\n#5      StatefulElement.unmount (package:flutter/src/widgets/framework.dart:6043:11)\n#6      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2119:13)\n#7      _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#8      SingleChildRenderObjectElement.visitChildren (package:flutter/src/widgets/framework.dart:7114:14)\n#9      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#10     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#11     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#12     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#13     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#14     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#15     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#16     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#17     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#18     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#19     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#20     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#21     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#22     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#23     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#24     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#25     ListIterable.forEach (dart:_internal/iterable.dart:49:13)\n#26     _InactiveElements._unmountAll (package:flutter/src/widgets/framework.dart:2128:25)\n#27     BuildOwner.lockState (package:flutter/src/widgets/framework.dart:3033:15)\n#28     BuildOwner.finalizeTree (package:flutter/src/widgets/framework.dart:3357:7)\n#29     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1578:19)\n#30     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:558:5)\n#31     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)\n#32     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)\n#33     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198:5)\n#34     _rootRun (dart:async/zone_root.dart:35:13)\n#35     _CustomZone.run (dart:async/zone.dart:810:35)\n#36     _CustomZone.runGuarded (dart:async/zone.dart:702:7)\n#37     _invoke (dart:ui/hooks.dart:443:10)\n#38     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:450:5)\n#39     _drawFrame (dart:ui/hooks.dart:413:31)\n"
+        }
+      ]
+    },
+    "layout": {
+      "status": "NOT_OBSERVED",
+      "assessment": "4px bottom RenderFlex overflow observed in ipad-3; no matching error recorded in other rounds.",
+      "evidence": "simulator-1-smoke.json",
+      "actual": []
+    }
+  },
+  {
+    "run": "ipad-1",
+    "startup": {
+      "time": "2026-10-01T16:26:09.298956Z",
+      "kind": "result",
+      "case": "startup_no_exception",
+      "status": "FAIL",
+      "actual": [
+        {
+          "time": "2026-10-01T16:26:07.735265Z",
+          "kind": "error",
+          "channel": "uncaught async",
+          "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+          "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+        }
+      ]
+    },
+    "lifecycleTest": "ipad-1-lifecycle_end.json",
+    "nativeCrashCheck": "crashes/delta.json",
+    "navigation": {
+      "status": "FAIL",
+      "assessment": "Derived from saved errors; navigation PASS only records successful return, not absence of exceptions. Original probe assertions are unchanged.",
+      "evidence": "ipad-1-smoke.json",
+      "stdout": {
+        "file": "ipad-1.log",
+        "line": 265
+      },
+      "actual": [
+        {
+          "time": "2026-10-01T16:26:23.957867Z",
+          "kind": "error",
+          "channel": "FlutterError",
+          "error": "A ScrollController was used after being disposed.\nOnce you have called dispose() on a ScrollController, it can no longer be used.",
+          "stack": "#0      ChangeNotifier.debugAssertNotDisposed.<anonymous closure> (package:flutter/src/foundation/change_notifier.dart:184:9)\n#1      ChangeNotifier.debugAssertNotDisposed (package:flutter/src/foundation/change_notifier.dart:191:6)\n#2      ChangeNotifier.dispose (package:flutter/src/foundation/change_notifier.dart:377:27)\n#3      ScrollController.dispose (package:flutter/src/widgets/scroll_controller.dart:273:11)\n#4      _ModalScopeState.dispose (package:flutter/src/widgets/routes.dart:1150:29)\n#5      StatefulElement.unmount (package:flutter/src/widgets/framework.dart:6043:11)\n#6      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2119:13)\n#7      _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#8      SingleChildRenderObjectElement.visitChildren (package:flutter/src/widgets/framework.dart:7114:14)\n#9      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#10     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#11     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#12     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#13     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#14     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#15     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#16     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#17     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#18     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#19     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#20     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#21     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#22     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#23     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#24     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#25     ListIterable.forEach (dart:_internal/iterable.dart:49:13)\n#26     _InactiveElements._unmountAll (package:flutter/src/widgets/framework.dart:2128:25)\n#27     BuildOwner.lockState (package:flutter/src/widgets/framework.dart:3033:15)\n#28     BuildOwner.finalizeTree (package:flutter/src/widgets/framework.dart:3357:7)\n#29     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1578:19)\n#30     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:558:5)\n#31     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)\n#32     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)\n#33     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198:5)\n#34     _rootRun (dart:async/zone_root.dart:35:13)\n#35     _CustomZone.run (dart:async/zone.dart:810:35)\n#36     _CustomZone.runGuarded (dart:async/zone.dart:702:7)\n#37     _invoke (dart:ui/hooks.dart:443:10)\n#38     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:450:5)\n#39     _drawFrame (dart:ui/hooks.dart:413:31)\n"
+        }
+      ]
+    },
+    "layout": {
+      "status": "NOT_OBSERVED",
+      "assessment": "4px bottom RenderFlex overflow observed in ipad-3; no matching error recorded in other rounds.",
+      "evidence": "ipad-1-smoke.json",
+      "actual": []
+    }
+  },
+  {
+    "run": "ipad-2",
+    "startup": {
+      "time": "2026-10-01T16:28:15.778063Z",
+      "kind": "result",
+      "case": "startup_no_exception",
+      "status": "FAIL",
+      "actual": [
+        {
+          "time": "2026-10-01T16:28:13.996941Z",
+          "kind": "error",
+          "channel": "uncaught async",
+          "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+          "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+        }
+      ]
+    },
+    "lifecycleTest": "see manual lifecycle records",
+    "nativeCrashCheck": "crashes/delta.json",
+    "navigation": {
+      "status": "FAIL",
+      "assessment": "Derived from saved errors; navigation PASS only records successful return, not absence of exceptions. Original probe assertions are unchanged.",
+      "evidence": "ipad-2-smoke.json",
+      "stdout": {
+        "file": "ipad-2.log",
+        "line": 233
+      },
+      "actual": [
+        {
+          "time": "2026-10-01T16:28:29.550217Z",
+          "kind": "error",
+          "channel": "FlutterError",
+          "error": "A ScrollController was used after being disposed.\nOnce you have called dispose() on a ScrollController, it can no longer be used.",
+          "stack": "#0      ChangeNotifier.debugAssertNotDisposed.<anonymous closure> (package:flutter/src/foundation/change_notifier.dart:184:9)\n#1      ChangeNotifier.debugAssertNotDisposed (package:flutter/src/foundation/change_notifier.dart:191:6)\n#2      ChangeNotifier.dispose (package:flutter/src/foundation/change_notifier.dart:377:27)\n#3      ScrollController.dispose (package:flutter/src/widgets/scroll_controller.dart:273:11)\n#4      _ModalScopeState.dispose (package:flutter/src/widgets/routes.dart:1150:29)\n#5      StatefulElement.unmount (package:flutter/src/widgets/framework.dart:6043:11)\n#6      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2119:13)\n#7      _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#8      SingleChildRenderObjectElement.visitChildren (package:flutter/src/widgets/framework.dart:7114:14)\n#9      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#10     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#11     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#12     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#13     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#14     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#15     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#16     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#17     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#18     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#19     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#20     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#21     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#22     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#23     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#24     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#25     ListIterable.forEach (dart:_internal/iterable.dart:49:13)\n#26     _InactiveElements._unmountAll (package:flutter/src/widgets/framework.dart:2128:25)\n#27     BuildOwner.lockState (package:flutter/src/widgets/framework.dart:3033:15)\n#28     BuildOwner.finalizeTree (package:flutter/src/widgets/framework.dart:3357:7)\n#29     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1578:19)\n#30     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:558:5)\n#31     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)\n#32     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)\n#33     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198:5)\n#34     _rootRun (dart:async/zone_root.dart:35:13)\n#35     _CustomZone.run (dart:async/zone.dart:810:35)\n#36     _CustomZone.runGuarded (dart:async/zone.dart:702:7)\n#37     _invoke (dart:ui/hooks.dart:443:10)\n#38     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:450:5)\n#39     _drawFrame (dart:ui/hooks.dart:413:31)\n"
+        }
+      ]
+    },
+    "layout": {
+      "status": "NOT_OBSERVED",
+      "assessment": "4px bottom RenderFlex overflow observed in ipad-3; no matching error recorded in other rounds.",
+      "evidence": "ipad-2-smoke.json",
+      "actual": []
+    }
+  },
+  {
+    "run": "ipad-3",
+    "startup": {
+      "time": "2026-10-01T16:29:59.317860Z",
+      "kind": "result",
+      "case": "startup_no_exception",
+      "status": "FAIL",
+      "actual": [
+        {
+          "time": "2026-10-01T16:29:58.360144Z",
+          "kind": "error",
+          "channel": "uncaught async",
+          "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+          "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+        }
+      ]
+    },
+    "lifecycleTest": "see manual lifecycle records",
+    "nativeCrashCheck": "crashes/delta.json",
+    "navigation": {
+      "status": "FAIL",
+      "assessment": "Derived from saved errors; navigation PASS only records successful return, not absence of exceptions. Original probe assertions are unchanged.",
+      "evidence": "ipad-3-smoke.json",
+      "stdout": {
+        "file": "ipad-3.log",
+        "line": 218
+      },
+      "actual": [
+        {
+          "time": "2026-10-01T16:30:15.239883Z",
+          "kind": "error",
+          "channel": "FlutterError",
+          "error": "A ScrollController was used after being disposed.\nOnce you have called dispose() on a ScrollController, it can no longer be used.",
+          "stack": "#0      ChangeNotifier.debugAssertNotDisposed.<anonymous closure> (package:flutter/src/foundation/change_notifier.dart:184:9)\n#1      ChangeNotifier.debugAssertNotDisposed (package:flutter/src/foundation/change_notifier.dart:191:6)\n#2      ChangeNotifier.dispose (package:flutter/src/foundation/change_notifier.dart:377:27)\n#3      ScrollController.dispose (package:flutter/src/widgets/scroll_controller.dart:273:11)\n#4      _ModalScopeState.dispose (package:flutter/src/widgets/routes.dart:1150:29)\n#5      StatefulElement.unmount (package:flutter/src/widgets/framework.dart:6043:11)\n#6      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2119:13)\n#7      _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#8      SingleChildRenderObjectElement.visitChildren (package:flutter/src/widgets/framework.dart:7114:14)\n#9      _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#10     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#11     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#12     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#13     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#14     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#15     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#16     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#17     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#18     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#19     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#20     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#21     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#22     _InactiveElements._unmount.<anonymous closure> (package:flutter/src/widgets/framework.dart:2117:7)\n#23     ComponentElement.visitChildren (package:flutter/src/widgets/framework.dart:5884:14)\n#24     _InactiveElements._unmount (package:flutter/src/widgets/framework.dart:2115:13)\n#25     ListIterable.forEach (dart:_internal/iterable.dart:49:13)\n#26     _InactiveElements._unmountAll (package:flutter/src/widgets/framework.dart:2128:25)\n#27     BuildOwner.lockState (package:flutter/src/widgets/framework.dart:3033:15)\n#28     BuildOwner.finalizeTree (package:flutter/src/widgets/framework.dart:3357:7)\n#29     WidgetsBinding.drawFrame (package:flutter/src/widgets/binding.dart:1578:19)\n#30     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:558:5)\n#31     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1430:15)\n#32     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1345:9)\n#33     SchedulerBinding._handleDrawFrame (package:flutter/src/scheduler/binding.dart:1198:5)\n#34     _rootRun (dart:async/zone_root.dart:35:13)\n#35     _CustomZone.run (dart:async/zone.dart:810:35)\n#36     _CustomZone.runGuarded (dart:async/zone.dart:702:7)\n#37     _invoke (dart:ui/hooks.dart:443:10)\n#38     PlatformDispatcher._drawFrame (dart:ui/platform_dispatcher.dart:450:5)\n#39     _drawFrame (dart:ui/hooks.dart:413:31)\n"
+        }
+      ]
+    },
+    "layout": {
+      "status": "FAIL",
+      "assessment": "4px bottom RenderFlex overflow observed in ipad-3; no matching error recorded in other rounds.",
+      "evidence": "ipad-3-smoke.json",
+      "actual": [
+        {
+          "time": "2026-10-01T16:30:01.431574Z",
+          "kind": "error",
+          "channel": "FlutterError",
+          "error": "A RenderFlex overflowed by 4.0 pixels on the bottom.",
+          "stack": "null"
+        }
+      ],
+      "stdout": {
+        "file": "ipad-3.log",
+        "line": 151
+      },
+      "source": "lib/pages/item/gallery_item.dart:117"
+    }
+  }
+]

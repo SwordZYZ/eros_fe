@@ -1,0 +1,17 @@
+{
+  "frozenAt": "2026-10-01T16:13:41.819705+00:00",
+  "baseCommit": "d31e3561713c3d42fbdd7eb82b5dd53b96a972ad",
+  "master": "d31e3561713c3d42fbdd7eb82b5dd53b96a972ad",
+  "debugTarget": "tool/ios_baseline_probe.dart",
+  "productionDiff": "",
+  "sourceFiles": {
+    "tool/ios_baseline_probe.dart": "b7393834c14d9b16a58cfc308898ea2feffb60803bf77350b9915bb34f39e652",
+    "tool/ios_baseline_driver.dart": "db0b66da8571617a4585eb1c4220151d753579d8d3a00fbf0a317deafd9907dd",
+    "tool/fixtures/ios_step5a_data.dart": "c3d76742290a8fe036fe059ab85f999a08d77797c2fbab0895dad29d54edb2c1"
+  },
+  "patchSha256": "1bfcc6c90c0f975105aad9a7c1bf85dce37e540cb8e946cfdbc1a159693242db",
+  "bundleIdentifier": "com.fuhua.erosfe.step5a",
+  "team": "A9798656MR",
+  "sourceEvidenceDate": "2026-10-01",
+  "runsCrossMidnightAsiaShanghai": true
+}

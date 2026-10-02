@@ -1,0 +1,224 @@
+{
+  "run": "ipad-3",
+  "results": [
+    {
+      "time": "2026-10-01T16:29:59.317256Z",
+      "kind": "result",
+      "case": "cold_start",
+      "status": "PASS",
+      "actual": "HomePage"
+    },
+    {
+      "time": "2026-10-01T16:29:59.317860Z",
+      "kind": "result",
+      "case": "startup_no_exception",
+      "status": "FAIL",
+      "actual": [
+        {
+          "time": "2026-10-01T16:29:58.360144Z",
+          "kind": "error",
+          "channel": "uncaught async",
+          "error": "PathAccessException: Creation failed, path = 'Download' (OS Error: Operation not permitted, errno = 1)",
+          "stack": "#0      _checkForErrorResponse (dart:io/common.dart:58:9)\n#1      _Directory.create.<anonymous closure> (dart:io/directory_impl.dart:121:9)\n#2      _rootRunUnary (dart:async/zone_root.dart:48:47)\n#3      _CustomZone.runUnary (dart:async/zone.dart:816:35)\n<asynchronous suspension>\n#4      _File.create.<anonymous closure> (dart:io/file_impl.dart:307:11)\n<asynchronous suspension>\n#5      _File.create.<anonymous closure> (dart:io/file_impl.dart:313:15)\n<asynchronous suspension>\n"
+        }
+      ]
+    },
+    {
+      "time": "2026-10-01T16:29:59.318143Z",
+      "kind": "result",
+      "case": "no_online_account",
+      "status": "PASS",
+      "actual": "credential presence checked; values not recorded"
+    },
+    {
+      "time": "2026-10-01T16:30:03.543097Z",
+      "kind": "result",
+      "case": "fixed_content",
+      "status": "PASS",
+      "actual": "EROS Step 5A — Fixed Local Gallery"
+    },
+    {
+      "time": "2026-10-01T16:30:06.651341Z",
+      "kind": "result",
+      "case": "torrent_submenu",
+      "status": "PASS",
+      "actual": "step5a-fixed-local.torrent"
+    },
+    {
+      "time": "2026-10-01T16:30:11.603511Z",
+      "kind": "result",
+      "case": "system_share_visible_and_usable",
+      "status": "FAIL",
+      "expected": "system share menu appears and is usable",
+      "magnet": "magnet:?xt=urn:btih:0123456789abcdef0123456789abcdef01234567",
+      "errors": [
+        {
+          "time": "2026-10-01T16:30:07.997255Z",
+          "kind": "error",
+          "channel": "uncaught async",
+          "error": "PlatformException(error, sharePositionOrigin: argument must be set, {{0, 0}, {0, 0}} must be non-zero and within coordinate space of source view: {{0, 0}, {1210, 834}}, null, null)",
+          "stack": "#0      StandardMethodCodec.decodeEnvelope (package:flutter/src/services/message_codecs.dart:653:7)\n#1      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:366:18)\n<asynchronous suspension>\n#2      MethodChannelShare.share (package:share_plus_platform_interface/method_channel/method_channel_share.dart:25:20)\n<asynchronous suspension>\n"
+        }
+      ],
+      "source": "lib/pages/gallery/view/torrent_dialog.dart:171"
+    },
+    {
+      "time": "2026-10-01T16:30:16.330109Z",
+      "kind": "result",
+      "case": "back_navigation",
+      "status": "PASS",
+      "actual": "/home"
+    },
+    {
+      "time": "2026-10-01T16:30:17.275377Z",
+      "kind": "result",
+      "case": "settings",
+      "status": "PASS",
+      "actual": "LayoutSettingPage"
+    },
+    {
+      "time": "2026-10-01T16:30:19.196703Z",
+      "kind": "result",
+      "case": "settings_back",
+      "status": "PASS",
+      "actual": "/home"
+    },
+    {
+      "time": "2026-10-01T16:30:20.017168Z",
+      "kind": "result",
+      "case": "fixed_content",
+      "status": "PASS",
+      "actual": "EROS Step 5A — Fixed Local Gallery"
+    },
+    {
+      "time": "2026-10-01T16:31:33.094015Z",
+      "kind": "result",
+      "case": "privacy_setting_off",
+      "status": "PASS",
+      "actual": false
+    },
+    {
+      "time": "2026-10-01T16:37:02.141613Z",
+      "kind": "result",
+      "case": "lock_unlock_privacy_off_restore",
+      "status": "PASS",
+      "actual": {
+        "states": [
+          "inactive",
+          "resumed",
+          "inactive",
+          "resumed",
+          "inactive",
+          "resumed",
+          "inactive",
+          "hidden",
+          "paused",
+          "hidden",
+          "inactive",
+          "resumed",
+          "inactive",
+          "hidden",
+          "paused",
+          "hidden",
+          "inactive",
+          "resumed"
+        ],
+        "route": "/galleryPage"
+      }
+    },
+    {
+      "time": "2026-10-01T16:37:02.143517Z",
+      "kind": "result",
+      "case": "lock_unlock_privacy_off_no_exception",
+      "status": "PASS",
+      "actual": []
+    },
+    {
+      "time": "2026-10-01T16:37:04.359646Z",
+      "kind": "result",
+      "case": "torrent_submenu",
+      "status": "PASS",
+      "actual": "step5a-fixed-local.torrent"
+    },
+    {
+      "time": "2026-10-01T16:37:06.267487Z",
+      "kind": "result",
+      "case": "lock_unlock_privacy_off_interaction",
+      "status": "PASS",
+      "actual": "real torrent menu reopened and closed"
+    },
+    {
+      "time": "2026-10-01T16:37:10.064840Z",
+      "kind": "result",
+      "case": "privacy_setting_on",
+      "status": "PASS",
+      "actual": true
+    },
+    {
+      "time": "2026-10-01T16:41:19.174450Z",
+      "kind": "result",
+      "case": "lock_unlock_privacy_on_restore",
+      "status": "PASS",
+      "actual": {
+        "states": [
+          "inactive",
+          "resumed",
+          "inactive",
+          "resumed",
+          "inactive",
+          "hidden",
+          "paused",
+          "hidden",
+          "inactive",
+          "resumed"
+        ],
+        "route": "/galleryPage"
+      }
+    },
+    {
+      "time": "2026-10-01T16:41:19.176484Z",
+      "kind": "result",
+      "case": "lock_unlock_privacy_on_no_exception",
+      "status": "PASS",
+      "actual": []
+    },
+    {
+      "time": "2026-10-01T16:41:21.095499Z",
+      "kind": "result",
+      "case": "torrent_submenu",
+      "status": "PASS",
+      "actual": "step5a-fixed-local.torrent"
+    },
+    {
+      "time": "2026-10-01T16:41:23.017431Z",
+      "kind": "result",
+      "case": "lock_unlock_privacy_on_interaction",
+      "status": "PASS",
+      "actual": "real torrent menu reopened and closed"
+    },
+    {
+      "time": "2026-10-01T16:43:24.593187Z",
+      "kind": "result",
+      "case": "privacy_setting_off",
+      "status": "PASS",
+      "actual": false
+    }
+  ],
+  "manualObservations": [
+    {
+      "time": "2026-10-01T16:36:13.105923+00:00",
+      "case": "lock_unlock_privacy_off",
+      "userReply": "关闭状态完成，卡片清晰",
+      "requestedSteps": "App switcher card clarity, return to App, lock >=5s, unlock and return"
+    },
+    {
+      "time": "2026-10-01T16:41:23.522778+00:00",
+      "case": "lock_unlock_privacy_on",
+      "userReply": "开启状态完成，卡片异常，回到 App 正常",
+      "privacyCard": "FAIL: still clear, no blur",
+      "requestedSteps": "App switcher card blur, return to App, lock >=5s, unlock and return",
+      "clarification": "仍清晰显示内容，没有模糊",
+      "clarifiedAt": "2026-10-01T16:41:51.291510+00:00"
+    }
+  ]
+}

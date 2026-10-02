@@ -1,0 +1,23 @@
+{
+  "before": [
+    {
+      "executable": "file:///private/var/containers/Bundle/Application/B5889CFC-2280-44F8-8FBC-FDC48FCA8452/fehviewer.app/fehviewer",
+      "processIdentifier": 73421
+    },
+    {
+      "executable": "file:///private/var/containers/Bundle/Application/5CE8CFDB-0489-40C2-BFDC-97E88C21BADC/App.app/fehviewer",
+      "processIdentifier": 73439
+    }
+  ],
+  "after": [
+    {
+      "executable": "file:///private/var/containers/Bundle/Application/B5889CFC-2280-44F8-8FBC-FDC48FCA8452/fehviewer.app/fehviewer",
+      "processIdentifier": 73421
+    },
+    {
+      "executable": "file:///private/var/containers/Bundle/Application/5CE8CFDB-0489-40C2-BFDC-97E88C21BADC/App.app/fehviewer",
+      "processIdentifier": 73439
+    }
+  ],
+  "sameRelevantProcessSet": true
+}

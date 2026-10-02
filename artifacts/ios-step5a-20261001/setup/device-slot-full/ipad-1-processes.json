@@ -1,0 +1,32 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "device",
+      "info",
+      "processes",
+      "--device",
+      "00008132-000278923E99001C",
+      "--search",
+      "fehviewer",
+      "--json-output",
+      "artifacts/ios-step5a-20261001/ipad-1-processes.json"
+    ],
+    "commandType" : "devicectl.device.info.processes",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 5,
+    "outcome" : "success",
+    "version" : "642.16"
+  },
+  "result" : {
+    "deviceIdentifier" : "A8511718-99C6-58D3-8BF2-CCC11F34252B",
+    "runningProcesses" : [
+      {
+        "executable" : "file:///private/var/containers/Bundle/Application/1DD50F3B-EC77-4413-AADB-BC87A0D8D82E/fehviewer.app/fehviewer",
+        "processIdentifier" : 73048
+      }
+    ]
+  }
+}

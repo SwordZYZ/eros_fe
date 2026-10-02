@@ -1,0 +1,3697 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "device",
+      "info",
+      "files",
+      "--device",
+      "00008132-000278923E99001C",
+      "--domain-type",
+      "systemCrashLogs",
+      "--json-output",
+      "artifacts/ios-step5a-20261001/crashes/before.json"
+    ],
+    "commandType" : "devicectl.device.info.files",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 5,
+    "outcome" : "success",
+    "version" : "642.16"
+  },
+  "result" : {
+    "deviceIdentifier" : "A8511718-99C6-58D3-8BF2-CCC11F34252B",
+    "domain" : "systemCrashLogs",
+    "files" : [
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "305",
+            "bug_type" : "305"
+          },
+          "lastModDate" : "2026-10-01T13:35:32.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 4562
+        },
+        "name" : "AccessoryCrash-2026-10-01-213532.ips",
+        "relativePath" : "AccessoryCrash-2026-10-01-213532.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+
+          },
+          "lastModDate" : "2026-09-17T11:32:48.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 493,
+          "size" : 96
+        },
+        "name" : "Assistant",
+        "relativePath" : "Assistant",
+        "resources" : {
+          "isDirectory" : true,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+
+          },
+          "lastModDate" : "2025-09-15T18:55:58.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 493,
+          "size" : 64
+        },
+        "name" : "Assistant/SpeechLogs",
+        "relativePath" : "Assistant/SpeechLogs",
+        "resources" : {
+          "isDirectory" : true,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+
+          },
+          "lastModDate" : "2025-12-13T10:38:52.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 504,
+          "size" : 96
+        },
+        "name" : "DiagnosticLogs",
+        "relativePath" : "DiagnosticLogs",
+        "resources" : {
+          "isDirectory" : true,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+
+          },
+          "lastModDate" : "2026-10-01T14:36:17.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 493,
+          "size" : 96
+        },
+        "name" : "DiagnosticLogs/Search",
+        "relativePath" : "DiagnosticLogs/Search",
+        "resources" : {
+          "isDirectory" : true,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+
+          },
+          "lastModDate" : "2026-10-01T14:36:17.000Z",
+          "ownerGid" : 501,
+          "ownerUid" : 501,
+          "permissions" : 420,
+          "size" : 16615
+        },
+        "name" : "DiagnosticLogs/Search/spotlight_heartbeat_last.plist",
+        "relativePath" : "DiagnosticLogs/Search/spotlight_heartbeat_last.plist",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+
+          },
+          "lastModDate" : "2026-01-29T23:58:39.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 493,
+          "size" : 64
+        },
+        "name" : "ForceResetTailspins",
+        "relativePath" : "ForceResetTailspins",
+        "resources" : {
+          "isDirectory" : true,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "298_LOW_PRIORITY",
+            "bug_type" : "298"
+          },
+          "lastModDate" : "2026-10-01T13:42:03.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 214026
+        },
+        "name" : "JetsamEvent-2026-10-01-214203.ips",
+        "relativePath" : "JetsamEvent-2026-10-01-214203.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+
+          },
+          "lastModDate" : "2026-10-01T12:44:47.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 504,
+          "size" : 4768
+        },
+        "name" : "Retired",
+        "relativePath" : "Retired",
+        "resources" : {
+          "isDirectory" : true,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "305",
+            "bug_type" : "305",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-24T17:17:42.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 4499
+        },
+        "name" : "Retired/AccessoryCrash-2026-09-25-011742.ips",
+        "relativePath" : "Retired/AccessoryCrash-2026-09-25-011742.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "305",
+            "bug_type" : "305",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-26T00:10:32.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 4570
+        },
+        "name" : "Retired/AccessoryCrash-2026-09-26-081032.ips",
+        "relativePath" : "Retired/AccessoryCrash-2026-09-26-081032.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "305",
+            "bug_type" : "305",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-26T15:34:31.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 4549
+        },
+        "name" : "Retired/AccessoryCrash-2026-09-26-233431.ips",
+        "relativePath" : "Retired/AccessoryCrash-2026-09-26-233431.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "305",
+            "bug_type" : "305",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-30T14:20:15.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 4528
+        },
+        "name" : "Retired/AccessoryCrash-2026-09-30-222015.ips",
+        "relativePath" : "Retired/AccessoryCrash-2026-09-30-222015.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted",
+            "urgent" : "1"
+          },
+          "lastModDate" : "2026-09-24T22:09:01.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 2145
+        },
+        "name" : "Retired/Analytics-2026-09-25-060901...session.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-25-060901...session.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-25T00:00:04.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 2594707
+        },
+        "name" : "Retired/Analytics-2026-09-25-080003.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-25-080003.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted",
+            "urgent" : "1"
+          },
+          "lastModDate" : "2026-09-25T11:59:36.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 2152
+        },
+        "name" : "Retired/Analytics-2026-09-25-195936...session.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-25-195936...session.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-26T00:00:10.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 2264818
+        },
+        "name" : "Retired/Analytics-2026-09-26-080009.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-26-080009.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted",
+            "urgent" : "1"
+          },
+          "lastModDate" : "2026-09-26T09:33:34.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 2152
+        },
+        "name" : "Retired/Analytics-2026-09-26-173334...session.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-26-173334...session.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-27T00:00:09.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1541504
+        },
+        "name" : "Retired/Analytics-2026-09-27-080008.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-27-080008.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-28T00:00:22.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1956635
+        },
+        "name" : "Retired/Analytics-2026-09-28-080021.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-28-080021.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-28T00:00:22.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 8064
+        },
+        "name" : "Retired/Analytics-2026-09-28-080022.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-28-080022.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted",
+            "urgent" : "1"
+          },
+          "lastModDate" : "2026-09-28T06:29:36.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 2145
+        },
+        "name" : "Retired/Analytics-2026-09-28-142936...session.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-28-142936...session.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-29T00:00:02.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1513003
+        },
+        "name" : "Retired/Analytics-2026-09-29-080002.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-29-080002.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted",
+            "urgent" : "1"
+          },
+          "lastModDate" : "2026-09-29T07:53:33.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 2152
+        },
+        "name" : "Retired/Analytics-2026-09-29-155333...session.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-29-155333...session.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-30T00:00:22.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1951681
+        },
+        "name" : "Retired/Analytics-2026-09-30-080021.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-30-080021.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted",
+            "urgent" : "1"
+          },
+          "lastModDate" : "2026-09-30T12:44:31.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 2152
+        },
+        "name" : "Retired/Analytics-2026-09-30-204431...session.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-09-30-204431...session.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-10-01T00:00:03.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1851347
+        },
+        "name" : "Retired/Analytics-2026-10-01-080002.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-10-01-080002.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "211",
+            "bug_type" : "211",
+            "retired-reason" : "submitted",
+            "urgent" : "1"
+          },
+          "lastModDate" : "2026-10-01T10:22:37.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 2145
+        },
+        "name" : "Retired/Analytics-2026-10-01-182237...session.ips.ca.synced",
+        "relativePath" : "Retired/Analytics-2026-10-01-182237...session.ips.ca.synced",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "312",
+            "bug_type" : "312",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T16:00:04.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 1465
+        },
+        "name" : "Retired/DiagnosticRequest_com.apple.perfpowerservices_pps-archive-2026-09-30-000004.ips",
+        "relativePath" : "Retired/DiagnosticRequest_com.apple.perfpowerservices_pps-archive-2026-09-30-000004.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "308_MobileSafari_sim",
+            "bug_type" : "308",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T14:38:17.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 4178
+        },
+        "name" : "Retired/ExcUserFault_MobileSafari-2026-09-24-223817.ips",
+        "relativePath" : "Retired/ExcUserFault_MobileSafari-2026-09-24-223817.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "298_LOW_PRIORITY",
+            "bug_type" : "298",
+            "retired-reason" : "rejected-blacklist"
+          },
+          "lastModDate" : "2026-09-24T14:00:43.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 178124
+        },
+        "name" : "Retired/JetsamEvent-2026-09-24-220043.ips",
+        "relativePath" : "Retired/JetsamEvent-2026-09-24-220043.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "298_LOW_PRIORITY",
+            "bug_type" : "298",
+            "retired-reason" : "rejected-blacklist"
+          },
+          "lastModDate" : "2026-09-25T14:31:42.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 465727
+        },
+        "name" : "Retired/JetsamEvent-2026-09-25-223142.ips",
+        "relativePath" : "Retired/JetsamEvent-2026-09-25-223142.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "298_LOW_PRIORITY",
+            "bug_type" : "298",
+            "retired-reason" : "rejected-blacklist"
+          },
+          "lastModDate" : "2026-09-26T13:40:36.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 284899
+        },
+        "name" : "Retired/JetsamEvent-2026-09-26-214035.ips",
+        "relativePath" : "Retired/JetsamEvent-2026-09-26-214035.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "298_LOW_PRIORITY",
+            "bug_type" : "298",
+            "retired-reason" : "rejected-blacklist"
+          },
+          "lastModDate" : "2026-09-27T14:22:03.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 267033
+        },
+        "name" : "Retired/JetsamEvent-2026-09-27-222203.ips",
+        "relativePath" : "Retired/JetsamEvent-2026-09-27-222203.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "298_LOW_PRIORITY",
+            "bug_type" : "298",
+            "retired-reason" : "rejected-blacklist"
+          },
+          "lastModDate" : "2026-09-28T14:49:44.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 262200
+        },
+        "name" : "Retired/JetsamEvent-2026-09-28-224943.ips",
+        "relativePath" : "Retired/JetsamEvent-2026-09-28-224943.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "298_LOW_PRIORITY",
+            "bug_type" : "298",
+            "retired-reason" : "rejected-blacklist"
+          },
+          "lastModDate" : "2026-09-29T13:51:54.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 172917
+        },
+        "name" : "Retired/JetsamEvent-2026-09-29-215154.ips",
+        "relativePath" : "Retired/JetsamEvent-2026-09-29-215154.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "298_LOW_PRIORITY",
+            "bug_type" : "298",
+            "retired-reason" : "rejected-blacklist"
+          },
+          "lastModDate" : "2026-09-30T12:45:27.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 231642
+        },
+        "name" : "Retired/JetsamEvent-2026-09-30-204527.ips",
+        "relativePath" : "Retired/JetsamEvent-2026-09-30-204527.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "145",
+            "bug_type" : "145",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-29T18:35:21.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 152996
+        },
+        "name" : "Retired/MobileSafari.diskwrites_resource-2026-09-30-023521.ips",
+        "relativePath" : "Retired/MobileSafari.diskwrites_resource-2026-09-30-023521.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T18:08:00.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 740
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-09-25-020800.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-09-25-020800.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T00:08:36.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1578
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-09-25-080836.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-09-25-080836.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T11:59:59.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 481
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-09-25-195959.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-09-25-195959.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T13:40:41.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 740
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-09-26-214041.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-09-26-214041.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:22:24.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 740
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-09-27-222224.000.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-09-27-222224.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T14:49:22.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 740
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-09-28-224922.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-09-28-224922.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T15:00:36.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 740
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-09-29-230036.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-09-29-230036.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T12:44:13.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 740
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-09-30-204413.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-09-30-204413.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T18:44:06.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 740
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-10-01-024406.000.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-10-01-024406.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T10:22:58.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 481
+        },
+        "name" : "Retired/SFA-CloudServices.json-2026-10-01-182258.ips",
+        "relativePath" : "Retired/SFA-CloudServices.json-2026-10-01-182258.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T18:08:03.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 7473
+        },
+        "name" : "Retired/SFA-ckks.json-2026-09-25-020803.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-09-25-020803.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T00:08:41.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 17173
+        },
+        "name" : "Retired/SFA-ckks.json-2026-09-25-080841.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-09-25-080841.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T12:00:02.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 17258
+        },
+        "name" : "Retired/SFA-ckks.json-2026-09-25-200002.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-09-25-200002.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T13:40:49.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 17458
+        },
+        "name" : "Retired/SFA-ckks.json-2026-09-26-214049.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-09-26-214049.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:22:29.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 17303
+        },
+        "name" : "Retired/SFA-ckks.json-2026-09-27-222229.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-09-27-222229.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T14:49:27.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 17294
+        },
+        "name" : "Retired/SFA-ckks.json-2026-09-28-224927.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-09-28-224927.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T15:00:43.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 17599
+        },
+        "name" : "Retired/SFA-ckks.json-2026-09-29-230043.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-09-29-230043.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T12:44:20.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 17405
+        },
+        "name" : "Retired/SFA-ckks.json-2026-09-30-204420.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-09-30-204420.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T18:44:11.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 17578
+        },
+        "name" : "Retired/SFA-ckks.json-2026-10-01-024411.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-10-01-024411.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T10:23:03.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 17405
+        },
+        "name" : "Retired/SFA-ckks.json-2026-10-01-182303.ips",
+        "relativePath" : "Retired/SFA-ckks.json-2026-10-01-182303.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T18:08:04.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 580
+        },
+        "name" : "Retired/SFA-local.json-2026-09-25-020804.000.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-09-25-020804.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T00:08:42.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 580
+        },
+        "name" : "Retired/SFA-local.json-2026-09-25-080842.0002.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-09-25-080842.0002.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T12:00:03.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 580
+        },
+        "name" : "Retired/SFA-local.json-2026-09-25-200003.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-09-25-200003.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T13:40:50.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 805
+        },
+        "name" : "Retired/SFA-local.json-2026-09-26-214050.000.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-09-26-214050.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:22:30.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 580
+        },
+        "name" : "Retired/SFA-local.json-2026-09-27-222230.000.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-09-27-222230.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T14:49:28.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 753
+        },
+        "name" : "Retired/SFA-local.json-2026-09-28-224928.000.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-09-28-224928.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T15:00:44.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 751
+        },
+        "name" : "Retired/SFA-local.json-2026-09-29-230044.000.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-09-29-230044.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T12:44:25.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 721
+        },
+        "name" : "Retired/SFA-local.json-2026-09-30-204424.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-09-30-204424.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T18:44:12.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 721
+        },
+        "name" : "Retired/SFA-local.json-2026-10-01-024412.0002.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-10-01-024412.0002.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T10:23:04.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 722
+        },
+        "name" : "Retired/SFA-local.json-2026-10-01-182304.0002.ips",
+        "relativePath" : "Retired/SFA-local.json-2026-10-01-182304.0002.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T18:08:00.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-09-25-020800.000.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-09-25-020800.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T00:08:37.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-09-25-080837.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-09-25-080837.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T11:59:59.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-09-25-195959.000.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-09-25-195959.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T13:40:45.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-09-26-214045.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-09-26-214045.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:22:25.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-09-27-222225.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-09-27-222225.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T14:49:23.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-09-28-224923.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-09-28-224923.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T15:00:37.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-09-29-230037.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-09-29-230037.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T12:44:14.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-09-30-204414.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-09-30-204414.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T18:44:07.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-10-01-024407.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-10-01-024407.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T10:22:59.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 597
+        },
+        "name" : "Retired/SFA-networking.json-2026-10-01-182259.ips",
+        "relativePath" : "Retired/SFA-networking.json-2026-10-01-182259.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T18:08:04.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 464
+        },
+        "name" : "Retired/SFA-pcs.json-2026-09-25-020804.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-09-25-020804.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T00:08:42.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1275
+        },
+        "name" : "Retired/SFA-pcs.json-2026-09-25-080842.000.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-09-25-080842.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T12:00:02.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1275
+        },
+        "name" : "Retired/SFA-pcs.json-2026-09-25-200002.0002.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-09-25-200002.0002.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T13:40:50.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1275
+        },
+        "name" : "Retired/SFA-pcs.json-2026-09-26-214050.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-09-26-214050.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:22:30.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1275
+        },
+        "name" : "Retired/SFA-pcs.json-2026-09-27-222230.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-09-27-222230.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T14:49:28.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1275
+        },
+        "name" : "Retired/SFA-pcs.json-2026-09-28-224928.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-09-28-224928.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T15:00:44.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1275
+        },
+        "name" : "Retired/SFA-pcs.json-2026-09-29-230044.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-09-29-230044.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T12:44:23.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1275
+        },
+        "name" : "Retired/SFA-pcs.json-2026-09-30-204422.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-09-30-204422.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T18:44:12.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1479
+        },
+        "name" : "Retired/SFA-pcs.json-2026-10-01-024412.000.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-10-01-024412.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T10:23:04.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 1275
+        },
+        "name" : "Retired/SFA-pcs.json-2026-10-01-182304.000.ips",
+        "relativePath" : "Retired/SFA-pcs.json-2026-10-01-182304.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T18:08:03.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 464
+        },
+        "name" : "Retired/SFA-sos.json-2026-09-25-020803.000.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-09-25-020803.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T00:08:42.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 692
+        },
+        "name" : "Retired/SFA-sos.json-2026-09-25-080842.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-09-25-080842.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T12:00:02.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 464
+        },
+        "name" : "Retired/SFA-sos.json-2026-09-25-200002.000.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-09-25-200002.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T13:40:50.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 692
+        },
+        "name" : "Retired/SFA-sos.json-2026-09-26-214049.000.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-09-26-214049.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:22:29.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 464
+        },
+        "name" : "Retired/SFA-sos.json-2026-09-27-222229.000.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-09-27-222229.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T14:49:27.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 692
+        },
+        "name" : "Retired/SFA-sos.json-2026-09-28-224927.000.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-09-28-224927.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T15:00:43.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 532
+        },
+        "name" : "Retired/SFA-sos.json-2026-09-29-230043.000.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-09-29-230043.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T12:44:21.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 693
+        },
+        "name" : "Retired/SFA-sos.json-2026-09-30-204421.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-09-30-204421.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T18:44:12.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 692
+        },
+        "name" : "Retired/SFA-sos.json-2026-10-01-024412.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-10-01-024412.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T10:23:04.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 464
+        },
+        "name" : "Retired/SFA-sos.json-2026-10-01-182304.ips",
+        "relativePath" : "Retired/SFA-sos.json-2026-10-01-182304.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T18:07:59.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 621
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-09-25-020759.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-09-25-020759.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T00:08:35.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 620
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-09-25-080835.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-09-25-080835.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T11:59:58.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 682
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-09-25-195958.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-09-25-195958.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T13:40:40.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 682
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-09-26-214040.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-09-26-214040.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:22:22.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 682
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-09-27-222222.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-09-27-222222.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T14:49:21.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 682
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-09-28-224920.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-09-28-224920.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T15:00:33.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 682
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-09-29-230032.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-09-29-230032.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T12:44:09.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 682
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-09-30-204409.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-09-30-204409.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T18:44:06.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 681
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-10-01-024406.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-10-01-024406.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T10:22:56.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 682
+        },
+        "name" : "Retired/SFA-swtransparency.json-2026-10-01-182256.ips",
+        "relativePath" : "Retired/SFA-swtransparency.json-2026-10-01-182256.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T18:08:03.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 4388
+        },
+        "name" : "Retired/SFA-transparency.json-2026-09-25-020802.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-09-25-020802.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T00:08:40.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 4263
+        },
+        "name" : "Retired/SFA-transparency.json-2026-09-25-080840.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-09-25-080840.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T12:00:01.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 5709
+        },
+        "name" : "Retired/SFA-transparency.json-2026-09-25-200001.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-09-25-200001.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T13:40:48.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 5751
+        },
+        "name" : "Retired/SFA-transparency.json-2026-09-26-214048.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-09-26-214048.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:22:27.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 5766
+        },
+        "name" : "Retired/SFA-transparency.json-2026-09-27-222227.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-09-27-222227.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T14:49:25.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 5689
+        },
+        "name" : "Retired/SFA-transparency.json-2026-09-28-224925.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-09-28-224925.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T15:00:41.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 5755
+        },
+        "name" : "Retired/SFA-transparency.json-2026-09-29-230041.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-09-29-230041.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T12:44:18.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 6144
+        },
+        "name" : "Retired/SFA-transparency.json-2026-09-30-204418.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-09-30-204418.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T18:44:10.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 5652
+        },
+        "name" : "Retired/SFA-transparency.json-2026-10-01-024410.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-10-01-024410.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T10:23:01.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 10218
+        },
+        "name" : "Retired/SFA-transparency.json-2026-10-01-182301.ips",
+        "relativePath" : "Retired/SFA-transparency.json-2026-10-01-182301.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "226",
+            "bug_type" : "226",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:22:24.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 113086
+        },
+        "name" : "Retired/SFA-trust.json-2026-09-27-222224.ips",
+        "relativePath" : "Retired/SFA-trust.json-2026-09-27-222224.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "202",
+            "bug_type" : "202",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-24T19:14:20.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 50644
+        },
+        "name" : "Retired/backupd.cpu_resource-2026-09-25-031419.ips",
+        "relativePath" : "Retired/backupd.cpu_resource-2026-09-25-031419.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "202",
+            "bug_type" : "202",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-30T16:21:26.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 29853
+        },
+        "name" : "Retired/backupd.cpu_resource-2026-10-01-002126.ips",
+        "relativePath" : "Retired/backupd.cpu_resource-2026-10-01-002126.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "145",
+            "bug_type" : "145",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-26T13:40:09.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 18979
+        },
+        "name" : "Retired/bili-universal.diskwrites_resource-2026-09-26-214009.ips",
+        "relativePath" : "Retired/bili-universal.diskwrites_resource-2026-09-26-214009.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "145",
+            "bug_type" : "145",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-26T00:12:06.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 33252
+        },
+        "name" : "Retired/fateGO.diskwrites_resource-2026-09-26-081206.ips",
+        "relativePath" : "Retired/fateGO.diskwrites_resource-2026-09-26-081206.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "1cfeca70d93f5e83d8bab4932849fda8876d205d",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:30:35.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 33493
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213035.000.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213035.000.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "67709bded992415565de21be6e61221a0100861c",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:30:35.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 33525
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213035.0002.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213035.0002.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "67709bded992415565de21be6e61221a0100861c",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:30:35.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 34975
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213035.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213035.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "67709bded992415565de21be6e61221a0100861c",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:30:52.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 32194
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213052.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213052.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "1cfeca70d93f5e83d8bab4932849fda8876d205d",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:31:43.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 32872
+        },
+        "name" : "Retired/fehviewer-2026-09-30-213143.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-213143.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "43abd739e059beb70270098b749dd6299bc45916",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T13:50:05.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 99359
+        },
+        "name" : "Retired/fehviewer-2026-09-30-215005.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-215005.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "DoNotSubmit" : "1",
+            "LogType" : "309_fehviewer",
+            "Signature" : "63b95093d0c6f856460ee0e700cee5939c2a1467",
+            "bug_type" : "309",
+            "com.apple.dataprotection.policy.exception-applied-by" : "com.apple.osanalyticshelper",
+            "retired-reason" : "rejected-doNotSubmit"
+          },
+          "lastModDate" : "2026-09-30T14:42:53.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 95519
+        },
+        "name" : "Retired/fehviewer-2026-09-30-224253.ips",
+        "relativePath" : "Retired/fehviewer-2026-09-30-224253.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "278",
+            "incident_id" : "7759228E-4EEF-44AE-BCC3-0B9C676DD205",
+            "retired-reason" : "submitted",
+            "roots_installed" : "0"
+          },
+          "lastModDate" : "2026-09-24T19:10:29.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 103522
+        },
+        "name" : "Retired/log-power-2026-09-25-031029.session",
+        "relativePath" : "Retired/log-power-2026-09-25-031029.session",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "278",
+            "incident_id" : "22E35627-B3B0-4C68-BD6E-3B3EA8D47132",
+            "retired-reason" : "submitted",
+            "roots_installed" : "0"
+          },
+          "lastModDate" : "2026-09-30T13:29:25.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 111367
+        },
+        "name" : "Retired/log-power-2026-09-30-212925.session",
+        "relativePath" : "Retired/log-power-2026-09-30-212925.session",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "303",
+            "bug_type" : "303",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T22:56:17.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 15642
+        },
+        "name" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-25-065617.ips",
+        "relativePath" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-25-065617.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "303",
+            "bug_type" : "303",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T12:00:12.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 49494
+        },
+        "name" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-25-200012.ips",
+        "relativePath" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-25-200012.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "303",
+            "bug_type" : "303",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T13:41:24.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 43804
+        },
+        "name" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-26-214124.ips",
+        "relativePath" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-26-214124.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "303",
+            "bug_type" : "303",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T14:23:05.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 16275
+        },
+        "name" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-27-222305.ips",
+        "relativePath" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-27-222305.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "303",
+            "bug_type" : "303",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T14:49:34.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 43746
+        },
+        "name" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-28-224934.ips",
+        "relativePath" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-28-224934.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "303",
+            "bug_type" : "303",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T15:01:01.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 41738
+        },
+        "name" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-29-230101.ips",
+        "relativePath" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-29-230101.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "303",
+            "bug_type" : "303",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T12:45:06.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 20449
+        },
+        "name" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-30-204506.ips",
+        "relativePath" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-09-30-204506.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "303",
+            "bug_type" : "303",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T10:23:17.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 28793
+        },
+        "name" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-10-01-182317.ips",
+        "relativePath" : "Retired/proactive_event_tracker-com_apple_Trial-com_apple_triald-2026-10-01-182317.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "202",
+            "bug_type" : "202",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-24T19:16:13.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 22788
+        },
+        "name" : "Retired/signpost_reporter.cpu_resource-2026-09-25-031613.ips",
+        "relativePath" : "Retired/signpost_reporter.cpu_resource-2026-09-25-031613.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "202",
+            "bug_type" : "202",
+            "retired-reason" : "submitted"
+          },
+          "lastModDate" : "2026-09-25T14:30:06.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 36541
+        },
+        "name" : "Retired/signpost_reporter.cpu_resource-2026-09-25-223006.ips",
+        "relativePath" : "Retired/signpost_reporter.cpu_resource-2026-09-25-223006.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-24T16:01:48.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 9467
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-25-000148.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-25-000148.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T04:08:10.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 118651
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-25-120810.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-25-120810.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-25T16:11:06.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 3750
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-26-001106.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-26-001106.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T04:10:04.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 110775
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-26-121004.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-26-121004.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-26T16:11:13.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 5208
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-27-001113.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-27-001113.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T04:20:56.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 107213
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-27-122056.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-27-122056.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-27T16:30:02.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 11677
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-28-003002.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-28-003002.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T04:07:10.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 107213
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-28-120710.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-28-120710.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-28T16:20:21.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 5161
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-29-002021.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-29-002021.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T04:00:27.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 109359
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-29-120027.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-29-120027.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-29T16:12:34.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 10915
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-30-001234.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-30-001234.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T04:23:59.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 112912
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-09-30-122359.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-09-30-122359.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-09-30T16:23:06.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 10135
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-10-01-002306.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-10-01-002306.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225",
+            "retired-reason" : "rejected-config"
+          },
+          "lastModDate" : "2026-10-01T04:10:45.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 117283
+        },
+        "name" : "Retired/xp_amp_app_usage_dnu-2026-10-01-121045.ips",
+        "relativePath" : "Retired/xp_amp_app_usage_dnu-2026-10-01-121045.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "278",
+            "incident_id" : "FA85761E-2A07-4B79-AED5-E468C9C3D1E0",
+            "roots_installed" : "0"
+          },
+          "lastModDate" : "2026-10-01T15:34:16.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 0,
+          "permissions" : 432,
+          "size" : 126637
+        },
+        "name" : "log-power-2026-10-01-233416.session",
+        "relativePath" : "log-power-2026-10-01-233416.session",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+
+          },
+          "lastModDate" : "2026-09-15T12:16:15.000Z",
+          "ownerGid" : 501,
+          "ownerUid" : 501,
+          "permissions" : 420,
+          "size" : 30829
+        },
+        "name" : "restore_perform.txt",
+        "relativePath" : "restore_perform.txt",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      },
+      {
+        "metadata" : {
+          "extendedAttributes" : {
+            "LogType" : "225",
+            "bug_type" : "225"
+          },
+          "lastModDate" : "2026-10-01T16:03:52.000Z",
+          "ownerGid" : 250,
+          "ownerUid" : 501,
+          "permissions" : 432,
+          "size" : 15115
+        },
+        "name" : "xp_amp_app_usage_dnu-2026-10-02-000352.ips",
+        "relativePath" : "xp_amp_app_usage_dnu-2026-10-02-000352.ips",
+        "resources" : {
+          "isDirectory" : false,
+          "isHidden" : false,
+          "isReadable" : true,
+          "isSymbolicLink" : false,
+          "isWritable" : true
+        }
+      }
+    ]
+  }
+}
