@@ -1,0 +1,17 @@
+{
+  "exit_code": 0,
+  "duration_seconds": 8.864405416999944,
+  "no_wait": true,
+  "independent_console_snapshot": [
+    {
+      "original_pid": 84198,
+      "ps_exit": 1,
+      "state": ""
+    },
+    {
+      "original_pid": 84199,
+      "ps_exit": 1,
+      "state": ""
+    }
+  ]
+}

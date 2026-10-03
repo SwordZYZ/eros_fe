@@ -1,0 +1,16 @@
+test_escaped_console_never_inherits_lock (test_ios_lock.LockChecks.test_escaped_console_never_inherits_lock) ... FAIL
+
+======================================================================
+FAIL: test_escaped_console_never_inherits_lock (test_ios_lock.LockChecks.test_escaped_console_never_inherits_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/tests/test_ios_lock.py", line 156, in test_escaped_console_never_inherits_lock
+    self.assertEqual(contender.wait(timeout=5), 0, log.read_text())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 75 != 0 : [iOS lock] Checkout busy: PID 33456 (python3.14); command not started.
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.119s
+
+FAILED (failures=1)

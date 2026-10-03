@@ -1,0 +1,79 @@
+iOS toolchain baseline for /private/tmp/eros-step6-clean-670zcyi7
+
+PASS  arm64 host for Simulator validation
+Xcode 27.0
+Build version 27A266a
+PASS  Xcode 27.0
+Developer directory: /Applications/Xcode.app/Contents/Developer
+
+Simulator runtimes:
+com.apple.CoreSimulator.SimRuntime.iOS-27-0 24A434 ['arm64']
+PASS  iOS 27.0 arm64 runtime is available
+
+Available simulator devices:
+== Devices ==
+-- iOS 27.0 --
+    iPhone 18 Pro (2ED7FD5C-26A3-48DD-9319-5A93702510DB) (Shutdown) 
+    iPhone 18 Pro Max (7A459751-68DA-40D3-94A1-9298C5F6B79C) (Shutdown) 
+    iPhone 17e (0864B39F-6FB1-4CA8-87E7-29A6CE280F94) (Shutdown) 
+    iPhone Air (3DAC2C7F-7CBD-491E-A67C-D8176BF3E547) (Shutdown) 
+    iPhone 17 (F3A019FD-AC49-42EA-8D80-1E6B564CAE85) (Shutdown) 
+    iPad Pro 13-inch (M5) (C9297A96-352A-4FCC-B180-5F6CCAB986AD) (Shutdown) 
+    Eros-FE-dca5cc2810 (60168DE6-8CFF-463C-902F-1AEEA6D38D8A) (Booted) 
+    iPad Pro 11-inch (M5) (E3B49F40-CB5C-4CDC-A04D-35E0284103A8) (Shutdown) 
+    iPad mini (A17 Pro) (B1FA0D1F-5B4B-446F-ACE8-83E0A77CFF0B) (Shutdown) 
+    iPad Air 13-inch (M4) (8B2B07A0-41CE-47BD-98AC-6E78C1BB3922) (Shutdown) 
+    iPad Air 11-inch (M4) (8F85F1CF-DEB7-41AA-8C88-18858C928213) (Shutdown) 
+    iPad (A16) (A57C3613-A9B5-420A-A735-E6DA968179A8) (Shutdown) 
+-- Unavailable: com.apple.CoreSimulator.SimRuntime.iOS-26-5 --
+PASS  Available devices are listed for iOS 27.0
+
+Physical Apple devices known to Xcode:
+Name                    Hostname   Identifier                                    State                Model                              Reality  
+---------------------   --------   -------------------------------------------   ------------------   --------------------------------   ---------
+Eros-FE-dca5cc2810                 60168DE6-8CFF-463C-902F-1AEEA6D38D8A (UDID)   connected            iPad Pro 11-inch (M5) (iPad17,2)   simulated
+ZYZ’s iPad Pro                     00008132-000278923E99001C (UDID)              available (paired)   iPad Pro 11-inch (M4) (iPad16,3)   physical 
+ZYZ’s iPhone                       00008130-0012558A30EB8D3A (UDID)              available (paired)   iPhone 15 Pro (iPhone16,1)         physical 
+iPad Pro 11-inch (M5)              E3B49F40-CB5C-4CDC-A04D-35E0284103A8 (UDID)   shutdown             iPad Pro 11-inch (M5) (iPad17,2)   simulated
+iPhone 18 Pro                      2ED7FD5C-26A3-48DD-9319-5A93702510DB (UDID)   shutdown             iPhone 18 Pro (iPhone19,2)         simulated
+
+lipo tool: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo
+
+Flutter SDK:
+Flutter 3.47.3 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision e8113bf456 (4 weeks ago) • 2026-09-04 13:20:08 -0700
+Engine • hash 0e228ec8c8d2abc9fcf1d053e8a40665bb859ec7 (revision 06a2e2a110) (28 days ago) • 2026-09-03 16:07:13.000Z
+Tools • Dart 3.13.3 • DevTools 2.60.0
+PASS  Flutter 3.47.3
+
+Flutter visible devices:
+Found 4 connected devices:
+  ZYZ’s iPad Pro (mobile)     • 00008132-000278923E99001C            • ios            • iOS 27.0 24A437
+  Eros-FE-dca5cc2810 (mobile) • 60168DE6-8CFF-463C-902F-1AEEA6D38D8A • ios            • com.apple.CoreSimulator.SimRuntime.iOS-27-0 (simulator)
+  macOS (desktop)             • macos                                • darwin-arm64   • macOS 27.0 26A428 darwin-arm64
+  Chrome (web)                • chrome                               • web-javascript • Google Chrome 154.0.8037.58
+
+Checking for wireless devices...
+
+Found 1 wirelessly connected device:
+  ZYZ’s iPhone (wireless) (mobile) • 00008130-0012558A30EB8D3A • ios • iOS 27.0.1 24A446
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.
+
+Dependency manager versions and lockfiles:
+ruby 4.0.7 (2026-09-15 revision 229531a6cf) +PRISM [arm64-darwin27]
+4.0.20
+The Gemfile's dependencies are satisfied
+PASS  Ruby gems from Gemfile.lock are installed
+Bundled CocoaPods: 1.16.2
+PASS  CocoaPods 1.16.2 matches ios/Podfile.lock
+PASS  pubspec.lock exists
+PASS  Swift Package Manager is disabled in pubspec.yaml
+PASS  Flutter dependency graph resolves from pubspec.lock
+
+iOS deployment target:
+PASS  Podfile and Runner target agree on iOS 15.6
+
+iOS toolchain baseline is ready.

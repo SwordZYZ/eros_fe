@@ -1,0 +1,17 @@
+{
+  "pid": 86576,
+  "command": [
+    "xcrun",
+    "devicectl",
+    "device",
+    "process",
+    "launch",
+    "--device",
+    "00008132-000278923E99001C",
+    "--start-stopped",
+    "--console",
+    "--terminate-existing",
+    "com.fuhua.erosfe.step6"
+  ],
+  "lock_root": "/private/tmp/eros-real-console-6h5vxk0f"
+}

@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stderr": "[iOS lock] Acquired /Users/fuhua/.codex/worktrees/32af/eros_fe/.ios-development.lock; held until this command/session ends.\n",
+  "lock_file_preserved": true
+}

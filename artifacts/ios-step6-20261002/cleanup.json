@@ -1,0 +1,114 @@
+{
+  "completed_utc": "2026-10-02T23:58:52.171373+00:00",
+  "records": [
+    {
+      "kind": "temporary-simulator",
+      "name": "Eros-FE-479f91f437",
+      "udid": "CBE63048-3BFD-45E3-961B-C56DF7AF9A47",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "temporary-simulator",
+      "name": "Eros-FE-5e077f3cb6",
+      "udid": "A592FA30-DFF9-44FB-BEA9-385574654645",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "temporary-simulator",
+      "name": "Eros-FE-e7ea4f0495",
+      "udid": "A0CDA852-B59F-478E-9D6C-7DC8A61A2DCB",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "temporary-derived-data",
+      "path": "/Users/fuhua/Library/Developer/Xcode/DerivedData/Runner-aiopufetqqleqgfqvxoznijjupgn",
+      "workspace": "/tmp/eros-step6-clean-670zcyi7/ios/Runner.xcworkspace",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "temporary-derived-data",
+      "path": "/Users/fuhua/Library/Developer/Xcode/DerivedData/Runner-bntrwmnwurhlxufshgqmatwnnztp",
+      "workspace": "/tmp/eros-step6-final-88hq85vd/ios/Runner.xcworkspace",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "temporary-derived-data",
+      "path": "/Users/fuhua/Library/Developer/Xcode/DerivedData/Runner-dblqtcxkbmflvhfbjohshhztjolr",
+      "workspace": "/tmp/eros-step6-accepted-8rmssmxa/ios/Runner.xcworkspace",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "temporary-checkout-or-tool",
+      "path": "/private/tmp/eros-step6-clean-670zcyi7",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "temporary-checkout-or-tool",
+      "path": "/private/tmp/eros-step6-final-88hq85vd",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "temporary-checkout-or-tool",
+      "path": "/private/tmp/eros-step6-accepted-8rmssmxa",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "temporary-checkout-or-tool",
+      "path": "/private/tmp/eros-step6-actionlint",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "pause-cache",
+      "path": "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/PROGRESS.md",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "pause-cache",
+      "path": "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/paused-source-sha256.json",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "pause-cache",
+      "path": "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/paused-source-changes.patch",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "pause-cache",
+      "path": "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/paused-git-status.txt",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "python-bytecode-cache",
+      "path": "/Users/fuhua/.codex/worktrees/32af/eros_fe/scripts/__pycache__",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "python-bytecode-cache",
+      "path": "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/__pycache__",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "python-bytecode-cache",
+      "path": "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/tests/__pycache__",
+      "status": "REMOVED"
+    },
+    {
+      "kind": "resaved-temporary-workspace",
+      "path": "/private/tmp/eros-step6-clean-670zcyi7",
+      "files": [
+        "ios/Runner.xcworkspace/contents.xcworkspacedata",
+        "ios/Runner.xcworkspace/xcuserdata/fuhua.xcuserdatad/UserInterfaceState.xcuserstate"
+      ],
+      "status": "REMOVED_AFTER_CLOSING_XCODE_WINDOW"
+    }
+  ],
+  "preserved": [
+    "source changes",
+    "acceptance evidence and logs",
+    "native ips",
+    "historical merge reports",
+    "retained workspace Pods and local development configuration",
+    "shared SDK / gem / CocoaPods download caches"
+  ],
+  "active_xcode_workspace": "/Users/fuhua/.codex/worktrees/32af/eros_fe/ios/Runner.xcworkspace"
+}

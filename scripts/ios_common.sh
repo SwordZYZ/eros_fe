@@ -14,7 +14,7 @@ ios_require_project_lock() {
   if python3 "$IOS_ROOT_DIR/scripts/ios_lock.py" --check; then
     return
   fi
-  # Re-execute before any local configuration, dependency or build mutation.
+  # Re-execute before mutations; nested calls verify the live owner via its socket.
   if [[ "${IOS_LOCK_WAIT:-1}" == "0" ]]; then
     exec python3 "$IOS_ROOT_DIR/scripts/ios_lock.py" --no-wait -- bash "$entrypoint" "$@"
   fi

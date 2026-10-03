@@ -1,0 +1,221 @@
+{
+  "selection": "same read-only iterator as installed ML Kit patcher",
+  "binaries": [
+    {
+      "relative_binary": "ios/Pods/MLKitBarcodeScanning/Frameworks/MLKitBarcodeScanning.framework/MLKitBarcodeScanning",
+      "copies": [
+        {
+          "file": "/Users/fuhua/.codex/worktrees/32af/eros_fe/ios/Pods/MLKitBarcodeScanning/Frameworks/MLKitBarcodeScanning.framework/MLKitBarcodeScanning",
+          "inode": 21980999,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-clean-670zcyi7/ios/Pods/MLKitBarcodeScanning/Frameworks/MLKitBarcodeScanning.framework/MLKitBarcodeScanning",
+          "inode": 22058044,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-final-88hq85vd/ios/Pods/MLKitBarcodeScanning/Frameworks/MLKitBarcodeScanning.framework/MLKitBarcodeScanning",
+          "inode": 22160191,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitBarcodeScanning/8.0.0-39de2/Frameworks/MLKitBarcodeScanning.framework/MLKitBarcodeScanning",
+          "inode": 20992750,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitBarcodeScanning/6.0.0-0a306/Frameworks/MLKitBarcodeScanning.framework/MLKitBarcodeScanning",
+          "inode": 21093429,
+          "device": 16777232,
+          "is_symlink": false
+        }
+      ],
+      "distinct_inodes": true
+    },
+    {
+      "relative_binary": "ios/Pods/MLKitCommon/Frameworks/MLKitCommon.framework/MLKitCommon",
+      "copies": [
+        {
+          "file": "/Users/fuhua/.codex/worktrees/32af/eros_fe/ios/Pods/MLKitCommon/Frameworks/MLKitCommon.framework/MLKitCommon",
+          "inode": 21981014,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-clean-670zcyi7/ios/Pods/MLKitCommon/Frameworks/MLKitCommon.framework/MLKitCommon",
+          "inode": 22058059,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-final-88hq85vd/ios/Pods/MLKitCommon/Frameworks/MLKitCommon.framework/MLKitCommon",
+          "inode": 22160206,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitCommon/12.0.0-07c2c/Frameworks/MLKitCommon.framework/MLKitCommon",
+          "inode": 21093484,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitCommon/14.0.0-47d47/Frameworks/MLKitCommon.framework/MLKitCommon",
+          "inode": 20992804,
+          "device": 16777232,
+          "is_symlink": false
+        }
+      ],
+      "distinct_inodes": true
+    },
+    {
+      "relative_binary": "ios/Pods/MLKitLanguageID/Frameworks/MLKitLanguageID.framework/MLKitLanguageID",
+      "copies": [
+        {
+          "file": "/Users/fuhua/.codex/worktrees/32af/eros_fe/ios/Pods/MLKitLanguageID/Frameworks/MLKitLanguageID.framework/MLKitLanguageID",
+          "inode": 21981033,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-clean-670zcyi7/ios/Pods/MLKitLanguageID/Frameworks/MLKitLanguageID.framework/MLKitLanguageID",
+          "inode": 22058078,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-final-88hq85vd/ios/Pods/MLKitLanguageID/Frameworks/MLKitLanguageID.framework/MLKitLanguageID",
+          "inode": 22160225,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitLanguageID/9.0.0-7b7d1/Frameworks/MLKitLanguageID.framework/MLKitLanguageID",
+          "inode": 20992866,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitLanguageID/7.0.0-f52e3/Frameworks/MLKitLanguageID.framework/MLKitLanguageID",
+          "inode": 21093547,
+          "device": 16777232,
+          "is_symlink": false
+        }
+      ],
+      "distinct_inodes": true
+    },
+    {
+      "relative_binary": "ios/Pods/MLKitNaturalLanguage/Frameworks/MLKitNaturalLanguage.framework/MLKitNaturalLanguage",
+      "copies": [
+        {
+          "file": "/Users/fuhua/.codex/worktrees/32af/eros_fe/ios/Pods/MLKitNaturalLanguage/Frameworks/MLKitNaturalLanguage.framework/MLKitNaturalLanguage",
+          "inode": 21981050,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-clean-670zcyi7/ios/Pods/MLKitNaturalLanguage/Frameworks/MLKitNaturalLanguage.framework/MLKitNaturalLanguage",
+          "inode": 22058095,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-final-88hq85vd/ios/Pods/MLKitNaturalLanguage/Frameworks/MLKitNaturalLanguage.framework/MLKitNaturalLanguage",
+          "inode": 22160242,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitNaturalLanguage/8.0.0-1faec/Frameworks/MLKitNaturalLanguage.framework/MLKitNaturalLanguage",
+          "inode": 21093588,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitNaturalLanguage/10.0.0-49815/Frameworks/MLKitNaturalLanguage.framework/MLKitNaturalLanguage",
+          "inode": 20992909,
+          "device": 16777232,
+          "is_symlink": false
+        }
+      ],
+      "distinct_inodes": true
+    },
+    {
+      "relative_binary": "ios/Pods/MLKitVision/Frameworks/MLKitVision.framework/MLKitVision",
+      "copies": [
+        {
+          "file": "/Users/fuhua/.codex/worktrees/32af/eros_fe/ios/Pods/MLKitVision/Frameworks/MLKitVision.framework/MLKitVision",
+          "inode": 21981057,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-clean-670zcyi7/ios/Pods/MLKitVision/Frameworks/MLKitVision.framework/MLKitVision",
+          "inode": 22058102,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-final-88hq85vd/ios/Pods/MLKitVision/Frameworks/MLKitVision.framework/MLKitVision",
+          "inode": 22160249,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitVision/8.0.0-45e79/Frameworks/MLKitVision.framework/MLKitVision",
+          "inode": 21093632,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLKitVision/10.0.0-39a5a/Frameworks/MLKitVision.framework/MLKitVision",
+          "inode": 20992952,
+          "device": 16777232,
+          "is_symlink": false
+        }
+      ],
+      "distinct_inodes": true
+    },
+    {
+      "relative_binary": "ios/Pods/MLImage/Frameworks/MLImage.framework/MLImage",
+      "copies": [
+        {
+          "file": "/Users/fuhua/.codex/worktrees/32af/eros_fe/ios/Pods/MLImage/Frameworks/MLImage.framework/MLImage",
+          "inode": 21980992,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-clean-670zcyi7/ios/Pods/MLImage/Frameworks/MLImage.framework/MLImage",
+          "inode": 22058037,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/private/tmp/eros-step6-final-88hq85vd/ios/Pods/MLImage/Frameworks/MLImage.framework/MLImage",
+          "inode": 22160184,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLImage/1.0.0-beta8-0de5c/Frameworks/MLImage.framework/MLImage",
+          "inode": 20992707,
+          "device": 16777232,
+          "is_symlink": false
+        },
+        {
+          "file": "/Users/fuhua/Library/Caches/CocoaPods/Pods/Release/MLImage/1.0.0-beta6-0ad1c/Frameworks/MLImage.framework/MLImage",
+          "inode": 21093384,
+          "device": 16777232,
+          "is_symlink": false
+        }
+      ],
+      "distinct_inodes": true
+    }
+  ]
+}

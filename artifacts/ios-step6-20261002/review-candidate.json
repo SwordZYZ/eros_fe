@@ -1,0 +1,32 @@
+{
+  "path": "/private/tmp/eros-step6-final-88hq85vd",
+  "candidate_commit": "9d2e12146ff2ee993bfc87b410aa704bae63ccd7",
+  "base_commit": "d636c80ba5874cec570e34a958c09ae1309f6649",
+  "status": "",
+  "changes_since_first_clean_run": [
+    "docs/ios-development.md",
+    "docs/ios-build-lock.md",
+    "integration_test/ios_smoke_test.dart import order only"
+  ],
+  "source_sha256": {
+    ".github/workflows/ios-development.yml": "7f796bb47a425e3fd3923f6a0162ad9d2f9b61b0860c8db5c7e5a37d0b1038b7",
+    "docs/ios-build-lock.md": "9362cc9acce56d0943189291d64d84774b24d1f08f9e9f9e9ff5e374f22495a4",
+    "docs/ios-development.md": "dba55ec15634f2e7d5b7b46155ef16c65b716417e956d7f7c8555817845cca9f",
+    "integration_test/ios_smoke_test.dart": "8220d30689c8b14dd6bbd8c1861a7807196f88169a58212a873872a5089cff0c",
+    "ios/Podfile.lock": "1d8616a48409b50091cd80a8070281fa5f94c8e98196b417bf75fee77d656de2",
+    "lib/common/controller/download/download_path_manager.dart": "fe9393ac7ce33470207664338e7fc28dd060e4775f3d2d14fda319e07de792e6",
+    "pubspec.lock": "3f953454720b8ac2f85596fa44f6608459718d2eefb49b176db63d8ef2955c93",
+    "pubspec.yaml": "68b71cd2d659ca985b9d19cabecc18babb2429da5dda7c153f755a6f501db90a",
+    "scripts/ios_common.sh": "3e6911e9dc37828de169d9b5b5b0ba19028de4b37ca8f4a5c5c6485a66897356",
+    "scripts/ios_dev.sh": "5ef165ffc28a845cbb0b70b5eefeec9c5577130c58e1e431713170727f5d0bb0",
+    "scripts/ios_env_check.sh": "ae4601104c3a24e33a505853ae415887617b2e2b9c1fa063d3c1d8f9e1546f05",
+    "scripts/ios_lock.py": "57ea53e55e067c97252a85588f1b681a83d2087943f6f7e0c2d1f86986c5e937",
+    "tool/ios_evidence.py": "b6c7637b19475d0f6e638d3daeb566e1943e4eaf725ec6beaf99c73615702e57",
+    "tool/ios_lock_exit_check.py": "5bf8a5fef2ede854affc5dd54d9db8a4d579148dab750762fb22c455975fe493",
+    "tool/ios_logs.py": "4dc99d60b65830a366be13a76862ea99bbf2706b4bac8c6a9ef313111f0b2562",
+    "tool/ios_simulator.py": "56ddaa54e69f37b1dc4383ca9eea020e56d71c9b7e7cfe915884ee6b37b8fa81",
+    "tool/tests/test_ios_ci_entry.py": "361afe5398ba0199770831705fe4470f2ed64d6bd3f90afaa7790465a2ea1112",
+    "tool/tests/test_ios_evidence.py": "eb76d7c3e7b082acecd5bb16bea837e37f50639496940f00052cb9d2e89867ce",
+    "tool/tests/test_ios_lock.py": "1b696c29f4d526bbce8f984a518f3f341deaf85746f2927485aeded52e802189"
+  }
+}

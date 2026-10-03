@@ -1,0 +1,85 @@
+{
+  "recorded_utc": "2026-10-02T23:57:43.344777+00:00",
+  "base_commit": "d636c80ba5874cec570e34a958c09ae1309f6649",
+  "local_entry_validation": "PASS",
+  "remote_github_actions": "NOT_RUN",
+  "primary_repository_committed": false,
+  "primary_repository_pushed": false,
+  "final_clean_candidate": "accepted-candidate.json",
+  "ci": {
+    "lock-tests": {
+      "status": "PASS",
+      "exit_code": 0,
+      "manifest": "accepted-ci/20261002T234717-lock-tests-95205.json"
+    },
+    "prepare": {
+      "status": "PASS",
+      "exit_code": 0,
+      "manifest": "accepted-ci/20261002T234723-prepare-95504.json"
+    },
+    "check": {
+      "status": "PASS",
+      "exit_code": 0,
+      "manifest": "accepted-ci/20261002T234808-check-96532.json"
+    },
+    "build": {
+      "status": "PASS",
+      "exit_code": 0,
+      "manifest": "accepted-ci/20261002T234818-build-97689.json"
+    },
+    "smoke": {
+      "status": "PASS",
+      "exit_code": 0,
+      "manifest": "accepted-ci/20261002T235123-smoke-3081.json"
+    }
+  },
+  "forced_failure": {
+    "status": "FAIL",
+    "exit_code": 1,
+    "manifest": "final-injected-failure/20261002T235528-smoke-5843.json"
+  },
+  "device_smoke": {
+    "status": "PASS",
+    "exit_code": 0,
+    "manifest": "device-final-smoke/20261002T234541-smoke-93115.json"
+  },
+  "device_production_restored": {
+    "status": "PASS",
+    "exit_code": 0,
+    "manifest": "device-restored/20261002T234744-run-95920.json"
+  },
+  "retained_workspace_prepare": {
+    "status": "PASS",
+    "exit_code": 0,
+    "manifest": "workspace-ready/20261002T235503-prepare-5352.json"
+  },
+  "host_regressions": {
+    "passed": 14,
+    "evidence": "host-tests-final.txt"
+  },
+  "macos_exit_regressions": {
+    "passed": 11,
+    "evidence": "lock-exit-final.json"
+  },
+  "lock_stability": {
+    "unchanged": true,
+    "sha256": {
+      "pubspec.lock": "3f953454720b8ac2f85596fa44f6608459718d2eefb49b176db63d8ef2955c93",
+      "ios/Podfile.lock": "1d8616a48409b50091cd80a8070281fa5f94c8e98196b417bf75fee77d656de2",
+      "Gemfile.lock": "b195f5b3d4cfd87603c7f239146b540a6c41c30ab810af1635fd08ca8889e38b"
+    },
+    "evidence": "repeated-pods/lock-stability.json"
+  },
+  "real_orphan_console": "real-orphan-console/comparison.json",
+  "actual_abrupt_debug_disconnect": "device-run/next-task-after-disconnect.json",
+  "unexpected_native_report": {
+    "status": "FAIL_RECORDED",
+    "scope": "observed after forced Flutter debug client SIGKILL; causal origin not established",
+    "summary": "device-diagnostics/native-crash-summary.json",
+    "ips": "device-diagnostics/diagnostics-20261002T234338Z-device/fehviewer-2026-10-03-073757.ips"
+  },
+  "step5_business_failures": "NOT_FIXED_NOT_RERUN",
+  "cleanup": "cleanup.json",
+  "final_retained_workspace_lock": "final-workspace-lock.json",
+  "git_state_scope": "primary_repository_committed/pushed describe the verification recording time; the later approved commit is recorded in Git history"
+}

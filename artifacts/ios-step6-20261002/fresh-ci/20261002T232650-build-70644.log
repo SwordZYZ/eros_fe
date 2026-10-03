@@ -1,0 +1,28 @@
+Building com.example.erosfe.dev for simulator (ios)...
+The following plugins do not support Swift Package Manager for ios:
+  - blurhash_ffi
+  - cupertino_http
+  - flutter_downloader
+  - flutter_inappwebview_ios
+  - flutter_isolate
+  - flutter_keyboard_visibility
+  - flutter_vibrate
+  - google_mlkit_barcode_scanning
+  - google_mlkit_commons
+  - google_mlkit_language_id
+  - image_gallery_saver_plus
+  - isar_community_flutter_libs
+  - objective_c
+  - open_by_default
+  - open_filex
+  - permission_handler_apple
+  - receive_sharing_intent
+  - system_network_proxy
+  - system_proxy
+  - vibration
+  - webview_cookie_manager_plus
+This will become an error in a future version of Flutter. Please contact the plugin maintainers to request Swift Package Manager adoption.
+Running pod install...                                           1,788ms
+Running Xcode build...                                          
+Xcode build done.                                           82.2s
+✓ Built build/ios/iphonesimulator/fehviewer.app

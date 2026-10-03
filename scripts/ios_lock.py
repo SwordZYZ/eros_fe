@@ -7,39 +7,60 @@ import fcntl
 import json
 import os
 from pathlib import Path
+import secrets
 import signal
-import stat
+import socket
 import subprocess
 import sys
+import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parent.parent
 LOCK_PATH = ROOT / '.ios-development.lock'
-FD_ENV = 'EROS_IOS_LOCK_FD'
 ROOT_ENV = 'EROS_IOS_LOCK_ROOT'
+SOCKET_ENV = 'EROS_IOS_LOCK_SOCKET'
+TOKEN_ENV = 'EROS_IOS_LOCK_TOKEN'
 BUSY_EXIT = 75
 INTERRUPT_GRACE = 2.0
 
 
-def inherited_lock_fd():
-    """Verify the inherited descriptor, rather than trusting an environment flag."""
+def inherited_session():
+    """Ask the live supervisor; never give build tools the kernel lock descriptor."""
     if os.environ.get(ROOT_ENV) != str(ROOT):
-        return None
+        return False
     try:
-        fd = int(os.environ[FD_ENV])
-        if fd < 3:
-            return None
-        opened = os.fstat(fd)
-        current = LOCK_PATH.stat()
-        if not stat.S_ISREG(opened.st_mode):
-            return None
-        if (opened.st_dev, opened.st_ino) != (current.st_dev, current.st_ino):
-            return None
-        # Reacquiring through the same inherited open-file description is safe.
-        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        return fd
-    except (KeyError, ValueError, OSError):
-        return None
+        with socket.socket(socket.AF_UNIX) as connection:
+            connection.settimeout(2)
+            connection.connect(os.environ[SOCKET_ENV])
+            request = json.dumps({'root': str(ROOT), 'token': os.environ[TOKEN_ENV]})
+            connection.sendall(request.encode() + b'\n')
+            return connection.makefile('rb').readline(16) == b'OK\n'
+    except (KeyError, OSError):
+        return False
+
+
+def check_nested_call(server, token):
+    """Serve one local capability check while supervising the protected command."""
+    try:
+        connection, _ = server.accept()
+    except BlockingIOError:
+        return
+    with connection:
+        connection.settimeout(0.5)
+        try:
+            data = b''
+            while not data.endswith(b'\n') and len(data) < 4096:
+                fragment = connection.recv(4096 - len(data))
+                if not fragment:
+                    return
+                data += fragment
+            request = json.loads(data)
+            valid = (request.get('root') == str(ROOT) and
+                     secrets.compare_digest(request.get('token', ''), token))
+            connection.sendall(b'OK\n' if valid else b'NO\n')
+        except (OSError, ValueError, TypeError, AttributeError):
+            # Malformed/stale callers cannot bypass acquisition of the real lock.
+            return
 
 
 def group_exists(pgid):
@@ -117,9 +138,7 @@ def holder_description(fd):
 
 
 def run_locked(command, no_wait):
-    inherited = inherited_lock_fd()
-    if inherited is not None:
-        os.set_inheritable(inherited, True)
+    if inherited_session():
         try:
             os.execvp(command[0], command)
         except OSError as error:
@@ -143,6 +162,8 @@ def run_locked(command, no_wait):
         previous_handlers[signum] = signal.signal(signum, on_signal)
 
     fd = None
+    server = None
+    session_directory = None
     try:
         fd = os.open(LOCK_PATH, os.O_RDWR | os.O_CREAT, 0o600)
         if fd < 3:  # Keep the lock separate even when a caller closed stdin/out/err.
@@ -175,14 +196,25 @@ def run_locked(command, no_wait):
         if interrupted is not None:
             return 128 + interrupted
         environment = os.environ.copy()
-        environment[FD_ENV] = str(fd)
+        environment.pop('EROS_IOS_LOCK_FD', None)
         environment[ROOT_ENV] = str(ROOT)
+        # A short path also works with Darwin's UNIX socket pathname limit.
+        session_directory = tempfile.TemporaryDirectory(prefix='eros-ios-', dir='/tmp')
+        server = socket.socket(socket.AF_UNIX)
+        socket_path = str(Path(session_directory.name) / 'session.sock')
+        server.bind(socket_path)
+        server.listen(8)
+        server.setblocking(False)
+        token = secrets.token_urlsafe(32)
+        environment[SOCKET_ENV] = socket_path
+        environment[TOKEN_ENV] = token
         child = subprocess.Popen(
-            command, env=environment, pass_fds=(fd,), start_new_session=True,
+            command, env=environment, close_fds=True, start_new_session=True,
         )
         if interrupted is not None:
             signal_group(child.pid, interrupted)
         while child.poll() is None:
+            check_nested_call(server, token)
             if interrupted is not None and time.monotonic() - interrupt_time >= INTERRUPT_GRACE:
                 signal_group(child.pid, signal.SIGKILL)
             try:
@@ -197,7 +229,12 @@ def run_locked(command, no_wait):
     finally:
         if child is not None:
             finish_group(child)
+        if server is not None:
+            server.close()
+        if session_directory is not None:
+            session_directory.cleanup()
         if fd is not None:
+            fcntl.flock(fd, fcntl.LOCK_UN)
             os.close(fd)
         for signum, handler in previous_handlers.items():
             signal.signal(signum, handler)
@@ -205,12 +242,12 @@ def run_locked(command, no_wait):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--check', action='store_true', help='silently verify an inherited lock')
+    parser.add_argument('--check', action='store_true', help='silently verify a live parent session')
     parser.add_argument('--no-wait', action='store_true', help='exit 75 if this checkout is busy')
     parser.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()
     if args.check:
-        return 0 if inherited_lock_fd() is not None else 1
+        return 0 if inherited_session() else 1
     command = args.command
     if command and command[0] == '--':
         command = command[1:]

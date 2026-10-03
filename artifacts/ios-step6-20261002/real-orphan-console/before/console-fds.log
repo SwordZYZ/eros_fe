@@ -1,0 +1,37 @@
+COMMAND     PID  USER   FD      TYPE             DEVICE SIZE/OFF                NODE NAME
+devicectl 86546 fuhua  cwd       DIR               1,16     1312            21973964 /Users/fuhua/.codex/worktrees/32af/eros_fe
+devicectl 86546 fuhua  txt       REG               1,16  3811072            20195044 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Resources/bin/devicectl
+devicectl 86546 fuhua  txt       REG               1,16  2583424            20189622 /Library/Apple/System/Library/PrivateFrameworks/Mercury.framework/Versions/A/Mercury
+devicectl 86546 fuhua  txt       REG               1,16   361696            20194822 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Frameworks/CoreDevice_CustomDump.framework/Versions/A/CoreDevice_CustomDump
+devicectl 86546 fuhua  txt       REG               1,16    77368            19455722 /private/var/db/diagnostics/logd/.plist-cache.8dwxZJHB
+devicectl 86546 fuhua  txt       REG               1,16      110 1152921500312109332 /System/Library/CoreServices/SystemVersion.bundle/English.lproj/SystemVersion.strings
+devicectl 86546 fuhua  txt       REG               1,16   109536            20194918 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/PlugIns/DeviceSpecPlugin.coredeviceplugin/Contents/Frameworks/DeviceSpecClientSupport.framework/Versions/A/DeviceSpecClientSupport
+devicectl 86546 fuhua  txt       REG               1,16  4129840 1152921500312609216 /usr/lib/dyld
+devicectl 86546 fuhua  txt       REG               1,16  1716176            20194695 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Frameworks/CoreDeviceCLISupport.framework/Versions/A/CoreDeviceCLISupport
+devicectl 86546 fuhua  txt       REG               1,16   199728            20194933 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/PlugIns/DeviceSpecPlugin.coredeviceplugin/Contents/MacOS/DeviceSpecPlugin
+devicectl 86546 fuhua  txt       REG               1,16   162243            21841039 /private/var/db/analyticsd/events.allowlist
+devicectl 86546 fuhua  txt       REG               1,16  2153344            20194708 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Frameworks/CoreDeviceClientJSONSupport.framework/Versions/A/CoreDeviceClientJSONSupport
+devicectl 86546 fuhua  txt       REG               1,16  1152576            20194887 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Frameworks/UniversalHID.framework/Versions/A/UniversalHID
+devicectl 86546 fuhua  txt       REG               1,16  4389456            19441977 /Library/Apple/System/Library/PrivateFrameworks/DeviceInterface.framework/Versions/A/DeviceInterface
+devicectl 86546 fuhua  txt       REG               1,16   186320            20195162 /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/Frameworks/CoreSimDeviceIO.framework/Versions/A/CoreSimDeviceIO
+devicectl 86546 fuhua  txt       REG               1,16  8068896            20194684 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/CoreDevice
+devicectl 86546 fuhua  txt       REG               1,16 15764512            20189675 /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice
+devicectl 86546 fuhua  txt       REG               1,16   580096            20195176 /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/Frameworks/CoreSimulatorUtilities.framework/Versions/A/CoreSimulatorUtilities
+devicectl 86546 fuhua  txt       REG               1,16   337200            20195230 /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/Frameworks/SimPasteboardPlus.framework/Versions/A/SimPasteboardPlus
+devicectl 86546 fuhua  txt       REG               1,16   523936            20196152 /Library/Developer/PrivateFrameworks/ROCKit.framework/Versions/A/ROCKit
+devicectl 86546 fuhua  txt       REG               1,16 14332096            20195083 /Library/Developer/PrivateFrameworks/CoreDeviceUtilities.framework/Versions/A/CoreDeviceUtilities
+devicectl 86546 fuhua  txt       REG               1,16  1637984            20194948 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/PlugIns/SimulatorCoreDevicePlugin.coredeviceplugin/Contents/MacOS/SimulatorCoreDevicePlugin
+devicectl 86546 fuhua  txt       REG               1,16  1560944            20195143 /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/CoreSimulator
+devicectl 86546 fuhua  txt       REG               1,16 36103568 1152921500312619766 /usr/share/icu/icudt78l.dat
+devicectl 86546 fuhua  txt       REG               1,16  3722848            20196136 /Library/Developer/PrivateFrameworks/DVTDownloads.framework/Versions/A/DVTDownloads
+devicectl 86546 fuhua    0u      CHR                3,2      0t0                 336 /dev/null
+devicectl 86546 fuhua    1w      REG               1,16      112            22253375 /Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/real-orphan-console/before/console.log
+devicectl 86546 fuhua    2w      REG               1,16      112            22253375 /Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/real-orphan-console/before/console.log
+devicectl 86546 fuhua    3u      REG               1,16       40            22253374 /private/tmp/eros-real-console-8v7r7csq/.ios-development.lock
+devicectl 86546 fuhua    4   NPOLICY                                                 
+devicectl 86546 fuhua    5w      REG               1,16      112            22253375 /Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/real-orphan-console/before/console.log
+devicectl 86546 fuhua    6u     IPv6 0x8bea0e2f5756aeb8      0t0                 TCP [fdcc:d661:65e0::2]:50807->[fdcc:d661:65e0::1]:64558 (FIN_WAIT_2)
+devicectl 86546 fuhua    7u     IPv6 0xf17c6de0a6c742ef      0t0                 TCP [fdcc:d661:65e0::2]:50808->[fdcc:d661:65e0::1]:64558 (ESTABLISHED)
+devicectl 86546 fuhua    8w      REG               1,16      112            22253375 /Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/real-orphan-console/before/console.log
+devicectl 86546 fuhua    9u     IPv6 0x36b3c010141e4b0f      0t0                 TCP [fdcc:d661:65e0::2]:50809->[fdcc:d661:65e0::1]:64606 (ESTABLISHED)
+devicectl 86546 fuhua   11u     IPv6 0xf5175c96c188c75e      0t0                 TCP [fdcc:d661:65e0::2]:50810->[fdcc:d661:65e0::1]:64606 (ESTABLISHED)

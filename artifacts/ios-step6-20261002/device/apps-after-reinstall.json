@@ -1,0 +1,36 @@
+{
+  "info" : {
+    "arguments" : [
+      "devicectl",
+      "device",
+      "info",
+      "apps",
+      "--device",
+      "00008132-000278923E99001C",
+      "--bundle-id",
+      "com.fuhua.erosfe.step6",
+      "--json-output",
+      "artifacts/ios-step6-20261002/device/apps-after-reinstall.json",
+      "--timeout",
+      "20"
+    ],
+    "commandType" : "devicectl.device.info.apps",
+    "environment" : {
+      "TERM" : "dumb"
+    },
+    "jsonVersion" : 5,
+    "outcome" : "success",
+    "version" : "642.16"
+  },
+  "result" : {
+    "apps" : [
+
+    ],
+    "defaultAppsIncluded" : false,
+    "deviceIdentifier" : "A8511718-99C6-58D3-8BF2-CCC11F34252B",
+    "hiddenAppsIncluded" : false,
+    "internalAppsIncluded" : false,
+    "matchingBundleIdentifier" : "com.fuhua.erosfe.step6",
+    "removableAppsIncluded" : true
+  }
+}

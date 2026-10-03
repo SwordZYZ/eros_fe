@@ -1,0 +1,20 @@
+{
+  "snapshots": [
+    {
+      "pubspec.lock": "3f953454720b8ac2f85596fa44f6608459718d2eefb49b176db63d8ef2955c93",
+      "ios/Podfile.lock": "1d8616a48409b50091cd80a8070281fa5f94c8e98196b417bf75fee77d656de2",
+      "Gemfile.lock": "b195f5b3d4cfd87603c7f239146b540a6c41c30ab810af1635fd08ca8889e38b"
+    },
+    {
+      "pubspec.lock": "3f953454720b8ac2f85596fa44f6608459718d2eefb49b176db63d8ef2955c93",
+      "ios/Podfile.lock": "1d8616a48409b50091cd80a8070281fa5f94c8e98196b417bf75fee77d656de2",
+      "Gemfile.lock": "b195f5b3d4cfd87603c7f239146b540a6c41c30ab810af1635fd08ca8889e38b"
+    },
+    {
+      "pubspec.lock": "3f953454720b8ac2f85596fa44f6608459718d2eefb49b176db63d8ef2955c93",
+      "ios/Podfile.lock": "1d8616a48409b50091cd80a8070281fa5f94c8e98196b417bf75fee77d656de2",
+      "Gemfile.lock": "b195f5b3d4cfd87603c7f239146b540a6c41c30ab810af1635fd08ca8889e38b"
+    }
+  ],
+  "unchanged": true
+}

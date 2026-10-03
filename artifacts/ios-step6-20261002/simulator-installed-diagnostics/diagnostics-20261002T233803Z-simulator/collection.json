@@ -1,0 +1,77 @@
+{
+  "kind": "simulator",
+  "device_id": "CBE63048-3BFD-45E3-961B-C56DF7AF9A47",
+  "bundle_id": "com.example.erosfe.dev",
+  "collected_utc": "20261002T233803Z",
+  "results": [
+    {
+      "label": "runtimes",
+      "command": [
+        "xcrun",
+        "simctl",
+        "list",
+        "runtimes",
+        "-j"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "devices",
+      "command": [
+        "xcrun",
+        "simctl",
+        "list",
+        "devices",
+        "-j"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "native-console",
+      "command": [
+        "xcrun",
+        "simctl",
+        "spawn",
+        "CBE63048-3BFD-45E3-961B-C56DF7AF9A47",
+        "log",
+        "show",
+        "--last",
+        "10m",
+        "--style",
+        "compact",
+        "--predicate",
+        "process == \"fehviewer\""
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "screenshot",
+      "command": [
+        "xcrun",
+        "simctl",
+        "io",
+        "CBE63048-3BFD-45E3-961B-C56DF7AF9A47",
+        "screenshot",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/simulator-installed-diagnostics/diagnostics-20261002T233803Z-simulator/screen.png"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "app-container",
+      "command": [
+        "xcrun",
+        "simctl",
+        "get_app_container",
+        "CBE63048-3BFD-45E3-961B-C56DF7AF9A47",
+        "com.example.erosfe.dev",
+        "data"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "Documents/step5a-events.json",
+      "status": "ABSENT"
+    }
+  ],
+  "note": "Diagnostic capture is not an application acceptance result."
+}

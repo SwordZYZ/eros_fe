@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-02T23:37:28.886183+00:00",
+  "method": "SIGKILL only this Flutter debug client; supervisor remains active",
+  "supervisor": {
+    "pid": 82192,
+    "ppid": 68578,
+    "pgid": 82192,
+    "stat": "Ss+",
+    "command": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python /private/tmp/eros-step6-clean-670zcyi7/scripts/ios_lock.py -- bash /private/tmp/eros-step6-clean-670zcyi7/scripts/ios_dev.sh run --debug -d 00008132-000278923E99001C --target tool/ios_baseline_probe.dart"
+  },
+  "flutter": {
+    "pid": 82264,
+    "ppid": 82254,
+    "pgid": 82205,
+    "stat": "S",
+    "command": "/Users/fuhua/fvm/versions/3.47.3/bin/cache/dart-sdk/bin/dartvm --resolved_executable_name=/Users/fuhua/fvm/versions/3.47.3/bin/cache/dart-sdk/bin/dart --executable_name=/Users/fuhua/fvm/versions/3.47.3/bin/cache/dart-sdk/bin/dart --packages=/Users/fuhua/fvm/versions/3.47.3/packages/flutter_tools/.dart_tool/package_config.json /Users/fuhua/fvm/versions/3.47.3/bin/cache/flutter_tools.snapshot run --no-pub --debug -d 00008132-000278923E99001C --target tool/ios_baseline_probe.dart"
+  },
+  "consoles": [
+    {
+      "pid": 84198,
+      "ppid": 82264,
+      "pgid": 82205,
+      "stat": "S",
+      "command": "/usr/bin/script -t 0 /dev/null /usr/bin/arch -arm64e xcrun devicectl device process launch --device 00008132-000278923E99001C --start-stopped --console --environment-variables {\"OS_ACTIVITY_DT_MODE\": \"enable\"} com.fuhua.erosfe.step6 --enable-dart-profiling --enable-checked-mode --verify-entry-points"
+    },
+    {
+      "pid": 84199,
+      "ppid": 84198,
+      "pgid": 84199,
+      "stat": "Ss+",
+      "command": "/Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Resources/bin/devicectl device process launch --device 00008132-000278923E99001C --start-stopped --console --environment-variables {\"OS_ACTIVITY_DT_MODE\": \"enable\"} com.fuhua.erosfe.step6 --enable-dart-profiling --enable-checked-mode --verify-entry-points"
+    }
+  ],
+  "busy_exit_before": 75,
+  "console_has_lock_fd": false
+}

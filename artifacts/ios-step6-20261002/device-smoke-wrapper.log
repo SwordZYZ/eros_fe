@@ -1,0 +1,34 @@
+[iOS lock] Acquired /private/tmp/eros-step6-clean-670zcyi7/.ios-development.lock; held until this command/session ends.
+00:00 +0: loading /private/tmp/eros-step6-clean-670zcyi7/integration_test/ios_smoke_test.dart
+The following plugins do not support Swift Package Manager for ios:
+  - blurhash_ffi
+  - cupertino_http
+  - flutter_downloader
+  - flutter_inappwebview_ios
+  - flutter_isolate
+  - flutter_keyboard_visibility
+  - flutter_vibrate
+  - google_mlkit_barcode_scanning
+  - google_mlkit_commons
+  - google_mlkit_language_id
+  - image_gallery_saver_plus
+  - isar_community_flutter_libs
+  - objective_c
+  - open_by_default
+  - open_filex
+  - permission_handler_apple
+  - receive_sharing_intent
+  - system_network_proxy
+  - system_proxy
+  - vibration
+  - webview_cookie_manager_plus
+This will become an error in a future version of Flutter. Please contact the plugin maintainers to request Swift Package Manager adoption.
+Automatically signing iOS for device deployment using specified development team in Xcode project: A9798656MR
+Running Xcode build...                                          
+Xcode build done.                                           35.1s
+Installing and launching...                                     
+You may be prompted to give access to control Xcode. Flutter uses Xcode to run your app. If access is not allowed, you can change this through your Settings > Privacy & Security > Automation.
+Xcode is taking longer than expected to start debugging the app. If the issue persists, try closing Xcode and re-running your Flutter command.
+[iOS lock] Stopping remaining child processes before unlocking.
+No tests ran.
+[iOS evidence] /Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device/20261002T232716-smoke-71862.json

@@ -1,0 +1,5 @@
+[iOS lock] Acquired /private/tmp/eros-step6-final-88hq85vd/.ios-development.lock; held until this command/session ends.
+Monitoring boot status for Eros-FE-479f91f437 (CBE63048-3BFD-45E3-961B-C56DF7AF9A47).
+Device already booted, nothing to do.
+/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/simulator-installed-diagnostics/diagnostics-20261002T233803Z-simulator
+[iOS evidence] /Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/simulator-installed-diagnostics/20261002T233802-logs-85902.json

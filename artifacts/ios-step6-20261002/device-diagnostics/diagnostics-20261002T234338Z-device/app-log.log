@@ -1,0 +1,5 @@
+ERROR: The file “app-log” couldn’t be opened because there is no such file. (NSCocoaErrorDomain error 260 (0x104))
+       NSFilePath = /Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics/diagnostics-20261002T234338Z-device/app-log
+       NSURL = file:///Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics/diagnostics-20261002T234338Z-device/app-log
+       ----------------------------------------
+           The operation couldn’t be completed. No such file or directory (NSPOSIXErrorDomain error 2 (0x02))

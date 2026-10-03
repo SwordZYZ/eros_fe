@@ -1,0 +1,86 @@
+[
+  {
+    "case": "term",
+    "fixture": {
+      "pid": 34823,
+      "pgid": 34821,
+      "reaper": 34822
+    },
+    "exit_code": 23,
+    "stderr": "[iOS lock] Acquired /private/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-41zgo70b/.ios-development.lock; held until this command/session ends.\n[iOS lock] Stopping remaining child processes before unlocking.\n[iOS lock] Process group 34821 has no live members after EPERM.\n[iOS lock] Process group 34821 has no live members after EPERM.\n",
+    "worker_state_after_exit": "Z",
+    "zombie_group_probe_errno": 1,
+    "after_cleanup_exit": 0,
+    "status": "PASS"
+  },
+  {
+    "case": "kill",
+    "fixture": {
+      "pid": 34835,
+      "pgid": 34833,
+      "reaper": 34834
+    },
+    "during_cleanup_exit": 75,
+    "exit_code": 23,
+    "stderr": "[iOS lock] Acquired /private/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-em1uhtnv/.ios-development.lock; held until this command/session ends.\n[iOS lock] Stopping remaining child processes before unlocking.\n[iOS lock] Process group 34833 has no live members after EPERM.\n",
+    "worker_state_after_exit": "Z",
+    "zombie_group_probe_errno": 1,
+    "after_cleanup_exit": 0,
+    "status": "PASS"
+  },
+  {
+    "case": "interrupt",
+    "fixture": {
+      "pid": 34869,
+      "pgid": 34867,
+      "reaper": 34868
+    },
+    "during_cleanup_exit": 75,
+    "exit_code": 143,
+    "stderr": "[iOS lock] Acquired /private/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-yox5y79k/.ios-development.lock; held until this command/session ends.\n[iOS lock] Stopping remaining child processes before unlocking.\n[iOS lock] Process group 34867 has no live members after EPERM.\n",
+    "worker_state_after_exit": "Z",
+    "zombie_group_probe_errno": 1,
+    "after_cleanup_exit": 0,
+    "status": "PASS"
+  },
+  {
+    "case": "zombie_only",
+    "status": "PASS",
+    "group_exists": false
+  },
+  {
+    "case": "live_and_zombie",
+    "status": "PASS",
+    "group_exists": true
+  },
+  {
+    "case": "group_disappeared",
+    "status": "PASS",
+    "group_exists": false
+  },
+  {
+    "case": "snapshot_empty",
+    "status": "PASS",
+    "group_exists": true
+  },
+  {
+    "case": "snapshot_malformed",
+    "status": "PASS",
+    "group_exists": true
+  },
+  {
+    "case": "snapshot_denied",
+    "status": "PASS",
+    "group_exists": true
+  },
+  {
+    "case": "snapshot_timeout",
+    "status": "PASS",
+    "group_exists": true
+  },
+  {
+    "case": "snapshot_failed",
+    "status": "PASS",
+    "group_exists": true
+  }
+]

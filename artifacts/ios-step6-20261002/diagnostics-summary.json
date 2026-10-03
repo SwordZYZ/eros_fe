@@ -1,0 +1,68 @@
+[
+  {
+    "file": "simulator-diagnostics/diagnostics-20261002T233257Z-simulator/collection.json",
+    "kind": "simulator",
+    "errors": [
+      {
+        "label": "app-container",
+        "command": [
+          "xcrun",
+          "simctl",
+          "get_app_container",
+          "CBE63048-3BFD-45E3-961B-C56DF7AF9A47",
+          "com.example.erosfe.dev",
+          "data"
+        ],
+        "exit_code": 2
+      }
+    ],
+    "absent": []
+  },
+  {
+    "file": "device-diagnostics/diagnostics-20261002T234338Z-device/collection.json",
+    "kind": "device",
+    "errors": [
+      {
+        "label": "app-log",
+        "command": [
+          "xcrun",
+          "devicectl",
+          "device",
+          "copy",
+          "from",
+          "--device",
+          "00008132-000278923E99001C",
+          "--source",
+          "Documents/log",
+          "--destination",
+          "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics/diagnostics-20261002T234338Z-device/app-log",
+          "--domain-type",
+          "appDataContainer",
+          "--domain-identifier",
+          "com.fuhua.erosfe.step6",
+          "--timeout",
+          "20"
+        ],
+        "exit_code": 1
+      }
+    ],
+    "absent": []
+  },
+  {
+    "file": "device-diagnostics-fixed/diagnostics-20261002T234544Z-device/collection.json",
+    "kind": "device",
+    "errors": [],
+    "absent": []
+  },
+  {
+    "file": "simulator-installed-diagnostics/diagnostics-20261002T233803Z-simulator/collection.json",
+    "kind": "simulator",
+    "errors": [],
+    "absent": [
+      {
+        "label": "Documents/step5a-events.json",
+        "status": "ABSENT"
+      }
+    ]
+  }
+]

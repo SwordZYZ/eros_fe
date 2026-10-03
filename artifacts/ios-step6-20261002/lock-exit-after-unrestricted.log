@@ -1,0 +1,31 @@
+[iOS lock] Process group 123 has no live members after EPERM.
+[iOS lock] Process group 123 has no live members after EPERM.
+[iOS lock] Cannot send signal 15 to process group 123; keeping the lock while its live members remain.
+[iOS lock] Process group 123 has no live members after EPERM.
+[iOS lock] Process group 123 has no live members after EPERM.
+[iOS lock] Cannot verify process group 123: empty process snapshot; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot verify process group 123: empty process snapshot; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot send signal 15 to process group 123; keeping the lock while its live members remain.
+[iOS lock] Cannot verify process group 123: invalid literal for int() with base 10: 'not-a-group'; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot verify process group 123: invalid literal for int() with base 10: 'not-a-group'; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot send signal 15 to process group 123; keeping the lock while its live members remain.
+[iOS lock] Cannot verify process group 123: [Errno 1] ps denied; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot verify process group 123: [Errno 1] ps denied; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot send signal 15 to process group 123; keeping the lock while its live members remain.
+[iOS lock] Cannot verify process group 123: Command 'ps' timed out after 2 seconds; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot verify process group 123: Command 'ps' timed out after 2 seconds; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot send signal 15 to process group 123; keeping the lock while its live members remain.
+[iOS lock] Cannot verify process group 123: Command 'ps' returned non-zero exit status 1.; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot verify process group 123: Command 'ps' returned non-zero exit status 1.; keeping the lock until cleanup can be confirmed.
+[iOS lock] Cannot send signal 15 to process group 123; keeping the lock while its live members remain.
+term PASS
+kill PASS
+interrupt PASS
+zombie_only PASS
+live_and_zombie PASS
+group_disappeared PASS
+snapshot_empty PASS
+snapshot_malformed PASS
+snapshot_denied PASS
+snapshot_timeout PASS
+snapshot_failed PASS

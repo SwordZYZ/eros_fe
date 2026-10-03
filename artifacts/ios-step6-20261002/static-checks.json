@@ -1,0 +1,31 @@
+[
+  {
+    "check": "shell-syntax",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "check": "diff-whitespace",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "check": "python-syntax",
+    "files": [
+      "scripts/ios_lock.py",
+      "tool/ios_evidence.py",
+      "tool/ios_logs.py",
+      "tool/ios_simulator.py",
+      "tool/ios_lock_exit_check.py",
+      "tool/tests/test_ios_logs.py",
+      "tool/tests/test_ios_ci_entry.py",
+      "tool/tests/test_ios_lock.py",
+      "tool/tests/test_ios_evidence.py"
+    ],
+    "status": "PASS"
+  },
+  {
+    "check": "final-source-freeze",
+    "status": "PASS"
+  }
+]

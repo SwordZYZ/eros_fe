@@ -1,0 +1,168 @@
+Launching lib/main.dart on Eros-FE-479f91f437 in debug mode...
+The following plugins do not support Swift Package Manager for ios:
+  - blurhash_ffi
+  - cupertino_http
+  - flutter_downloader
+  - flutter_inappwebview_ios
+  - flutter_isolate
+  - flutter_keyboard_visibility
+  - flutter_vibrate
+  - google_mlkit_barcode_scanning
+  - google_mlkit_commons
+  - google_mlkit_language_id
+  - image_gallery_saver_plus
+  - isar_community_flutter_libs
+  - objective_c
+  - open_by_default
+  - open_filex
+  - permission_handler_apple
+  - receive_sharing_intent
+  - system_network_proxy
+  - system_proxy
+  - vibration
+  - webview_cookie_manager_plus
+This will become an error in a future version of Flutter. Please contact the plugin maintainers to request Swift Package Manager adoption.
+Running Xcode build...                                          
+Xcode build done.                                           35.6s
+[IMPORTANT:flutter/shell/platform/darwin/graphics/FlutterDarwinContextMetalImpeller.mm(45)] Using the Impeller rendering backend (Metal).
+Plugin LocalAuthPlugin uses deprecated application lifecycle events. Please contact plugin maintainers and request UIScene lifecycle support. This will be required in a future version of Flutter. See https://docs.flutter.dev/release/breaking-changes/uiscenedelegate#migration-guide-for-flutter-plugins
+Plugin ReceiveSharingIntentPlugin uses deprecated application lifecycle events. Please contact plugin maintainers and request UIScene lifecycle support. This will be required in a future version of Flutter. See https://docs.flutter.dev/release/breaking-changes/uiscenedelegate#migration-guide-for-flutter-plugins
+Syncing files to device Eros-FE-479f91f437...                   
+[IMPORTANT:flutter/shell/platform/darwin/graphics/FlutterDarwinContextMetalImpeller.mm(45)] Using the Impeller rendering backend (Metal).
+Syncing files to device Eros-FE-479f91f437...                    1,116ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on Eros-FE-479f91f437 is available at: http://127.0.0.1:50457/wD9McEimr6U=/
+The Flutter DevTools debugger and profiler on Eros-FE-479f91f437 is available at: http://127.0.0.1:50457/wD9McEimr6U=/devtools/?uri=ws://127.0.0.1:50457/wD9McEimr6U=/ws
+flutter: IsarCore using libmdbx: v0.13.8-temp-upstream-fix
+flutter: ╔══════════════════════════════════════════════════════════════╗
+flutter: ║                     ISAR CONNECT STARTED                     ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║             Open the link to connect to the Isar             ║
+flutter: ║            Inspector while this build is running.            ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║ https://inspect.isar-community.dev/3.3.2/#/50457/wD9McEimr6U ║
+flutter: ╚══════════════════════════════════════════════════════════════╝
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   Global._checkReset (package:eros_fe/common/global.dart:253:14)
+flutter: │ #1   Global._profileInit (package:eros_fe/common/global.dart:229:5)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] clean
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   DownloadPathManager.updateCustomDownloadPath (package:eros_fe/common/controller/download/download_path_manager.dart:94:12)
+flutter: │ #1   DownloadController.asyncInit (package:eros_fe/common/controller/download_controller.dart:100:23)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] customDownloadPath:
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   ArchiverDownloadController.onInit (package:eros_fe/common/controller/archiver_download_controller.dart:33:12)
+flutter: │ #1   GetLifeCycleBase._onStart (package:get/get_instance/src/lifecycle.dart:66:5)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ ArchiverDownloadController onInit
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   ArchiverDownloadController.bindBackgroundIsolate (package:eros_fe/common/controller/archiver_download_controller.dart:65:12)
+flutter: │ #1   ArchiverDownloadController.onInit (package:eros_fe/common/controller/archiver_download_controller.dart:34:5)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] flutterDownloaderPort.listen
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   ArchiverDownloadController.bindBackgroundIsolate (package:eros_fe/common/controller/archiver_download_controller.dart:93:12)
+flutter: │ #1   ArchiverDownloadController.onInit (package:eros_fe/common/controller/archiver_download_controller.dart:34:5)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] FlutterDownloader.registerCallback
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: getInit
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   DownloadPathManager.getGalleryDownloadPath (package:eros_fe/common/controller/download/download_path_manager.dart:45:14)
+flutter: │ #1   DownloadPathManager.allowMediaScan (package:eros_fe/common/controller/download/download_path_manager.dart:110:32)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] iOS
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   DownloadController.downloadTaskMigration (package:eros_fe/common/controller/download_controller.dart:594:14)
+flutter: │ #1   Function._apply (dart:core-patch/function_patch.dart:11:71)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] start download task Migration
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   DownloadPathManager.getGalleryDownloadPath (package:eros_fe/common/controller/download/download_path_manager.dart:45:14)
+flutter: │ #1   DownloadController._getGalleryDownloadPath (package:eros_fe/common/controller/download_controller.dart:495:24)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] iOS
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   DownloadTaskManager.restoreGalleryTasks (package:eros_fe/common/controller/download/download_task_manager.dart:300:12)
+flutter: │ #1   <asynchronous suspension>
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] _currentDownloadPath: Download
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   DownloadPathManager.allowMediaScan (package:eros_fe/common/controller/download/download_path_manager.dart:161:18)
+flutter: │ #1   <asynchronous suspension>
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] create File: '/Users/fuhua/Library/Developer/CoreSimulator/Devices/CBE63048-3BFD-45E3-961B-C56DF7AF9A47/data/Containers/Data/Application/4B605921-F1ED-4B7C-9A54-D440E79E7CE1/Documents/Download/.nomedia'
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   SplashController.onInit.<anonymous closure> (package:eros_fe/pages/tab/controller/splash_controller.dart:45:18)
+flutter: │ #1   Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:948:45)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] >>>>>>> Shared: []
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: IsarCore using libmdbx: v0.13.8-temp-upstream-fix
+flutter: ╔══════════════════════════════════════════════════════════════╗
+flutter: ║                     ISAR CONNECT STARTED                     ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║             Open the link to connect to the Isar             ║
+flutter: ║            Inspector while this build is running.            ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║ https://inspect.isar-community.dev/3.3.2/#/50457/wD9McEimr6U ║
+flutter: ╚══════════════════════════════════════════════════════════════╝
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   TagTransController.onInit.<anonymous closure> (package:eros_fe/common/controller/tag_trans_controller.dart:36:14)
+flutter: │ #1   Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:948:45)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] getNamespace []
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   BlockController.onInit (package:eros_fe/common/controller/block_controller.dart:44:12)
+flutter: │ #1   GetLifeCycleBase._onStart (package:get/get_instance/src/lifecycle.dart:66:5)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] onInit
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: BKFrame  size info :  index = 0  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 1  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 2  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 3  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 4  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 5  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 6  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 7  size = Size(320.0, 216.0)
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   HistoryController.historyMigration (package:eros_fe/common/controller/history_controller.dart:170:14)
+flutter: │ #1   HistoryController.initHistories (package:eros_fe/common/controller/history_controller.dart:161:11)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] start history Migration
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: IsarCore using libmdbx: v0.13.8-temp-upstream-fix
+flutter: ╔══════════════════════════════════════════════════════════════╗
+flutter: ║                     ISAR CONNECT STARTED                     ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║             Open the link to connect to the Isar             ║
+flutter: ║            Inspector while this build is running.            ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║ https://inspect.isar-community.dev/3.3.2/#/50457/wD9McEimr6U ║
+flutter: ╚══════════════════════════════════════════════════════════════╝
+
+Performing hot reload...                                        
+Reloaded 0 libraries in 216ms (compile: 43 ms, reload: 0 ms, reassemble: 132 ms).
+
+Application finished.

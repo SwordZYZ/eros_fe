@@ -33,7 +33,9 @@ def fixture(directory, mode):
     if reaper == 0:
         os.setpgid(0, 0)
         # Only the supervisor should keep the lock during cleanup in this check.
-        os.close(int(os.environ['EROS_IOS_LOCK_FD']))
+        inherited_fd = os.environ.get('EROS_IOS_LOCK_FD')
+        if inherited_fd is not None:  # Supports checking the frozen pre-fix script.
+            os.close(int(inherited_fd))
         worker = os.fork()
         if worker == 0:
             os.setpgid(0, group)

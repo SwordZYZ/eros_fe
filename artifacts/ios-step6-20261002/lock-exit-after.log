@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/ios_lock_exit_check.py", line 106, in runtime_case
+    child.wait(timeout=10)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1279, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2076, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/opt/homebrew/opt/python@3.14/bin/python3.14', '/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-ax7ahdft/scripts/ios_lock.py', '--', '/opt/homebrew/opt/python@3.14/bin/python3.14', '/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/ios_lock_exit_check.py', '--fixture', '/var/folders/6f/dl4x0jtx2xx7092257_4fhbr0000gn/T/eros-lock-exit-ax7ahdft', 'term']' timed out after 10 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/ios_lock_exit_check.py", line 198, in <module>
+    main()
+    ~~~~^^
+  File "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/ios_lock_exit_check.py", line 188, in main
+    results = [runtime_case(args.lock_script, mode, args.expect_regression) for mode in modes]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/ios_lock_exit_check.py", line 139, in runtime_case
+    wait_for(lambda: not process_state(worker['reaper']) or
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             process_state(worker['reaper']).startswith('Z'))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/ios_lock_exit_check.py", line 22, in wait_for
+    if predicate():
+       ~~~~~~~~~^^
+  File "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/ios_lock_exit_check.py", line 139, in <lambda>
+    wait_for(lambda: not process_state(worker['reaper']) or
+                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/fuhua/.codex/worktrees/32af/eros_fe/tool/ios_lock_exit_check.py", line 66, in process_state
+    result = subprocess.run(
+        ['/bin/ps', '-p', str(pid), '-o', 'stat='],
+        capture_output=True, text=True, check=False, timeout=2,
+    )
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 1] Operation not permitted: '/bin/ps'

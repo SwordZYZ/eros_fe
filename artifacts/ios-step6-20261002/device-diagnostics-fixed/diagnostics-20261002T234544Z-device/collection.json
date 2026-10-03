@@ -1,0 +1,303 @@
+{
+  "kind": "device",
+  "device_id": "00008132-000278923E99001C",
+  "bundle_id": "com.fuhua.erosfe.step6",
+  "collected_utc": "20261002T234544Z",
+  "results": [
+    {
+      "label": "device-details",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "info",
+        "details",
+        "--device",
+        "00008132-000278923E99001C",
+        "--json-output",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/device-details.json",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "app-files",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "info",
+        "files",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "appDataContainer",
+        "--domain-identifier",
+        "com.fuhua.erosfe.step6",
+        "--subdirectory",
+        "Documents/log",
+        "--json-output",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/app-files.json",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "app-log",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--source",
+        "Documents/log",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/app-log",
+        "--domain-type",
+        "appDataContainer",
+        "--domain-identifier",
+        "com.fuhua.erosfe.step6",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-files",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "info",
+        "files",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--search",
+        "fehviewer",
+        "--json-output",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/crash-files.json",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-09-30-213035.000",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "Retired/fehviewer-2026-09-30-213035.000.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-09-30-213035.000.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-09-30-213035.0002",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "Retired/fehviewer-2026-09-30-213035.0002.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-09-30-213035.0002.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-09-30-213035",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "Retired/fehviewer-2026-09-30-213035.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-09-30-213035.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-09-30-213052",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "Retired/fehviewer-2026-09-30-213052.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-09-30-213052.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-09-30-213143",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "Retired/fehviewer-2026-09-30-213143.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-09-30-213143.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-09-30-215005",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "Retired/fehviewer-2026-09-30-215005.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-09-30-215005.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-09-30-224253",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "Retired/fehviewer-2026-09-30-224253.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-09-30-224253.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-10-02-222440",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "fehviewer-2026-10-02-222440.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-10-02-222440.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-10-02-222935",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "fehviewer-2026-10-02-222935.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-10-02-222935.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "crash-fehviewer-2026-10-03-073757",
+      "command": [
+        "xcrun",
+        "devicectl",
+        "device",
+        "copy",
+        "from",
+        "--device",
+        "00008132-000278923E99001C",
+        "--domain-type",
+        "systemCrashLogs",
+        "--source",
+        "fehviewer-2026-10-03-073757.ips",
+        "--destination",
+        "/Users/fuhua/.codex/worktrees/32af/eros_fe/artifacts/ios-step6-20261002/device-diagnostics-fixed/diagnostics-20261002T234544Z-device/fehviewer-2026-10-03-073757.ips",
+        "--timeout",
+        "20"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "note": "Diagnostic capture is not an application acceptance result."
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "phase": "before",
+    "wrapper_exit": 23,
+    "console_state_after_parent_exit": "86546     1 86546 Ss   /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Resources/bin/devicectl device process launch --device 00008132-000278923E99001C --start-stopped --console --terminate-existing com.fuhua.erosfe.step6",
+    "console_has_lock_fd": true,
+    "next_task_exit": 75,
+    "expected_next_task_exit": 75
+  },
+  {
+    "phase": "after",
+    "wrapper_exit": 23,
+    "console_state_after_parent_exit": "86576     1 86576 Ss   /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Resources/bin/devicectl device process launch --device 00008132-000278923E99001C --start-stopped --console --terminate-existing com.fuhua.erosfe.step6",
+    "console_has_lock_fd": false,
+    "next_task_exit": 0,
+    "expected_next_task_exit": 0
+  }
+]

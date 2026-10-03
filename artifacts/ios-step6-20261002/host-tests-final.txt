@@ -1,0 +1,19 @@
+test_ci_runs_all_stages (test_ios_ci_entry.CIEntryChecks.test_ci_runs_all_stages) ... ok
+test_failing_smoke_fails_ci (test_ios_ci_entry.CIEntryChecks.test_failing_smoke_fails_ci) ... ok
+test_escaped_console_pipe_does_not_hold_capture_open (test_ios_evidence.EvidenceChecks.test_escaped_console_pipe_does_not_hold_capture_open) ... ok
+test_failure_is_recorded_and_propagated (test_ios_evidence.EvidenceChecks.test_failure_is_recorded_and_propagated) ... ok
+test_missing_command_is_recorded (test_ios_evidence.EvidenceChecks.test_missing_command_is_recorded) ... ok
+test_busy_refuses_then_releases_on_termination (test_ios_lock.LockChecks.test_busy_refuses_then_releases_on_termination) ... ok
+test_escaped_console_never_inherits_lock (test_ios_lock.LockChecks.test_escaped_console_never_inherits_lock) ... ok
+test_failure_keeps_exit_code_and_releases (test_ios_lock.LockChecks.test_failure_keeps_exit_code_and_releases) ... ok
+test_nested_wrapper_reuses_live_owner (test_ios_lock.LockChecks.test_nested_wrapper_reuses_live_owner) ... ok
+test_other_checkout_is_independent (test_ios_lock.LockChecks.test_other_checkout_is_independent) ... ok
+test_stale_session_cannot_bypass_new_lock (test_ios_lock.LockChecks.test_stale_session_cannot_bypass_new_lock) ... ok
+test_waiting_task_can_be_cancelled (test_ios_lock.LockChecks.test_waiting_task_can_be_cancelled) ... ok
+test_waiting_task_does_not_start_before_owner_exits (test_ios_lock.LockChecks.test_waiting_task_does_not_start_before_owner_exits) ... ok
+test_device_log_destination_exists_before_copy (test_ios_logs.LogsChecks.test_device_log_destination_exists_before_copy) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 6.895s
+
+OK

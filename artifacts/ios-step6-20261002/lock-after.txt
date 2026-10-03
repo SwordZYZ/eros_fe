@@ -1,0 +1,13 @@
+test_busy_refuses_then_releases_on_termination (test_ios_lock.LockChecks.test_busy_refuses_then_releases_on_termination) ... ok
+test_escaped_console_never_inherits_lock (test_ios_lock.LockChecks.test_escaped_console_never_inherits_lock) ... ok
+test_failure_keeps_exit_code_and_releases (test_ios_lock.LockChecks.test_failure_keeps_exit_code_and_releases) ... ok
+test_nested_wrapper_reuses_live_owner (test_ios_lock.LockChecks.test_nested_wrapper_reuses_live_owner) ... ok
+test_other_checkout_is_independent (test_ios_lock.LockChecks.test_other_checkout_is_independent) ... ok
+test_stale_session_cannot_bypass_new_lock (test_ios_lock.LockChecks.test_stale_session_cannot_bypass_new_lock) ... ok
+test_waiting_task_can_be_cancelled (test_ios_lock.LockChecks.test_waiting_task_can_be_cancelled) ... ok
+test_waiting_task_does_not_start_before_owner_exits (test_ios_lock.LockChecks.test_waiting_task_does_not_start_before_owner_exits) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.783s
+
+OK

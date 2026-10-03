@@ -1,0 +1,127 @@
+COMMAND     PID  USER   FD      TYPE             DEVICE SIZE/OFF                NODE NAME
+Python    82192 fuhua  cwd       DIR               1,16     1248            22048821 /private/tmp/eros-step6-clean-670zcyi7
+Python    82192 fuhua  txt       REG               1,16    33568            16599571 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python
+Python    82192 fuhua  txt       REG               1,16  4129840 1152921500312609216 /usr/lib/dyld
+Python    82192 fuhua  txt       REG               1,16    53120            16600528 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/fcntl.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    53216            16600529 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/grp.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    72912            16600491 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_json.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    54416            16600526 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/binascii.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    77888            16600511 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_struct.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    53040            16600468 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_bisect.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16  5452528            16599564 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Python
+Python    82192 fuhua  txt       REG               1,16    80448            16600485 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_hashlib.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    53952            16600501 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_random.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    54784            16600499 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_posixsubprocess.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16   128864            16600487 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_hmac.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    93488            16600530 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/math.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    55056            16600470 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_bz2.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16   115872            16600507 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_socket.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    74992            16600535 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/select.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    76176            16600542 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/zlib.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16    74704            16600493 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_lzma.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16   167520            20308410 /opt/homebrew/Cellar/xz/5.8.4/lib/liblzma.5.dylib
+Python    82192 fuhua  txt       REG               1,16    96752            16600524 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_zstd.cpython-314-darwin.so
+Python    82192 fuhua  txt       REG               1,16   649648             3048542 /opt/homebrew/Cellar/zstd/1.5.7_1/lib/libzstd.1.5.7.dylib
+Python    82192 fuhua  txt       REG               1,16  4872736            20312355 /opt/homebrew/Cellar/openssl@3/3.6.4/lib/libcrypto.3.dylib
+Python    82192 fuhua    0u      CHR               16,1  0t30544                3017 /dev/ttys001
+Python    82192 fuhua    1u      CHR               16,1  0t30544                3017 /dev/ttys001
+Python    82192 fuhua    2u      CHR               16,1  0t30544                3017 /dev/ttys001
+Python    82192 fuhua    3u      REG               1,16       34            22054271 /private/tmp/eros-step6-clean-670zcyi7/.ios-development.lock
+Python    82192 fuhua    4u     unix  0x1f10b16f08f1cd4      0t0                     /tmp/eros-ios-kulwxyy9/session.sock
+dartvm    82264 fuhua  cwd       DIR               1,16     1248            22048821 /private/tmp/eros-step6-clean-670zcyi7
+dartvm    82264 fuhua  txt       REG               1,16 41510336            21172977 /Users/fuhua/fvm/versions/3.47.3/bin/cache/dart-sdk/bin/dartvm
+dartvm    82264 fuhua  txt       REG               1,16    77368            19455722 /private/var/db/diagnostics/logd/.plist-cache.8dwxZJHB
+dartvm    82264 fuhua  txt       REG               1,16  1264003            21172997 /Users/fuhua/fvm/versions/3.47.3/bin/cache/dart-sdk/bin/dartvm.sym
+dartvm    82264 fuhua  txt       REG               1,16      110 1152921500312109332 /System/Library/CoreServices/SystemVersion.bundle/English.lproj/SystemVersion.strings
+dartvm    82264 fuhua  txt       REG               1,16  4129840 1152921500312609216 /usr/lib/dyld
+dartvm    82264 fuhua  txt       REG               1,16 48855856            21174961 /Users/fuhua/fvm/versions/3.47.3/bin/cache/flutter_tools.snapshot
+dartvm    82264 fuhua  txt       REG               1,16   234224            14983930 /private/var/db/timezone/tz/2026c.1.0/icutz/icutz44l.dat
+dartvm    82264 fuhua  txt       REG               1,16 36103568 1152921500312619766 /usr/share/icu/icudt78l.dat
+dartvm    82264 fuhua    0u      CHR               16,1  0t30544                3017 /dev/ttys001
+dartvm    82264 fuhua    1      PIPE 0xed7b438037901603    16384                     ->0x5992e3dd3d776c8a
+dartvm    82264 fuhua    2      PIPE 0xed7b438037901603    16384                     ->0x5992e3dd3d776c8a
+dartvm    82264 fuhua    3      PIPE 0x6e044d82a0eb99de    16384                     ->0xfc96ab7cf3e6ee54
+dartvm    82264 fuhua    4      PIPE 0xfc96ab7cf3e6ee54    16384                     ->0x6e044d82a0eb99de
+dartvm    82264 fuhua    5u   KQUEUE                                                 count=0, state=0xa
+dartvm    82264 fuhua    6      PIPE 0xa621bf3a6f640966    16384                     ->0x855de2b55ce91c88
+dartvm    82264 fuhua    7      PIPE 0x855de2b55ce91c88    16384                     ->0xa621bf3a6f640966
+dartvm    82264 fuhua    9      PIPE  0xd66c3ebddcb3a45    16384                     ->0x43170acae2da961c
+dartvm    82264 fuhua   10      PIPE 0x43170acae2da961c    16384                     ->0xd66c3ebddcb3a45
+dartvm    82264 fuhua   11      PIPE 0xa0068b934527ff73    16384                     ->0xfb6b69c9b704d540
+dartvm    82264 fuhua   12      PIPE 0xfb6b69c9b704d540    16384                     ->0xa0068b934527ff73
+dartvm    82264 fuhua   14u     IPv4 0x1b94c2cfee241608      0t0                 TCP 127.0.0.1:50586->127.0.0.1:50583 (ESTABLISHED)
+dartvm    82264 fuhua   15      PIPE  0x48ad6dc319d5f53    16384                     ->0x41d966ddb7d8409b
+dartvm    82264 fuhua   16      PIPE 0x27c2f6a8c8788a81    65536                     ->0xf60542650424db5
+dartvm    82264 fuhua   17      PIPE 0x56b50fea021fc3c3    16384                     ->0xa53491d281fb0b0c
+dartvm    82264 fuhua   18      PIPE 0x1fd98726132dc956    16384                     ->0x3fba0faff6076eeb
+dartvm    82264 fuhua   19      PIPE 0x649fe33ee256795d    16384                     ->0x3213ec909791680a
+dartvm    82264 fuhua   20      PIPE 0x6644e1629b0f0322    16384                     ->0x4474b4bf4c4e852
+dartvm    82264 fuhua   21      PIPE 0x353f348155771c91    16384                     ->0xd26f1c119256f6ca
+dartvm    82264 fuhua   22      PIPE 0xc97576ee39e0ef29    16384                     ->0x66f93b9a124dcd0c
+dartvm    82264 fuhua   23      PIPE 0x60d6785aacda3fe9    16384                     ->0x77112d903821ab4d
+dartvm    82264 fuhua   24      PIPE 0xd72dcef29e370a6e    16384                     ->0x7c62c0bf8f896e12
+dartvm    82264 fuhua   25      PIPE  0x9f99b4aa4d4f58d    16384                     ->0x44bb6fdb1fb71da4
+dartvm    82264 fuhua   26      PIPE 0x44bb6fdb1fb71da4    16384                     ->0x9f99b4aa4d4f58d
+dartvm    82264 fuhua   27      PIPE 0x77112d903821ab4d    16384                     ->0x60d6785aacda3fe9
+dartvm    82264 fuhua   28      PIPE 0xf73380b00a11d551    16384                     ->0x5644a1efbe8bdd0e
+dartvm    82264 fuhua   29      PIPE 0x42b6c891c2a55ea9    16384                     ->0x3e04c795b9d155c4
+dartvm    82264 fuhua   30      PIPE  0x1d082071759e68f    16384                     ->0x17c1e268662f2656
+dartvm    82264 fuhua   31      PIPE 0xaed55c1fbccf062c    16384                     ->0x8e1ee0e031270ee3
+dartvm    82264 fuhua   32      PIPE 0x8e1ee0e031270ee3    16384                     ->0xaed55c1fbccf062c
+dartvm    82264 fuhua   33      PIPE 0x1355d83a8dc4cc54    16384                     ->0xdb8203bfe9d8f3fc
+dartvm    82264 fuhua   34      PIPE 0x5644a1efbe8bdd0e    16384                     ->0xf73380b00a11d551
+dartvm    82264 fuhua   35      PIPE  0x9fbe849cda02cae    16384                     ->0xda48fdf4de92c099
+dartvm    82264 fuhua   36      PIPE 0x978c96fbe1b8c31d    16384                     ->0x3111f9f5865df4b4
+dartvm    82264 fuhua   37      PIPE 0x3111f9f5865df4b4    16384                     ->0x978c96fbe1b8c31d
+dartvm    82264 fuhua   38      PIPE 0x430e1182c8a524fc    16384                     ->0xf29d8aa55a0853c7
+dartvm    82264 fuhua   39      PIPE 0xf29d8aa55a0853c7    16384                     ->0x430e1182c8a524fc
+dartvm    82264 fuhua   41      PIPE 0x8e09daeb007519a0    16384                     ->0xf067050d4812e1d1
+dartvm    82264 fuhua   42      PIPE 0x5a930b0ab4443bd3    16384                     ->0xc3b1bca2b195dd65
+dartvm    82264 fuhua   43      PIPE 0xc3b1bca2b195dd65    16384                     ->0x5a930b0ab4443bd3
+dartvm    82264 fuhua   45      PIPE 0xaafd3c56037d15b5    16384                     ->0x3a1567f98342145
+dartvm    82264 fuhua   47      PIPE 0xffd7915798bcc7c0    16384                     ->0x97fa36641b2f0a36
+dartvm    82264 fuhua   50      PIPE 0xb3d75cd23c272b2a    16384                     ->0x535cad1ae9ff620c
+dartvm    82264 fuhua   51      PIPE 0xf57bcb87b0b250dc    16384                     ->0x4597a0a93f019801
+dartvm    82264 fuhua   52      PIPE 0x4597a0a93f019801    16384                     ->0xf57bcb87b0b250dc
+script    84198 fuhua  cwd       DIR               1,16     1248            22048821 /private/tmp/eros-step6-clean-670zcyi7
+script    84198 fuhua  txt       REG               1,16   217760 1152921500312608679 /usr/bin/script
+script    84198 fuhua  txt       REG               1,16  4129840 1152921500312609216 /usr/lib/dyld
+script    84198 fuhua    0      PIPE 0x66f93b9a124dcd0c    16384                     ->0xc97576ee39e0ef29
+script    84198 fuhua    1      PIPE 0x41d966ddb7d8409b    16384                     ->0x48ad6dc319d5f53
+script    84198 fuhua    2      PIPE 0x3fba0faff6076eeb    16384                     ->0x1fd98726132dc956
+script    84198 fuhua    3w      CHR                3,2  0t43517                 336 /dev/null
+script    84198 fuhua    4u      CHR               15,5  0t43195                 605 /dev/ptmx
+devicectl 84199 fuhua  cwd       DIR               1,16     1248            22048821 /private/tmp/eros-step6-clean-670zcyi7
+devicectl 84199 fuhua  txt       REG               1,16  3811072            20195044 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Resources/bin/devicectl
+devicectl 84199 fuhua  txt       REG               1,16  2583424            20189622 /Library/Apple/System/Library/PrivateFrameworks/Mercury.framework/Versions/A/Mercury
+devicectl 84199 fuhua  txt       REG               1,16  4129840 1152921500312609216 /usr/lib/dyld
+devicectl 84199 fuhua  txt       REG               1,16  4389456            19441977 /Library/Apple/System/Library/PrivateFrameworks/DeviceInterface.framework/Versions/A/DeviceInterface
+devicectl 84199 fuhua  txt       REG               1,16    77368            19455722 /private/var/db/diagnostics/logd/.plist-cache.8dwxZJHB
+devicectl 84199 fuhua  txt       REG               1,16      110 1152921500312109332 /System/Library/CoreServices/SystemVersion.bundle/English.lproj/SystemVersion.strings
+devicectl 84199 fuhua  txt       REG               1,16   162243            21841039 /private/var/db/analyticsd/events.allowlist
+devicectl 84199 fuhua  txt       REG               1,16  2153344            20194708 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Frameworks/CoreDeviceClientJSONSupport.framework/Versions/A/CoreDeviceClientJSONSupport
+devicectl 84199 fuhua  txt       REG               1,16  1716176            20194695 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Frameworks/CoreDeviceCLISupport.framework/Versions/A/CoreDeviceCLISupport
+devicectl 84199 fuhua  txt       REG               1,16  1152576            20194887 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Frameworks/UniversalHID.framework/Versions/A/UniversalHID
+devicectl 84199 fuhua  txt       REG               1,16   361696            20194822 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/Frameworks/CoreDevice_CustomDump.framework/Versions/A/CoreDevice_CustomDump
+devicectl 84199 fuhua  txt       REG               1,16   109536            20194918 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/PlugIns/DeviceSpecPlugin.coredeviceplugin/Contents/Frameworks/DeviceSpecClientSupport.framework/Versions/A/DeviceSpecClientSupport
+devicectl 84199 fuhua  txt       REG               1,16  8068896            20194684 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/CoreDevice
+devicectl 84199 fuhua  txt       REG               1,16 15764512            20189675 /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice
+devicectl 84199 fuhua  txt       REG               1,16   199728            20194933 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/PlugIns/DeviceSpecPlugin.coredeviceplugin/Contents/MacOS/DeviceSpecPlugin
+devicectl 84199 fuhua  txt       REG               1,16   186320            20195162 /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/Frameworks/CoreSimDeviceIO.framework/Versions/A/CoreSimDeviceIO
+devicectl 84199 fuhua  txt       REG               1,16 14332096            20195083 /Library/Developer/PrivateFrameworks/CoreDeviceUtilities.framework/Versions/A/CoreDeviceUtilities
+devicectl 84199 fuhua  txt       REG               1,16   337200            20195230 /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/Frameworks/SimPasteboardPlus.framework/Versions/A/SimPasteboardPlus
+devicectl 84199 fuhua  txt       REG               1,16   580096            20195176 /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/Frameworks/CoreSimulatorUtilities.framework/Versions/A/CoreSimulatorUtilities
+devicectl 84199 fuhua  txt       REG               1,16  1637984            20194948 /Library/Developer/PrivateFrameworks/CoreDevice.framework/Versions/A/PlugIns/SimulatorCoreDevicePlugin.coredeviceplugin/Contents/MacOS/SimulatorCoreDevicePlugin
+devicectl 84199 fuhua  txt       REG               1,16  1560944            20195143 /Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/CoreSimulator
+devicectl 84199 fuhua  txt       REG               1,16   523936            20196152 /Library/Developer/PrivateFrameworks/ROCKit.framework/Versions/A/ROCKit
+devicectl 84199 fuhua  txt       REG               1,16 36103568 1152921500312619766 /usr/share/icu/icudt78l.dat
+devicectl 84199 fuhua  txt       REG               1,16  3722848            20196136 /Library/Developer/PrivateFrameworks/DVTDownloads.framework/Versions/A/DVTDownloads
+devicectl 84199 fuhua    0u      CHR               16,5  0t43004                3021 /dev/ttys005
+devicectl 84199 fuhua    1u      CHR               16,5  0t43004                3021 /dev/ttys005
+devicectl 84199 fuhua    2u      CHR               16,5  0t43004                3021 /dev/ttys005
+devicectl 84199 fuhua    3   NPOLICY                                                 
+devicectl 84199 fuhua    4u      CHR               16,5  0t43004                3021 /dev/ttys005
+devicectl 84199 fuhua    5u     IPv6 0x36b3c010141e4b0f      0t0                 TCP [fdcc:d661:65e0::2]:50435->[fdcc:d661:65e0::1]:64558 (ESTABLISHED)
+devicectl 84199 fuhua    6u      CHR               16,5  0t43004                3021 /dev/ttys005
+devicectl 84199 fuhua    7u     IPv6 0xf17c6de0a6c742ef      0t0                 TCP [fdcc:d661:65e0::2]:50436->[fdcc:d661:65e0::1]:64606 (ESTABLISHED)
+devicectl 84199 fuhua    9u     IPv6 0x37cfc0983fea9c7e      0t0                 TCP [fdcc:d661:65e0::2]:50437->[fdcc:d661:65e0::1]:64606 (ESTABLISHED)

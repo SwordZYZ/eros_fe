@@ -1,0 +1,129 @@
+Launching lib/main.dart on ZYZ’s iPad Pro in debug mode...
+The following plugins do not support Swift Package Manager for ios:
+  - blurhash_ffi
+  - cupertino_http
+  - flutter_downloader
+  - flutter_inappwebview_ios
+  - flutter_isolate
+  - flutter_keyboard_visibility
+  - flutter_vibrate
+  - google_mlkit_barcode_scanning
+  - google_mlkit_commons
+  - google_mlkit_language_id
+  - image_gallery_saver_plus
+  - isar_community_flutter_libs
+  - objective_c
+  - open_by_default
+  - open_filex
+  - permission_handler_apple
+  - receive_sharing_intent
+  - system_network_proxy
+  - system_proxy
+  - vibration
+  - webview_cookie_manager_plus
+This will become an error in a future version of Flutter. Please contact the plugin maintainers to request Swift Package Manager adoption.
+Automatically signing iOS for device deployment using specified development team in Xcode project: A9798656MR
+Running Xcode build...                                          
+Xcode build done.                                           22.0s
+Installing and launching...                                     
+objc[83450]: Class FileUtils is implemented in both /System/Library/PrivateFrameworks/OSAnalytics.framework/OSAnalytics (0x2033da338) and /private/var/containers/Bundle/Application/8279E604-83D6-4CF8-B3A0-1D7533D4A23F/fehviewer.app/Frameworks/file_picker.framework/file_picker (0x1035915e0). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+[IMPORTANT:flutter/shell/platform/darwin/graphics/FlutterDarwinContextMetalImpeller.mm(45)] Using the Impeller rendering backend (Metal).
+Plugin LocalAuthPlugin uses deprecated application lifecycle events. Please contact plugin maintainers and request UIScene lifecycle support. This will be required in a future version of Flutter. See https://docs.flutter.dev/release/breaking-changes/uiscenedelegate#migration-guide-for-flutter-plugins
+Plugin ReceiveSharingIntentPlugin uses deprecated application lifecycle events. Please contact plugin maintainers and request UIScene lifecycle support. This will be required in a future version of Flutter. See https://docs.flutter.dev/release/breaking-changes/uiscenedelegate#migration-guide-for-flutter-plugins
+sceneWillEnterForeground
+sceneDidBecomeActive
+[IMPORTANT:flutter/shell/platform/darwin/graphics/FlutterDarwinContextMetalImpeller.mm(45)] Using the Impeller rendering backend (Metal).
+Installing and launching...                                        23.6s
+flutter: IsarCore using libmdbx: v0.13.8-temp-upstream-fix
+flutter: ╔══════════════════════════════════════════════════════════════╗
+flutter: ║                     ISAR CONNECT STARTED                     ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║             Open the link to connect to the Isar             ║
+flutter: ║            Inspector while this build is running.            ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║ https://inspect.isar-community.dev/3.3.2/#/64856/9WLA6VXG8Aw ║
+flutter: ╚══════════════════════════════════════════════════════════════╝
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   DownloadPathManager.updateCustomDownloadPath (package:eros_fe/common/controller/download/download_path_manager.dart:94:12)
+flutter: │ #1   DownloadController.asyncInit (package:eros_fe/common/controller/download_controller.dart:100:23)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] customDownloadPath:
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   ArchiverDownloadController.onInit (package:eros_fe/common/controller/archiver_download_controller.dart:33:12)
+flutter: │ #1   GetLifeCycleBase._onStart (package:get/get_instance/src/lifecycle.dart:66:5)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ ArchiverDownloadController onInit
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   ArchiverDownloadController.bindBackgroundIsolate (package:eros_fe/common/controller/archiver_download_controller.dart:65:12)
+flutter: │ #1   ArchiverDownloadController.onInit (package:eros_fe/common/controller/archiver_download_controller.dart:34:5)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] flutterDownloaderPort.listen
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   ArchiverDownloadController.bindBackgroundIsolate (package:eros_fe/common/controller/archiver_download_controller.dart:93:12)
+flutter: │ #1   ArchiverDownloadController.onInit (package:eros_fe/common/controller/archiver_download_controller.dart:34:5)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] FlutterDownloader.registerCallback
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: getInit
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   DownloadPathManager.getGalleryDownloadPath (package:eros_fe/common/controller/download/download_path_manager.dart:45:14)
+flutter: │ #1   DownloadPathManager.allowMediaScan (package:eros_fe/common/controller/download/download_path_manager.dart:110:32)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] iOS
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: IsarCore using libmdbx: v0.13.8-temp-upstream-fix
+flutter: ╔══════════════════════════════════════════════════════════════╗
+flutter: ║                     ISAR CONNECT STARTED                     ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║             Open the link to connect to the Isar             ║
+flutter: ║            Inspector while this build is running.            ║
+flutter: ╟──────────────────────────────────────────────────────────────╢
+flutter: ║ https://inspect.isar-community.dev/3.3.2/#/64856/9WLA6VXG8Aw ║
+flutter: ╚══════════════════════════════════════════════════════════════╝
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   SplashController.onInit.<anonymous closure> (package:eros_fe/pages/tab/controller/splash_controller.dart:45:18)
+flutter: │ #1   Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:948:45)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] >>>>>>> Shared: []
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Syncing files to device ZYZ’s iPad Pro...                          124ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on ZYZ’s iPad Pro is available at: http://127.0.0.1:50977/XLKbKuhXoYM=/
+The Flutter DevTools debugger and profiler on ZYZ’s iPad Pro is available at: http://127.0.0.1:50977/XLKbKuhXoYM=/devtools/?uri=ws://127.0.0.1:50977/XLKbKuhXoYM=/ws
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   TagTransController.onInit.<anonymous closure> (package:eros_fe/common/controller/tag_trans_controller.dart:36:14)
+flutter: │ #1   Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:948:45)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] getNamespace []
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: │ #0   BlockController.onInit (package:eros_fe/common/controller/block_controller.dart:44:12)
+flutter: │ #1   GetLifeCycleBase._onStart (package:get/get_instance/src/lifecycle.dart:66:5)
+flutter: ├┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+flutter: │ [D] onInit
+flutter: └───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+flutter: BKFrame  size info :  index = 0  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 1  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 2  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 3  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 4  size = Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 5  size = Size(320.0, 216.0)
+flutter: BKFrame  cache hit：0 Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 0  size = Size(320.0, 216.0)
+flutter: BKFrame  cache hit：4 Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 4  size = Size(320.0, 216.0)
+flutter: BKFrame  cache hit：5 Size(320.0, 216.0)
+flutter: BKFrame  size info :  index = 5  size = Size(320.0, 216.0)
+
+Application finished.

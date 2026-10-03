@@ -214,8 +214,10 @@ dependencies:
   path: ^1.9.1
 
 dev_dependencies:
-#  flutter_test:
-#    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
 
   # flutter pub run build_runner build --delete-conflicting-outputs
   # flutter pub run build_runner watch --delete-conflicting-outputs

@@ -21,6 +21,11 @@ fail() {
 }
 
 printf 'iOS toolchain baseline for %s\n\n' "$ROOT_DIR"
+if [[ "$(uname -m)" == "arm64" ]]; then
+  pass "arm64 host for Simulator validation"
+else
+  fail "arm64 host required for this iOS 27.0 Simulator baseline"
+fi
 
 if command -v xcodebuild >/dev/null 2>&1; then
   xcode_output="$(xcodebuild -version 2>&1)"
@@ -38,12 +43,18 @@ fi
 
 if command -v xcrun >/dev/null 2>&1; then
   printf '\nSimulator runtimes:\n'
-  runtime_output="$(xcrun simctl list runtimes 2>&1)"
-  printf '%s\n' "$runtime_output"
-  if printf '%s\n' "$runtime_output" | grep -Fq "$EXPECTED_IOS_RUNTIME ("; then
-    pass "$EXPECTED_IOS_RUNTIME runtime is installed"
+  runtime_output="$(xcrun simctl list runtimes -j)"
+  if printf '%s\n' "$runtime_output" | python3 -c '
+import json, sys
+runtimes = json.load(sys.stdin)["runtimes"]
+available = [r for r in runtimes if r.get("version") == "27.0" and r.get("isAvailable") and "arm64" in r.get("supportedArchitectures", [])]
+for r in available:
+    print(r["identifier"], r["buildversion"], r["supportedArchitectures"])
+sys.exit(0 if available else 1)
+'; then
+    pass "$EXPECTED_IOS_RUNTIME arm64 runtime is available"
   else
-    fail "$EXPECTED_IOS_RUNTIME runtime is not installed"
+    fail "$EXPECTED_IOS_RUNTIME arm64 runtime is unavailable"
   fi
 
   printf '\nAvailable simulator devices:\n'

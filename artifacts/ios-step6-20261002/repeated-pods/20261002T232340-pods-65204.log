@@ -1,0 +1,10 @@
+Analyzing dependencies
+/opt/homebrew/lib/ruby/gems/4.0.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph.rb:3: warning: tsort was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.1.0
+You can add tsort to your Gemfile or gemspec to silence this warning.
+Verifying no changes
+Downloading dependencies
+Generating Pods project
+
+[ml_kit] Apple Silicon simulator support enabled for 7 framework(s) (auto-toggles per build).
+Integrating client project
+Pod installation complete! There are 34 dependencies from the Podfile and 53 total pods installed.

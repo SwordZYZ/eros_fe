@@ -1,0 +1,581 @@
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://e-hentai.org/popular
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ cookie: nw=1
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.json
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:47.143854
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 1063 ms
+[D]  ║  https://e-hentai.org/popular
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [no-cache]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:48 GMT]
+[D]  ╟ vary: [Accept-Encoding]
+[D]  ╟ content-encoding: [gzip]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload;]
+[D]  ╟ age: [0]
+[D]  ╟ cf-cache-status: [DYNAMIC]
+[D]  ╟ content-type: [text/html; charset=UTF-8]
+[D]  ╟ server: [cloudflare]
+[D]  ╟ alt-svc: [h3=":443"; ma=86400]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ content-length: [23938]
+[D]  ╟ x-varnish: [259791342]
+[D]  ╟ cf-ray: [a44786894b609ce4-SIN]
+[D]  ╟ via: [1.1 varnish (Varnish/6.0)]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://e-hentai.org/popular
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ cookie: nw=1
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.json
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:48.734618
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://e-hentai.org/favorites.php?jump&seek
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Query Parameters 
+[D]  ╟ jump: null
+[D]  ╟ seek: null
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ cookie: nw=1
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.json
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:49.018184
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://ehgt.org/w/02/687/94296-74kpsyzl.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ Cookie: nw=1
+[D]  ╟ Host: ehgt.org
+[D]  ╟ Accept-Encoding: gzip, deflate, br
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.stream
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:49.104416
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://ehgt.org/w/02/686/77695-gxs1di3k.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ Cookie: nw=1
+[D]  ╟ Host: ehgt.org
+[D]  ╟ Accept-Encoding: gzip, deflate, br
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.stream
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:49.110193
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 845 ms
+[D]  ║  https://e-hentai.org/popular
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [no-cache]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:49 GMT]
+[D]  ╟ vary: [Accept-Encoding]
+[D]  ╟ content-encoding: [gzip]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload;]
+[D]  ╟ age: [0]
+[D]  ╟ cf-cache-status: [DYNAMIC]
+[D]  ╟ content-type: [text/html; charset=UTF-8]
+[D]  ╟ server: [cloudflare]
+[D]  ╟ alt-svc: [h3=":443"; ma=86400]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ content-length: [23938]
+[D]  ╟ x-varnish: [257670862]
+[D]  ╟ cf-ray: [a4478693bdd3fdf4-SIN]
+[D]  ╟ via: [1.1 varnish (Varnish/6.0)]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://ehgt.org/w/02/686/74921-0bnv3ku1.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ Cookie: nw=1
+[D]  ╟ Host: ehgt.org
+[D]  ╟ Accept-Encoding: gzip, deflate, br
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.stream
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:49.112974
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://ehgt.org/w/02/687/76237-gvetyeen.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ Cookie: nw=1
+[D]  ╟ Host: ehgt.org
+[D]  ╟ Accept-Encoding: gzip, deflate, br
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.stream
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:49.186300
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://ehgt.org/w/02/688/24598-lui744vf.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ Cookie: nw=1
+[D]  ╟ Host: ehgt.org
+[D]  ╟ Accept-Encoding: gzip, deflate, br
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.stream
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:49.254871
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 1040 ms
+[D]  ║  https://ehgt.org/w/02/687/94296-74kpsyzl.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [max-age=31536000]
+[D]  ╟ last-modified: [Fri, 02 Oct 2026 18:04:07 GMT]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:49 GMT]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload]
+[D]  ╟ content-length: [22964]
+[D]  ╟ etag: ["6abff217-59b4"]
+[D]  ╟ content-type: [image/webp]
+[D]  ╟ server: [nginx/1.30.4]
+[D]  ╟ expires: [Sat, 02 Oct 2027 23:35:49 GMT]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://ehgt.org/w/02/688/23209-p9o7spcs.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ Cookie: nw=1
+[D]  ╟ Host: ehgt.org
+[D]  ╟ Accept-Encoding: gzip, deflate, br
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.stream
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:49.258118
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 1397 ms
+[D]  ║  https://e-hentai.org/favorites.php?jump&seek
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:50 GMT]
+[D]  ╟ content-encoding: [gzip]
+[D]  ╟ vary: [Accept-Encoding]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload;]
+[D]  ╟ age: [0]
+[D]  ╟ cf-cache-status: [DYNAMIC]
+[D]  ╟ content-type: [text/html; charset=UTF-8]
+[D]  ╟ server: [cloudflare]
+[D]  ╟ alt-svc: [h3=":443"; ma=86400]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ content-length: [638]
+[D]  ╟ x-varnish: [260080226]
+[D]  ╟ cf-ray: [a447869ad99cf892-SIN]
+[D]  ╟ via: [1.1 varnish (Varnish/6.0)]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://ehgt.org/w/02/688/09791-ovrq37dj.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ Cookie: nw=1
+[D]  ╟ Host: ehgt.org
+[D]  ╟ Accept-Encoding: gzip, deflate, br
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.stream
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:49.285352
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 1004 ms
+[D]  ║  https://ehgt.org/w/02/686/77695-gxs1di3k.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [max-age=31536000]
+[D]  ╟ last-modified: [Fri, 02 Oct 2026 14:05:50 GMT]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:50 GMT]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload]
+[D]  ╟ content-length: [21534]
+[D]  ╟ etag: ["6abfba3e-541e"]
+[D]  ╟ content-type: [image/webp]
+[D]  ╟ server: [nginx/1.30.4]
+[D]  ╟ expires: [Sat, 02 Oct 2027 23:35:50 GMT]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://ehgt.org/w/02/686/84421-cxe829m6.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ Cookie: nw=1
+[D]  ╟ Host: ehgt.org
+[D]  ╟ Accept-Encoding: gzip, deflate, br
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.stream
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:49.383429
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 1031 ms
+[D]  ║  https://ehgt.org/w/02/686/74921-0bnv3ku1.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [max-age=31536000]
+[D]  ╟ last-modified: [Fri, 02 Oct 2026 14:01:22 GMT]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:50 GMT]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload]
+[D]  ╟ content-length: [17924]
+[D]  ╟ etag: ["6abfb932-4604"]
+[D]  ╟ content-type: [image/webp]
+[D]  ╟ server: [nginx/1.30.4]
+[D]  ╟ expires: [Sat, 02 Oct 2027 23:35:50 GMT]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 984 ms
+[D]  ║  https://ehgt.org/w/02/687/76237-gvetyeen.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [max-age=31536000]
+[D]  ╟ last-modified: [Fri, 02 Oct 2026 16:11:16 GMT]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:50 GMT]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload]
+[D]  ╟ content-length: [27312]
+[D]  ╟ etag: ["6abfd7a4-6ab0"]
+[D]  ╟ content-type: [image/webp]
+[D]  ╟ server: [nginx/1.30.4]
+[D]  ╟ expires: [Sat, 02 Oct 2027 23:35:50 GMT]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 1015 ms
+[D]  ║  https://ehgt.org/w/02/688/24598-lui744vf.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [max-age=31536000]
+[D]  ╟ last-modified: [Fri, 02 Oct 2026 21:31:03 GMT]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:50 GMT]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload]
+[D]  ╟ content-length: [17634]
+[D]  ╟ etag: ["6ac02297-44e2"]
+[D]  ╟ content-type: [image/webp]
+[D]  ╟ server: [nginx/1.30.4]
+[D]  ╟ expires: [Sat, 02 Oct 2027 23:35:50 GMT]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 987 ms
+[D]  ║  https://ehgt.org/w/02/688/23209-p9o7spcs.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [max-age=31536000]
+[D]  ╟ last-modified: [Fri, 02 Oct 2026 21:15:13 GMT]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:51 GMT]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload]
+[D]  ╟ content-length: [14836]
+[D]  ╟ etag: ["6ac01ee1-39f4"]
+[D]  ╟ content-type: [image/webp]
+[D]  ╟ server: [nginx/1.30.4]
+[D]  ╟ expires: [Sat, 02 Oct 2027 23:35:51 GMT]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 1038 ms
+[D]  ║  https://ehgt.org/w/02/688/09791-ovrq37dj.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [max-age=31536000]
+[D]  ╟ last-modified: [Fri, 02 Oct 2026 19:22:53 GMT]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:51 GMT]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload]
+[D]  ╟ content-length: [29812]
+[D]  ╟ etag: ["6ac0048d-7474"]
+[D]  ╟ content-type: [image/webp]
+[D]  ╟ server: [nginx/1.30.4]
+[D]  ╟ expires: [Sat, 02 Oct 2027 23:35:51 GMT]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 1049 ms
+[D]  ║  https://ehgt.org/w/02/686/84421-cxe829m6.webp
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ cache-control: [max-age=31536000]
+[D]  ╟ last-modified: [Fri, 02 Oct 2026 07:59:57 GMT]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:51 GMT]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload]
+[D]  ╟ content-length: [31612]
+[D]  ╟ etag: ["6abf647d-7b7c"]
+[D]  ╟ content-type: [image/webp]
+[D]  ╟ server: [nginx/1.30.4]
+[D]  ╟ expires: [Sat, 02 Oct 2027 23:35:51 GMT]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://e-hentai.org/mytags?tagset=
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Query Parameters 
+[D]  ╟ tagset: 
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ cookie: nw=1
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.json
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:51.922497
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Request ║ GET 
+[D]  ║  https://e-hentai.org/mytags?tagset=
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Query Parameters 
+[D]  ╟ tagset: 
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ User-Agent: 
+[D]  ║ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36
+[D]  ║  Edg/95.0.1020.30
+[D]  ╟ Accept: 
+[D]  ║ text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q
+[D]  ║ =0.9
+[D]  ╟ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+[D]  ╟ content-type: application/x-www-form-urlencoded
+[D]  ╟ cookie: nw=1
+[D]  ╟ contentType: application/x-www-form-urlencoded
+[D]  ╟ responseType: ResponseType.json
+[D]  ╟ followRedirects: true
+[D]  ╟ connectTimeout: 2:46:40.000000
+[D]  ╟ receiveTimeout: 5:33:20.000000
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Extras 
+[D]  ╟ @cache_options@: Instance of 'CacheOptions'
+[D]  ╟ @requestSentDate@: 2026-10-03 07:35:51.922513
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 994 ms
+[D]  ║  https://e-hentai.org/mytags?tagset=
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:52 GMT]
+[D]  ╟ content-encoding: [gzip]
+[D]  ╟ vary: [Accept-Encoding]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload;]
+[D]  ╟ age: [0]
+[D]  ╟ cf-cache-status: [DYNAMIC]
+[D]  ╟ content-type: [text/html; charset=UTF-8]
+[D]  ╟ server: [cloudflare]
+[D]  ╟ alt-svc: [h3=":443"; ma=86400]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ content-length: [639]
+[D]  ╟ x-varnish: [258208045]
+[D]  ╟ cf-ray: [a44786aa7d3d978e-SIN]
+[D]  ╟ via: [1.1 varnish (Varnish/6.0)]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  
+[D]  ╔╣ Response ║ GET ║ Status: 200 OK  ║ Time: 1006 ms
+[D]  ║  https://e-hentai.org/mytags?tagset=
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[D]  ╔ Headers 
+[D]  ╟ connection: [keep-alive]
+[D]  ╟ date: [Fri, 02 Oct 2026 23:35:53 GMT]
+[D]  ╟ content-encoding: [gzip]
+[D]  ╟ vary: [Accept-Encoding]
+[D]  ╟ strict-transport-security: [max-age=31536000; preload;]
+[D]  ╟ age: [0]
+[D]  ╟ cf-cache-status: [DYNAMIC]
+[D]  ╟ content-type: [text/html; charset=UTF-8]
+[D]  ╟ server: [cloudflare]
+[D]  ╟ alt-svc: [h3=":443"; ma=86400]
+[D]  ╟ accept-ranges: [bytes]
+[D]  ╟ content-length: [639]
+[D]  ╟ x-varnish: [258040063]
+[D]  ╟ cf-ray: [a44786ad0825fd31-SIN]
+[D]  ╟ via: [1.1 varnish (Varnish/6.0)]
+[D]  ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝

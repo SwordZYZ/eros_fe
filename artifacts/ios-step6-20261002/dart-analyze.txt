@@ -1,0 +1,5 @@
+Analyzing 2 items...                                            
+
+   info • Sort directive sections alphabetically. Try sorting the directives • integration_test/ios_smoke_test.dart:5:1 • directives_ordering
+
+1 issue found. (ran in 10.2s)
