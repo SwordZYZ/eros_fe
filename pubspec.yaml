@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 1.9.2+566
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.9.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -81,7 +81,7 @@ dependencies:
     git:
       url: https://github.com/honjow/flutter_downloader.git
       ref: dev
-  copy_with_extension: ^9.0.0
+  copy_with_extension: ^10.0.1
   package_info_plus: ^8.3.0
   pretty_dio_logger: ^1.2.0-beta-1
   #translator: ^0.1.7
@@ -153,9 +153,10 @@ dependencies:
   isolate: ^2.1.1
   octo_image: ^2.0.0
 #  google_ml_kit: ^0.18.0
-  google_mlkit_barcode_scanning: ^0.14.1
+  google_mlkit_barcode_scanning: 0.15.0
+  google_mlkit_commons: 0.12.0
 #  google_mlkit_translation: ^0.3.0
-  google_mlkit_language_id: ^0.13.0
+  google_mlkit_language_id: 0.14.0
   flutter_custom_license_page: ^0.0.3
   flutter_list_view: ^1.1.18
   preload_page_view: ^0.2.0
@@ -167,8 +168,8 @@ dependencies:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
-  isar_community: ^3.3.0-dev.1
-  isar_community_flutter_libs: ^3.3.0-dev.1
+  isar_community: ^3.3.2
+  isar_community_flutter_libs: ^3.3.2
   dio_cache_interceptor: ^3.3.1
   dio_cache_interceptor_hive_store: ^4.0.0
   flutter_android_volume_keydown: #^1.0.0
@@ -207,13 +208,16 @@ dependencies:
   mysql_client: ^0.0.27
   blurhash_ffi: ^1.2.2
   cached_annotation: ^1.6.0
+  json_annotation: ^4.9.0
   chinese_font_library: ^1.2.0
   path_provider: ^2.1.5
   path: ^1.9.1
 
 dev_dependencies:
-#  flutter_test:
-#    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
 
   # flutter pub run build_runner build --delete-conflicting-outputs
   # flutter pub run build_runner watch --delete-conflicting-outputs
@@ -230,31 +234,19 @@ dev_dependencies:
       ref: dev
 #    path: ../json_to_model
 
-  build_runner: ^2.4.6
-  json_serializable: ^6.0.1
-  json_annotation: ^4.8.1
-  copy_with_extension_gen: ^9.0.0
-  isar_community_generator: #^3.3.0-dev.1
-    git:
-      url: https://github.com/callumw-k/isar-community.git
-      ref: migrating-to-source_gen-3
-      path: packages/isar_community_generator
+  build_runner: ^2.10.0
+  json_serializable: ^6.11.1
+  copy_with_extension_gen: ^10.0.1
+  isar_community_generator: ^3.3.2
   flutter_lints: ^6.0.0
-
-dependency_overrides:
-#  analyzer: ^8.0.0
-#  isar_community:
-#    git:
-#      url: https://github.com/isar-community/isar-community.git
-#      ref: v3
-#      path: packages/isar_community
-
 
 flutter_intl:
   enabled: true
   class_name: L10n
 
 flutter:
+  config:
+    enable-swift-package-manager: false
   uses-material-design: true
 
 

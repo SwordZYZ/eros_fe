@@ -1,0 +1,81 @@
+name: iOS development smoke
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'lib/**'
+      - 'ios/**'
+      - 'scripts/**'
+      - 'tool/**'
+      - 'integration_test/**'
+      - 'pubspec.*'
+      - 'Gemfile*'
+      - '.github/workflows/ios-development.yml'
+  push:
+    branches: [master]
+    paths:
+      - 'lib/**'
+      - 'ios/**'
+      - 'scripts/**'
+      - 'tool/**'
+      - 'integration_test/**'
+      - 'pubspec.*'
+      - 'Gemfile*'
+      - '.github/workflows/ios-development.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-development-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  simulator:
+    # Official arm64 image includes Xcode 27.2 and an iOS 27.2 runtime.
+    # Each run still checks the actual versions; it never falls back to latest.
+    runs-on: xcode-27
+    timeout-minutes: 60
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_27.2.app/Contents/Developer
+      IOS_LOG_DIR: ${{ github.workspace }}/artifacts/ios-dev
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          persist-credentials: false
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.3'
+          channel: stable
+          cache: true
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.12'
+          bundler-cache: true
+      - name: Select pinned Flutter and Xcode
+        shell: bash
+        run: |
+          echo "IOS_FLUTTER_BIN=$(command -v flutter)" >> "$GITHUB_ENV"
+          test "$(uname -m)" = arm64
+          source scripts/ios_common.sh
+          expected_xcode_version="$(ios_expected_xcode_version)"
+          xcode_output="$(xcodebuild -version)"
+          printf '%s\n' "$xcode_output"
+          test "$(sed -n '1s/^Xcode //p' <<< "$xcode_output")" = "$expected_xcode_version"
+      - name: Prepare, check, build and launch smoke through the local entry
+        run: scripts/ios_dev.sh ci
+      - name: Collect simulator diagnostics
+        if: always()
+        run: scripts/ios_dev.sh logs simulator auto com.example.erosfe.dev
+      - name: Keep evidence including failing assertions and native logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-development-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            artifacts/ios-dev/
+            build/ios/**/*.xcresult
+          if-no-files-found: warn
+          retention-days: 14

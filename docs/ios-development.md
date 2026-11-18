@@ -1,0 +1,145 @@
+# iOS / iPadOS 本地开发
+
+## 固定基线与入口
+
+- Xcode **27.2**，模拟器使用 **arm64 iOS 27.2**，真机验收使用 **iPadOS 27.2**。App 最低部署目标为 **iOS 15.6**。
+- Flutter **3.47.3** / Dart **3.13.3**。项目使用 CocoaPods **1.16.2**，由 `Gemfile.lock` 固定。
+- Xcode 和模拟器的版本配置见 [`tool/ios_toolchain.json`](../tool/ios_toolchain.json)。
+- 所有开发任务从仓库根目录调用 `scripts/ios_dev.sh`。`--help` 查看命令；输出默认写到 `artifacts/ios-dev/`，可用 `IOS_LOG_DIR` 指定独立目录。
+- 同一 checkout 的准备、安装、构建、运行、冒烟和日志采集共用项目锁。不同 SDK 的构建按顺序执行。详情见 [构建锁](ios-build-lock.md)。
+
+## 新 checkout 的首次准备
+
+1. 安装 Xcode 27.2，选择其 Developer 目录，然后按下文安装 **iOS 27.2 arm64 Simulator runtime**。
+2. 安装 FVM 和 Ruby Bundler。在项目中运行 `fvm install 3.47.3` 和 `fvm use 3.47.3`，或将 `IOS_FLUTTER_BIN` 指向已经安装的 **3.47.3** Flutter 可执行文件。
+3. 执行公开配置准备。它会从 `Local.xcconfig.example` 建立被忽略的本地签名配置，按锁安装 Dart / Ruby / Pods，检查配置并生成代码。公开 `config.dart` 和禁用的 Firebase 不需要维护者密钥；不要将加密 Firebase plist 加入 Runner 的 resources。
+
+```bash
+scripts/ios_dev.sh prepare --simulator
+scripts/ios_dev.sh check
+scripts/ios_dev.sh build ios --simulator --debug
+scripts/ios_dev.sh smoke --simulator auto
+```
+
+`smoke --simulator auto` 和 `logs simulator auto` 共用选择器。`auto` 创建或复用名为 `Eros-FE-<checkout 路径哈希>` 的专用 iPad 模拟器，严格使用 iOS 27.2 arm64 runtime，然后启动并等待 boot 完成。冒烟命令也可使用该 runtime 下的模拟器 UDID。不同 checkout 使用不同模拟器，避免测试状态混用。
+
+准备阶段不使用 `pub upgrade` 或 `pod update`。日常安装继续执行 `pub get --enforce-lockfile` 和 `pod install --deployment`；`scripts/ios_dev.sh pods` 可单独重复安装。只有明确变更依赖时，才重新建立并审查锁文件。
+
+## 手动管理模拟器
+
+1. 在 **Xcode → Settings… → Components** 管理系统镜像。退役 27.0 时找到 **iOS 27.0**，点击该条目旁边的 ⓘ，再选 **Delete**。使用 27.0 的模拟设备会失去所需的 runtime。 [Apple 组件管理说明](https://developer.apple.com/documentation/xcode/downloading-and-installing-additional-xcode-components)
+2. 同页查看 **iOS 27.2**。如果显示 **Get**，点它直接安装。若主列表显示的是更新版本，用 **Other Installed Platforms → Add Platforms (+)** 选中 **iOS 27.2**，再点 **Download & Install**。已安装的 27.2 可直接使用。 [Apple 运行时安装说明](https://developer.apple.com/documentation/xcode/downloading-and-installing-additional-xcode-components)
+3. 在 **Xcode → Open Developer Tool → Device Hub** 管理单台模拟设备。如果 27.2 下还没有 iPad，点 **+**，选择 **iPad Pro 11-inch (M5)** 和 **iOS 27.2**，再点 **Create**。如需清理某台旧设备及其本地 App 数据，确认它的系统版本后，在该设备上按住 Control 点击并选 **Remove**。 [Apple Device Hub 说明](https://developer.apple.com/documentation/xcode/managing-your-simulated-and-physical-devices-in-device-hub)
+
+下列命令只读。预期运行时标识为 `com.apple.CoreSimulator.SimRuntime.iOS-27-2`，应显示可用并支持 `arm64`。
+
+```bash
+xcodebuild -version
+xcrun simctl list runtimes
+python3 tool/ios_simulator.py --check
+```
+
+## 真机 Debug
+
+先用 USB 连接并解锁运行 iPadOS 27.2 的 iPad，启用 Developer Mode，在 Xcode 完成设备准备和 Apple 开发账号登录。签名构建使用开发者自己的 Apple 开发签名。
+
+编辑本地 `ios/Flutter/Local.xcconfig`：
+
+```xcconfig
+IOS_DEVELOPMENT_BUNDLE_IDENTIFIER = com.yourteam.erosfe.dev
+IOS_DEVELOPMENT_TEAM = YOURTEAMID
+```
+
+Team ID 为 10 位；Bundle ID 使用自己的开发标识。签名配置不提交。准备入口在构建前拒绝样例 Bundle ID 或无效 Team ID。
+
+```bash
+export FLUTTER_LLDB_DEBUGGING=true # 本命令环境选择 LLDB / devicectl，避免依赖 Xcode GUI 自动化。
+scripts/ios_dev.sh prepare --device
+scripts/ios_dev.sh check
+scripts/ios_dev.sh build ios --debug
+scripts/ios_dev.sh run --debug -d "$IPAD_UDID"
+scripts/ios_dev.sh smoke --device "$IPAD_UDID"
+```
+
+`run` 会编译、签名、安装、启动并连接 Dart 调试器，保持标准输入可用。使用 Flutter 的 `r` 热重载、`R` 热重启、`q` 退出或 `d` detach。整个会话持续持锁；退出或调试断连后，先清理受监督的构建进程，再释放锁。
+
+锁描述符仅由监督进程持有，不传给 Flutter / Xcode / devicectl。嵌套入口通过带随机令牌的本地 UNIX socket 向当前监督进程校验；监督进程结束后旧令牌失效。即使 `devicectl --console` 成为独立进程组的孤立进程，也不能继续占用开发锁。已有旧版本遗留的控制台需按 PID 和命令确认后结束，不能删除锁文件来绕过占用。
+
+默认遇到占用输出等待提示和持有者 PID；需要立即拒绝时：
+
+```bash
+IOS_LOCK_WAIT=0 scripts/ios_dev.sh build ios --simulator --debug
+```
+
+忙时返回 `75`，未启动实际命令。普通失败退出码保留；INT / TERM / HUP 中断返回 `128 + 信号编号`。
+
+## 冒烟范围与复现驱动
+
+`integration_test/ios_smoke_test.dart` 使用官方 `integration_test`，从真实 `lib/main.dart` 启动 App，检查无线上账号、首页、真实样式设置页面与返回导航。它不等待线上账号或实时 API 数据；Flutter 异常和测试断言失败均导致非零退出。
+
+真机冒烟使用独立开发 Bundle ID 和未登录的测试 App 数据。已有账号或自定义下载路径可能使断言失败；先使用新的开发 Bundle ID，避免清除日常 App 数据。
+
+最小冒烟不替代第五步的固定内容、分享、前后台、遮罩及物理锁屏回归。已有失败须保留，不能用基础冒烟通过覆盖它们。扩展复现仍可复用现有 Debug 入口和驱动：
+
+```bash
+scripts/ios_dev.sh run --debug -d "$IPAD_UDID" --target tool/ios_baseline_probe.dart
+# 在另一终端调用已固定 SDK 的 Dart；FLUTTER_SDK 为 SDK 目录。
+"$FLUTTER_SDK/bin/dart" \
+  --packages="$FLUTTER_SDK/packages/flutter_tools/.dart_tool/package_config.json" \
+  tool/ios_baseline_driver.dart "$RUN_LOG" gallery "$RESULT_JSON"
+```
+
+驱动的 `snapshot` / `gallery` / `torrent` / `smoke` / `privacy` / `lifecycle_begin` / `lifecycle_end` 可复用第五步固定数据。它的历史结果可能包含 FAIL，阅读完整 JSON 和原生崩溃结果。系统分享菜单、实际复制／快捷指令、物理锁屏和遮罩视觉观察由使用者在 iPad 上手动完成，记录观察与原话；命令行不能代替这些验收。
+
+## 日志与可追溯记录
+
+每个入口任务保存完整合并 stdout / stderr 和 JSON 清单，包含起止时间、退出码、源码 commit、工作区状态、源码与三个锁文件的 SHA-256，以及命令和目标 UDID。未提交源码由工作区状态与源码哈希区分，不能仅引用基点 commit。日志不会等待孤立控制台继承的输出管道 EOF，主命令退出后即完成记录。
+
+```bash
+scripts/ios_dev.sh logs simulator auto com.example.erosfe.dev
+scripts/ios_dev.sh logs device "$IPAD_UDID" "$DEVELOPMENT_BUNDLE_ID"
+```
+
+模拟器采集 runtime / 设备信息、最近 10 分钟 App 原生系统日志、截图、App 日志目录和匹配 Bundle ID 的 `.ips`。真机采集设备详细信息（机型、系统版本及 build）、App 日志目录和匹配 Bundle ID 的系统崩溃报告。`collection.json` 逐项记录采集退出码和缺失状态；采集完成不等于业务验收通过。App 日志目录为空时，以 run / smoke 控制台日志为主要来源。若 App 尚未安装或设备不可访问，原始采集失败保留在清单内。
+
+Flutter 真机冒烟结束后可能卸载测试 App。需要导出应用容器日志时，先用 `run --debug` 恢复普通 Debug App，启动后按 `d` 解除调试连接，再运行 `logs device` 并查看 `collection.json` 中 `app-files` 和 `app-log` 的退出码。
+
+验收记录至少填写：源码 commit 与补丁／哈希、机型及 UDID、系统版本与 build、Debug 模式、Bundle ID、实际步骤、结果与日志索引。原生崩溃保留 `.ips`，断连保留宿主连接日志，二者分别判定。
+
+## 同一入口的 CI
+
+```bash
+scripts/ios_dev.sh ci
+```
+
+此命令串行执行宿主锁回归、公开配置准备、环境检查、生产入口模拟器 Debug 构建、集成冒烟启动及锁文件稳定性检查。失败立即停止，原退出码上抛；CI 没有 `continue-on-error`。
+
+`.github/workflows/ios-development.yml` 使用 **`xcode-27` arm64 runner**，显式选择 `/Applications/Xcode_27.2.app/Contents/Developer`、Flutter 3.47.3 和缓存 Ruby 3.4.12。镜像预装 iOS 27.2 模拟器。每次运行都检查宿主架构、Xcode 版本，以及 iOS 27.2 runtime 的标识、可用状态和 arm64 支持。 [runner 软件清单](https://github.com/actions/runner-images/blob/main/images/macos/xcode-27-arm64-Readme.md)
+
+CI 在 PR、相关 master 推送或手动 dispatch 时运行，使用公开配置及独立 checkout / Pods；没有解密私钥、开发签名或发布动作。诊断与上传步骤使用 `always()`，失败时也保留命令日志、断言、清单及可用的 `.xcresult`，保留期 14 天。
+
+可主动验证冒烟失败会返回非零（此命令预期 FAIL）：
+
+```bash
+scripts/ios_dev.sh smoke --simulator auto --dart-define=IOS_SMOKE_FORCE_FAILURE=true
+```
+
+`IOS_SMOKE_FORCE_FAILURE` 仅用于测试末尾故意失败的断言；不改变生产入口。
+
+## 27.2 基线验收（2026-11-18）
+
+本地验收使用 macOS 27.2、Xcode 27.2（`27B52`）、Flutter 3.47.3 和 CocoaPods 1.16.2。模拟器和真机在独立 checkout 上使用提交中的依赖锁文件，验收前后的三个锁文件 SHA-256 一致。
+
+| 环境 | 验收结果 |
+| --- | --- |
+| iPad Pro 11-inch (M5) 模拟器，arm64 iOS 27.2（`24B8117`） | `scripts/ios_dev.sh ci` 通过，覆盖 14 个宿主测试、依赖准备、环境检查、Debug 构建和集成冒烟。`logs simulator auto` 采集了运行时、设备信息、原生系统日志和截图。冒烟退出后应用容器已不可用。 |
+| iPad Pro 11-inch (M4) 真机，iPadOS 27.2（`24B119`） | USB 下 Debug 启动、实际 Dart 热重载和集成冒烟通过。恢复普通 Debug App 后，设备信息、应用日志目录和崩溃报告查询均成功。应用日志目录为空，本次控制台日志由 `run` 和 `smoke` 保留。 |
+| GitHub Actions | 工作流已配置为 27.2，远端实跑待验证。 |
+
+首次无线调试在发现 Dart VM 时收到 mDNS `No route to host`，改用 USB 后通过。模拟器在镜像重新安装和挂载期间有两次未完成的尝试，挂载完成后同一入口重跑通过。
+
+## 并行与后续修复
+
+同一 checkout 串行使用这些入口。Xcode GUI、VS Code 直接 launch 或裸 `flutter` / `xcodebuild` 不会自动遵守此锁。需双端同时开发时使用独立 worktree，各自安装 Pods、生成配置、`.dart_tool`、DerivedData 和输出；可以共享下载缓存，不能共享被 helper 改写的 Pods 文件。旧 IPA 脚本的共享导出位置另需隔离。
+
+日常工作按“记录环境与复现 → 修改 → 模拟器自动冒烟 → 真机目标步骤 → 导出日志／崩溃报告 → review 与提交”推进。构建／自动测试结果和手动观察分别保留，已有失败不改写为通过。

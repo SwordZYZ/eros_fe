@@ -26,7 +26,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ["android", "ios", "macos", "windows"]
+        # Re-enable iOS after the device and Simulator development workflows are validated.
+        target: ["android", "macos", "windows"]
+        suffix: [""]
 #        flutter_version: ["3.x"]
         flutter_channel: ["stable"]
         include:
@@ -35,11 +37,6 @@ jobs:
             flutter_version: "3.x"
             artifact_name: release-apk
             artifact_path: build/app/outputs/apk/release/Eros-FE*.apk
-          - target: ios
-            os: macos-15
-            flutter_version: "3.x"
-            artifact_name: release-ios
-            artifact_path: build/**/Eros-FE*.ipa
           - target: macos
             os: macos-15
             flutter_version: "3.41.7"
@@ -91,7 +88,7 @@ jobs:
 
       # git-crypt unlock
       - name: Unlock secrets (MacOS)
-        if: matrix.os == 'macos-15'
+        if: matrix.target == 'ios' || matrix.target == 'macos'
         run: |
           brew install git-crypt
           echo $GIT_CRYPT_KEY | base64 -d -o grypt.key
@@ -111,6 +108,12 @@ jobs:
           Invoke-WebRequest -Uri https://github.com/AGWA/git-crypt/releases/download/0.7.0/git-crypt-0.7.0-x86_64.exe -OutFile git-crypt.exe
           echo "${{ secrets.ENCODED_GIT_CRYPT }}" | openssl base64 -d -out git-crypt.key
           .\git-crypt.exe unlock .\git-crypt.key
+
+      - name: Load decrypted release configuration
+        shell: bash
+        run: |
+          grep -Fq 'class FeConfig' lib/config/config_remote.dart
+          cp lib/config/config_remote.dart lib/config/config.dart
 
       - name: Decode keystore
         if: matrix.target == 'android'
@@ -151,9 +154,18 @@ jobs:
       - name: Flutter version
         run: flutter --version
 
-      - name: Disable Swift Package Manager
-        if: matrix.target == 'ios' || matrix.target == 'macos'
-        run: flutter config --no-enable-swift-package-manager
+      - name: Select Xcode 27.0
+        if: matrix.target == 'ios'
+        shell: bash
+        run: |
+          sudo xcode-select --switch /Applications/Xcode_27.0.app
+          xcodebuild -version
+          selected_xcode="$(xcodebuild -version | sed -n '1s/^Xcode //p')"
+          test "$selected_xcode" = "27.0"
+
+      - name: Install iOS CocoaPods
+        if: matrix.target == 'ios'
+        run: bundle install --jobs 4 --retry 3
 
       - name: Build resolve Swift dependencies
         if: matrix.target == 'macos'
@@ -182,11 +194,20 @@ jobs:
       #     sed -i '' 's/flutter_inappwebview: .*/flutter_inappwebview: ^6.1.5/' pubspec.yaml
 
       - name: Flutter pub get
+        shell: bash
         run: |
           git config --global core.longpaths true
-          flutter pub get
-          flutter pub run build_runner build --delete-conflicting-outputs
-          flutter pub run intl_utils:generate
+          if [[ "${{ matrix.target }}" == ios ]]; then
+            flutter pub get --enforce-lockfile
+          else
+            flutter pub get
+          fi
+          dart run build_runner build --delete-conflicting-outputs --fail-on-severe
+          dart run intl_utils:generate
+
+      - name: Check iOS toolchain baseline
+        if: matrix.target == 'ios'
+        run: scripts/ios_env_check.sh
 
       - name: Fix system_network_proxy desktop registrants
         if: matrix.target == 'macos' || matrix.target == 'windows'
@@ -234,14 +255,10 @@ jobs:
       - name: Build ios app
         if: matrix.target == 'ios'
         run: |
-          sed -i '' 's/dev2.cn.honjow.fehv/cn.honjow.fehv/g' 'ios/Runner.xcodeproj/project.pbxproj'
-          rm ios/Podfile.lock
-          cd ios && pod update && pod install --repo-update && cd ..
-          flutter build ios --release --no-codesign --no-pub
-
-      # - name: upload-symbols
-      #   if: matrix.target == 'ios'
-      #   run: find build/ios/Release-iphoneos -name "*.dSYM" | xargs -I \{\} ios/Pods/FirebaseCrashlytics/upload-symbols -gsp ios/Runner/GoogleService-Info.plist -p ios \{\}
+          cp ios/Flutter/Local.xcconfig.example ios/Flutter/Local.xcconfig
+          sed -i '' 's/^IOS_DEVELOPMENT_BUNDLE_IDENTIFIER = .*/IOS_DEVELOPMENT_BUNDLE_IDENTIFIER = cn.honjow.fehv/' ios/Flutter/Local.xcconfig
+          cd ios && bundle exec pod install --deployment && cd ..
+          bundle exec flutter build ios --release --no-codesign --no-pub
 
       - name: Thin app
         if: matrix.target == 'ios'
