@@ -133,6 +133,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "导出应用数据到本地文件",
     ),
     "favcat": MessageLookupByLibrary.simpleMessage("收藏夹"),
+    "favorite_update_failed": MessageLookupByLibrary.simpleMessage(
+      "未能确认收藏更新，请刷新后重试。",
+    ),
     "favorites_order": MessageLookupByLibrary.simpleMessage("收藏夹排序"),
     "favorites_order_Use_favorited": MessageLookupByLibrary.simpleMessage(
       "按照收藏时间",

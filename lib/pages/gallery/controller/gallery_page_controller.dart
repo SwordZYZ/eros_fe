@@ -151,6 +151,10 @@ class GalleryPageController extends GetxController
   /// 请求数据
   Future<GalleryProvider?> _fetchData({bool refresh = false}) async {
     try {
+      final favoriteAtStart = (
+        gState.galleryProvider?.favcat,
+        gState.galleryProvider?.favTitle,
+      );
       gState.hideNavigationBtn = true;
 
       if (gState.galleryProvider != null &&
@@ -199,8 +203,26 @@ class GalleryPageController extends GetxController
       time.showTime('fetch galleryProvider end');
 
       if (fetchedGalleryProvider != null) {
-        gState.galleryProvider =
-            gState.galleryProvider?.copyWithAll(fetchedGalleryProvider);
+        final current = gState.galleryProvider;
+        final tag = gState.gid;
+        final favorite = Get.isRegistered<GalleryFavController>(tag: tag)
+            ? Get.find<GalleryFavController>(tag: tag)
+            : null;
+        final favoriteChanged =
+            favoriteAtStart != (current?.favcat, current?.favTitle);
+        final merged = current?.copyWithAll(fetchedGalleryProvider);
+        if (favoriteChanged || (favorite?.isLoading ?? false)) {
+          gState.galleryProvider = merged?.copyWith(
+            favcat: current?.favcat.oN,
+            favTitle: current?.favTitle.oN,
+          );
+        } else {
+          gState.galleryProvider = merged;
+          favorite?.setFav(
+            fetchedGalleryProvider.favcat ?? '',
+            fetchedGalleryProvider.favTitle ?? '',
+          );
+        }
       }
 
       gState.currentImagePage = 0;
@@ -211,7 +233,7 @@ class GalleryPageController extends GetxController
 
       try {
         if (!refresh) {
-          // 如果不是refresh情况。 收藏状态 评分状态从Provider中继承
+          // Preserve the original rating fallback when first loading details.
           gState.galleryProvider = gState.galleryProvider?.copyWith(
             ratingFallBack:
                 (gState.galleryProvider?.ratingFallBack ?? _oriRatingFallBack)
@@ -221,12 +243,6 @@ class GalleryPageController extends GetxController
             colorRating: _oriColorRating?.oN,
             // isRatinged: _oriIsRatinged,
           );
-
-          // 收藏控制器状态更新
-          final GalleryFavController _favController =
-              Get.find(tag: pageCtrlTag);
-          _favController.setFav(gState.galleryProvider?.favcat ?? '',
-              gState.galleryProvider?.favTitle ?? '');
         }
       } catch (_) {}
 

@@ -934,6 +934,16 @@ class L10n {
     );
   }
 
+  /// `Could not confirm the favorites update. Refresh and try again.`
+  String get favorite_update_failed {
+    return Intl.message(
+      'Could not confirm the favorites update. Refresh and try again.',
+      name: 'favorite_update_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Remove from favorites`
   String get remove_from_favorites {
     return Intl.message(

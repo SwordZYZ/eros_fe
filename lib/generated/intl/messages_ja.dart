@@ -145,6 +145,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "データを外部ストレージにエクスポートしてバックアップ",
     ),
     "favcat": MessageLookupByLibrary.simpleMessage("お気に入り"),
+    "favorite_update_failed": MessageLookupByLibrary.simpleMessage(
+      "お気に入りの更新を確認できませんでした。更新してから再試行してください。",
+    ),
     "favorites_order": MessageLookupByLibrary.simpleMessage("お気に入り並べ替え"),
     "favorites_order_Use_favorited": MessageLookupByLibrary.simpleMessage(
       "お気に入り日付順",

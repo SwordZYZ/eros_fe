@@ -115,6 +115,7 @@
   "tabbar_setting": "Tabbar setting",
   "tab_sort": "Long press and drag to sort",
   "add_to_favorites": "Add to favorites",
+  "favorite_update_failed": "Could not confirm the favorites update. Refresh and try again.",
   "remove_from_favorites": "Remove from favorites",
   "change_to_favorites": "Change to favorites",
   "quick_search": "Quick search",
