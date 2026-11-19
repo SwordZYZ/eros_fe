@@ -15,6 +15,32 @@ import flutter_downloader
 
     func didInitializeImplicitFlutterEngine(_ engineBridge: FlutterImplicitEngineBridge) {
         GeneratedPluginRegistrant.register(with: engineBridge.pluginRegistry)
+
+        let windowLayout = FlutterMethodChannel(
+            name: "eros_fe/window_layout",
+            binaryMessenger: engineBridge.applicationRegistrar.messenger()
+        )
+        windowLayout.setMethodCallHandler { call, result in
+            guard call.method == "windowControlInsets" else {
+                result(FlutterMethodNotImplemented)
+                return
+            }
+            guard #available(iOS 26.0, *), UIDevice.current.userInterfaceIdiom == .pad,
+                  let window = UIApplication.shared.connectedScenes
+                      .compactMap({ $0 as? UIWindowScene })
+                      .first(where: { $0.activationState == .foregroundActive })?.keyWindow,
+                  let view = window.rootViewController?.view else {
+                result(nil)
+                return
+            }
+
+            let safeArea = view.safeAreaInsets
+            let adapted = view.edgeInsets(for: .safeArea(cornerAdaptation: .horizontal))
+            result([
+                "left": Double(max(0, adapted.left - safeArea.left)),
+                "right": Double(max(0, adapted.right - safeArea.right)),
+            ])
+        }
     }
     
     @objc func step(displaylink: CADisplayLink) {
