@@ -51,8 +51,6 @@ class _GalleryPageState extends State<GalleryPage> {
     super.didChangeDependencies();
 
     _controller.scrollController = PrimaryScrollController.of(context);
-    _controller.scrollController
-        ?.addListener(_controller.scrollControllerLister);
   }
 
   @override
