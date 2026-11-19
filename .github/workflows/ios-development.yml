@@ -33,12 +33,12 @@ concurrency:
 
 jobs:
   simulator:
-    # Official arm64 image includes Xcode 27.0 and an iOS 27.0 runtime.
+    # Official arm64 image includes Xcode 27.2 and an iOS 27.2 runtime.
     # Each run still checks the actual versions; it never falls back to latest.
     runs-on: xcode-27
     timeout-minutes: 60
     env:
-      DEVELOPER_DIR: /Applications/Xcode_27.0.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_27.2.app/Contents/Developer
       IOS_LOG_DIR: ${{ github.workspace }}/artifacts/ios-dev
     steps:
       - uses: actions/checkout@v4
@@ -51,14 +51,18 @@ jobs:
           cache: true
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.11'
+          ruby-version: '3.4.12'
           bundler-cache: true
       - name: Select pinned Flutter and Xcode
         shell: bash
         run: |
           echo "IOS_FLUTTER_BIN=$(command -v flutter)" >> "$GITHUB_ENV"
           test "$(uname -m)" = arm64
-          test "$(xcodebuild -version | sed -n '1s/^Xcode //p')" = 27.0
+          source scripts/ios_common.sh
+          expected_xcode_version="$(ios_expected_xcode_version)"
+          xcode_output="$(xcodebuild -version)"
+          printf '%s\n' "$xcode_output"
+          test "$(sed -n '1s/^Xcode //p' <<< "$xcode_output")" = "$expected_xcode_version"
       - name: Prepare, check, build and launch smoke through the local entry
         run: scripts/ios_dev.sh ci
       - name: Collect simulator diagnostics

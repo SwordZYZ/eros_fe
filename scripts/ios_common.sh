@@ -3,6 +3,11 @@
 # Shared by iOS preparation, development and the existing IPA scripts.
 IOS_ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 
+ios_expected_xcode_version() {
+  python3 -c 'import json, sys; print(json.load(sys.stdin)["xcode_version"])' \
+    < "$IOS_ROOT_DIR/tool/ios_toolchain.json"
+}
+
 ios_require_project_lock() {
   local entrypoint="$1"
   shift

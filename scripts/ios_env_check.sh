@@ -3,10 +3,9 @@
 set -uo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$ROOT_DIR/scripts/ios_common.sh"
 cd "$ROOT_DIR"
 
-EXPECTED_XCODE_VERSION="27.0"
-EXPECTED_IOS_RUNTIME="iOS 27.0"
 EXPECTED_FLUTTER_VERSION="3.47.3"
 EXPECTED_COCOAPODS_VERSION="1.16.2"
 failures=0
@@ -24,17 +23,19 @@ printf 'iOS toolchain baseline for %s\n\n' "$ROOT_DIR"
 if [[ "$(uname -m)" == "arm64" ]]; then
   pass "arm64 host for Simulator validation"
 else
-  fail "arm64 host required for this iOS 27.0 Simulator baseline"
+  fail "arm64 host required for the iOS Simulator baseline"
 fi
 
-if command -v xcodebuild >/dev/null 2>&1; then
+if ! expected_xcode_version="$(ios_expected_xcode_version)"; then
+  fail "Could not read the pinned Xcode version"
+elif command -v xcodebuild >/dev/null 2>&1; then
   xcode_output="$(xcodebuild -version 2>&1)"
   printf '%s\n' "$xcode_output"
   xcode_version="$(printf '%s\n' "$xcode_output" | sed -n 's/^Xcode //p' | head -n 1)"
-  if [[ "$xcode_version" == "$EXPECTED_XCODE_VERSION" ]]; then
-    pass "Xcode $EXPECTED_XCODE_VERSION"
+  if [[ "$xcode_version" == "$expected_xcode_version" ]]; then
+    pass "Xcode $expected_xcode_version"
   else
-    fail "Expected Xcode $EXPECTED_XCODE_VERSION; found ${xcode_version:-unavailable}"
+    fail "Expected Xcode $expected_xcode_version; found ${xcode_version:-unavailable}"
   fi
   printf 'Developer directory: %s\n' "$(xcode-select -p 2>&1)"
 else
@@ -42,28 +43,11 @@ else
 fi
 
 if command -v xcrun >/dev/null 2>&1; then
-  printf '\nSimulator runtimes:\n'
-  runtime_output="$(xcrun simctl list runtimes -j)"
-  if printf '%s\n' "$runtime_output" | python3 -c '
-import json, sys
-runtimes = json.load(sys.stdin)["runtimes"]
-available = [r for r in runtimes if r.get("version") == "27.0" and r.get("isAvailable") and "arm64" in r.get("supportedArchitectures", [])]
-for r in available:
-    print(r["identifier"], r["buildversion"], r["supportedArchitectures"])
-sys.exit(0 if available else 1)
-'; then
-    pass "$EXPECTED_IOS_RUNTIME arm64 runtime is available"
+  printf '\nSimulator baseline:\n'
+  if python3 "$ROOT_DIR/tool/ios_simulator.py" --check; then
+    pass "Pinned iOS Simulator runtime and devices are available"
   else
-    fail "$EXPECTED_IOS_RUNTIME arm64 runtime is unavailable"
-  fi
-
-  printf '\nAvailable simulator devices:\n'
-  device_output="$(xcrun simctl list devices available 2>&1)"
-  printf '%s\n' "$device_output"
-  if printf '%s\n' "$device_output" | grep -Fq "$EXPECTED_IOS_RUNTIME"; then
-    pass "Available devices are listed for $EXPECTED_IOS_RUNTIME"
-  else
-    fail "No available simulator devices were listed for $EXPECTED_IOS_RUNTIME"
+    fail "Pinned iOS Simulator runtime or devices are unavailable"
   fi
 
   printf '\nPhysical Apple devices known to Xcode:\n'

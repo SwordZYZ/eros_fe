@@ -7,7 +7,6 @@ source "$ROOT_DIR/scripts/ios_common.sh"
 ios_require_project_lock "$ROOT_DIR/scripts/ios_prepare.sh" "$@"
 cd "$ROOT_DIR"
 
-EXPECTED_XCODE_VERSION="27.0"
 EXPECTED_FLUTTER_VERSION="3.47.3"
 LOCAL_CONFIG="ios/Flutter/Local.xcconfig"
 LOCAL_CONFIG_EXAMPLE="ios/Flutter/Local.xcconfig.example"
@@ -83,10 +82,11 @@ if ! plutil -lint ios/Runner/Info.plist ios/Runner/fehviewer.entitlements >/dev/
   die "An active iOS Info.plist or entitlements file is invalid"
 fi
 
+expected_xcode_version="$(ios_expected_xcode_version)" || die "Could not read the pinned Xcode version"
 xcode_output="$(xcodebuild -version 2>&1)" || die "xcodebuild is unavailable"
 xcode_version="$(printf '%s\n' "$xcode_output" | sed -n 's/^Xcode //p' | head -n 1)"
-if [[ "$xcode_version" != "$EXPECTED_XCODE_VERSION" ]]; then
-  die "Expected Xcode $EXPECTED_XCODE_VERSION; found ${xcode_version:-unavailable}"
+if [[ "$xcode_version" != "$expected_xcode_version" ]]; then
+  die "Expected Xcode $expected_xcode_version; found ${xcode_version:-unavailable}"
 fi
 
 ios_select_flutter "$EXPECTED_FLUTTER_VERSION" || die "Could not select the pinned Flutter SDK"
