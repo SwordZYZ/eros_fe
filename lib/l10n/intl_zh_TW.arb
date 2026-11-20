@@ -115,6 +115,7 @@
   "tabbar_setting": "首頁欄位設定",
   "tab_sort": "長按並拖動以進行排序",
   "add_to_favorites": "添加收藏夾",
+  "favorite_update_failed": "未能確認收藏更新，請重新整理後再試。",
   "remove_from_favorites": "從收藏夾中刪除",
   "change_to_favorites": "修改收藏夾",
   "quick_search": "快速搜尋",

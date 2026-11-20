@@ -898,65 +898,74 @@ Future<bool?> postComment({
   }
 }
 
+const _galleryFavoritePath = '/gallerypopups.php';
+
+Map<String, dynamic> _galleryFavoriteQuery(String gid, String token) => {
+      'gid': gid,
+      't': token,
+      'act': 'addfav',
+    };
+
+Options _galleryFavoriteOptions() =>
+    const CacheOptions(policy: CachePolicy.noCache, store: null).toOptions()
+      ..responseType = ResponseType.plain
+      ..validateStatus =
+          (status) => status != null && status >= 200 && status < 300;
+
 Future<void> galleryAddFavorite(
   String gid,
   String token, {
   String favcat = 'favdel',
   String favnote = '',
 }) async {
-  const String url = '/gallerypopups.php';
-  DioHttpClient dioHttpClient = DioHttpClient(dioConfig: globalDioConfig);
-
-  final Map<String, dynamic> _params = {
-    'gid': gid,
-    't': token,
-    'act': 'addfav',
-  };
-
-  final FormData formData = FormData.fromMap({
-    'favcat': favcat,
-    'update': '1',
-    'favnote': favnote,
-  });
-
-  DioHttpResponse httpResponse = await dioHttpClient.post(
-    url,
-    queryParameters: _params,
-    data: formData,
-    options: getCacheOptions(refresh: true),
+  final dioHttpClient = DioHttpClient(dioConfig: globalDioConfig);
+  final httpResponse = await dioHttpClient.post(
+    _galleryFavoritePath,
+    queryParameters: _galleryFavoriteQuery(gid, token),
+    data: {
+      'favcat': favcat,
+      'update': '1',
+      'favnote': favnote,
+      'apply': favcat == 'favdel' ? 'Apply Changes' : 'Add to Favorites',
+    },
+    options: _galleryFavoriteOptions()
+      ..contentType = Headers.formUrlEncodedContentType,
   );
+  if (!httpResponse.ok) {
+    throw httpResponse.error ?? HttpException('Favorite request failed');
+  }
+
+  // A rejected write can also return HTTP 200. Read the saved form from
+  // the same site with caching disabled before updating any local state.
+  final saved = await _getGalleryFavorite(dioHttpClient, gid, token);
+  final expectedCategory = favcat == 'favdel' ? null : favcat;
+  if (saved.selectFavcat != expectedCategory ||
+      (expectedCategory != null && (saved.favNote ?? '') != favnote.trim())) {
+    throw HttpException('The server did not confirm the favorites update');
+  }
 }
 
-Future<FavAdd> galleryGetFavorite(
+Future<FavAdd> galleryGetFavorite(String gid, String token) =>
+    _getGalleryFavorite(
+      DioHttpClient(dioConfig: globalDioConfig),
+      gid,
+      token,
+    );
+
+Future<FavAdd> _getGalleryFavorite(
+  DioHttpClient dioHttpClient,
   String gid,
   String token,
 ) async {
-  const String url = '/gallerypopups.php';
-  DioHttpClient dioHttpClient = DioHttpClient(dioConfig: globalDioConfig);
-
-  final Map<String, dynamic> _params = {
-    'gid': gid,
-    't': token,
-    'act': 'addfav',
-  };
-
-  DioHttpResponse httpResponse = await dioHttpClient.get(
-    url,
-    queryParameters: _params,
-    options: getCacheOptions(refresh: true),
-    httpTransformer: HttpTransformerBuilder(
-      (response) async {
-        final favAdd = await compute(parserAddFavPage, response.data as String);
-        return DioHttpResponse<FavAdd>.success(favAdd);
-      },
-    ),
+  final httpResponse = await dioHttpClient.get(
+    _galleryFavoritePath,
+    queryParameters: _galleryFavoriteQuery(gid, token),
+    options: _galleryFavoriteOptions(),
   );
-
-  if (httpResponse.ok && httpResponse.data is FavAdd) {
-    return httpResponse.data as FavAdd;
-  } else {
-    throw httpResponse.error ?? HttpException('get fav add error');
+  if (!httpResponse.ok || httpResponse.data is! String) {
+    throw httpResponse.error ?? HttpException('Could not read the favorite form');
   }
+  return compute(parserAddFavPage, httpResponse.data as String);
 }
 
 Future<Map> getGithubApi(String url) async {

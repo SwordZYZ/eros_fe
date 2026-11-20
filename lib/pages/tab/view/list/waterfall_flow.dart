@@ -72,12 +72,7 @@ class EhWaterfallFlow extends StatelessWidget {
             }
 
             final GalleryProvider _provider = galleryProviders[index];
-            Get.lazyReplace(() => _provider, tag: _provider.gid, fenix: true);
-            Get.lazyReplace(
-                () => GalleryItemController(
-                    galleryProvider: Get.find(tag: _provider.gid)),
-                tag: _provider.gid,
-                fenix: true);
+            GalleryItemController.bindToCard(_provider);
 
             if (large) {
               Widget item = GalleryItemFlowLarge(

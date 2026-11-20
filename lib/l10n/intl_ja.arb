@@ -115,6 +115,7 @@
   "tabbar_setting": "カテゴリー設定",
   "tab_sort": "長押しで並べ替え",
   "add_to_favorites": "お気に入りに追加",
+  "favorite_update_failed": "お気に入りの更新を確認できませんでした。更新してから再試行してください。",
   "remove_from_favorites": "お気に入りから削除",
   "change_to_favorites": "お気に入りを移動",
   "quick_search": "クイック検索",

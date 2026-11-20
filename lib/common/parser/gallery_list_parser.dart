@@ -5,6 +5,34 @@ import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' show parse;
 import 'package:intl/intl.dart';
 
+final _favoriteBorderColor = RegExp(
+  r'(?:^|;)\s*border-color\s*:\s*(#[\da-f]{6}|#[\da-f]{3})(?![\da-f])',
+  caseSensitive: false,
+);
+final _favoriteBackgroundColor = RegExp(
+  r'(?:^|;)\s*background-color\s*:\s*rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)'
+  r'\s*[,)]',
+  caseSensitive: false,
+);
+
+String? _favoriteCategoryFromStyle(String style) {
+  final border = _favoriteBorderColor.firstMatch(style)?.group(1)?.toLowerCase();
+  if (border != null) {
+    final color = border.length == 7
+        ? '#${border[1]}${border[3]}${border[5]}'
+        : border;
+    final category = EHConst.favCat[color];
+    if (category != null) return category;
+  }
+
+  final background = _favoriteBackgroundColor.firstMatch(style);
+  if (background == null) return null;
+  final rgb = [for (var channel = 1; channel <= 3; channel++) int.parse(background[channel]!)];
+  if (rgb.any((channel) => channel > 255)) return null;
+  final color = '#${rgb.map((channel) => (channel >> 4).toRadixString(16)).join()}';
+  return EHConst.favCat[color];
+}
+
 /// 检查返回结果是否是 compact 视图
 bool isGalleryListDmL(String response) {
   final dom.Document document = parse(response);
@@ -245,7 +273,8 @@ GalleryList parseGalleryList(
 
     // 发布时间
     bool expunged = false;
-    final elmPostTime = tr.querySelector('td.gl2c > div:nth-child(2) > div');
+    final elmPostTime = (gid.isEmpty ? null : tr.querySelector('#posted_$gid')) ??
+        tr.querySelector('td.gl2c > div:nth-child(2) > div');
     if (elmPostTime?.children.isNotEmpty ?? false) {
       // logger.d('${elmPostTime?.outerHtml}');
       expunged = true;
@@ -256,10 +285,7 @@ GalleryList parseGalleryList(
     final String postTimeLocal = DateFormat('yyyy-MM-dd HH:mm').format(time);
 
 // 收藏标志
-    final String favTitle = tr
-            .querySelector('td.gl2c > div:nth-child(2) > div')
-            ?.attributes['title'] ??
-        '';
+    final favTitle = elmPostTime?.attributes['title']?.trim() ?? '';
 
 // 评分颜色
     final String _colorRating = tr
@@ -277,16 +303,11 @@ GalleryList parseGalleryList(
     final bool isRatinged = ir.contains(RegExp(r'ir ir[a-z]'));
 
 // 收藏夹
-    String favcat = '';
-    if (favTitle.isNotEmpty) {
-      final String favcatStyle = tr
-          .querySelector('td.gl2c > div:nth-child(2) > div')!
-          .attributes['style']!;
-      final String favcatColor =
-          RegExp(r'border-color:(#\w{3});').firstMatch(favcatStyle)?.group(1) ??
-              '';
-      favcat = EHConst.favCat[favcatColor] ?? '';
-    }
+    final favcat = favTitle.isEmpty && !isFavorite
+        ? ''
+        : _favoriteCategoryFromStyle(elmPostTime?.attributes['style'] ?? '') ??
+            favcatList.firstWhereOrNull((fav) => fav.favTitle == favTitle)?.favId ??
+            '';
 
     String _uplader = '';
     String _filecount = '';

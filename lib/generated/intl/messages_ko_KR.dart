@@ -163,6 +163,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Export App Data To File",
     ),
     "favcat": MessageLookupByLibrary.simpleMessage("즐겨찾기"),
+    "favorite_update_failed": MessageLookupByLibrary.simpleMessage(
+      "즐겨찾기 변경을 확인할 수 없습니다. 새로고침한 후 다시 시도하세요.",
+    ),
     "favorites_order": MessageLookupByLibrary.simpleMessage("즐겨찾기 정렬"),
     "favorites_order_Use_favorited": MessageLookupByLibrary.simpleMessage(
       "즐겨찾기된 순",

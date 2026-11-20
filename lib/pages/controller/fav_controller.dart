@@ -1,11 +1,11 @@
 import 'package:eros_fe/common/controller/localfav_controller.dart';
-import 'package:eros_fe/common/global.dart';
 import 'package:eros_fe/common/service/ehsetting_service.dart';
 import 'package:eros_fe/common/service/theme_service.dart';
 import 'package:eros_fe/const/theme_colors.dart';
 import 'package:eros_fe/extension.dart';
 import 'package:eros_fe/generated/l10n.dart';
 import 'package:eros_fe/models/favcat.dart';
+import 'package:eros_fe/models/gallery_provider.dart';
 import 'package:eros_fe/network/request.dart';
 import 'package:eros_fe/pages/gallery/view/gallery_favcat.dart';
 import 'package:eros_fe/pages/item/controller/galleryitem_controller.dart';
@@ -28,6 +28,15 @@ class FavController extends GetxController {
 
   final FavoriteSelectorController _favoriteSelectorController = Get.find();
 
+  void showUpdateFailure(Object error, StackTrace stack) {
+    logger.w(
+      'Could not confirm favorites update',
+      error: error,
+      stackTrace: stack,
+    );
+    showToast(L10n.current.favorite_update_failed);
+  }
+
   Future<Favcat?> showFavListDialog(
     BuildContext context,
     List<Favcat> favList,
@@ -37,40 +46,32 @@ class FavController extends GetxController {
         : await _showAddFavList(context, favList);
   }
 
-  Future<void> _getFavaddInfo(String gid, String token) async {
-    final favAdd = await galleryGetFavorite(gid, token);
-    final favNote = favAdd.favNote ?? '';
-    _favnoteController.text = favNote;
-    final favcats = favAdd.favcats;
-    final selectFav = favAdd.selectFavcat;
-    final fav = int.tryParse(selectFav ?? '0') ?? 0;
-    _fixedExtentScrollController.animateToItem(
-      fav,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.ease,
-    );
-  }
-
   /// 添加收藏 Picker 形式
   Future<Favcat?> _showAddFavPicker(
-      BuildContext context, List<Favcat> favList) async {
-    int _favIndex = 2;
+    BuildContext context,
+    List<Favcat> favList,
+  ) async {
+    final choices = favList.where((fav) => fav.favId != 'a').toList();
 
     final List<Widget> _favPickerList = List<Widget>.from(
-        favList.where((value) => value.favId != 'a').map((Favcat e) => Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 4, bottom: 4),
-                  child: FaIcon(FontAwesomeIcons.solidHeart,
-                    color: ThemeColors.favColor[e.favId],
-                    size: 18,
-                  ),
-                ),
-                Text(e.favTitle),
-              ],
-            ))).toList();
+      choices.map(
+        (Favcat e) => Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 4, bottom: 4),
+              child: FaIcon(
+                FontAwesomeIcons.solidHeart,
+                color: ThemeColors.favColor[e.favId],
+                size: 18,
+              ),
+            ),
+            Text(e.favTitle),
+          ],
+        ),
+      ),
+    ).toList();
 
     return showCupertinoDialog<Favcat>(
       context: context,
@@ -92,9 +93,7 @@ class FavController extends GetxController {
                   child: CupertinoPicker(
                     scrollController: _fixedExtentScrollController,
                     itemExtent: 30,
-                    onSelectedItemChanged: (int index) {
-                      _favIndex = index;
-                    },
+                    onSelectedItemChanged: null,
                     children: _favPickerList,
                   ),
                 ),
@@ -105,7 +104,7 @@ class FavController extends GetxController {
                     color: ehTheme.favnoteTextFieldBackgroundColor,
                     borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -121,8 +120,9 @@ class FavController extends GetxController {
               onPressed: () {
                 // 返回数据
                 Get.back(
-                    result: favList[_favIndex]
-                        .copyWith(note: _favnoteController.text.oN));
+                  result: choices[_fixedExtentScrollController.selectedItem]
+                      .copyWith(note: _favnoteController.text.oN),
+                );
               },
             ),
           ],
@@ -136,18 +136,23 @@ class FavController extends GetxController {
     BuildContext context,
     List<Favcat> favList,
   ) async {
-    final List<Widget> _favcatList = List<Widget>.from(favList
-        .where((value) => value.favId != 'a')
-        .map((Favcat fav) => FavCatAddListItem(
+    final List<Widget> _favcatList = List<Widget>.from(
+      favList
+          .where((value) => value.favId != 'a')
+          .map(
+            (Favcat fav) => FavCatAddListItem(
               text: fav.favTitle,
               favcat: fav.favId,
               totNum: fav.totNum,
               onTap: () {
                 // 返回数据
                 Get.back(
-                    result: fav.copyWith(note: _favnoteController.text.oN));
+                  result: fav.copyWith(note: _favnoteController.text.oN),
+                );
               },
-            ))).toList();
+            ),
+          ),
+    ).toList();
 
     logger.t(_favcatList.length);
 
@@ -201,14 +206,13 @@ class FavController extends GetxController {
     String oriFavnote = '',
   }) async {
     logger.d('bbb add fav $gid $token');
-    final String? _lastFavcat = _ehSettingService.lastFavcat;
+    final String _lastFavcat = _ehSettingService.lastFavcat;
 
     _favnoteController.text = oriFavnote;
 
     // 添加到上次收藏夹
-    if ((_ehSettingService.isFavLongTap.value) &&
-        _lastFavcat != null &&
-        _lastFavcat.isNotEmpty) {
+    if (oriFavcat.isEmpty && _ehSettingService.isFavLongTap.value &&
+        hasOnlineCategory(_lastFavcat)) {
       logger.t('添加到上次收藏夹');
       return addToLastFavcat(gid, token, _lastFavcat, oriFavcat: oriFavcat);
     } else {
@@ -224,6 +228,7 @@ class FavController extends GetxController {
     String token, {
     String oriFavcat = '',
     VoidCallback? startLoading,
+    GalleryProvider? gallery,
   }) async {
     _favnoteController.clear();
     final BuildContext context = Get.context!;
@@ -233,14 +238,32 @@ class FavController extends GetxController {
     if (oriFavcat.isNotEmpty) {
       final _oriFav = int.tryParse(oriFavcat) ?? 0;
       logger.d('_oriFav $_oriFav');
-      _fixedExtentScrollController =
-          FixedExtentScrollController(initialItem: _oriFav);
+      _fixedExtentScrollController = FixedExtentScrollController(
+        initialItem: _oriFav,
+      );
     } else {
       _fixedExtentScrollController = FixedExtentScrollController();
     }
 
-    // 异步获取原note信息等
-    _getFavaddInfo(gid, token);
+    // A read failure must not prevent choosing a category or saving locally.
+    var selecting = true;
+    if (favList.any((fav) => _isOnlineCategory(fav.favId))) {
+      final picker = _fixedExtentScrollController;
+      galleryGetFavorite(gid, token)
+          .then((saved) {
+            if (!selecting || picker != _fixedExtentScrollController) return;
+            if (_favnoteController.text.isEmpty) {
+              _favnoteController.text = saved.favNote ?? '';
+            }
+          })
+          .catchError((Object error, StackTrace stack) {
+            logger.w(
+              'Could not read favorites form',
+              error: error,
+              stackTrace: stack,
+            );
+          });
+    }
 
     // diaolog 获取选择结果
     Favcat? result;
@@ -248,6 +271,8 @@ class FavController extends GetxController {
       result = await showFavListDialog(context, favList);
     } catch (e, stack) {
       logger.e('$e\n$stack');
+    } finally {
+      selecting = false;
     }
 
     logger.t('$result  ${result.runtimeType}');
@@ -258,35 +283,36 @@ class FavController extends GetxController {
 
       final String _favcat = result.favId;
       final String _favnote = result.note ?? '';
-      final String _favTitle = result.favTitle;
-      try {
-        if (_favcat != 'l') {
-          await galleryAddFavorite(
-            gid,
-            token,
-            favcat: _favcat,
-            favnote: _favnote,
-          );
-        } else {
-          // _localFavController.addLocalFav(_pageController.galleryProvider);
-          // todo
-          _localFavController.addLocalFav(
-              Get.find<GalleryItemController>(tag: gid).galleryProvider);
-          logger.d('addLocalFav');
+      if (_favcat != 'l') {
+        await galleryAddFavorite(
+          gid,
+          token,
+          favcat: _favcat,
+          favnote: _favnote,
+        );
+      } else {
+        _localFavController.addLocalFav(
+          gallery ?? Get.find<GalleryItemController>(tag: gid).galleryProvider,
+        );
+      }
+      if (oriFavcat != _favcat) {
+        if (oriFavcat.isNotEmpty) {
+          _favoriteSelectorController.decrease(oriFavcat);
         }
-      } catch (e) {
-        rethrow;
+        _favoriteSelectorController.increase(_favcat);
       }
-      if (oriFavcat.isNotEmpty) {
-        _favoriteSelectorController.decrease(oriFavcat);
-      }
-      _favoriteSelectorController.increase(_favcat);
 
       return result;
     } else {
       return null;
     }
   }
+
+  bool _isOnlineCategory(String id) => RegExp(r'^[0-9]$').hasMatch(id);
+
+  bool hasOnlineCategory(String id) =>
+      _isOnlineCategory(id) &&
+      _favoriteSelectorController.favcatList.any((fav) => fav.favId == id);
 
   Future<Favcat> addToLastFavcat(
     String gid,
@@ -295,19 +321,22 @@ class FavController extends GetxController {
     String oriFavcat = '',
     String oriFavnote = '',
   }) async {
-    final String _favTitle =
-        Global.profile.user.favcat?[int.parse(_lastFavcat)].favTitle ?? '...';
-
-    try {
-      await galleryAddFavorite(gid, token, favcat: _lastFavcat, favnote: '');
-    } catch (e) {
-      rethrow;
+    final category = _favoriteSelectorController.favcatList.firstWhere(
+      (fav) => fav.favId == _lastFavcat && _isOnlineCategory(fav.favId),
+    );
+    await galleryAddFavorite(
+      gid,
+      token,
+      favcat: category.favId,
+      favnote: oriFavnote,
+    );
+    if (oriFavcat != category.favId) {
+      if (oriFavcat.isNotEmpty) {
+        _favoriteSelectorController.decrease(oriFavcat);
+      }
+      _favoriteSelectorController.increase(category.favId);
     }
-    if (oriFavcat.isNotEmpty) {
-      _favoriteSelectorController.decrease(oriFavcat);
-    }
-    _favoriteSelectorController.increase(_lastFavcat);
-    return Favcat(favTitle: _favTitle, favId: _lastFavcat);
+    return category;
   }
 
   /// 删除收藏

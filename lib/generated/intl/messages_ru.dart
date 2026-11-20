@@ -185,6 +185,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Export App Data To File",
     ),
     "favcat": MessageLookupByLibrary.simpleMessage("Избранное"),
+    "favorite_update_failed": MessageLookupByLibrary.simpleMessage(
+      "Не удалось подтвердить изменение избранного. Обновите страницу и повторите попытку.",
+    ),
     "favorites_order": MessageLookupByLibrary.simpleMessage(
       "Упорядочить избранное",
     ),

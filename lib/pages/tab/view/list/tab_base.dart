@@ -46,12 +46,7 @@ SliverPadding buildDebugSimple(
           }
 
           final GalleryProvider _provider = galleryProviders[index];
-          Get.lazyReplace(() => _provider, tag: _provider.gid, fenix: true);
-          Get.lazyReplace(
-              () => GalleryItemController(
-                  galleryProvider: Get.find(tag: _provider.gid)),
-              tag: _provider.gid,
-              fenix: true);
+          GalleryItemController.bindToCard(_provider);
 
           return GalleryItemDebugSimple(
             key:
@@ -197,13 +192,7 @@ Widget buildAnimatedGallerySliverListView(
       }
 
       final GalleryProvider _itemInfo = galleryProviders[index];
-      Get.lazyReplace(() => _itemInfo, tag: _itemInfo.gid, fenix: true);
-      Get.lazyReplace(
-        () => GalleryItemController(
-            galleryProvider: Get.find(tag: _itemInfo.gid)),
-        tag: _itemInfo.gid,
-        fenix: true,
-      );
+      GalleryItemController.bindToCard(_itemInfo);
 
       final itemWidget = buildGallerySliverListItem(
         _itemInfo,
@@ -259,12 +248,7 @@ Widget buildAnimatedGallerySliverListSimpleView(
       }
 
       final GalleryProvider _provider = galleryProviders[index];
-      Get.lazyReplace(() => _provider, tag: _provider.gid, fenix: true);
-      Get.lazyReplace(
-          () => GalleryItemController(
-              galleryProvider: Get.find(tag: _provider.gid)),
-          tag: _provider.gid,
-          fenix: true);
+      GalleryItemController.bindToCard(_provider);
       return FrameSeparateWidget(
         placeHolder: const GalleryItemSimplePlaceHolder(),
         child: buildGallerySliverListItem(
@@ -308,13 +292,7 @@ Widget buildGallerySliverListSimpleView(
         }
 
         final GalleryProvider _provider = galleryProviders[index];
-        Get.lazyReplace(() => _provider, tag: _provider.gid, fenix: true);
-        Get.lazyReplace(
-          () => GalleryItemController(
-              galleryProvider: Get.find(tag: _provider.gid)),
-          tag: _provider.gid,
-          fenix: true,
-        );
+        GalleryItemController.bindToCard(_provider);
 
         return FrameSeparateWidget(
           index: index,

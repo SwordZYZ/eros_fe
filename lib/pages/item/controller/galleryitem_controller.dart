@@ -13,7 +13,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class GalleryItemController extends GetxController {
-  GalleryItemController({required this.galleryProvider});
+  GalleryItemController({required GalleryProvider galleryProvider})
+      : _galleryProvider = galleryProvider;
+
+  static void bindToCard(GalleryProvider provider) {
+    final tag = provider.gid;
+    // A fenix provider keeps the original factory when lazyReplace deletes it.
+    // Keep the controller factory, but replace the provider with the new row.
+    Get.lazyReplace<GalleryProvider>(() => provider, tag: tag, fenix: false);
+    Get.lazyReplace<GalleryItemController>(
+      () => GalleryItemController(galleryProvider: Get.find(tag: tag)),
+      tag: tag,
+      fenix: true,
+    );
+  }
 
   final EhSettingService _ehSettingService = Get.find();
   final FavController _favDialogController = Get.find();
@@ -21,7 +34,8 @@ class GalleryItemController extends GetxController {
   final HistoryController _historyController = Get.find();
 
   late List<GalleryImage> firstPageImage;
-  final GalleryProvider galleryProvider;
+  GalleryProvider _galleryProvider;
+  GalleryProvider get galleryProvider => _galleryProvider;
 
   final RxBool _isFav = false.obs;
   bool get isFav => _isFav.value;
@@ -74,18 +88,11 @@ class GalleryItemController extends GetxController {
 
   /// 设置收藏夹
   void setFavTitleAndFavcat({String favTitle = '', String? favcat}) {
-    logger.t('设置收藏夹, 原 isFav :[$isFav]');
-    galleryProvider.copyWith(favTitle: favTitle.oN);
+    final category = favcat ?? '';
+    _galleryProvider =
+        galleryProvider.copyWith(favTitle: favTitle.oN, favcat: category.oN);
     isFav = favTitle.isNotEmpty;
-    logger.t('设置收藏夹, 当前 isFav :[$isFav]');
-    if (favcat != null || (favcat?.isNotEmpty ?? false)) {
-      favCat = favcat!;
-      galleryProvider.copyWith(favcat: favcat.oN);
-      logger.t('item set favcat [$favcat]');
-    } else {
-      favCat = '';
-      galleryProvider.copyWith(favcat: ''.oN, favTitle: ''.oN);
-    }
+    favCat = category;
   }
 
   String get title {
@@ -187,8 +194,8 @@ class GalleryItemController extends GetxController {
                       setFavTitleAndFavcat(
                           favTitle: value.favTitle, favcat: value.favId);
                       showToast('successfully add');
-                    } catch (e) {
-                      rethrow;
+                    } catch (e, stack) {
+                      _favDialogController.showUpdateFailure(e, stack);
                     }
                   },
                   child: Text(L10n.of(context).add_to_favorites),
@@ -205,8 +212,9 @@ class GalleryItemController extends GetxController {
                     try {
                       await _favDialogController.delFav(galleryProvider.favcat!,
                           galleryProvider.gid!, galleryProvider.token!);
-                    } catch (e) {
-                      rethrow;
+                    } catch (e, stack) {
+                      _favDialogController.showUpdateFailure(e, stack);
+                      return;
                     }
                     setFavTitleAndFavcat(favTitle: '', favcat: '');
                     showToast('successfully deleted');
@@ -230,13 +238,12 @@ class GalleryItemController extends GetxController {
                           galleryProvider.gid!, galleryProvider.token!,
                           oriFavcat: galleryProvider.favcat!);
                       if (value != null) {
-                        setFavTitleAndFavcat(favTitle: '', favcat: '');
                         setFavTitleAndFavcat(
                             favTitle: value.favTitle, favcat: value.favId);
                         showToast('successfully changed');
                       }
-                    } catch (e) {
-                      rethrow;
+                    } catch (e, stack) {
+                      _favDialogController.showUpdateFailure(e, stack);
                     }
                   },
                   child: Text(L10n.of(context).change_to_favorites),
