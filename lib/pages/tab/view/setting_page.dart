@@ -11,34 +11,52 @@ class SettingTab extends GetView<SettingViewController> {
   @override
   Widget build(BuildContext context) {
     controller.initData(context);
-    final String _title = L10n.of(context).tab_setting;
+    final title = L10n.of(context).tab_setting;
+    final settings = Get.find<EhSettingService>();
 
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGroupedBackground,
       child: CustomScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         slivers: <Widget>[
-          CupertinoSliverNavigationBar(
-            heroTag: 'setting',
-            middle: FadeTransition(
-              opacity: controller.animation,
-              child: Text(
-                _title,
-              ),
-            ),
-            largeTitle: Row(
-              children: [
-                Text(
-                  _title,
-                ),
-                const Spacer(),
-                if (Get.find<EhSettingService>().isSafeMode.value)
-                  Container()
-                else
-                  UserWidget().paddingOnly(right: 20),
-              ],
-            ),
-          ),
+          Obx(() {
+            final account = settings.isSafeMode.value
+                ? null
+                : ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 112),
+                    child: const UserWidget(),
+                  );
+
+            return SliverLayoutBuilder(
+              builder: (context, constraints) {
+                // Move the account button before the large-title row clips
+                // its tap target during collapse.
+                final accountInLargeTitle =
+                    account != null &&
+                    MediaQuery.orientationOf(context) == Orientation.portrait &&
+                    constraints.scrollOffset <= 8;
+                return CupertinoSliverNavigationBar(
+                  heroTag: 'setting',
+                  alwaysShowMiddle: false,
+                  middle: Text(title),
+                  largeTitle: accountInLargeTitle
+                      ? Row(
+                          children: [
+                            Expanded(child: Text(title)),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.only(
+                                end: 16,
+                              ),
+                              child: account,
+                            ),
+                          ],
+                        )
+                      : Text(title),
+                  trailing: accountInLargeTitle ? null : account,
+                );
+              },
+            );
+          }),
           SliverSafeArea(
             top: false,
             sliver: SliverCupertinoListSection.insetGrouped(

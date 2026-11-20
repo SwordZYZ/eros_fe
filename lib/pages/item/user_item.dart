@@ -145,6 +145,8 @@ const double kAvatarSize = 40.0;
 const double kNameTextSize = 13.0;
 
 class UserWidget extends GetView<UserController> {
+  const UserWidget({super.key});
+
   Widget _buildAvastat() {
     const Widget _defAvatar = FaIcon(FontAwesomeIcons.solidCircleUser,
       size: kAvatarSize,
@@ -178,6 +180,8 @@ class UserWidget extends GetView<UserController> {
         final String? _nickName = controller.user().nickName;
         return Text(
           _nickName ?? _userName ?? '',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
               fontSize: kNameTextSize,
               fontWeight: FontWeight.normal,
@@ -205,7 +209,7 @@ class UserWidget extends GetView<UserController> {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          _buildText(),
+          Flexible(child: _buildText()),
           _buildAvastat(),
         ],
       ),

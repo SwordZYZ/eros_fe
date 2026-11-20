@@ -5,59 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-class SettingViewController extends GetxController
-    with GetSingleTickerProviderStateMixin {
-  // 控制middle显示
-  final RxBool _showMiddle = false.obs;
-
-  bool get showMidle => _showMiddle.value;
-
-  set showMidle(bool val) => _showMiddle.value = val;
-
-  //
-  late Animation<double> animation;
-  late AnimationController _animationController;
-
-  ScrollController? scrollController;
-
-  @override
-  void onInit() {
-    super.onInit();
-
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 150),
-    );
-
-    animation = Tween(begin: 0.0, end: 1.0).animate(_animationController);
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-    // 监听滚动
-    scrollController?.addListener(_scrollControllerLister);
-  }
-
-  void _scrollControllerLister() {
-    if (scrollController == null) {
-      return;
-    }
-    if (scrollController!.offset < 50.0 && showMidle) {
-      _animationController.reverse();
-      showMidle = false;
-    } else if (scrollController!.offset >= 50.0 && !showMidle) {
-      _animationController.forward();
-      showMidle = true;
-    }
-  }
-
-  @override
-  void onClose() {
-    _animationController.dispose();
-    super.onClose();
-  }
-
+class SettingViewController extends GetxController {
   // 菜单文案
   List<String> _itemTitles = <String>[];
 
@@ -105,8 +53,6 @@ class SettingViewController extends GetxController
   int get itemCount => _itemTitles.length;
 
   void initData(BuildContext context) {
-    scrollController = PrimaryScrollController.of(context);
-
     _itemTitles = <String>[
       L10n.of(context).eh,
       L10n.of(context).layout,
