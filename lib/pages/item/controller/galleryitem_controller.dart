@@ -10,19 +10,42 @@ import 'package:eros_fe/pages/controller/fav_controller.dart';
 import 'package:eros_fe/pages/item/item_base.dart';
 import 'package:eros_fe/pages/tab/controller/tabhome_controller.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 
 class GalleryItemController extends GetxController {
-  GalleryItemController({required GalleryProvider galleryProvider})
-      : _galleryProvider = galleryProvider;
+  GalleryItemController._(this._card);
 
   static void bindToCard(GalleryProvider provider) {
     final tag = provider.gid;
-    // A fenix provider keeps the original factory when lazyReplace deletes it.
-    // Keep the controller factory, but replace the provider with the new row.
-    Get.lazyReplace<GalleryProvider>(() => provider, tag: tag, fenix: false);
-    Get.lazyReplace<GalleryItemController>(
-      () => GalleryItemController(galleryProvider: Get.find(tag: tag)),
+    if (Get.isRegistered<GalleryItemController>(tag: tag)) {
+      final controller = Get.find<GalleryItemController>(tag: tag);
+      final card = controller._card;
+      if (identical(card.row, provider)) return;
+      card.row = provider;
+
+      void publish() {
+        if (!identical(card.row, provider)) return;
+        card.provider.value = provider;
+        Get.find<GalleryItemController>(tag: tag)._applyRatingValues(provider);
+      }
+
+      // The list delegate can bind rows during layout. Publish after the frame
+      // so a mounted card's observers can rebuild safely.
+      final scheduler = SchedulerBinding.instance;
+      if (scheduler.schedulerPhase == SchedulerPhase.persistentCallbacks) {
+        scheduler.addPostFrameCallback((_) => publish());
+      } else {
+        publish();
+      }
+      return;
+    }
+
+    // A right-pane route can dispose the instance while the left card is
+    // still mounted. Keep its latest data with the factory that recreates it.
+    final card = _GalleryCardData(provider);
+    Get.lazyPut<GalleryItemController>(
+      () => GalleryItemController._(card),
       tag: tag,
       fenix: true,
     );
@@ -34,16 +57,11 @@ class GalleryItemController extends GetxController {
   final HistoryController _historyController = Get.find();
 
   late List<GalleryImage> firstPageImage;
-  GalleryProvider _galleryProvider;
-  GalleryProvider get galleryProvider => _galleryProvider;
+  final _GalleryCardData _card;
+  GalleryProvider get galleryProvider => _card.provider.value;
 
-  final RxBool _isFav = false.obs;
-  bool get isFav => _isFav.value;
-  set isFav(bool val) => _isFav.value = val;
-
-  final _favCat = ''.obs;
-  String get favCat => _favCat.value;
-  set favCat(String val) => _favCat.value = val;
+  bool get isFav => galleryProvider.favTitle?.isNotEmpty ?? false;
+  String get favCat => galleryProvider.favcat ?? '';
 
   final _rating = 0.0.obs;
   double get rating => _rating.value;
@@ -62,19 +80,14 @@ class GalleryItemController extends GetxController {
     super.onInit();
     logger.t(
         'init GalleryProviderController ${galleryProvider.gid}  ${galleryProvider.englishTitle}');
-    if (galleryProvider.favTitle != null &&
-        galleryProvider.favTitle!.isNotEmpty) {
-      isFav = true;
-    }
+    _applyRatingValues(galleryProvider);
+  }
 
-    rating = galleryProvider.rating ?? 0.00;
-    colorRating = galleryProvider.colorRating ?? '';
-
-    ratingFallBack = galleryProvider.ratingFallBack ?? 0.00;
+  void _applyRatingValues(GalleryProvider provider) {
+    rating = provider.rating ?? 0.00;
+    colorRating = provider.colorRating ?? '';
+    ratingFallBack = provider.ratingFallBack ?? 0.00;
     logger.t('ratingFB=$ratingFallBack');
-
-    favCat = galleryProvider.favcat ?? '';
-    logger.t('favCat=$favCat');
   }
 
   int get tagLine => max(
@@ -88,11 +101,10 @@ class GalleryItemController extends GetxController {
 
   /// 设置收藏夹
   void setFavTitleAndFavcat({String favTitle = '', String? favcat}) {
-    final category = favcat ?? '';
-    _galleryProvider =
-        galleryProvider.copyWith(favTitle: favTitle.oN, favcat: category.oN);
-    isFav = favTitle.isNotEmpty;
-    favCat = category;
+    _card.provider.value = galleryProvider.copyWith(
+      favTitle: favTitle.oN,
+      favcat: (favcat ?? '').oN,
+    );
   }
 
   String get title {
@@ -275,4 +287,11 @@ class GalleryItemController extends GetxController {
     vibrateUtil.heavy();
     _showLongPressSheet();
   }
+}
+
+class _GalleryCardData {
+  _GalleryCardData(this.row) : provider = row.obs;
+
+  GalleryProvider row;
+  final Rx<GalleryProvider> provider;
 }
