@@ -222,10 +222,11 @@ void main() {
     expect(server.writes.length, writeCount);
     expect(tester.takeException(), isNull);
 
-    // Task 3 tracks the detail route's double disposal. Leave the borrowed
-    // controller with its route owner during this test's automatic unmount.
-    detail.scrollController?.removeListener(detail.scrollControllerLister);
-    detail.scrollController = null;
+    Get.back<void>(id: 2);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 700));
+    expect(button, findsNothing);
+    expect(tester.takeException(), isNull);
     debugPrint(
       'IOS_FAVORITE button, category, count and server assertions PASS',
     );
