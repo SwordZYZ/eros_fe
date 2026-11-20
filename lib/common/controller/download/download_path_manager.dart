@@ -121,7 +121,12 @@ class DownloadPathManager {
 
     logger.t('allowMediaScan $pathList');
 
-    pathList.add(downloadPath);
+    // iOS stores download locations relative to Documents. Resolve them before
+    // filesystem access; a relative 'Download' otherwise targets the read-only
+    // process working directory instead of the application's sandbox.
+    pathList.add(Platform.isIOS && !path.isAbsolute(downloadPath)
+        ? path.join(Global.appDocPath, downloadPath)
+        : downloadPath);
 
     for (final dirPath in pathList) {
       logger.t('media path: $dirPath');
@@ -151,10 +156,10 @@ class DownloadPathManager {
 
         if (allow && await noMediaFile.exists()) {
           logger.d('delete $noMediaFile');
-          noMediaFile.delete(recursive: true);
+          await noMediaFile.delete(recursive: true);
         } else if (!allow && !await noMediaFile.exists()) {
           logger.d('create $noMediaFile');
-          noMediaFile.create(recursive: true);
+          await noMediaFile.create(recursive: true);
         }
       }
     }
