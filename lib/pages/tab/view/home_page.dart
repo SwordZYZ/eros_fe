@@ -21,17 +21,13 @@ class HomePage extends GetView<TabHomeController> {
     final child = Obx(
       () {
         final tabletLayoutType = ehSettingService.tabletLayoutType;
-        final half = layoutServices.half;
-        final vOffset = layoutServices.sideProportion;
 
         logger.t(' ${context.width} ${context.height}');
 
         layoutServices.layoutMode = getLayoutMode(context, tabletLayoutType);
 
         if (isLayoutLarge) {
-          return TabHomeLarge(
-            sideProportion: vOffset,
-          );
+          return const TabHomeLarge();
         } else {
           return const TabHomeSmall();
         }
