@@ -56,11 +56,9 @@ Team ID 为 10 位；Bundle ID 使用自己的开发标识。签名配置不提�
 
 ```bash
 export FLUTTER_LLDB_DEBUGGING=true # 本命令环境选择 LLDB / devicectl，避免依赖 Xcode GUI 自动化。
-scripts/ios_dev.sh prepare --device
-scripts/ios_dev.sh check
-scripts/ios_dev.sh build ios --debug
-scripts/ios_dev.sh run --debug -d "$IPAD_UDID"
-scripts/ios_dev.sh smoke --device "$IPAD_UDID"
+scripts/ios_dev.sh prepare --device &&
+  scripts/ios_dev.sh check &&
+  scripts/ios_dev.sh run --debug -d "$IPAD_UDID"
 ```
 
 `run` 会编译、签名、安装、启动并连接 Dart 调试器，保持标准输入可用。使用 Flutter 的 `r` 热重载、`R` 热重启、`q` 退出或 `d` detach。整个会话持续持锁；退出或调试断连后，先清理受监督的构建进程，再释放锁。
@@ -75,24 +73,36 @@ IOS_LOCK_WAIT=0 scripts/ios_dev.sh build ios --simulator --debug
 
 忙时返回 `75`，未启动实际命令。普通失败退出码保留；INT / TERM / HUP 中断返回 `128 + 信号编号`。
 
+### 保留开发 App 并覆盖安装
+
+在 iPad 上长期保留一个用于手动验收的开发 App。各 checkout 在本地 `Local.xcconfig` 中复用它的开发 Bundle ID 和签名团队，日用 App 使用自己的 Bundle ID。签名的 `application-identifier` 一致时，覆盖安装通常保留 App 容器，账号和布局能否继续使用也取决于应用的数据迁移。同一台 iPad 上共用该标识的任务应串行安装与验收，各 checkout 的构建锁只保护自己的目录。 [Apple 的更新测试说明](https://developer.apple.com/documentation/xcode/testing-a-release-build) · [Apple 的签名故障排查](https://developer.apple.com/library/archive/technotes/tn2319/_index.html)
+
+| 场景 | 操作 |
+| --- | --- |
+| 同一个构建再测一轮 | 已安装的签名 Profile 包可按下节的 `devicectl` 命令直接启动。需要从新进程开始时，确认上一轮证据已保存，再给启动命令加 `--terminate-existing`。 |
+| 同一个 Debug 会话修改 Dart | 支持热重载的改动用 `r`，需要重新执行 Dart 初始化时用 `R`。Swift、插件或构建配置变更后，结束调试会话并重新构建与安装。 [Flutter 热重载说明](https://docs.flutter.dev/tools/hot-reload) |
+| 换分支或开始正式验收 | 在目标 checkout 先跑 `prepare --device`，再按上方流程运行 Debug，或按下节重建签名 Profile 包并覆盖安装。`run` 使用 `--no-pub`，准备步骤负责同步当前分支的锁定依赖和 Pods。新构建仍需签名，有效的签名配置可复用。记录本轮源码 commit 和构建模式。 |
+
+结束日常 Debug 时，用 `q` 停止进程并保留安装。需要全新安装或排除旧数据干扰时，优先使用单独的测试 Bundle ID。覆盖失败时保留旧 App 和安装错误，先核对签名及描述文件。若确实需要删除已有开发 App，先确认可以清除其数据，并保存当轮证据。 [Apple 的开发签名说明](https://developer.apple.com/help/account/provisioning-profiles/create-a-development-provisioning-profile/)
+
 ## CLI 真机锁屏回归
 
 构建、安装、启动和取证优先使用 `ios_dev.sh`、`simctl` 和 `devicectl`。平时用 `flutter run` 做前台 Debug 和热重载。锁屏与解锁由使用者在 iPad 上操作，界面自动化可用于观察自动化命令覆盖不到的场景。开发链路验收只需确认启动、原进程恢复和证据采集。刷新、分享及复制的结果由对应业务用例单独验收。 [真机对照摘要](ios-lockscreen-validation.md)
 
 ### 构建与启动
 
-先通过模拟器 `scripts/ios_dev.sh ci`，再在同一源码和固定工具链下构建签名 Profile 包。在独立开发 Bundle ID 下测试。下面的 `IPAD_UDID` 是通过 USB 连接的 iPad，`DEVELOPMENT_BUNDLE_ID` 与本地签名配置一致，`EVIDENCE_DIR` 是本地取证目录。普通 Profile 包使用默认入口，可以直接做手动锁屏验证。
+先通过模拟器 `scripts/ios_dev.sh ci`，再在同一源码和固定工具链下为手动验收的开发 Bundle ID 构建签名 Profile 包。下面的 `IPAD_UDID` 是通过 USB 连接的 iPad，`DEVELOPMENT_BUNDLE_ID` 与本地签名配置一致，`EVIDENCE_DIR` 是本地取证目录。普通 Profile 包使用默认入口，可以直接做手动锁屏验证。
 
 ```bash
-scripts/ios_dev.sh prepare --device
-scripts/ios_dev.sh build ios --profile
 APP_PATH="$PWD/build/ios/iphoneos/fehviewer.app"
-codesign --verify --strict "$APP_PATH"
-mkdir -p "$EVIDENCE_DIR"
-python3 scripts/ios_lock.py -- xcrun devicectl device install app \
-  --device "$IPAD_UDID" --timeout 60 "$APP_PATH"
-xcrun devicectl device process launch --device "$IPAD_UDID" --timeout 20 \
-  --json-output "$EVIDENCE_DIR/launch.json" "$DEVELOPMENT_BUNDLE_ID"
+scripts/ios_dev.sh prepare --device &&
+  scripts/ios_dev.sh build ios --profile &&
+  codesign --verify --strict "$APP_PATH" &&
+  mkdir -p "$EVIDENCE_DIR" &&
+  python3 scripts/ios_lock.py -- xcrun devicectl device install app \
+    --device "$IPAD_UDID" --timeout 60 "$APP_PATH" &&
+  xcrun devicectl device process launch --device "$IPAD_UDID" --timeout 20 \
+    --json-output "$EVIDENCE_DIR/launch.json" "$DEVELOPMENT_BUNDLE_ID"
 ```
 
 若需要检查落盘事件或自动化刷新指标，可在独立 checkout 使用 `codex/ipad-share-refresh` 上的探针改动 `bb0330d9`，沿用 Flutter **3.47.3** 和 Dart **3.13.3**。`bef559f` 的探针入口只支持 Debug。使用 `scripts/ios_dev.sh build ios --profile --target tool/ios_baseline_probe.dart --dart-define=IOS_REFRESH_PROBE=true` 构建该专项 Profile 包，其安装和直接启动命令与上面相同。记录探针源码与构建参数。仅在需要连接探针驱动时设置 VM Service 端口和 USB 转发，确认 `STEP5A_READY` 后再连接。VM Service 认证 URL 仅写入本地日志。
@@ -132,7 +142,12 @@ python3 -m json.tool "$SNAPSHOT_DIR/step5a-events.json" > /dev/null
 
 `integration_test/ios_smoke_test.dart` 使用官方 `integration_test`，从真实 `lib/main.dart` 启动 App，检查无线上账号、首页、真实样式设置页面与返回导航。它不等待线上账号或实时 API 数据；Flutter 异常和测试断言失败均导致非零退出。
 
-真机冒烟使用独立开发 Bundle ID 和未登录的测试 App 数据。已有账号或自定义下载路径可能使断言失败；先使用新的开发 Bundle ID，避免清除日常 App 数据。
+真机冒烟使用专门的 Bundle ID 和未登录的测试数据。这个标识应与日用 App 和保留的手动验收 App 都不同，并在单独的 checkout 配置。Flutter 集成测试默认会在结束后卸载测试包。即使传入 `--no-uninstall`，Flutter 仍会覆盖安装集成测试包。
+
+```bash
+scripts/ios_dev.sh prepare --device &&
+  scripts/ios_dev.sh smoke --device "$IPAD_UDID"
+```
 
 最小冒烟不替代第五步的固定内容、分享、前后台、遮罩及物理锁屏回归。已有失败须保留，不能用基础冒烟通过覆盖它们。扩展复现仍可复用现有 Debug 入口和驱动：
 
@@ -157,7 +172,7 @@ scripts/ios_dev.sh logs device "$IPAD_UDID" "$DEVELOPMENT_BUNDLE_ID"
 
 模拟器采集 runtime / 设备信息、最近 10 分钟 App 原生系统日志、截图、App 日志目录和匹配 Bundle ID 的 `.ips`。真机采集设备详细信息（机型、系统版本及 build）、App 日志目录和匹配 Bundle ID 的系统崩溃报告。`collection.json` 逐项记录采集退出码和缺失状态；采集完成不等于业务验收通过。App 日志目录为空时，以 run / smoke 控制台日志为主要来源。若 App 尚未安装或设备不可访问，原始采集失败保留在清单内。
 
-Flutter 真机冒烟结束后可能卸载测试 App。需要导出应用容器日志时，先用 `run --debug` 恢复普通 Debug App，启动后按 `d` 解除调试连接，再运行 `logs device` 并查看 `collection.json` 中 `app-files` 和 `app-log` 的退出码。
+冒烟卸载测试包后，如需验证应用容器日志采集，可在原冒烟标识下用 `run --debug` 安装普通 Debug App，启动后按 `d` 解除调试连接，再运行 `logs device` 并查看 `collection.json` 中 `app-files` 和 `app-log` 的退出码。锁屏断连或崩溃的现场按上节先取证，再更改安装或进程状态。
 
 验收记录至少填写：源码 commit 与补丁／哈希、机型及 UDID、系统版本与 build、Debug 模式、Bundle ID、实际步骤、结果与日志索引。原生崩溃保留 `.ips`，断连保留宿主连接日志，二者分别判定。
 
