@@ -4,6 +4,7 @@
 *.pyc
 *.swp
 .DS_Store
+/.ios-development.lock
 .atom/
 .buildlog/
 .history
@@ -43,6 +44,8 @@ app.*.map.json
 # Exceptions to above rules.
 /packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 /ios/build/
+/ios/Flutter/ephemeral/
+/ios/Flutter/Local.xcconfig
 #/ios/Runner/GoogleService-Info.plist
 #/ios/firebase_app_id_file.json
 #/android/app/google-services.json
@@ -69,3 +72,16 @@ fonts/NotoColorEmoji.ttf
 fonts/OpenMoji-Color.ttf
 
 .cursor
+
+# Local iOS builds, diagnostics and working notes
+/artifacts/
+/IPA/
+/MERGE_REVIEW_*.md
+/docs/ios-ipa-version.md
+/docs/ios-lockscreen-validation.md
+/docs/known-issues.md
+/docs/ipad-repair-tasks.md
+/docs/favorite-ipad-verification.md
+/docs/ipad-*-verification.md
+/docs/ipad-*-validation.md
+/docs/ipad-refresh-*.md

@@ -10,26 +10,28 @@ import UIKit
 
 
 public class SecurityBlurEffect {
-     class func addBlurEffect(){
+     class func addBlurEffect(to window: UIWindow?){
+        guard let window = window else { return }
         
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         
         blurEffectView.tag = 19999
         blurEffectView.alpha = 0.99
-        blurEffectView.frame = UIApplication.shared.keyWindow!.bounds
+        blurEffectView.frame = window.bounds
     
-        UIApplication.shared.keyWindow!.backgroundColor = UIColor.clear
+        window.backgroundColor = UIColor.clear
     
-        UIApplication.shared.keyWindow!.addSubview(blurEffectView)
+        window.addSubview(blurEffectView)
         
         
     }
     
     
-    class func removeBlurEffect(){
+    class func removeBlurEffect(from window: UIWindow?){
+        guard let window = window else { return }
         
-        let subViews = UIApplication.shared.keyWindow!.subviews;
+        let subViews = window.subviews;
         
         for  view in subViews {
             if view.tag == 19999 {
