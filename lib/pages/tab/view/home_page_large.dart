@@ -5,7 +5,9 @@ import 'package:eros_fe/route/first_observer.dart';
 import 'package:eros_fe/route/main_observer.dart';
 import 'package:eros_fe/route/routes.dart';
 import 'package:eros_fe/route/second_observer.dart';
+import 'package:eros_fe/widget/cupertino/split_left_scroll_scope.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 import 'home_page_small.dart';
@@ -34,7 +36,13 @@ class TabHomeLarge extends GetView<TabHomeController> {
           return GetPageRoute(
             settings: settings,
             showCupertinoParallax: false,
-            page: route.page,
+            page: () {
+              final page = route.page();
+              if (defaultTargetPlatform == TargetPlatform.iOS) {
+                return SplitLeftScrollScope(child: page);
+              }
+              return page;
+            },
           );
         }
         return GetPageRoute(

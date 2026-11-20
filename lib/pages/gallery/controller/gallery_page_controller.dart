@@ -35,8 +35,18 @@ class GalleryPageController extends GetxController
 
   late final GalleryPageState gState;
 
-  // 滚动控制器
-  ScrollController? scrollController;
+  // The route owns the primary scroll controller.
+  ScrollController? _scrollController;
+  ScrollController? get scrollController => _scrollController;
+
+  set scrollController(ScrollController? controller) {
+    if (identical(controller, _scrollController)) {
+      return;
+    }
+    _scrollController?.removeListener(_onScroll);
+    _scrollController = controller;
+    _scrollController?.addListener(_onScroll);
+  }
 
   // eh设置
   final EhSettingService _ehSettingService = Get.find();
@@ -102,16 +112,9 @@ class GalleryPageController extends GetxController
     }
   }
 
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  //   scrollController = PrimaryScrollController.of(Get.context!)!;
-  //   scrollController.addListener(scrollControllerLister);
-  // }
-
   @override
   void onClose() {
-    scrollController?.dispose();
+    scrollController = null;
     logger.t('onClose GalleryPageController $pageCtrlTag');
     super.onClose();
     // _galleryCacheController.addGalleryPageState(gState);
@@ -433,16 +436,17 @@ class GalleryPageController extends GetxController
   }
 
   // 滚动控制器监听
-  void scrollControllerLister() {
-    if (scrollController == null) {
+  void _onScroll() {
+    final controller = _scrollController;
+    if (controller == null || !controller.hasClients) {
       return;
     }
     // logger.d('${scrollController?.offset}');
     try {
-      if (scrollController!.offset < kHeaderHeightOffset + kHeaderPaddingTop &&
+      if (controller.offset < kHeaderHeightOffset + kHeaderPaddingTop &&
           !gState.hideNavigationBtn) {
         gState.hideNavigationBtn = true;
-      } else if (scrollController!.offset >=
+      } else if (controller.offset >=
               kHeaderHeightOffset + kHeaderPaddingTop &&
           gState.hideNavigationBtn) {
         gState.hideNavigationBtn = false;
