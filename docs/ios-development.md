@@ -14,6 +14,8 @@
 2. 安装 FVM 和 Ruby Bundler。在项目中运行 `fvm install 3.47.3` 和 `fvm use 3.47.3`，或将 `IOS_FLUTTER_BIN` 指向已经安装的 **3.47.3** Flutter 可执行文件。
 3. 执行公开配置准备。它会从 `Local.xcconfig.example` 建立被忽略的本地签名配置，按锁安装 Dart / Ruby / Pods，检查配置并生成代码。公开 `config.dart` 和禁用的 Firebase 不需要维护者密钥；不要将加密 Firebase plist 加入 Runner 的 resources。
 
+VS Code 通过 `.fvm/flutter_sdk` 使用 Flutter 自带的 Dart SDK。若编辑器仍在运行旧版 Dart 分析服务，先退出 VS Code，再执行 FVM 配置和模拟器准备，完成后重新打开项目。
+
 ```bash
 scripts/ios_dev.sh prepare --simulator
 scripts/ios_dev.sh check
@@ -72,6 +74,59 @@ IOS_LOCK_WAIT=0 scripts/ios_dev.sh build ios --simulator --debug
 ```
 
 忙时返回 `75`，未启动实际命令。普通失败退出码保留；INT / TERM / HUP 中断返回 `128 + 信号编号`。
+
+## CLI 真机锁屏回归
+
+构建、安装、启动和取证优先使用 `ios_dev.sh`、`simctl` 和 `devicectl`。平时用 `flutter run` 做前台 Debug 和热重载。锁屏与解锁由使用者在 iPad 上操作，界面自动化可用于观察自动化命令覆盖不到的场景。开发链路验收只需确认启动、原进程恢复和证据采集。刷新、分享及复制的结果由对应业务用例单独验收。 [真机对照摘要](ios-lockscreen-validation.md)
+
+### 构建与启动
+
+先通过模拟器 `scripts/ios_dev.sh ci`，再在同一源码和固定工具链下构建签名 Profile 包。在独立开发 Bundle ID 下测试。下面的 `IPAD_UDID` 是通过 USB 连接的 iPad，`DEVELOPMENT_BUNDLE_ID` 与本地签名配置一致，`EVIDENCE_DIR` 是本地取证目录。普通 Profile 包使用默认入口，可以直接做手动锁屏验证。
+
+```bash
+scripts/ios_dev.sh prepare --device
+scripts/ios_dev.sh build ios --profile
+APP_PATH="$PWD/build/ios/iphoneos/fehviewer.app"
+codesign --verify --strict "$APP_PATH"
+mkdir -p "$EVIDENCE_DIR"
+python3 scripts/ios_lock.py -- xcrun devicectl device install app \
+  --device "$IPAD_UDID" --timeout 60 "$APP_PATH"
+xcrun devicectl device process launch --device "$IPAD_UDID" --timeout 20 \
+  --json-output "$EVIDENCE_DIR/launch.json" "$DEVELOPMENT_BUNDLE_ID"
+```
+
+公开 checkout 中的 `tool/ios_baseline_probe.dart` 仅支持 Debug。上面的普通 Profile 流程可用于手动锁屏验证。如果已经有支持 Profile 探针的测试 checkout，可沿用 Flutter **3.47.3** 和 Dart **3.13.3**，用 `scripts/ios_dev.sh build ios --profile --target tool/ios_baseline_probe.dart --dart-define=IOS_REFRESH_PROBE=true` 构建专项包。其安装和直接启动命令与上面相同。记录探针源码与构建参数。仅在需要连接探针驱动时设置 VM Service 端口和 USB 转发，确认 `STEP5A_READY` 后再连接。VM Service 认证 URL 仅写入本地日志。
+
+Debug/JIT 专项可以用 `devicectl device process launch --start-stopped` 暂停启动，再由独立 LLDB 附加。使用构建该包的 checkout 生成的 `ios/Flutter/ephemeral/flutter_lldbinit`。Flutter 3.47.5 的专项实验曾通过手动继续 JIT 断点保住原进程，解锁后 VM Service 仍不可达。Xcode GUI 启动的同条件表现尚待对照。
+
+### 锁屏前后取证
+
+1. 锁屏前记录构建模式、测试 Bundle ID、App PID 和已有崩溃报告清单。使用者锁屏至少 5 秒，解锁后确认 App 回到原场景并能响应。
+2. 锁屏前和解锁后分别设置 `SNAPSHOT_DIR` 为各自的目录，执行下列只读命令。检查 iPad 的 USB 可达性、候选 App 路径及 PID。若运行带探针的包，检查落盘事件是否出现 `paused` 和 `resumed`。使用 LLDB 或 VM Service 的轮次分别记录附加状态和重新连接结果，未使用的项目记为「不适用」。
+3. 若出现断连、退出或界面不响应，先保存宿主输出、设备快照、探针事件和新增 `.ips`，再重启或重装。记录宿主是否发出了终止命令，分别判定调试会话中断、原生崩溃以及 App 恢复后的业务结果。
+
+```bash
+mkdir -p "$SNAPSHOT_DIR"
+xcrun devicectl device info details --device "$IPAD_UDID" --timeout 15 \
+  --json-output "$SNAPSHOT_DIR/device.json"
+xcrun devicectl device info processes --device "$IPAD_UDID" --search fehviewer \
+  --timeout 15 --json-output "$SNAPSHOT_DIR/processes.json"
+xcrun devicectl device info files --device "$IPAD_UDID" \
+  --domain-type systemCrashLogs --search fehviewer \
+  --timeout 15 --json-output "$SNAPSHOT_DIR/crash-files.json"
+```
+
+带探针的包把事件写到 `Documents/step5a-events.json`，可在 VM Service 断开时直接通过 CoreDevice 读取。在改动 App 状态前执行以下命令，并检查复制退出码和 JSON 内容。
+
+```bash
+xcrun devicectl device copy from --device "$IPAD_UDID" \
+  --domain-type appDataContainer --domain-identifier "$DEVELOPMENT_BUNDLE_ID" \
+  --source Documents/step5a-events.json --destination "$SNAPSHOT_DIR/step5a-events.json" \
+  --timeout 20 --json-output "$SNAPSHOT_DIR/probe-copy.json"
+python3 -m json.tool "$SNAPSHOT_DIR/step5a-events.json" > /dev/null
+```
+
+`scripts/ios_dev.sh logs device` 可实际复制匹配测试 Bundle ID 的 `.ips`，并将各项结果写入 `collection.json`。它也采集 `Documents/log`。在重启或重装前确认相应采集项的退出码和产物。原始设备标识、认证 URL、日志和崩溃报告保存在本地取证目录，提交中只加入脱敏摘要。
 
 ## 冒烟范围与复现驱动
 
@@ -134,7 +189,7 @@ scripts/ios_dev.sh smoke --simulator auto --dart-define=IOS_SMOKE_FORCE_FAILURE=
 | --- | --- |
 | iPad Pro 11-inch (M5) 模拟器，arm64 iOS 27.2（`24B8117`） | `scripts/ios_dev.sh ci` 通过，覆盖 14 个宿主测试、依赖准备、环境检查、Debug 构建和集成冒烟。`logs simulator auto` 采集了运行时、设备信息、原生系统日志和截图。冒烟退出后应用容器已不可用。 |
 | iPad Pro 11-inch (M4) 真机，iPadOS 27.2（`24B119`） | USB 下 Debug 启动、实际 Dart 热重载和集成冒烟通过。恢复普通 Debug App 后，设备信息、应用日志目录和崩溃报告查询均成功。应用日志目录为空，本次控制台日志由 `run` 和 `smoke` 保留。 |
-| GitHub Actions | 工作流已配置为 27.2，远端实跑待验证。 |
+| GitHub Actions | 公开 PR 分支上的 27.2 开发基线通过了构建、冒烟和诊断采集。 [首轮远端实跑](https://github.com/SwordZYZ/eros_fe/actions/runs/44298507969) |
 
 首次无线调试在发现 Dart VM 时收到 mDNS `No route to host`，改用 USB 后通过。模拟器在镜像重新安装和挂载期间有两次未完成的尝试，挂载完成后同一入口重跑通过。
 
