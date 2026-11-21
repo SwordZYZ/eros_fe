@@ -1,6 +1,7 @@
 import 'package:eros_fe/common/controller/webdav_controller.dart';
 import 'package:eros_fe/common/service/layout_service.dart';
 import 'package:eros_fe/generated/l10n.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,9 +26,9 @@ class LoginWebDAV extends GetView<WebdavController> {
 
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGroupedBackground,
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('WebDAV Login'),
-      ),
+      navigationBar: CupertinoNavigationBar(
+        middle: const Text('WebDAV Login'),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(
         slivers: [
           SliverSafeArea(

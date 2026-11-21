@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:eros_fe/common/controller/update_controller.dart';
 import 'package:eros_fe/index.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -76,7 +77,7 @@ class AboutPage extends StatelessWidget {
       backgroundColor: CupertinoColors.systemGroupedBackground,
       navigationBar: CupertinoNavigationBar(
         middle: Text(L10n.of(context).about),
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(
         slivers: [
           // CupertinoSliverNavigationBar(

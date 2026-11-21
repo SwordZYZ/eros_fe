@@ -8,6 +8,7 @@ import 'package:eros_fe/index.dart';
 import 'package:eros_fe/network/api.dart';
 import 'package:eros_fe/network/request.dart';
 import 'package:eros_fe/pages/login/controller/login_controller.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:open_by_default/open_by_default.dart';
@@ -22,7 +23,7 @@ class EhSettingPage extends StatelessWidget {
       backgroundColor: CupertinoColors.systemGroupedBackground,
       navigationBar: CupertinoNavigationBar(
         middle: Text(L10n.of(context).eh),
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(slivers: [
         SliverSafeArea(sliver: ListViewEhSetting()),
       ]),
@@ -52,7 +53,8 @@ class ListViewEhSetting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isLogin = userController.isLogin;
-    Future<EhHome?> futureImageLimits = getEhHome(refresh: true);
+    Future<EhHome?>? futureImageLimits =
+        isLogin ? getEhHome(refresh: true) : null;
 
     return MultiSliver(children: [
       SliverCupertinoListSection.listInsetGrouped(children: [

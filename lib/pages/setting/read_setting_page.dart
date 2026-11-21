@@ -8,6 +8,7 @@ import 'package:eros_fe/pages/image_view/common.dart';
 import 'package:eros_fe/pages/image_view/controller/view_controller.dart';
 import 'package:eros_fe/pages/setting/setting_items/selector_Item.dart';
 import 'package:eros_fe/utils/orientation_helper.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,8 @@ class ReadSettingPage extends StatelessWidget {
       backgroundColor: CupertinoColors.systemGroupedBackground,
       navigationBar: CupertinoNavigationBar(
         middle: Text(L10n.of(context).read_setting),
-      ),
+        padding: const EdgeInsetsDirectional.only(end: 16),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(slivers: [
         SliverSafeArea(sliver: ReadSettingList()),
       ]),

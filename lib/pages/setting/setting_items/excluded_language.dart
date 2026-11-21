@@ -3,6 +3,7 @@ import 'package:eros_fe/extension.dart';
 import 'package:eros_fe/generated/l10n.dart';
 import 'package:eros_fe/pages/setting/controller/eh_mysettings_controller.dart';
 import 'package:eros_fe/utils/vibrate.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,7 @@ class ExcludedLanguagePage extends StatelessWidget {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text(L10n.of(context).uc_exc_lang),
-      ),
+      ).withWindowAwareBackButton(),
       backgroundColor: !ehTheme.isDarkMode
           ? CupertinoColors.secondarySystemBackground
           : null,

@@ -2,6 +2,7 @@ import 'package:eros_fe/common/controller/block_controller.dart';
 import 'package:eros_fe/common/service/layout_service.dart';
 import 'package:eros_fe/component/setting_base.dart';
 import 'package:eros_fe/index.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:sliver_tools/sliver_tools.dart';
@@ -49,7 +50,7 @@ class BlockRuleEditPage extends GetView<BlockController> {
             size: 28,
           ),
         ),
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(slivers: [
         SliverSafeArea(
           sliver: MultiSliver(

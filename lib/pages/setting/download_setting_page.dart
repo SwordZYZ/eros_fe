@@ -3,6 +3,7 @@ import 'package:eros_fe/common/service/ehsetting_service.dart';
 import 'package:eros_fe/index.dart';
 import 'package:eros_fe/pages/setting/setting_items/selector_Item.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shared_storage/shared_storage.dart' as ss;
@@ -17,7 +18,7 @@ class DownloadSettingPage extends StatelessWidget {
       backgroundColor: CupertinoColors.systemGroupedBackground,
       navigationBar: CupertinoNavigationBar(
         middle: Text(L10n.of(context).download),
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(slivers: [
         SliverSafeArea(sliver: DownloadSetting()),
       ]),

@@ -5,6 +5,7 @@ import 'package:eros_fe/pages/setting/const.dart';
 import 'package:eros_fe/pages/setting/controller/eh_mytags_controller.dart';
 import 'package:eros_fe/pages/setting/mytags/eh_usertag_edit_dialog.dart';
 import 'package:eros_fe/pages/setting/webview/eh_tagset_edit_dialog.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -37,7 +38,7 @@ class _EhUserTagsPageState extends State<EhUserTagsPage> {
         padding: const EdgeInsetsDirectional.only(end: 10),
         middle: _middle(context),
         trailing: _trailing(context),
-      ),
+      ).withWindowAwareBackButton(),
       child: Stack(
         alignment: Alignment.center,
         children: [

@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:eros_fe/common/controller/log_controller.dart';
 import 'package:eros_fe/common/service/theme_service.dart';
 import 'package:eros_fe/index.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -251,7 +252,7 @@ class _LogViewPageState extends State<LogViewPage> {
             ),
           ],
         ),
-      ),
+      ).withWindowAwareBackButton(),
       child: SafeArea(
         bottom: false,
         child: ValueListenableBuilder<String>(

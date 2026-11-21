@@ -9,7 +9,9 @@ import 'package:eros_fe/pages/gallery/controller/gallery_page_state.dart';
 import 'package:eros_fe/pages/gallery/view/const.dart';
 import 'package:eros_fe/pages/gallery/view/gallery_widget.dart';
 import 'package:eros_fe/pages/gallery/view/sliver/gallery_page_sliver.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:get/get.dart';
@@ -55,12 +57,24 @@ class _GalleryPageState extends State<GalleryPage> {
 
   @override
   Widget build(BuildContext context) {
+    final showSubtitleBelowBar = !kIsWeb &&
+        defaultTargetPlatform == TargetPlatform.iOS &&
+        isLayoutLarge &&
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+
     Widget body = CustomScrollView(
       cacheExtent: 1000,
       controller: GetPlatform.isDesktop ? _controller.scrollController : null,
       slivers: [
-        GalleryNavigationBar(controller: _controller),
+        GalleryNavigationBar(
+          controller: _controller,
+          showLargeSubtitle: !showSubtitleBelowBar,
+        ),
         EhCupertinoSliverRefreshControl(onRefresh: _controller.handOnRefresh),
+        if (showSubtitleBelowBar)
+          const SliverToBoxAdapter(
+            child: _GallerySubtitle(belowNavigationBar: true),
+          ),
         GalleryHeadTile(controller: _controller),
         GalleryBody(controller: _controller),
       ],
@@ -94,38 +108,22 @@ class GalleryNavigationBar extends StatelessWidget {
   const GalleryNavigationBar({
     super.key,
     required this.controller,
+    this.showLargeSubtitle = true,
   });
   final GalleryPageController controller;
+  final bool showLargeSubtitle;
 
   GalleryPageState get pageState => controller.gState;
 
   @override
   Widget build(BuildContext context) {
     final GalleryProvider? provider = pageState.galleryProvider;
-    return CupertinoSliverNavigationBar(
+    Widget navigationBar(Widget? leading) => CupertinoSliverNavigationBar(
       padding: const EdgeInsetsDirectional.only(end: 10),
-      largeTitle: SelectionArea(
-        child: GetBuilder<GalleryPageController>(
-          id: GetIds.PAGE_VIEW_HEADER,
-          tag: pageCtrlTag,
-          builder: (logic) {
-            return Text(
-              logic.gState.subTitle,
-              textAlign: TextAlign.start,
-              maxLines: 3,
-              // minLines: 1,
-              style: TextStyle(
-                fontSize: 11,
-                height: 1.2,
-                color: CupertinoDynamicColor.resolve(
-                    CupertinoColors.secondaryLabel, context),
-                fontWeight: FontWeight.normal,
-                fontStyle: FontStyle.italic,
-              ),
-            );
-          },
-        ),
-      ),
+      leading: leading,
+      largeTitle: showLargeSubtitle
+          ? const _GallerySubtitle()
+          : const SizedBox.shrink(),
       middle: Obx(
         () {
           Widget coverOpacity = AnimatedOpacity(
@@ -230,6 +228,63 @@ class GalleryNavigationBar extends StatelessWidget {
 
         return gt;
       }),
+    );
+
+    if (isLayoutLarge) {
+      return navigationBar(null);
+    }
+    return WindowControlInsets(
+      builder: (context, insets) => navigationBar(
+        WindowAwareBackButton.leadingFor(context, insets),
+      ),
+    );
+  }
+}
+
+class _GallerySubtitle extends StatelessWidget {
+  const _GallerySubtitle({this.belowNavigationBar = false});
+
+  final bool belowNavigationBar;
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<GalleryPageController>(
+      id: GetIds.PAGE_VIEW_HEADER,
+      tag: pageCtrlTag,
+      builder: (logic) {
+        final subtitle = logic.gState.subTitle;
+        if (belowNavigationBar && subtitle.trim().isEmpty) {
+          return const SizedBox.shrink();
+        }
+        final text = SelectionArea(
+          child: Text(
+            subtitle,
+            textAlign: TextAlign.start,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 11,
+              height: 1.2,
+              color: CupertinoDynamicColor.resolve(
+                CupertinoColors.secondaryLabel,
+                context,
+              ),
+              fontWeight: FontWeight.normal,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+        );
+        return belowNavigationBar
+            ? SafeArea(
+                top: false,
+                bottom: false,
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 4),
+                  child: text,
+                ),
+              )
+            : text;
+      },
     );
   }
 }

@@ -387,12 +387,18 @@ class ImagePlugins extends GetView<ViewExtController> {
           builder: (logic) {
             return Stack(
               children: [
-                AnimatedPositioned(
-                  curve: Curves.fastOutSlowIn,
-                  duration: const Duration(milliseconds: 300),
-                  top: logic.vState.topBarOffset,
-                  // top: 50,
-                  child: const ViewTopBar(),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: AnimatedSlide(
+                    curve: Curves.fastOutSlowIn,
+                    duration: const Duration(milliseconds: 300),
+                    offset: logic.vState.showBar
+                        ? Offset.zero
+                        : const Offset(0, -1),
+                    child: const ViewTopBar(),
+                  ),
                 ),
                 AnimatedPositioned(
                   curve: Curves.fastOutSlowIn,

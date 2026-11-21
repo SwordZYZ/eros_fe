@@ -1,5 +1,6 @@
 import 'package:eros_fe/common/controller/image_block_controller.dart';
 import 'package:eros_fe/index.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +26,7 @@ class PHashImageListPage extends GetView<ImageBlockController> {
             controller.customBlockList.clear();
           },
         ),
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(slivers: [
         SliverSafeArea(
           sliver: Obx(() {

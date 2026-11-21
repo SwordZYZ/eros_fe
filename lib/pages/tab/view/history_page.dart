@@ -6,7 +6,9 @@ import 'package:eros_fe/pages/tab/view/list/tab_base.dart';
 import 'package:eros_fe/utils/cust_lib/persistent_header_builder.dart';
 import 'package:eros_fe/utils/cust_lib/sliver/sliver_persistent_header.dart';
 import 'package:eros_fe/utils/logger.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:eros_fe/widget/refresh.dart';
+import 'package:eros_fe/widget/cupertino/split_left_scroll_scope.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -93,7 +95,7 @@ class _HistoryTabState extends State<HistoryTab> {
           ),
         ],
       ),
-    );
+    ).withWindowAwareBackButton();
     final Widget customScrollView = CustomScrollView(
       slivers: <Widget>[
         SliverFloatingPinnedPersistentHeader(
@@ -129,7 +131,8 @@ class _HistoryTabState extends State<HistoryTab> {
       ],
     );
 
-    return CupertinoPageScaffold(
+    return SplitLeftScrollScope.pageScaffold(
+      context,
       child: SizeCacheWidget(child: customScrollView),
     );
   }

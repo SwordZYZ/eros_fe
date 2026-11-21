@@ -1,6 +1,7 @@
 import 'package:eros_fe/common/controller/auto_lock_controller.dart';
 import 'package:eros_fe/common/service/ehsetting_service.dart';
 import 'package:eros_fe/index.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +18,7 @@ class SecuritySettingPage extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         transitionBetweenRoutes: true,
         middle: Text(L10n.of(context).security),
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(
         slivers: [
           SliverSafeArea(

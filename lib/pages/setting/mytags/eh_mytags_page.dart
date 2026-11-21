@@ -3,6 +3,7 @@ import 'package:eros_fe/index.dart';
 import 'package:eros_fe/pages/setting/controller/eh_mytags_controller.dart';
 import 'package:eros_fe/pages/setting/webview/eh_tagset_edit_dialog.dart';
 import 'package:eros_fe/pages/setting/webview/mytags_in.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -56,7 +57,7 @@ class EhMyTagsPage extends GetView<EhMyTagsController> {
             ),
           ],
         ),
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(
         slivers: [
           SliverSafeArea(

@@ -1,6 +1,7 @@
 import 'package:eros_fe/common/controller/block_controller.dart';
 import 'package:eros_fe/common/service/layout_service.dart';
 import 'package:eros_fe/index.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
@@ -45,7 +46,7 @@ class BlockRulesPage extends GetView<BlockController> {
             }
           },
         ),
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(slivers: [
         SliverSafeArea(
           sliver: Obx(() {

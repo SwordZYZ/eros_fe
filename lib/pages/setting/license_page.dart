@@ -1,4 +1,5 @@
 import 'package:eros_fe/index.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class LicensePage extends StatelessWidget {
         backgroundColor: CupertinoColors.systemGroupedBackground,
         navigationBar: CupertinoNavigationBar(
           middle: Text(L10n.of(context).license),
-        ),
+        ).withWindowAwareBackButton(),
         child: CustomScrollView(slivers: [
           SliverSafeArea(
             sliver: MultiSliver(children: [_buildBody(licenseData, context)]),
@@ -101,7 +102,7 @@ class _LicensePage extends StatelessWidget {
         middle: Text(
           currentPackage,
         ),
-      ),
+      ).withWindowAwareBackButton(),
       child: ListView.separated(
         itemCount: packageLicenses.length,
         itemBuilder: (context, index) {

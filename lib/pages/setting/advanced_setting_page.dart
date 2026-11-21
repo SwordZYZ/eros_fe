@@ -9,6 +9,7 @@ import 'package:eros_fe/index.dart';
 import 'package:eros_fe/pages/setting/setting_items/selector_Item.dart';
 import 'package:eros_fe/pages/setting/webview/mode.dart';
 import 'package:eros_fe/utils/import_export.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:sliver_tools/sliver_tools.dart';
@@ -22,7 +23,7 @@ class AdvancedSettingPage extends StatelessWidget {
       backgroundColor: CupertinoColors.systemGroupedBackground,
       navigationBar: CupertinoNavigationBar(
         middle: Text(L10n.of(context).advanced),
-      ),
+      ).withWindowAwareBackButton(),
       child: const CustomScrollView(
         slivers: [
           SliverSafeArea(sliver: ListViewAdvancedSetting()),

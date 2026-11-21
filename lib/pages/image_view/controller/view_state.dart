@@ -15,7 +15,6 @@ import 'package:get/get.dart';
 
 import '../common.dart';
 import '../view/view_page.dart';
-import 'view_controller.dart';
 
 class ViewExtState {
   /// 初始化操作
@@ -173,18 +172,6 @@ class ViewExtState {
       return 0;
     } else {
       return -bottomBarHeight;
-    }
-  }
-
-  /// 顶栏偏移
-  double get topBarOffset {
-    final paddingTop = Get.context!.mediaQueryPadding.top;
-
-    final double offsetTopHide = kTopBarHeight + paddingTop;
-    if (showBar) {
-      return 0;
-    } else {
-      return -offsetTopHide - 10;
     }
   }
 

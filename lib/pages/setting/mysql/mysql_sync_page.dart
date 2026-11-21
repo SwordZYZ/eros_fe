@@ -1,6 +1,7 @@
 import 'package:eros_fe/common/controller/mysql_controller.dart';
 import 'package:eros_fe/common/service/layout_service.dart';
 import 'package:eros_fe/index.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class MysqlSyncPage extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         middle: const Text(_title),
         // trailing: _buildListButtons(context),
-      ),
+      ).withWindowAwareBackButton(),
       child: MysqlSettingView(),
     );
   }

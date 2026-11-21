@@ -10,6 +10,7 @@ import 'package:eros_fe/index.dart';
 import 'package:eros_fe/network/api.dart';
 import 'package:eros_fe/pages/gallery/controller/gallery_page_controller.dart';
 import 'package:eros_fe/pages/image_view/controller/view_state.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:eros_fe/widget/image/extended_saf_image_privider.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -915,132 +916,87 @@ class ViewTopBar extends GetView<ViewExtController> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: context.mediaQueryPadding.top + kTopBarHeight,
-      width: context.mediaQuery.size.width,
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: context.mediaQueryPadding.horizontal / 2),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    MouseRegionClick(
-                      child: GestureDetector(
-                        behavior: HitTestBehavior.opaque,
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: SizedBox(
-                          width: 40,
-                          height: kTopBarButtonHeight,
-                          child: const FaIcon(
-                            FontAwesomeIcons.chevronLeft,
-                            color: CupertinoColors.systemGrey6,
-                            // size: 24,
-                          ),
-                        ),
-                      ),
-                    ),
-                    // GetBuilder<ViewExtController>(
-                    //   id: idViewTopBar,
-                    //   builder: (logic) {
-                    //     return Container(
-                    //       alignment: Alignment.center,
-                    //       height: kTopBarButtonHeight,
-                    //       child: Text(
-                    //         '${logic.vState.currentItemIndex + 1}/${logic.vState.filecount}',
-                    //         style: const TextStyle(
-                    //           color: CupertinoColors.systemGrey6,
-                    //         ),
-                    //       ),
-                    //     );
-                    //   },
-                    // ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        if (context.isTablet)
-                          ControllerButtonBar(
-                            controller: controller,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            showLable: false,
-                            // showLable: false,
-                          ),
-                        // 分享按钮
-                        MouseRegionClick(
-                          child: GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onTap: () {
-                              controller.tapShare(context);
-                            },
-                            child: const SizedBox(
-                              width: 40,
-                              height: kBottomBarButtonHeight,
-                              child: FaIcon(
-                                FontAwesomeIcons.share,
-                                color: CupertinoColors.systemGrey6,
-                                size: 22,
-                              ),
-                            ),
-                          ),
-                        ),
-                        // 菜单页面入口
-                        MouseRegionClick(
-                          child: GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onTap: () async {
-                              controller.cancelVolumeKeydownListen();
-                              await Get.toNamed(EHRoutes.readSetting);
-                              controller.addVolumeKeydownListen();
-                            },
-                            child: Container(
-                              width: 40,
-                              margin: const EdgeInsets.only(right: 8.0),
-                              height: kTopBarButtonHeight,
-                              child: const FaIcon(
-                                FontAwesomeIcons.ellipsis,
-                                color: CupertinoColors.systemGrey6,
-                                // size: 24,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                GetBuilder<ViewExtController>(
-                  id: idViewTopBar,
-                  builder: (logic) {
-                    return Container(
-                      alignment: Alignment.center,
-                      height: kTopBarButtonHeight,
-                      child: Text(
-                        '${logic.vState.currentItemIndex + 1}/${logic.vState.fileCount}',
-                        style: const TextStyle(
-                          color: CupertinoColors.systemGrey6,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ],
+    final safeArea = MediaQuery.viewPaddingOf(context);
+    final gestures = MediaQuery.systemGestureInsetsOf(context);
+    final top = math.max(safeArea.top, gestures.top);
+    const horizontalMargin = 16.0;
+
+    return WindowControlInsets(
+      builder: (context, windowInsets) =>
+          Padding(
+            padding: EdgeInsets.fromLTRB(
+              math.max(safeArea.left + windowInsets.left, gestures.left) +
+                  horizontalMargin,
+              top,
+              math.max(safeArea.right + windowInsets.right, gestures.right) +
+                  horizontalMargin,
+              0,
             ),
-          ],
-        ),
-      ).frosted(
-        height: context.mediaQueryPadding.top + kTopBarHeight,
-        width: context.mediaQuery.size.width,
-        blur: 20,
-        frostColor: Colors.black,
+            child: NavigationToolbar(
+              leading: Center(
+                widthFactor: 1,
+                child: _ViewTopBarButton(
+                  icon: FontAwesomeIcons.chevronLeft,
+                  onPressed: () => Get.back<void>(),
+                ),
+              ),
+              middle: GetBuilder<ViewExtController>(
+                id: idViewTopBar,
+                builder: (logic) => Text(
+                  '${logic.vState.currentItemIndex + 1}/${logic.vState.fileCount}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(color: CupertinoColors.systemGrey6),
+                ),
+              ),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (context.isTablet)
+                    ControllerButtonBar(
+                      controller: controller,
+                      mainAxisSize: MainAxisSize.min,
+                      buttonHeight: kTopBarButtonHeight,
+                    ),
+                  _ViewTopBarButton(
+                    icon: FontAwesomeIcons.share,
+                    onPressed: () => controller.tapShare(context),
+                  ),
+                  _ViewTopBarButton(
+                    icon: FontAwesomeIcons.ellipsis,
+                    onPressed: () async {
+                      controller.cancelVolumeKeydownListen();
+                      await Get.toNamed(EHRoutes.readSetting);
+                      controller.addVolumeKeydownListen();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ).frosted(
+            height: top + kTopBarHeight,
+            width: MediaQuery.sizeOf(context).width,
+            blur: 20,
+            frostColor: Colors.black,
+          ),
+    );
+  }
+}
+
+class _ViewTopBarButton extends StatelessWidget {
+  const _ViewTopBarButton({required this.icon, required this.onPressed});
+
+  final FaIconData icon;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox.square(
+      dimension: kTopBarButtonHeight,
+      child: CupertinoButton(
+        padding: EdgeInsets.zero,
+        onPressed: onPressed,
+        child: FaIcon(icon, size: 22, color: CupertinoColors.systemGrey6),
       ),
     );
   }
@@ -1159,12 +1115,14 @@ class ControllerButtonBar extends StatelessWidget {
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.max,
     this.showLable = false,
+    this.buttonHeight = kBottomBarButtonHeight,
   });
 
   final ViewExtController controller;
   final MainAxisAlignment mainAxisAlignment;
   final MainAxisSize mainAxisSize;
   final bool showLable;
+  final double buttonHeight;
 
   static const buttonWidth = 44.0;
 
@@ -1183,7 +1141,7 @@ class ControllerButtonBar extends StatelessWidget {
             },
             child: SizedBox(
               width: buttonWidth,
-              height: kBottomBarButtonHeight,
+              height: buttonHeight,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -1220,7 +1178,7 @@ class ControllerButtonBar extends StatelessWidget {
             },
             child: SizedBox(
               width: buttonWidth,
-              height: kBottomBarButtonHeight,
+              height: buttonHeight,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -1281,7 +1239,7 @@ class ControllerButtonBar extends StatelessWidget {
               builder: (logic) {
                 return SizedBox(
                   width: buttonWidth,
-                  height: kBottomBarButtonHeight,
+                  height: buttonHeight,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -1332,7 +1290,7 @@ class ControllerButtonBar extends StatelessWidget {
               },
               child: SizedBox(
                 width: buttonWidth,
-                height: kBottomBarButtonHeight,
+                height: buttonHeight,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

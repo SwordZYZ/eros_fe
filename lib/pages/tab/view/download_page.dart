@@ -6,6 +6,8 @@ import 'package:eros_fe/pages/item/download_gallery_item.dart';
 import 'package:eros_fe/pages/tab/controller/download_view_controller.dart';
 import 'package:eros_fe/store/db/entity/gallery_task.dart';
 import 'package:eros_fe/utils/logger.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
+import 'package:eros_fe/widget/cupertino/split_left_scroll_scope.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -72,7 +74,8 @@ class _DownloadTabState extends State<DownloadTab> {
           )
         : Text(L10n.of(context).download);
 
-    return CupertinoPageScaffold(
+    return SplitLeftScrollScope.pageScaffold(
+      context,
       navigationBar: CupertinoNavigationBar(
         padding: const EdgeInsetsDirectional.only(end: 16),
         middle: middle,
@@ -93,7 +96,7 @@ class _DownloadTabState extends State<DownloadTab> {
                 ],
               )
             : null,
-      ),
+      ).withWindowAwareBackButton(),
       child: PageView(
         controller: pageController,
         children: viewList,

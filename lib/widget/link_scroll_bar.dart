@@ -48,6 +48,7 @@ class LinkScrollBar extends StatefulWidget {
     required this.items,
     required this.initIndex,
     this.indicatorHeight = kDefIndicatorHeight,
+    this.labelTopPadding = 0,
     this.itemPadding = const EdgeInsets.only(left: 10, right: 10),
     this.onItemChange,
   }) : controller = controller ?? _defaultLinkScrollBarController;
@@ -55,6 +56,7 @@ class LinkScrollBar extends StatefulWidget {
   final List<LinkTabItem> items;
   final int initIndex;
   final double indicatorHeight;
+  final double labelTopPadding;
   final EdgeInsetsGeometry itemPadding;
   final LinkScrollBarController controller;
   final ValueChanged<int>? onItemChange;
@@ -110,7 +112,9 @@ class _LinkScrollBarState extends State<LinkScrollBar> {
               title: widget.items[i].title,
               icon: widget.items[i].icon,
               selected: i == selectIndex,
-              padding: widget.itemPadding,
+              padding: widget.itemPadding.add(
+                EdgeInsets.only(top: widget.labelTopPadding),
+              ),
               index: i,
             ),
             onTap: () {
@@ -284,42 +288,54 @@ class _LinkScrollBarState extends State<LinkScrollBar> {
     );
 
     return LayoutBuilder(builder: (context, c) {
+      final contentWidth = _maxScrollViewWidth;
       return SingleChildScrollView(
         controller: _scrollController,
         scrollDirection: Axis.horizontal,
         child: SizedBox(
-          width: _maxScrollViewWidth,
+          width: contentWidth,
           child: Column(
             children: [
               Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: _getBarItems(context, c.maxWidth),
+                // New tabs can be wider than the previous measurement during
+                // a window layout change. Let them lay out at their own width.
+                child: OverflowBox(
+                  alignment: AlignmentDirectional.centerStart,
+                  minWidth: contentWidth,
+                  maxWidth: double.infinity,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: _getBarItems(context, c.maxWidth),
+                  ),
                 ),
               ),
-              if (widget.pageController == null)
-                Stack(
-                  children: [
-                    SizedBox(
-                        height: widget.indicatorHeight, width: scrollViewWidth),
-                    AnimatedPositioned(
-                      left: _indicatorPositionedLeft,
-                      duration: kDuration,
-                      curve: Curves.ease,
-                      child: indicator,
-                    ),
-                  ],
-                ),
-              if (widget.pageController != null)
-                TitleIndicator(
-                  height: widget.indicatorHeight,
-                  pageController: widget.pageController,
-                  channelFrameList: channelFrameList,
-                  maxWidth: scrollViewWidth,
-                  width: c.maxWidth,
-                  index: selectIndex,
-                  itemPadding: widget.itemPadding,
-                ),
+              IgnorePointer(
+                child: widget.pageController == null
+                      ? Stack(
+                          children: [
+                            SizedBox(
+                              height: widget.indicatorHeight,
+                              width: scrollViewWidth,
+                            ),
+                            AnimatedPositioned(
+                              left: _indicatorPositionedLeft,
+                              duration: kDuration,
+                              curve: Curves.ease,
+                              child: indicator,
+                            ),
+                          ],
+                        )
+                      : TitleIndicator(
+                          height: widget.indicatorHeight,
+                          pageController: widget.pageController,
+                          channelFrameList: channelFrameList,
+                          maxWidth: scrollViewWidth,
+                          width: c.maxWidth,
+                          index: selectIndex,
+                          itemPadding: widget.itemPadding,
+                        ),
+              ),
             ],
           ),
         ),

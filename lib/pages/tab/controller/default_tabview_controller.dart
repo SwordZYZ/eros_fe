@@ -12,7 +12,9 @@ import 'package:eros_fe/index.dart';
 import 'package:eros_fe/pages/tab/controller/search_page_controller.dart';
 import 'package:eros_fe/pages/tab/controller/tabhome_controller.dart';
 import 'package:eros_fe/pages/tab/controller/toplist_controller.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
@@ -301,7 +303,7 @@ class DefaultTabViewController extends TabViewController {
     );
   }
 
-  Widget buildLeadingSingle(BuildContext context) {
+  Widget buildLeadingSingle({required bool alignInToolbar}) {
     if (!enableSingle) {
       return const SizedBox.shrink();
     }
@@ -309,6 +311,8 @@ class DefaultTabViewController extends TabViewController {
     final tabFlag = singleTabFlag;
 
     return CupertinoButton(
+        minimumSize: alignInToolbar ? const Size.square(44) : null,
+        padding: alignInToolbar ? EdgeInsets.zero : null,
         child: FaIcon(
           tabPages.iconDatas[tabFlag],
           size: 20,
@@ -321,17 +325,20 @@ class DefaultTabViewController extends TabViewController {
         });
   }
 
-  Widget buildLeadingCustomPopupMenu(BuildContext context) {
+  Widget buildLeadingCustomPopupMenu(
+    BuildContext context, {
+    required bool alignInToolbar,
+  }) {
+    const icon = Icon(CupertinoIcons.ellipsis_circle, size: 24);
     return CupertinoTheme(
       data: ehTheme.themeData!,
       child: CustomPopupMenu(
-        child: Container(
-          padding: const EdgeInsets.only(left: 14, bottom: 2),
-          child: const Icon(
-            CupertinoIcons.ellipsis_circle,
-            size: 24,
-          ),
-        ),
+        child: alignInToolbar
+            ? const SizedBox.square(dimension: 44, child: Center(child: icon))
+            : const Padding(
+                padding: EdgeInsets.only(left: 14, bottom: 2),
+                child: icon,
+              ),
         // arrowColor: _color,
         showArrow: false,
         menuBuilder: () {
@@ -362,16 +369,37 @@ class DefaultTabViewController extends TabViewController {
       return null;
     }
 
-    return Obx(() {
-      if (enablePopupMenu && (!Get.find<EhSettingService>().isSafeMode.value)) {
-        return buildLeadingCustomPopupMenu(context);
-      }
+    return WindowControlInsets(
+      builder: (context, insets) {
+        final windowInset = Directionality.of(context) == TextDirection.ltr
+            ? insets.left
+            : insets.right;
+        final alignInToolbar = !kIsWeb &&
+            defaultTargetPlatform == TargetPlatform.iOS &&
+            (isLayoutLarge || windowInset > 0);
 
-      if (enableSingle) {
-        return buildLeadingSingle(context);
-      }
-      return const SizedBox.shrink();
-    });
+        return Obx(() {
+          final Widget leading;
+          if (enablePopupMenu && !Get.find<EhSettingService>().isSafeMode.value) {
+            leading = buildLeadingCustomPopupMenu(
+              context,
+              alignInToolbar: alignInToolbar,
+            );
+          } else if (enableSingle) {
+            leading = buildLeadingSingle(alignInToolbar: alignInToolbar);
+          } else {
+            return const SizedBox.shrink();
+          }
+
+          return alignInToolbar
+              ? Padding(
+                  padding: EdgeInsetsDirectional.only(start: windowInset + 8),
+                  child: leading,
+                )
+              : leading;
+        });
+      },
+    );
   }
 
   void initStateForListPage({

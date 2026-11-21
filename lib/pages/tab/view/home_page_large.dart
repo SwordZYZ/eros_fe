@@ -38,7 +38,7 @@ class TabHomeLarge extends GetView<TabHomeController> {
             showCupertinoParallax: false,
             page: () {
               final page = route.page();
-              if (defaultTargetPlatform == TargetPlatform.iOS) {
+              if (!kIsWeb && defaultTargetPlatform == TargetPlatform.iOS) {
                 return SplitLeftScrollScope(child: page);
               }
               return page;

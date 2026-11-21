@@ -12,6 +12,7 @@ import 'package:eros_fe/pages/tab/controller/group/custom_tabbar_controller.dart
 import 'package:eros_fe/pages/tab/controller/group/profile_edit_controller.dart';
 import 'package:eros_fe/pages/tab/fetch_list.dart';
 import 'package:eros_fe/pages/tab/view/tabbar/search_text_dialog.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -95,7 +96,7 @@ class _CustomProfileSettingPageState extends State<CustomProfileSettingPage> {
             );
           },
         ),
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(
         slivers: [
           SliverSafeArea(

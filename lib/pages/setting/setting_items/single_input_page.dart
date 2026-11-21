@@ -1,5 +1,6 @@
 import 'package:eros_fe/common/service/theme_service.dart';
 import 'package:eros_fe/utils/logger.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 
 class SingleInputPage extends StatelessWidget {
@@ -38,7 +39,7 @@ class SingleInputPage extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         middle: Text(title ?? ''),
         // previousPageTitle: previousPageTitle,
-      ),
+      ).withWindowAwareBackButton(),
       child: CustomScrollView(
         slivers: [
           SliverSafeArea(

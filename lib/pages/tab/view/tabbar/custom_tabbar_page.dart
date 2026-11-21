@@ -6,6 +6,7 @@ import 'package:eros_fe/index.dart';
 import 'package:eros_fe/pages/tab/controller/group/custom_sublist_controller.dart';
 import 'package:eros_fe/pages/tab/controller/group/custom_tabbar_controller.dart';
 import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart';
+import 'package:eros_fe/widget/cupertino/split_left_scroll_scope.dart';
 import 'package:flutter/cupertino.dart' hide CupertinoTabBar;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -42,7 +43,8 @@ class _CustomTabbarListState extends State<CustomTabbarList> {
       final Widget scrollView =
           buildNestedScrollView(context, hideTopBarOnScroll);
 
-      return CupertinoPageScaffold(
+      return SplitLeftScrollScope.pageScaffold(
+        context,
         child: SizeCacheWidget(child: scrollView),
       );
 
@@ -51,7 +53,7 @@ class _CustomTabbarListState extends State<CustomTabbarList> {
   }
 
   Widget buildNestedScrollView(BuildContext context, bool hideTopBarOnScroll) {
-    final headerMaxHeight = context.mediaQueryPadding.top + kHeaderMaxHeight;
+    final headerMaxHeight = context.mediaQueryPadding.top + galleryHeaderMaxHeight;
     return ExtendedNestedScrollView(
       floatHeaderSlivers: true,
       onlyOneScrollInBody: true,
@@ -70,7 +72,7 @@ class _CustomTabbarListState extends State<CustomTabbarList> {
                   headerMaxHeight,
                 ),
                 minHeight: hideTopBarOnScroll
-                    ? context.mediaQueryPadding.top + kTopTabbarHeight
+                    ? context.mediaQueryPadding.top + galleryTabBarHeight
                     : headerMaxHeight,
                 maxHeight: headerMaxHeight,
               ),
@@ -130,7 +132,7 @@ class _CustomTabbarListState extends State<CustomTabbarList> {
     double maxExtentCallBackValue,
   ) {
     // final navBarHeight = maxExtentCallBackValue -
-    //     kTopTabbarHeight -
+    //     galleryTabBarHeight -
     //     context.mediaQueryPadding.top;
     final navBarOpacity = 1.0 -
         (offset / (kMinInteractiveDimensionCupertino - 1)).clamp(0.0, 1.0);
@@ -322,6 +324,7 @@ class CustomTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final barBackgroundColor = CupertinoTheme.of(context).barBackgroundColor;
+    final trim = galleryTabBarTrim;
     return Stack(
       // fit: StackFit.expand,
       alignment: Alignment.topCenter,
@@ -334,7 +337,7 @@ class CustomTabBar extends StatelessWidget {
             blurColor: barBackgroundColor,
             colorOpacity: kEnableImpeller ? 1.0 : opacity,
             child: Container(
-              height: kTopTabbarHeight,
+              height: galleryTabBarHeight,
             ),
           );
         }),
@@ -347,7 +350,7 @@ class CustomTabBar extends StatelessWidget {
             right: context.mediaQueryPadding.right,
           ),
           child: SizedBox(
-            height: kTopTabbarHeight,
+            height: galleryTabBarHeight,
             child: Row(
               children: [
                 Expanded(
@@ -358,6 +361,7 @@ class CustomTabBar extends StatelessWidget {
                           .join()),
                       controller: controller.linkScrollBarController,
                       pageController: controller.pageController,
+                      labelTopPadding: trim,
                       items: controller.profiles.isNotEmpty
                           ? controller.profiles
                               .map((e) => LinkTabItem(title: e.name, actinos: [
@@ -425,11 +429,14 @@ class CustomTabBar extends StatelessWidget {
                           });
                         }),
                       CupertinoButton(
-                        minSize: 40,
+                        minimumSize: const Size.square(40),
                         padding: const EdgeInsets.all(0),
                         onPressed: controller.pressedBar,
-                        child: const FaIcon(FontAwesomeIcons.bars,
-                          size: 20,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: trim == 0 ? 0 : trim - kDefIndicatorHeight,
+                          ),
+                          child: const FaIcon(FontAwesomeIcons.bars, size: 20),
                         ),
                       ),
                     ],
@@ -470,7 +477,7 @@ class _EnglishWordListState extends State<EnglishWordList>
       slivers: [
         SliverPadding(
             padding: EdgeInsets.only(
-                top: context.mediaQueryPadding.top + kTopTabbarHeight),
+                top: context.mediaQueryPadding.top + galleryTabBarHeight),
             sliver: EhCupertinoSliverRefreshControl(
               onRefresh: () async {
                 await 1.seconds.delay();

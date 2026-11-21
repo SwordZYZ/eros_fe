@@ -1,6 +1,7 @@
 import 'package:eros_fe/common/controller/webdav_controller.dart';
 import 'package:eros_fe/index.dart';
 import 'package:eros_fe/pages/tab/controller/group/custom_tabbar_controller.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -175,7 +176,7 @@ class CustomProfilesPage extends GetView<CustomTabbarController> {
               ],
             );
           }),
-        ),
+        ).withWindowAwareBackButton(),
         child: CustomScrollView(
           slivers: [
             SliverSafeArea(
