@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class CIEntryChecks(unittest.TestCase):
-    def exercise(self, test_status):
+    def exercise(self, test_status, *, release=False):
         with tempfile.TemporaryDirectory(prefix='eros-ci-entry-') as temporary:
             root = Path(temporary)
             for name in ('scripts', 'tool', 'tool/tests', 'ios', 'bin'):
@@ -39,17 +39,28 @@ class CIEntryChecks(unittest.TestCase):
             env = os.environ | {'PATH': str(root / 'bin') + os.pathsep + os.environ['PATH'],
                                 'IOS_FLUTTER_BIN': str(flutter), 'STAGES': str(stages),
                                 'TEST_STATUS': str(test_status), 'IOS_LOG_DIR': str(root / 'output')}
-            result = subprocess.run(['bash', str(root / 'scripts/ios_dev.sh'), 'ci'],
+            command = ['bash', str(root / 'scripts/ios_dev.sh'), 'ci']
+            if release:
+                command.append('--release')
+            result = subprocess.run(command,
                                     cwd=root, env=env, capture_output=True, text=True, timeout=20)
             self.assertEqual(result.returncode, test_status, result.stdout + result.stderr)
-            self.assertEqual(stages.read_text().splitlines(), ['prepare', 'check', 'build', 'test'])
+            expected_stages = ['prepare', 'check']
+            if release:
+                expected_stages.append('build')
+            expected_stages.append('test')
+            self.assertEqual(stages.read_text().splitlines(), expected_stages)
             manifests = [json.loads(p.read_text()) for p in (root / 'output').glob('*.json')]
             smoke = next(m for m in manifests if m['operation'] == 'smoke')
             self.assertEqual(smoke['exit_code'], test_status)
             self.assertEqual(smoke['status'], 'FAIL' if test_status else 'PASS')
+            self.assertIn('Starting flutter test command', (root / 'output' / smoke['log']).read_text())
 
-    def test_ci_runs_all_stages(self):
+    def test_ci_builds_only_the_smoke_app(self):
         self.exercise(0)
+
+    def test_release_ci_also_builds_the_production_entry_point(self):
+        self.exercise(0, release=True)
 
     def test_failing_smoke_fails_ci(self):
         self.exercise(42)

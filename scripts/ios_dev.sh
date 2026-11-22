@@ -9,7 +9,7 @@ usage() {
   printf '       %s pods [pod install arguments]\n' "$0" >&2
   printf '       %s build {ios|ipa} [Flutter build arguments]\n' "$0" >&2
   printf '       %s run [Flutter run arguments]\n' "$0" >&2
-  printf '       %s check | ci\n' "$0" >&2
+  printf '       %s check | ci [--release]\n' "$0" >&2
   printf '       %s smoke {--simulator|--device} {auto|UDID} [Flutter test arguments]\n' "$0" >&2
   printf '       %s logs {simulator|device} UDID BUNDLE_ID\n' "$0" >&2
   printf 'Set IOS_LOCK_WAIT=0 to reject a busy checkout instead of waiting.\n' >&2
@@ -70,7 +70,10 @@ case "$operation" in
     device="$2"
     shift 2
     case "$mode" in
-      --simulator) device="$(python3 "$IOS_ROOT_DIR/tool/ios_simulator.py" "$device")" ;;
+      --simulator)
+        device="$(python3 "$IOS_ROOT_DIR/tool/ios_simulator.py" "$device")"
+        printf '[iOS smoke] %s Simulator ready\n' "$(date -u +%FT%TZ)" >&2
+        ;;
       --device)
         if [[ "$device" == "auto" ]]; then
           printf 'Device smoke requires an explicit iPad/iPhone UDID.\n' >&2
@@ -80,6 +83,7 @@ case "$operation" in
       *) usage; exit 2 ;;
     esac
     ios_select_flutter 3.47.3
+    printf '[iOS smoke] %s Flutter selected, starting evidence capture\n' "$(date -u +%FT%TZ)" >&2
     python3 "$IOS_ROOT_DIR/tool/ios_evidence.py" --label smoke --device "$device" \
       --output "$IOS_LOG_DIR" -- bundle exec "${flutter_command[@]}" test \
       integration_test/ios_smoke_test.dart --no-pub -d "$device" --reporter expanded "$@"
@@ -89,12 +93,14 @@ case "$operation" in
     capture logs python3 "$IOS_ROOT_DIR/tool/ios_logs.py" "$@" --output "$IOS_LOG_DIR"
     ;;
   ci)
-    if [[ $# -ne 0 ]]; then usage; exit 2; fi
+    if [[ $# -gt 1 || ( $# -eq 1 && "$1" != "--release" ) ]]; then usage; exit 2; fi
     lock_hashes="$(shasum -a 256 pubspec.lock ios/Podfile.lock Gemfile.lock)"
     capture lock-tests python3 -m unittest discover -s tool/tests -v
     bash "$SCRIPT_DIR/ios_dev.sh" prepare --simulator
     bash "$SCRIPT_DIR/ios_dev.sh" check
-    bash "$SCRIPT_DIR/ios_dev.sh" build ios --simulator --debug
+    if [[ $# -eq 1 ]]; then
+      bash "$SCRIPT_DIR/ios_dev.sh" build ios --simulator --debug
+    fi
     bash "$SCRIPT_DIR/ios_dev.sh" smoke --simulator auto
     if [[ "$lock_hashes" != "$(shasum -a 256 pubspec.lock ios/Podfile.lock Gemfile.lock)" ]]; then
       printf 'Locked dependency files changed during CI.\n' >&2

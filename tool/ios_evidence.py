@@ -71,6 +71,12 @@ def main():
     result = 127
     try:
         with log_path.open('wb') as log, selectors.DefaultSelector() as ready:
+            if args.label == 'smoke':
+                timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat()
+                message = f'[iOS smoke] {timestamp} Starting flutter test command\n'
+                log.write(message.encode())
+                log.flush()
+                print(message, end='', flush=True)
             child = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             os.set_blocking(child.stdout.fileno(), False)
             ready.register(child.stdout, selectors.EVENT_READ)

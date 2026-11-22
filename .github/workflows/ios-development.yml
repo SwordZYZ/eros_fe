@@ -2,6 +2,11 @@ name: iOS development smoke
 
 on:
   workflow_dispatch:
+    inputs:
+      release_validation:
+        description: 'Build the production entry point before running the simulator smoke test'
+        type: boolean
+        default: false
   pull_request:
     paths:
       - 'lib/**'
@@ -63,8 +68,12 @@ jobs:
           xcode_output="$(xcodebuild -version)"
           printf '%s\n' "$xcode_output"
           test "$(sed -n '1s/^Xcode //p' <<< "$xcode_output")" = "$expected_xcode_version"
-      - name: Prepare, check, build and launch smoke through the local entry
+      - name: Prepare, check and run simulator smoke
+        if: ${{ inputs.release_validation != true }}
         run: scripts/ios_dev.sh ci
+      - name: Build the production entry point and run simulator smoke for release
+        if: ${{ inputs.release_validation == true }}
+        run: scripts/ios_dev.sh ci --release
       - name: Collect simulator diagnostics
         if: always()
         run: scripts/ios_dev.sh logs simulator auto com.example.erosfe.dev
