@@ -5,13 +5,13 @@ import 'package:eros_fe/common/service/ehsetting_service.dart';
 import 'package:eros_fe/index.dart';
 import 'package:eros_fe/main.dart' as app;
 import 'package:eros_fe/pages/tab/controller/group/custom_sublist_controller.dart';
+import 'package:eros_fe/pages/tab/view/download_page.dart';
 import 'package:eros_fe/pages/tab/view/history_page.dart';
 import 'package:eros_fe/pages/tab/view/home_page_large.dart';
 import 'package:eros_fe/pages/tab/view/setting_page.dart';
 import 'package:eros_fe/pages/tab/view/tabbar/custom_profile_setting_page.dart';
 import 'package:eros_fe/pages/tab/view/tabbar/custom_profiles_page.dart';
 import 'package:eros_fe/pages/tab/view/tabbar/custom_tabbar_page.dart';
-import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -21,6 +21,7 @@ import 'package:integration_test/integration_test.dart';
 
 const _split = bool.fromEnvironment('IOS_IPAD_SUBPAGE_SPLIT');
 const _phone = bool.fromEnvironment('IOS_SUBPAGE_PHONE');
+const _fullscreen = bool.fromEnvironment('IOS_SUBPAGE_FULLSCREEN');
 const _profileId = 'subpage-back-fixture';
 const _profileName = 'Local test group';
 
@@ -93,33 +94,40 @@ void main() {
       'eros_fe/window_layout',
     ).invokeMapMethod<String, double>('windowControlInsets');
     expect(insets, _phone ? isNull : isNotNull);
+    if (_fullscreen) {
+      expect(insets, {'left': 0.0, 'right': 0.0});
+    }
     final leftInset = insets?['left'] ?? 0;
 
-    Future<void> checkBack(String route) async {
-      final back = find
-          .byElementPredicate(
-            (element) =>
-                element.widget is CupertinoNavigationBarBackButton &&
-                ModalRoute.of(element)?.settings.name == route,
-          )
-          .hitTestable();
-      await waitFor(back);
-      final windowBack = find.ancestor(
+    debugPrint('IPAD_SUBPAGE_BACK ${window.width} pt window insets: $insets');
+
+    Finder backFor(String route) => find.byElementPredicate(
+      (element) =>
+          element.widget is CupertinoNavigationBarBackButton &&
+          ModalRoute.of(element)?.settings.name == route,
+    );
+
+    void checkPosition(Finder back, String route, {required bool leftPane}) {
+      final bar = find.ancestor(
         of: back,
-        matching: find.byType(WindowAwareBackButton),
+        matching: find.byType(CupertinoNavigationBar),
       );
+      final expectedInset = !_split || leftPane ? leftInset : 0.0;
       expect(
-        windowBack,
-        leftInset > 0 ? findsOneWidget : findsNothing,
+        tester.getTopLeft(back).dx - tester.getTopLeft(bar).dx,
+        closeTo(
+          tester.view.padding.left / tester.view.devicePixelRatio +
+              expectedInset,
+          0.5,
+        ),
         reason: route,
       );
-      if (leftInset > 0) {
-        expect(
-          tester.getTopLeft(back).dx - tester.getTopLeft(windowBack).dx,
-          closeTo(leftInset, 0.5),
-          reason: route,
-        );
-      }
+    }
+
+    Future<void> checkBack(String route, {bool leftPane = false}) async {
+      final back = backFor(route).hitTestable();
+      await waitFor(back);
+      checkPosition(back, route, leftPane: leftPane);
       await tester.tap(back);
       await settleNavigation();
       expect(back, findsNothing, reason: route);
@@ -127,12 +135,36 @@ void main() {
       debugPrint('IPAD_SUBPAGE_BACK ${window.width} pt $route: passed');
     }
 
-    Get.toNamed<void>(EHRoutes.history, id: _split ? 1 : null);
-    await settleNavigation();
-    await waitFor(find.byType(HistoryTab));
-    await checkBack(EHRoutes.history);
-    expect(find.byType(HistoryTab), findsNothing);
-    expect(gallery.hitTestable(), findsOneWidget);
+    for (final (route, pageType) in [
+      (EHRoutes.history, HistoryTab),
+      (EHRoutes.download, DownloadTab),
+    ]) {
+      Get.toNamed<void>(route, id: _split ? 1 : null);
+      final firstFrame = backFor(route);
+      for (
+        var frame = 0;
+        frame < 20 && firstFrame.evaluate().isEmpty;
+        frame++
+      ) {
+        await tester.pump(
+          frame == 0 ? Duration.zero : const Duration(milliseconds: 16),
+        );
+      }
+      expect(firstFrame, findsWidgets, reason: '$route first frame');
+      // History builds both a measured prototype and its visible sliver bar.
+      for (final element in firstFrame.evaluate()) {
+        checkPosition(
+          find.byElementPredicate((candidate) => identical(candidate, element)),
+          '$route first frame',
+          leftPane: true,
+        );
+      }
+      await settleNavigation();
+      await waitFor(find.byType(pageType));
+      await checkBack(route, leftPane: true);
+      expect(find.byType(pageType), findsNothing);
+      expect(gallery.hitTestable(), findsOneWidget);
+    }
 
     final groupMenu = find.descendant(
       of: groupBar,
@@ -154,7 +186,7 @@ void main() {
     await waitFor(find.byType(CustomProfileSettingPage));
     await checkBack(EHRoutes.customProfileSetting);
     expect(profiles.hitTestable(), findsOneWidget);
-    await checkBack(EHRoutes.customProfiles);
+    await checkBack(EHRoutes.customProfiles, leftPane: true);
 
     final l10n = L10n.current;
     final settings = find.byType(SettingTab);
