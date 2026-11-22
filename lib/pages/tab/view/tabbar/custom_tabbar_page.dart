@@ -53,7 +53,7 @@ class _CustomTabbarListState extends State<CustomTabbarList> {
   }
 
   Widget buildNestedScrollView(BuildContext context, bool hideTopBarOnScroll) {
-    final headerMaxHeight = context.mediaQueryPadding.top + galleryHeaderMaxHeight;
+    final headerMaxHeight = context.mediaQueryPadding.top + groupHeaderMaxHeight;
     return ExtendedNestedScrollView(
       floatHeaderSlivers: true,
       onlyOneScrollInBody: true,
@@ -72,7 +72,7 @@ class _CustomTabbarListState extends State<CustomTabbarList> {
                   headerMaxHeight,
                 ),
                 minHeight: hideTopBarOnScroll
-                    ? context.mediaQueryPadding.top + galleryTabBarHeight
+                    ? context.mediaQueryPadding.top + groupTabBarHeight
                     : headerMaxHeight,
                 maxHeight: headerMaxHeight,
               ),
@@ -132,7 +132,7 @@ class _CustomTabbarListState extends State<CustomTabbarList> {
     double maxExtentCallBackValue,
   ) {
     // final navBarHeight = maxExtentCallBackValue -
-    //     galleryTabBarHeight -
+    //     groupTabBarHeight -
     //     context.mediaQueryPadding.top;
     final navBarOpacity = 1.0 -
         (offset / (kMinInteractiveDimensionCupertino - 1)).clamp(0.0, 1.0);
@@ -324,7 +324,7 @@ class CustomTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final barBackgroundColor = CupertinoTheme.of(context).barBackgroundColor;
-    final trim = galleryTabBarTrim;
+    final trim = groupTabBarTrim;
     return Stack(
       // fit: StackFit.expand,
       alignment: Alignment.topCenter,
@@ -337,7 +337,7 @@ class CustomTabBar extends StatelessWidget {
             blurColor: barBackgroundColor,
             colorOpacity: kEnableImpeller ? 1.0 : opacity,
             child: Container(
-              height: galleryTabBarHeight,
+              height: groupTabBarHeight,
             ),
           );
         }),
@@ -350,7 +350,7 @@ class CustomTabBar extends StatelessWidget {
             right: context.mediaQueryPadding.right,
           ),
           child: SizedBox(
-            height: galleryTabBarHeight,
+            height: groupTabBarHeight,
             child: Row(
               children: [
                 Expanded(
@@ -362,6 +362,7 @@ class CustomTabBar extends StatelessWidget {
                       controller: controller.linkScrollBarController,
                       pageController: controller.pageController,
                       labelTopPadding: trim,
+                      contentPadding: const EdgeInsetsDirectional.only(start: 8),
                       items: controller.profiles.isNotEmpty
                           ? controller.profiles
                               .map((e) => LinkTabItem(title: e.name, actinos: [
@@ -477,7 +478,7 @@ class _EnglishWordListState extends State<EnglishWordList>
       slivers: [
         SliverPadding(
             padding: EdgeInsets.only(
-                top: context.mediaQueryPadding.top + galleryTabBarHeight),
+                top: context.mediaQueryPadding.top + groupTabBarHeight),
             sliver: EhCupertinoSliverRefreshControl(
               onRefresh: () async {
                 await 1.seconds.delay();
