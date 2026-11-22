@@ -41,7 +41,7 @@ class _FavoriteTabTabBarPageState extends State<FavoriteTabTabBarPage> {
 
   @override
   Widget build(BuildContext context) {
-    final headerMaxHeight = context.mediaQueryPadding.top + kHeaderMaxHeight;
+    final headerMaxHeight = context.mediaQueryPadding.top + groupHeaderMaxHeight;
 
     return Obx(() {
       final hideTopBarOnScroll = _ehSettingService.hideTopBarOnScroll;
@@ -106,9 +106,8 @@ class _FavoriteTabTabBarPageState extends State<FavoriteTabTabBarPage> {
                   offset,
                   headerMaxHeight,
                 ),
-                // minHeight: context.mediaQueryPadding.top + kTopTabbarHeight,
                 minHeight: hideTopBarOnScroll
-                    ? context.mediaQueryPadding.top + kTopTabbarHeight
+                    ? context.mediaQueryPadding.top + groupTabBarHeight
                     : headerMaxHeight,
                 maxHeight: headerMaxHeight,
               ),
@@ -296,6 +295,8 @@ class FavoriteTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final barBackgroundColor = CupertinoTheme.of(context).barBackgroundColor;
+    final trim = groupTabBarTrim;
+    final tabBarHeight = groupTabBarHeight;
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -307,7 +308,7 @@ class FavoriteTabBar extends StatelessWidget {
             blurColor: barBackgroundColor,
             colorOpacity: kEnableImpeller ? 1.0 : opacity,
             child: Container(
-              height: kTopTabbarHeight,
+              height: tabBarHeight,
             ),
           );
         }),
@@ -320,7 +321,7 @@ class FavoriteTabBar extends StatelessWidget {
             right: context.mediaQueryPadding.right,
           ),
           child: SizedBox(
-            height: kTopTabbarHeight,
+            height: tabBarHeight,
             child: Obx(() {
               return Row(
                 children: [
@@ -328,6 +329,7 @@ class FavoriteTabBar extends StatelessWidget {
                     child: LinkScrollBar(
                       pageController: pageController,
                       controller: linkScrollBarController,
+                      labelTopPadding: trim,
                       items: controller.favcatList
                           .map((e) => LinkTabItem(
                                 title: e.favTitle,
@@ -381,8 +383,11 @@ class FavoriteTabBar extends StatelessWidget {
                           CupertinoButton(
                             minSize: 40,
                             padding: const EdgeInsets.all(0),
-                            child: const FaIcon(FontAwesomeIcons.bars,
-                              size: 20,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                top: trim == 0 ? 0 : trim - kDefIndicatorHeight,
+                              ),
+                              child: const FaIcon(FontAwesomeIcons.bars, size: 20),
                             ),
                             onPressed: () async {
                               // 跳转收藏夹选择页
@@ -390,11 +395,17 @@ class FavoriteTabBar extends StatelessWidget {
                                 EHRoutes.selFavorite,
                                 id: isLayoutLarge ? 1 : null,
                               );
-                              if (result != null && result is Favcat) {
-                                final index = controller.favcatList.indexWhere(
-                                    (element) => element.favId == result.favId);
-                                pageController.jumpToPage(index);
+                              if (!context.mounted || result is! Favcat) {
+                                return;
                               }
+                              final index = controller.favcatList.indexWhere(
+                                (element) => element.favId == result.favId,
+                              );
+                              if (index < 0 || !pageController.hasClients) {
+                                return;
+                              }
+                              linkScrollBarController.enableScrollToItem();
+                              pageController.jumpToPage(index);
                             },
                           ),
                       ],

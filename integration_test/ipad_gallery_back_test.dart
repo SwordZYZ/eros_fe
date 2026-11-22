@@ -19,7 +19,6 @@ import 'package:eros_fe/pages/tab/view/home_page_large.dart';
 import 'package:eros_fe/pages/tab/view/resizable_split_view.dart';
 import 'package:eros_fe/pages/tab/view/tabbar/custom_profiles_page.dart';
 import 'package:eros_fe/pages/tab/view/tabbar/custom_tabbar_page.dart';
-import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -305,23 +304,19 @@ void main() {
       await settleNavigation();
       final profiles = find.byType(CustomProfilesPage);
       expect(profiles, findsOneWidget, reason: layout);
-      final windowBack = find.descendant(
-        of: profiles,
-        matching: find.byType(WindowAwareBackButton),
-      );
       final profilesBack = find.descendant(
         of: profiles,
         matching: find.byType(CupertinoNavigationBarBackButton),
       );
       expect(profilesBack.hitTestable(), findsOneWidget, reason: layout);
       final leftInset = insets!['left']!;
-      expect(windowBack, leftInset > 0 ? findsOneWidget : findsNothing);
-      if (leftInset > 0) {
-        expect(
-          tester.getTopLeft(profilesBack).dx - tester.getTopLeft(windowBack).dx,
-          closeTo(leftInset, 0.5),
-        );
-      }
+      expect(
+        tester.getTopLeft(profilesBack).dx - tester.getTopLeft(profiles).dx,
+        closeTo(
+          leftInset + tester.view.padding.left / tester.view.devicePixelRatio,
+          0.5,
+        ),
+      );
       await tester.tap(profilesBack.hitTestable());
       await settleNavigation();
       expect(profiles, findsNothing, reason: layout);
@@ -512,19 +507,15 @@ void main() {
     expect(narrowGroup.labelOffset, closeTo(wideGroup.labelOffset, 0.5));
     await tester.tap(cardFinder(visibleCards().first));
     await settleNavigation();
-    final windowBack = find.descendant(
-      of: gallery,
-      matching: find.byType(WindowAwareBackButton),
-    );
     expect(back.hitTestable(), findsOneWidget);
     final leftInset = insets!['left']!;
-    expect(windowBack, leftInset > 0 ? findsOneWidget : findsNothing);
-    if (leftInset > 0) {
-      expect(
-        tester.getTopLeft(back).dx - tester.getTopLeft(windowBack).dx,
-        closeTo(leftInset, 0.5),
-      );
-    }
+    expect(
+      tester.getTopLeft(back).dx - tester.getTopLeft(gallery).dx,
+      closeTo(
+        leftInset + tester.view.padding.left / tester.view.devicePixelRatio,
+        0.5,
+      ),
+    );
     await tester.tap(back);
     await settleNavigation();
     expect(gallery, findsNothing);

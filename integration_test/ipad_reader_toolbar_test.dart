@@ -9,7 +9,6 @@ import 'package:eros_fe/pages/image_view/view/view_widget.dart';
 import 'package:eros_fe/pages/setting/read_setting_page.dart';
 import 'package:eros_fe/pages/tab/view/home_page.dart';
 import 'package:eros_fe/route/navigator_util.dart';
-import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -143,23 +142,19 @@ void main() {
       final readSettings = find.byType(ReadSettingPage);
       await waitFor(readSettings);
       await tester.pump(const Duration(milliseconds: 500));
-      final windowBack = find.descendant(
-        of: readSettings,
-        matching: find.byType(WindowAwareBackButton),
-      );
       final settingsBack = find.descendant(
         of: readSettings,
         matching: find.byType(CupertinoNavigationBarBackButton),
       );
       expect(settingsBack.hitTestable(), findsOneWidget);
       final leftInset = insets!['left']!;
-      expect(windowBack, leftInset > 0 ? findsOneWidget : findsNothing);
-      if (leftInset > 0) {
-        expect(
-          tester.getTopLeft(settingsBack).dx - tester.getTopLeft(windowBack).dx,
-          closeTo(leftInset, 0.5),
-        );
-      }
+      expect(
+        tester.getTopLeft(settingsBack).dx - tester.getTopLeft(readSettings).dx,
+        closeTo(
+          leftInset + tester.view.padding.left / tester.view.devicePixelRatio,
+          0.5,
+        ),
+      );
       await tester.tap(settingsBack);
       await tester.pump(const Duration(milliseconds: 500));
       expect(readSettings, findsNothing);

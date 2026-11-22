@@ -118,9 +118,8 @@ class GalleryNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GalleryProvider? provider = pageState.galleryProvider;
-    Widget navigationBar(Widget? leading) => CupertinoSliverNavigationBar(
+    final navigationBar = CupertinoSliverNavigationBar(
       padding: const EdgeInsetsDirectional.only(end: 10),
-      leading: leading,
       largeTitle: showLargeSubtitle
           ? const _GallerySubtitle()
           : const SizedBox.shrink(),
@@ -230,14 +229,7 @@ class GalleryNavigationBar extends StatelessWidget {
       }),
     );
 
-    if (isLayoutLarge) {
-      return navigationBar(null);
-    }
-    return WindowControlInsets(
-      builder: (context, insets) => navigationBar(
-        WindowAwareBackButton.leadingFor(context, insets),
-      ),
-    );
+    return WindowAwareNavigationPadding(child: navigationBar);
   }
 }
 

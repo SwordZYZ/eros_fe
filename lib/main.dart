@@ -8,6 +8,7 @@ import 'package:eros_fe/common/service/ehsetting_service.dart';
 import 'package:eros_fe/common/service/locale_service.dart';
 import 'package:eros_fe/common/service/theme_service.dart';
 import 'package:eros_fe/index.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:eros_fe/widget/system_ui_overlay.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -237,9 +238,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       });
     }
 
-    return OKToast(
-      child: cupertinoApp(),
-    );
+    return WindowControlInsetsScope(child: OKToast(child: cupertinoApp()));
   }
 }
 

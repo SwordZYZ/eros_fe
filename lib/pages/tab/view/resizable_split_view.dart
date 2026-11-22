@@ -1,3 +1,4 @@
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 
@@ -23,6 +24,7 @@ class ResizableSplitView extends StatefulWidget {
 
 class _ResizableSplitViewState extends State<ResizableSplitView> {
   static const _minPaneWidth = 320.0;
+  static const _dividerWidth = 0.6;
   bool _pressed = false;
   double _dragProportion = 0;
 
@@ -46,7 +48,11 @@ class _ResizableSplitViewState extends State<ResizableSplitView> {
           children: [
             SizedBox(
               width: leftWidth,
-              child: ClipRect(child: widget.left),
+              child: WindowControlInsetsRegion(
+                leftOffset: 0,
+                rightOffset: width - leftWidth,
+                child: ClipRect(child: widget.left),
+              ),
             ),
             Expanded(
               child: Stack(
@@ -56,13 +62,19 @@ class _ResizableSplitViewState extends State<ResizableSplitView> {
                     textDirection: TextDirection.ltr,
                     children: [
                       Container(
-                        width: 0.6,
+                        width: _dividerWidth,
                         color: CupertinoDynamicColor.resolve(
                           CupertinoColors.systemGrey4,
                           context,
                         ),
                       ),
-                      Expanded(child: ClipRect(child: widget.right)),
+                      Expanded(
+                        child: WindowControlInsetsRegion(
+                          leftOffset: leftWidth + _dividerWidth,
+                          rightOffset: 0,
+                          child: ClipRect(child: widget.right),
+                        ),
+                      ),
                     ],
                   ),
                   GestureDetector(
