@@ -87,7 +87,10 @@ class LayoutSettingList extends StatelessWidget {
           if (localeService.isLanguageCodeZh)
             EhCupertinoListTile(
               title: const Text('标签翻译'),
-              subtitle: Text('当前版本:${_ehSettingService.tagTranslatVer.value}'),
+              subtitle: Obx(() => Text(
+                    '当前版本:${_ehSettingService.tagTranslatVer.value}',
+                    maxLines: 3,
+                  )),
               additionalInfo: Text(_ehSettingService.isTagTranslate
                   ? L10n.of(context).on
                   : L10n.of(context).off),
