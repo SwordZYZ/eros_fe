@@ -250,8 +250,10 @@ Future<void> updateTagTranslate() async {
   if (ehSettingService.tagTranslateDataUpdateMode ==
       TagTranslateDataUpdateMode.everyStartApp) {
     logger.t('updateTagTranslate everyStartApp');
-    if (await tagTransController.checkUpdate()) {
-      await tagTransController.updateDB();
+    try {
+      await tagTransController.updateTranslations();
+    } catch (error, stackTrace) {
+      logger.e('更新标签翻译失败', error: error, stackTrace: stackTrace);
     }
   }
 }

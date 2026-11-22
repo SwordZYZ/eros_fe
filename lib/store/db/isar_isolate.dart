@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:eros_fe/models/gallery_provider.dart';
 import 'package:eros_fe/store/db/entity/gallery_image_task.dart';
 import 'package:eros_fe/store/db/entity/gallery_task.dart';
 import 'package:eros_fe/store/db/entity/tag_translat.dart';
+import 'package:eros_fe/store/db/entity/tag_translate_info.dart';
 import 'package:eros_fe/store/db/entity/view_history.dart';
 import 'package:isar_community/isar.dart';
 
@@ -35,11 +37,54 @@ Future<void> iAddHistories(List<GalleryProvider> allHistory) async {
   });
 }
 
-Future<void> iPutAllTagTranslate(List<TagTranslat> tagTranslates) async {
-  final isar = await openIsar();
+Future<List<String>> iImportTagTranslations(
+  ({String directory, String filePath, String version}) input,
+) async {
+  final json = utf8.decode(gzip.decode(File(input.filePath).readAsBytesSync()));
+  final dictionary = jsonDecode(json) as Map<String, dynamic>;
+  final namespaces = <String>[];
+  final translations = <TagTranslat>[];
+  for (final group in dictionary['data'] as List) {
+    final namespace = group['namespace'] as String;
+    final data = group['data'] as Map<String, dynamic>;
+    if (data.isNotEmpty) {
+      namespaces.add(namespace);
+    }
+    for (final entry in data.entries) {
+      final tag = entry.value as Map<String, dynamic>;
+      translations.add(TagTranslat(
+        namespace: namespace,
+        key: entry.key,
+        name: (tag['name'] ?? '') as String,
+        intro: (tag['intro'] ?? '') as String,
+        links: (tag['links'] ?? '') as String,
+      ));
+    }
+  }
+  if (translations.isEmpty) {
+    throw const FormatException('Empty tag dictionary');
+  }
+
+  final isar = await openIsar(directory: input.directory);
   isar.writeTxnSync(() {
-    isar.tagTranslats.putAllSync(tagTranslates);
+    final tags = isar.tagTranslats;
+    final usage = {
+      for (final tag in tags.where().lastUseTimeGreaterThan(0).findAllSync())
+        (tag.key, tag.namespace): tag.lastUseTime,
+    };
+    tags.clearSync();
+    tags.putAllSync([
+      for (final tag in translations)
+        if (usage[(tag.key, tag.namespace)] case final lastUseTime?)
+          tag.copyWith(lastUseTime: lastUseTime)
+        else
+          tag,
+    ]);
+    isar.tagTranslateInfos.putSync(
+      TagTranslateInfo(localVersion: input.version),
+    );
   });
+  return namespaces;
 }
 
 Future<void> iPutAllGalleryTasks(List<GalleryTask> galleryTasks) async {

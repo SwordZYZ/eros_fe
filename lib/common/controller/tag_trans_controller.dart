@@ -1,11 +1,11 @@
-import 'dart:convert';
 import 'dart:io';
 
-import 'package:archive/archive.dart';
+import 'package:crypto/crypto.dart';
 import 'package:eros_fe/common/service/ehsetting_service.dart';
 import 'package:eros_fe/const/const.dart';
 import 'package:eros_fe/extension.dart';
-import 'package:eros_fe/network/request.dart';
+import 'package:eros_fe/models/gallery_tag.dart';
+import 'package:eros_fe/network/tag_dictionary_release.dart';
 import 'package:eros_fe/store/db/entity/tag_translat.dart';
 import 'package:eros_fe/utils/logger.dart';
 import 'package:get/get.dart';
@@ -13,134 +13,156 @@ import 'package:path/path.dart' as path;
 
 import '../global.dart';
 
-const String kApiUrl =
-    'https://api.github.com/repos/EhTagTranslation/Database/releases/latest';
-const String kCDNApiUrl =
-    'https://ghproxy.homeboyc.cn/https://api.github.com/repos/EhTagTranslation/Database/releases/latest';
-const String kCDNPrefix = 'https://ghproxy.homeboyc.cn/';
-const int kConnectTimeout = 20000;
-const int kReceiveTimeout = 30000;
+const _cdnUrl =
+    'https://fastly.jsdelivr.net/gh/EhTagTranslation/Database@release/db.raw.json.gz';
 
 class TagTransController extends GetxController {
+  TagTransController({
+    Future<Map> Function(String) fetchRelease = fetchTagDictionaryReleaseApi,
+    Future<String> Function(Uri) fetchReleasePage =
+        fetchTagDictionaryReleasePage,
+    TagDictionaryAssetDownloader download = downloadTagDictionaryAsset,
+  }) : _fetchRelease = fetchRelease,
+       _fetchReleasePage = fetchReleasePage,
+       _download = download;
+
   final EhSettingService ehSettingService = Get.find();
+  final Future<Map> Function(String) _fetchRelease;
+  final Future<String> Function(Uri) _fetchReleasePage;
+  final TagDictionaryAssetDownloader _download;
+  final _dictionaryRevision = 0.obs;
+  final _downloadProgress = Rxn<({int received, int total})>();
 
-  String? _dbUrl;
-  String? _remoteVer;
+  ({int received, int total})? get downloadProgress => _downloadProgress.value;
 
-  List<String?> _namespaces = [];
+  Future<bool>? _pendingUpdate;
+  late Set<String> _namespaces = isarHelper.findAllTagNamespaces();
 
-  @override
-  void onInit() {
-    super.onInit();
-    getNamespace().then((value) {
-      logger.d('getNamespace $value');
-      return _namespaces = value;
-    });
-  }
-
-  Future<List<String?>> getNamespace() async {
-    return await isarHelper.findAllTagNamespace();
-  }
-
-  /// 检查更新
-  Future<bool> checkUpdate({bool force = false}) async {
-    late final String apiUrl;
-    if (ehSettingService.enableTagTranslateCDN) {
-      apiUrl = kCDNApiUrl;
-    } else {
-      apiUrl = kApiUrl;
+  Future<bool> updateTranslations({bool force = false}) async {
+    final pending = _pendingUpdate;
+    if (pending != null) {
+      final updated = await pending;
+      return updated || (force && await updateTranslations(force: true));
     }
 
-    final urlJson = await getGithubApi(apiUrl);
+    final update = _downloadAndImport(force: force).whenComplete(() {
+      _pendingUpdate = null;
+    });
+    _pendingUpdate = update;
+    return update;
+  }
 
-    final publishedTime = '${urlJson['published_at']}';
-    final tagName = '${urlJson['tag_name']}';
-
-    // 远程版本号
-    _remoteVer = '$tagName $publishedTime';
-
-    // 获取当前本地版本
-    final String localVer = ehSettingService.tagTranslatVer.value;
-
-    logger.d('localVer $localVer, remoteVer $_remoteVer');
-
-    if (_remoteVer == localVer && force == false) {
-      logger.d('tagTranslateVer is latest');
+  Future<bool> _downloadAndImport({required bool force}) async {
+    final useCdn = ehSettingService.enableTagTranslateCDN;
+    final release = await _latestRelease(useCdn: useCdn);
+    final version = release.version;
+    final installedVersion = isarHelper.getTranslateVersion();
+    if (release.isOlderThan(installedVersion)) {
+      logger.w('Skipping older tag dictionary $version (installed: $installedVersion)');
+      return false;
+    }
+    if (!force && version == installedVersion) {
       return false;
     }
 
-    final List<dynamic> assList = urlJson['assets'] as List<dynamic>;
-    final Map<String, String> assMap = <String, String>{};
-    for (final dynamic assets in assList) {
-      assMap[assets['name'] as String? ?? ''] =
-          assets['browser_download_url'] as String;
+    final temp = await Directory.systemTemp.createTemp('eros-tag-translation-');
+    try {
+      final file = await _downloadDictionary(
+        temp,
+        useCdn: useCdn,
+        releaseUrl: release.downloadUri.toString(),
+        expectedSha256: release.sha256,
+      );
+      final namespaces = await isarHelper.importTagTranslations(
+        file.path,
+        version,
+      );
+      _namespaces = namespaces.toSet();
+      ehSettingService.tagTranslatVer.value = version;
+      _dictionaryRevision.value++;
+      return true;
+    } finally {
+      try {
+        await temp.delete(recursive: true);
+      } on FileSystemException catch (error) {
+        logger.w('Could not remove tag dictionary download', error: error);
+      }
     }
-    _dbUrl = assMap['db.raw.json.gz'] ?? '';
-
-    if (ehSettingService.enableTagTranslateCDN) {
-      _dbUrl = '$kCDNPrefix$_dbUrl';
-    }
-
-    logger.d(_dbUrl);
-    return true;
   }
 
-  /// 获取数据
-  Future<List> _fetchData({bool silence = false}) async {
-    logger.t('_fetchData start');
-
-    if (_dbUrl == null) {
-      return [];
+  Future<TagDictionaryRelease> _latestRelease({required bool useCdn}) async {
+    try {
+      final response = await _fetchRelease(tagDictionaryReleaseApi);
+      return TagDictionaryRelease.fromApi(response);
+    } catch (error) {
+      if (!useCdn) {
+        rethrow;
+      }
+      logger.w('GitHub release API failed, using the release page', error: error);
+      return TagDictionaryRelease.fromWeb(_fetchReleasePage);
     }
-
-    final gzFilePath = path.join(Global.appDocPath, 'db.raw.json.gz');
-    await ehDownload(url: _dbUrl!, savePath: gzFilePath);
-    List<int> bytes = File(gzFilePath).readAsBytesSync();
-    List<int> data = GZipDecoder().decodeBytes(bytes);
-    final String dbJson = utf8.decode(data);
-
-    final dbDataMap = jsonDecode(dbJson);
-    final List listData = dbDataMap['data'] as List;
-
-    // final head = dbDataMap['head'] as Map;
-    // final committer = head['committer'] as Map;
-
-    // _remoteVer = committer['when'] as String;
-    // logger.d('_remoteVer $_remoteVer');
-
-    return listData;
   }
 
-  /// 更新数据库数据
-  Future<void> updateDB({bool silence = false}) async {
-    List listData = await _fetchData();
-    if (listData.isEmpty) {
-      return;
+  Future<File> _downloadDictionary(
+    Directory temp, {
+    required bool useCdn,
+    required String releaseUrl,
+    required String? expectedSha256,
+  }) async {
+    if (useCdn && expectedSha256 != null) {
+      try {
+        final file = File(path.join(temp.path, 'cdn-$tagDictionaryAssetName'));
+        await _downloadAsset(_cdnUrl, file);
+        await _verifyDigest(file, expectedSha256);
+        return file;
+      } catch (error) {
+        logger.w('Tag dictionary CDN failed, falling back to GitHub', error: error);
+      }
     }
 
-    final List<TagTranslat> tagTranslats = <TagTranslat>[];
-
-    for (final data in listData) {
-      loggerNoStack.t('${data['namespace']}  ${data['count']}');
-      final String namespace = data['namespace'] as String;
-      Map mapC = data['data'] as Map;
-      mapC.forEach((key, value) {
-        final String keyName = key as String;
-        final String name = (value['name'] ?? '') as String;
-        final String intro = (value['intro'] ?? '') as String;
-        final String links = (value['links'] ?? '') as String;
-
-        tagTranslats.add(TagTranslat(
-            namespace: namespace,
-            key: keyName,
-            name: name,
-            intro: intro,
-            links: links));
-      });
+    final file = File(path.join(temp.path, tagDictionaryAssetName));
+    await _downloadAsset(releaseUrl, file);
+    if (expectedSha256 != null) {
+      await _verifyDigest(file, expectedSha256);
     }
+    return file;
+  }
 
-    await isarHelper.putAllTagTranslateIsolate(tagTranslats);
-    ehSettingService.tagTranslatVer.value = _remoteVer ?? '';
+  Future<void> _downloadAsset(String url, File file) async {
+    _downloadProgress.value = (received: 0, total: -1);
+    try {
+      await _download(
+        url: url,
+        savePath: file.path,
+        onReceiveProgress: (received, total) {
+          if (total > 0) {
+            _downloadProgress.value = (received: received, total: total);
+          }
+        },
+      );
+    } finally {
+      _downloadProgress.value = null;
+    }
+  }
+
+  Future<void> _verifyDigest(File file, String expectedSha256) async {
+    final actual = await sha256.bind(file.openRead()).first;
+    if (actual.toString() != expectedSha256) {
+      throw const FormatException('Tag dictionary SHA-256 mismatch');
+    }
+  }
+
+  List<String> getGalleryTagTranslations(List<GalleryTag> tags) {
+    // Subscribe the tag area to successful imports, including the same version.
+    final _ = _dictionaryRevision.value;
+    final translations = isarHelper.findTagTranslations(
+      keys: tags.map((tag) => tag.title.toLowerCase()).toList(),
+      namespaces: tags.map((tag) => _dictionaryNamespace(tag.type)).toList(),
+    );
+    return List.generate(
+      tags.length,
+      (i) => translations[i]?.nameNotMD ?? tags[i].title,
+    );
   }
 
   /// 获取翻译结果
@@ -234,14 +256,17 @@ class TagTransController extends GetxController {
 
       // return _transTag != null ? '$pfx:$_transTag' : text;
     } else {
-      String? tempNamespace;
-      if (_namespaces.contains(namespace)) {
-        tempNamespace = namespace;
-      }
-      return await _getTagTransStr(text.toLowerCase(),
-          namespace: tempNamespace);
+      return _getTagTransStr(
+        text.toLowerCase(),
+        namespace: _dictionaryNamespace(namespace),
+      );
     }
   }
+
+  String? _dictionaryNamespace(String? namespace) =>
+      namespace != null && namespace.isNotEmpty && _namespaces.contains(namespace)
+      ? namespace
+      : null;
 
   Future<TagTranslat?> getTagTranslate(String text, String namespace) async {
     final TagTranslat? translates =

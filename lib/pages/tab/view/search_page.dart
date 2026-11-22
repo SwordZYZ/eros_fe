@@ -10,6 +10,7 @@ import 'package:eros_fe/pages/gallery/view/gallery_widget.dart';
 import 'package:eros_fe/pages/tab/controller/search_page_controller.dart';
 import 'package:eros_fe/pages/tab/view/gallery_base.dart';
 import 'package:eros_fe/pages/tab/view/list/tab_base.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:extended_sliver/extended_sliver.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,58 @@ enum SearchMenuEnum {
   addToQuickSearch,
 }
 
+enum _SearchToolbarSlot { back, title, actions }
+
+class _SearchToolbarLayout extends MultiChildLayoutDelegate {
+  _SearchToolbarLayout(this.textDirection);
+
+  final TextDirection textDirection;
+
+  @override
+  void performLayout(Size size) {
+    final back = layoutChild(
+      _SearchToolbarSlot.back,
+      BoxConstraints.loose(size),
+    );
+    final actions = layoutChild(
+      _SearchToolbarSlot.actions,
+      BoxConstraints(maxWidth: size.width - back.width, maxHeight: size.height),
+    );
+    final sideWidth = max(back.width, actions.width) + 6;
+    final title = layoutChild(
+      _SearchToolbarSlot.title,
+      BoxConstraints(
+        maxWidth: max(0, size.width - 2 * sideWidth),
+        maxHeight: size.height,
+      ),
+    );
+
+    final ltr = textDirection == TextDirection.ltr;
+    positionChild(
+      _SearchToolbarSlot.back,
+      Offset(
+        ltr ? 0 : size.width - back.width,
+        (size.height - back.height) / 2,
+      ),
+    );
+    positionChild(
+      _SearchToolbarSlot.actions,
+      Offset(
+        ltr ? size.width - actions.width : 0,
+        (size.height - actions.height) / 2,
+      ),
+    );
+    positionChild(
+      _SearchToolbarSlot.title,
+      Offset((size.width - title.width) / 2, (size.height - title.height) / 2),
+    );
+  }
+
+  @override
+  bool shouldRelayout(_SearchToolbarLayout oldDelegate) =>
+      textDirection != oldDelegate.textDirection;
+}
+
 class GallerySearchPage extends StatefulWidget {
   const GallerySearchPage({super.key});
 
@@ -46,6 +99,9 @@ class GallerySearchPage extends StatefulWidget {
 }
 
 class _GallerySearchPageState extends State<GallerySearchPage> {
+  static const _inlinePaginationMinWidth = 450.0;
+  static const _minimumTitleScale = 0.8;
+
   final String _tag = searchPageCtrlTag;
   late SearchPageController controller;
 
@@ -75,25 +131,109 @@ class _GallerySearchPageState extends State<GallerySearchPage> {
     Get.delete<SearchPageController>(tag: _tag);
   }
 
-  CupertinoNavigationBar getNavigationBar(BuildContext context) {
+  CupertinoNavigationBar getNavigationBar(
+    BuildContext context, {
+    double? backInset,
+    bool paginationBySearchField = false,
+  }) {
+    final inset = backInset ?? _backInset(context);
+    final title = Obx(
+      () => Text(
+        controller.placeholderText,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
+    final trailing = _buildTrailing(
+      context,
+      showPagination: !paginationBySearchField,
+    );
+    if (inset == 0) {
+      return CupertinoNavigationBar(
+        padding: const EdgeInsetsDirectional.only(end: 10),
+        border: null,
+        middle: title,
+        transitionBetweenRoutes: false,
+        trailing: trailing,
+      );
+    }
+
     return CupertinoNavigationBar(
-      padding: const EdgeInsetsDirectional.only(end: 10),
+      automaticallyImplyMiddle: false,
+      padding: EdgeInsetsDirectional.zero,
+      // Use the full bar width so the title can reserve equal space on each side.
+      leading: CustomMultiChildLayout(
+        delegate: _SearchToolbarLayout(Directionality.of(context)),
+        children: [
+          LayoutId(
+            id: _SearchToolbarSlot.back,
+            child: Padding(
+              padding: EdgeInsetsDirectional.only(start: inset),
+              child: const CupertinoNavigationBarBackButton(),
+            ),
+          ),
+          LayoutId(
+            id: _SearchToolbarSlot.title,
+            child: Semantics(
+              header: true,
+              child: DefaultTextStyle(
+                style: CupertinoTheme.of(context).textTheme.navTitleTextStyle,
+                child: LayoutBuilder(
+                  builder: (context, constraints) => FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: constraints.maxWidth / _minimumTitleScale,
+                      ),
+                      child: title,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          LayoutId(
+            id: _SearchToolbarSlot.actions,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(end: 10),
+              child: trailing,
+            ),
+          ),
+        ],
+      ),
       border: null,
-      middle: Obx(() {
-        return Text(controller.placeholderText);
-      }),
       transitionBetweenRoutes: false,
-      trailing: _buildTrailing(context),
     );
   }
 
+  double _backInset(BuildContext context) {
+    final insets = WindowControlInsets.of(context);
+    final startInset = Directionality.of(context) == TextDirection.ltr
+        ? insets.left
+        : insets.right;
+    final route = ModalRoute.of(context);
+    return route?.canPop == true && !(route is PageRoute && route.fullscreenDialog)
+        ? startInset
+        : 0.0;
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => LayoutBuilder(builder: _buildPage);
+
+  Widget _buildPage(BuildContext context, BoxConstraints constraints) {
+    final backInset = _backInset(context);
+    final paginationBySearchField =
+        backInset > 0 && constraints.maxWidth < _inlinePaginationMinWidth;
+
     final Widget cpf = CupertinoPageScaffold(
       // navigationBar: GetPlatform.isAndroid || GetPlatform.isDesktop
       //     ? getNavigationBar(context)
       //     : null,
-      navigationBar: getNavigationBar(context),
+      navigationBar: getNavigationBar(
+        context,
+        backInset: backInset,
+        paginationBySearchField: paginationBySearchField,
+      ),
       child: Column(
         children: [
           // if (GetPlatform.isAndroid || GetPlatform.isDesktop)
@@ -116,8 +256,18 @@ class _GallerySearchPageState extends State<GallerySearchPage> {
                 border: _kDefaultNavBarBorder,
                 color: CupertinoTheme.of(context).barBackgroundColor,
               ),
-              child: const SearchTextFieldIn(iconOpacity: 1.0, multiline: true)
-                  .paddingSymmetric(horizontal: 12, vertical: 4),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: const SearchTextFieldIn(
+                      iconOpacity: 1.0,
+                      multiline: true,
+                    ).paddingSymmetric(horizontal: 12, vertical: 4),
+                  ),
+                  if (paginationBySearchField)
+                    ..._buildPaginationButtons(context),
+                ],
+              ),
             ),
           ),
           Expanded(child: _buildSearchResult(context)),
@@ -718,7 +868,32 @@ class _GallerySearchPageState extends State<GallerySearchPage> {
     );
   }
 
-  Widget _buildTrailing(BuildContext context) {
+  List<Widget> _buildPaginationButtons(BuildContext context) => [
+    Obx(() {
+      if (!controller.afterJump) {
+        return const SizedBox.shrink();
+      }
+      return CupertinoButton(
+        minimumSize: const Size.square(40),
+        padding: EdgeInsets.zero,
+        onPressed: controller.jumpToTop,
+        child: const Icon(CupertinoIcons.arrow_up_circle, size: 28),
+      );
+    }),
+    Obx(() {
+      if (controller.next.isEmpty) {
+        return const SizedBox.shrink();
+      }
+      return CupertinoButton(
+        minimumSize: const Size.square(40),
+        padding: EdgeInsets.zero,
+        onPressed: () => controller.showJumpDialog(context),
+        child: const Icon(CupertinoIcons.arrow_uturn_down_circle, size: 28),
+      );
+    }),
+  ];
+
+  Widget _buildTrailing(BuildContext context, {required bool showPagination}) {
     Widget buildListButtons() {
       return GestureDetector(
         child: Row(
@@ -772,40 +947,7 @@ class _GallerySearchPageState extends State<GallerySearchPage> {
             //     return const SizedBox.shrink();
             //   }
             // }),
-            Obx(() {
-              if (controller.afterJump) {
-                return CupertinoButton(
-                  minSize: 40,
-                  padding: const EdgeInsets.all(0),
-                  child: const Icon(
-                    CupertinoIcons.arrow_up_circle,
-                    size: 28,
-                  ),
-                  onPressed: () {
-                    controller.jumpToTop();
-                  },
-                );
-              } else {
-                return const SizedBox();
-              }
-            }),
-            Obx(() {
-              if (controller.next.isNotEmpty) {
-                return CupertinoButton(
-                  minSize: 40,
-                  padding: const EdgeInsets.all(0),
-                  child: const Icon(
-                    CupertinoIcons.arrow_uturn_down_circle,
-                    size: 28,
-                  ),
-                  onPressed: () {
-                    controller.showJumpDialog(context);
-                  },
-                );
-              } else {
-                return const SizedBox.shrink();
-              }
-            }),
+            if (showPagination) ..._buildPaginationButtons(context),
             CupertinoButton(
               minSize: 36,
               padding: const EdgeInsets.all(0),

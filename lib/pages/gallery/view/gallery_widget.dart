@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:eros_fe/common/controller/block_controller.dart';
+import 'package:eros_fe/common/controller/tag_trans_controller.dart';
 import 'package:eros_fe/common/service/controller_tag_service.dart';
 import 'package:eros_fe/common/service/ehsetting_service.dart';
 import 'package:eros_fe/common/service/layout_service.dart';
@@ -464,59 +465,48 @@ class MorePreviewButton extends StatelessWidget {
 
 /// 一个标签组 第一个是类型
 class TagGroupItem extends StatelessWidget {
-  const TagGroupItem({
-    required this.tagGroupData,
-  });
+  const TagGroupItem({super.key, required this.tagGroupData});
 
   final TagGroup tagGroupData;
 
-  List<Widget> _initTagBtnList(
-    List<GalleryTag> galleryTags,
+  Widget _buildTagButton(
+    GalleryTag tag,
+    String translation,
+    bool translate,
     BuildContext context,
   ) {
-    final EhSettingService ehSettingService = Get.find();
-
-    return galleryTags.map((e) {
-      final tag = e.setColor();
-      return Obx(() => TagButton(
-            text: ehSettingService.isTagTranslate ? tag.tagTranslat : tag.title,
-            color: ColorsUtil.hexStringToColor(tag.backgrondColor),
-            textColor: () {
-              switch (tag.vote) {
-                case 0:
-                  return ColorsUtil.hexStringToColor(tag.color);
-                case 1:
-                  return CupertinoDynamicColor.resolve(
-                      ThemeColors.tagUpColor, context);
-                case -1:
-                  return CupertinoDynamicColor.resolve(
-                      ThemeColors.tagDownColor, context);
-              }
-            }(),
-            onPressed: () {
-              logger.t('search type[${tag.type}] tag[${tag.title}]');
-              NavigatorUtil.goSearchPageWithParam(
-                  simpleSearch: '${tag.type}:${tag.title.trim()}');
-            },
-            onLongPress: () {
-              showTagInfoDialog(
-                context,
-                tag.title,
-                translate: tag.tagTranslat,
-                type: tag.type,
-                vote: tag.vote ?? 0,
-              );
-            },
-          ));
-    }).toList();
+    final styledTag = tag.setColor();
+    return TagButton(
+      text: translate ? translation : tag.title,
+      color: ColorsUtil.hexStringToColor(styledTag.backgrondColor),
+      textColor: switch (tag.vote) {
+        1 => CupertinoDynamicColor.resolve(ThemeColors.tagUpColor, context),
+        -1 => CupertinoDynamicColor.resolve(ThemeColors.tagDownColor, context),
+        _ => ColorsUtil.hexStringToColor(styledTag.color),
+      },
+      onPressed: () {
+        logger.t('search type[${tag.type}] tag[${tag.title}]');
+        NavigatorUtil.goSearchPageWithParam(
+          simpleSearch: '${tag.type}:${tag.title.trim()}',
+        );
+      },
+      onLongPress: () {
+        showTagInfoDialog(
+          context,
+          tag.title,
+          translate: translation,
+          type: tag.type,
+          vote: tag.vote ?? 0,
+        );
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final EhSettingService ehSettingService = Get.find();
 
-    final List<Widget> _tagBtnList =
-        _initTagBtnList(tagGroupData.galleryTags, context);
+    final tags = tagGroupData.galleryTags;
     final String? _tagType = tagGroupData.tagType;
 
     logger.t('tagType $_tagType');
@@ -543,11 +533,19 @@ class TagGroupItem extends StatelessWidget {
                 : const SizedBox.shrink()),
           ),
           Expanded(
-            child: Wrap(
-              spacing: 4, //主轴上子控件的间距
-              runSpacing: 4, //交叉轴上子控件之间的间距
-              children: _tagBtnList, //要显示的子控件集合
-            ),
+            child: Obx(() {
+              final translate = ehSettingService.isTagTranslate;
+              final translations =
+                  Get.find<TagTransController>().getGalleryTagTranslations(tags);
+              return Wrap(
+                spacing: 4,
+                runSpacing: 4,
+                children: [
+                  for (var i = 0; i < tags.length; i++)
+                    _buildTagButton(tags[i], translations[i], translate, context),
+                ],
+              );
+            }),
           )
         ],
       ),

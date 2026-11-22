@@ -15,8 +15,8 @@ final List<CollectionSchema<dynamic>> schemas = [
   TagTranslateInfoSchema,
 ];
 
-Future<Isar> openIsar() async {
-  final dirPath = Global.appSupportPath;
+Future<Isar> openIsar({String? directory}) async {
+  final dirPath = directory ?? Global.appSupportPath;
 
   final isar = await Isar.open(
     schemas,

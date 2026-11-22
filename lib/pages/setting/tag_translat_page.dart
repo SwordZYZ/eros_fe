@@ -36,18 +36,7 @@ class ListViewTagTranslate extends StatelessWidget {
   Future<void> _handleTagTranslatChanged(bool newValue) async {
     _ehSettingService.isTagTranslate = newValue;
     if (newValue) {
-      try {
-        if (await transController.checkUpdate()) {
-          showToast('更新开始');
-          await transController.updateDB();
-          showToast('更新完成');
-        } else {
-          logger.t('do not need update');
-        }
-      } catch (e) {
-        logger.e('更新翻译异常 $e');
-        rethrow;
-      }
+      await _updateTranslations();
     }
   }
 
@@ -55,10 +44,16 @@ class ListViewTagTranslate extends StatelessWidget {
     _ehSettingService.enableTagTranslateCDN = newValue;
   }
 
-  Future<void> _forceUpdateTranslate() async {
-    if (await transController.checkUpdate(force: true)) {
-      showToast('手动更新开始');
-      await transController.updateDB();
+  Future<void> _updateTranslations({bool force = false}) async {
+    final bool updated;
+    try {
+      updated = await transController.updateTranslations(force: force);
+    } catch (error, stackTrace) {
+      logger.e('更新标签翻译失败', error: error, stackTrace: stackTrace);
+      showToast('更新失败');
+      return;
+    }
+    if (updated) {
       showToast('更新完成');
     }
   }
@@ -70,13 +65,35 @@ class ListViewTagTranslate extends StatelessWidget {
         // _handleTagTranslatChanged switch
         EhCupertinoListTile(
           title: const Text('启用标签翻译'),
-          subtitle: Text('当前版本:${_ehSettingService.tagTranslatVer.value}'),
+          subtitle: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Obx(() {
+                final progress = transController.downloadProgress;
+                if (progress == null) {
+                  return const SizedBox.shrink();
+                }
+                if (progress.total <= 0) {
+                  return const Text('下载中…');
+                }
+                final percent = (100 * progress.received / progress.total)
+                    .clamp(0, 100)
+                    .toStringAsFixed(1);
+                return Text('下载进度：$percent%');
+              }),
+              Obx(() => Text(
+                    '当前版本:${_ehSettingService.tagTranslatVer.value}',
+                    maxLines: 3,
+                  )),
+            ],
+          ),
           trailing: Obx(() {
             return Row(
               children: [
                 CupertinoButton(
                   padding: const EdgeInsets.all(0),
-                  onPressed: _forceUpdateTranslate,
+                  onPressed: () => _updateTranslations(force: true),
                   child: const Icon(CupertinoIcons.refresh),
                 ),
                 CupertinoSwitch(

@@ -88,29 +88,68 @@ class IsarHelper {
     compute(iAddHistories, allHistory);
   }
 
-  Future<void> putAllTagTranslate(
-    List<TagTranslat> tagTranslates,
-  ) async {
-    final tagTranslate = isar.tagTranslats;
-    await isar.writeTxn(() async {
-      await tagTranslate.putAll(tagTranslates);
+  Future<List<String>> importTagTranslations(String filePath, String version) {
+    return compute(iImportTagTranslations, (
+      directory: isar.directory!,
+      filePath: filePath,
+      version: version,
+    ));
+  }
+
+  List<TagTranslat?> findTagTranslations({
+    required List<String> keys,
+    required List<String?> namespaces,
+  }) {
+    return isar.txnSync(() {
+      final exactMatches = isar.tagTranslats.getAllByKeyNamespaceSync(
+        keys,
+        namespaces.map((namespace) => namespace ?? '').toList(),
+      );
+      final fallbackMatches = <String, TagTranslat?>{};
+      return [
+        for (var i = 0; i < keys.length; i++)
+          if (namespaces[i] == null)
+            fallbackMatches.putIfAbsent(
+              keys[i],
+              () => _findTagTranslateWithoutNamespaceSync(keys[i]),
+            )
+          else
+            exactMatches[i],
+      ];
     });
   }
 
-  Future<void> putAllTagTranslateIsolate(
-    List<TagTranslat> tagTranslates,
-  ) async {
-    compute(iPutAllTagTranslate, tagTranslates);
+  Set<String> findAllTagNamespaces() => isar.tagTranslats
+      .where(distinct: true)
+      .namespaceNotEqualTo('')
+      .namespaceProperty()
+      .findAllSync()
+      .toSet();
+
+  TagTranslat? _findTagTranslateWithoutNamespaceSync(String key) {
+    final matches = isar.tagTranslats
+        .where()
+        .keyEqualTo(key)
+        .filter()
+        .not()
+        .namespaceEqualTo('rows')
+        .limit(2)
+        .findAllSync();
+    if (matches.length < 2) {
+      return matches.firstOrNull;
+    }
+
+    // Preserve the old namespace index order when a tag has several matches.
+    return _tagTranslateWithoutNamespace(key, sort: Sort.desc).findFirstSync();
   }
 
-  Future<List<String?>> findAllTagNamespace() async {
-    final result = await isar.tagTranslats
-        .where()
-        .distinctByNamespace()
-        .namespaceProperty()
-        .findAll();
-    return result;
-  }
+  QueryBuilder<TagTranslat, TagTranslat, QAfterFilterCondition>
+      _tagTranslateWithoutNamespace(String key, {Sort sort = Sort.asc}) =>
+          isar.tagTranslats
+              .where(sort: sort)
+              .namespaceNotEqualTo('rows')
+              .filter()
+              .keyEqualTo(key);
 
   // 查询 tag
   Future<TagTranslat?> findTagTranslate(String key, {String? namespace}) async {
@@ -123,12 +162,7 @@ class IsarHelper {
           .findAll();
       return result.lastOrNull;
     } else {
-      final result = await isar.tagTranslats
-          .where()
-          .namespaceNotEqualTo('rows')
-          .filter()
-          .keyEqualTo(key)
-          .findAll();
+      final result = await _tagTranslateWithoutNamespace(key).findAll();
       return result.lastOrNull;
     }
   }
@@ -155,11 +189,17 @@ class IsarHelper {
   }
 
   Future<void> tapTagTranslate(TagTranslat tagTranslate) async {
-    final newTagTranslate = tagTranslate.copyWith(
-      lastUseTime: DateTime.now().millisecondsSinceEpoch,
-    );
     await isar.writeTxn(() async {
-      await isar.tagTranslats.putByKeyNamespace(newTagTranslate);
+      final tags = isar.tagTranslats;
+      final current = await tags.getByKeyNamespace(
+        tagTranslate.key,
+        tagTranslate.namespace,
+      );
+      if (current != null) {
+        await tags.putByKeyNamespace(current.copyWith(
+          lastUseTime: DateTime.now().millisecondsSinceEpoch,
+        ));
+      }
     });
   }
 
@@ -409,15 +449,6 @@ class IsarHelper {
     int status,
   ) async {
     return compute(iFinaAllImageTaskByGidAndStatus, (gid, status));
-  }
-
-  Future<void> putTagTranslateVersion(String version) async {
-    final tagTranslateInfo = isar.tagTranslateInfos.getSync(0) ??
-        TagTranslateInfo(localVersion: version);
-    await isar.writeTxn(() async {
-      await isar.tagTranslateInfos
-          .put(tagTranslateInfo.copyWith(localVersion: version));
-    });
   }
 
   String getTranslateVersion() {

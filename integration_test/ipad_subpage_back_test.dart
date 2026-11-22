@@ -1,18 +1,26 @@
 import 'package:eros_fe/common/controller/quicksearch_controller.dart';
 import 'package:eros_fe/common/controller/update_controller.dart';
 import 'package:eros_fe/common/controller/user_controller.dart';
+import 'package:eros_fe/common/service/controller_tag_service.dart';
 import 'package:eros_fe/common/service/ehsetting_service.dart';
+import 'package:eros_fe/common/service/layout_service.dart';
+import 'package:eros_fe/common/service/locale_service.dart';
 import 'package:eros_fe/index.dart';
 import 'package:eros_fe/main.dart' as app;
 import 'package:eros_fe/pages/tab/controller/group/custom_sublist_controller.dart';
+import 'package:eros_fe/pages/tab/controller/search_page_controller.dart';
 import 'package:eros_fe/pages/tab/view/download_page.dart';
 import 'package:eros_fe/pages/tab/view/history_page.dart';
 import 'package:eros_fe/pages/tab/view/home_page_large.dart';
+import 'package:eros_fe/pages/tab/view/search_page.dart';
 import 'package:eros_fe/pages/tab/view/setting_page.dart';
 import 'package:eros_fe/pages/tab/view/tabbar/custom_profile_setting_page.dart';
 import 'package:eros_fe/pages/tab/view/tabbar/custom_profiles_page.dart';
 import 'package:eros_fe/pages/tab/view/tabbar/custom_tabbar_page.dart';
+import 'package:eros_fe/pages/tab/view/tabbar/favorite_tabbar_page.dart';
+import 'package:eros_fe/widget/cupertino/window_control_insets.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart' show RenderParagraph;
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -22,6 +30,9 @@ import 'package:integration_test/integration_test.dart';
 const _split = bool.fromEnvironment('IOS_IPAD_SUBPAGE_SPLIT');
 const _phone = bool.fromEnvironment('IOS_SUBPAGE_PHONE');
 const _fullscreen = bool.fromEnvironment('IOS_SUBPAGE_FULLSCREEN');
+const _windowed = bool.fromEnvironment('IOS_SUBPAGE_WINDOWED');
+const _narrowSearch = bool.fromEnvironment('IOS_SUBPAGE_NARROW_SEARCH');
+const _windowLayout = MethodChannel('eros_fe/window_layout');
 const _profileId = 'subpage-back-fixture';
 const _profileName = 'Local test group';
 
@@ -57,6 +68,19 @@ void main() {
 
     await app.main();
     Get.find<EhSettingService>().tabletLayoutType = TabletLayout.automatic;
+    if (_narrowSearch) {
+      expect(_split && _windowed, isTrue);
+      final layout = Get.find<LayoutServices>();
+      final locale = Get.find<LocaleService>();
+      final previousProportion = layout.sideProportion;
+      final previousLocale = locale.localCode.value;
+      layout.sideProportion = 0;
+      locale.localCode.value = 'en_US';
+      addTearDown(() {
+        layout.sideProportion = previousProportion;
+        locale.localCode.value = previousLocale;
+      });
+    }
     Global.profile = Global.profile.copyWith(
       customTabConfig: const CustomTabConfig(
         profiles: [CustomProfile(uuid: _profileId, name: _profileName)],
@@ -89,15 +113,40 @@ void main() {
     final gallery = find.byType(CustomTabbarList);
     final groupBar = find.byType(CustomTabBar);
     await waitFor(groupBar);
+    if (_windowed) {
+      // Simulate a window geometry update once the real app is mounted.
+      final messenger =
+          TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+      messenger.setMockMethodCallHandler(_windowLayout, (call) async {
+        expect(call.method, 'windowControlInsets');
+        return {'left': 48.0, 'right': 0.0};
+      });
+      addTearDown(
+        () => messenger.setMockMethodCallHandler(_windowLayout, null),
+      );
+      await messenger.handlePlatformMessage(
+        _windowLayout.name,
+        const StandardMethodCodec().encodeMethodCall(
+          const MethodCall('windowLayoutChanged'),
+        ),
+        (_) {},
+      );
+      await tester.pump();
+      await tester.pump();
+      expect(WindowControlInsets.of(tester.element(groupBar)).left, 48);
+    }
     expect(find.byType(TabHomeLarge), _split ? findsOneWidget : findsNothing);
-    final insets = await const MethodChannel(
-      'eros_fe/window_layout',
-    ).invokeMapMethod<String, double>('windowControlInsets');
+    final insets = await _windowLayout.invokeMapMethod<String, double>(
+      'windowControlInsets',
+    );
     expect(insets, _phone ? isNull : isNotNull);
     if (_fullscreen) {
       expect(insets, {'left': 0.0, 'right': 0.0});
     }
     final leftInset = insets?['left'] ?? 0;
+    if (_windowed) {
+      expect(leftInset, 48);
+    }
 
     debugPrint('IPAD_SUBPAGE_BACK ${window.width} pt window insets: $insets');
 
@@ -134,6 +183,92 @@ void main() {
       expect(tester.takeException(), isNull, reason: route);
       debugPrint('IPAD_SUBPAGE_BACK ${window.width} pt $route: passed');
     }
+
+    Future<void> checkSearch(Finder source, String tabName) async {
+      final search = find
+          .descendant(of: source, matching: find.byIcon(CupertinoIcons.search))
+          .hitTestable();
+      await waitFor(search);
+      final sourceBar = find.ancestor(
+        of: search,
+        matching: find.byType(CupertinoNavigationBar),
+      );
+      final sourceCenter = tester.getCenter(sourceBar).dx;
+      if (_narrowSearch) {
+        expect(tester.getSize(sourceBar).width, 320);
+        expect(L10n.current.tab_favorite, 'Favorites');
+      }
+      await tester.tap(search);
+      await settleNavigation();
+      final searchPage = find.byType(GallerySearchPage);
+      await waitFor(searchPage);
+      final searchTitle = find.descendant(
+        of: searchPage,
+        matching: find.text('${L10n.current.search} $tabName'),
+      );
+
+      void checkTitle(String state) {
+        expect(
+          tester.getCenter(searchTitle).dx,
+          closeTo(sourceCenter, 0.5),
+          reason: '$tabName search title stays centered $state',
+        );
+        if (_narrowSearch) {
+          expect(
+            tester.renderObject<RenderParagraph>(searchTitle).didExceedMaxLines,
+            isFalse,
+            reason: '$tabName search title fits on one line $state',
+          );
+          expect(tester.widget<Text>(searchTitle).maxLines, 1);
+          debugPrint('NARROW_SEARCH $tabName $state: passed');
+        }
+      }
+
+      checkTitle('before results');
+      if (_narrowSearch) {
+        final controller = Get.find<SearchPageController>(
+          tag: searchPageCtrlTag,
+        );
+        final nextPage = find.byIcon(CupertinoIcons.arrow_uturn_down_circle);
+        final jumpToTop = find.byIcon(CupertinoIcons.arrow_up_circle);
+        controller.nextGid = '123456';
+        await tester.pump();
+        expect(nextPage.hitTestable(), findsOneWidget);
+        checkTitle('with a next page');
+        controller.afterJump = true;
+        await tester.pump();
+        expect(nextPage.hitTestable(), findsOneWidget);
+        expect(jumpToTop.hitTestable(), findsOneWidget);
+        checkTitle('after a page jump');
+        controller.nextGid = null;
+        controller.afterJump = false;
+        await tester.pump();
+        checkTitle('after clearing pagination');
+      }
+      await checkBack(EHRoutes.search, leftPane: true);
+      expect(searchPage, findsNothing);
+      expect(source.hitTestable(), findsOneWidget);
+    }
+
+    Future<void> selectTab(String label) async {
+      final tab = find
+          .descendant(
+            of: find.byType(CupertinoTabBar),
+            matching: find.text(label),
+          )
+          .hitTestable();
+      await waitFor(tab);
+      await tester.tap(tab);
+      await settleNavigation();
+    }
+
+    final l10n = L10n.current;
+    await checkSearch(gallery, l10n.tab_gallery);
+    await selectTab(l10n.tab_favorite);
+    final favorites = find.byType(FavoriteTabTabBarPage);
+    await checkSearch(favorites, l10n.tab_favorite);
+    await selectTab(l10n.tab_gallery);
+    await waitFor(gallery.hitTestable());
 
     for (final (route, pageType) in [
       (EHRoutes.history, HistoryTab),
@@ -188,7 +323,6 @@ void main() {
     expect(profiles.hitTestable(), findsOneWidget);
     await checkBack(EHRoutes.customProfiles, leftPane: true);
 
-    final l10n = L10n.current;
     final settings = find.byType(SettingTab);
     final settingsTab = find.descendant(
       of: find.byType(CupertinoTabBar),
